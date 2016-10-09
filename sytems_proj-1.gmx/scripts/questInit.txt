@@ -1,0 +1,3 @@
+{
+    questLogic_scr(0);
+}
