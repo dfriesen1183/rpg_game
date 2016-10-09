@@ -13,6 +13,15 @@
   <code>{
     global.questDuration = 81;
     global.currentTime = 0;
+    global.party = instance_create(375, 675, party_obj);
+
+    //loop through selected (use refs to database)
+    var hero = instance_create(375, 675, hero_obj);
+    hero.Par = party;
+    hero.attr_speed = 5;
+    hero.attr_strength = 5;
+    hero.attr_magic = 5;
+    
     questLogic_scr();
 }</code>
   <enableViews>0</enableViews>

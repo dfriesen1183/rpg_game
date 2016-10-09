@@ -8,17 +8,22 @@
   <sprites name="sprites">
     <sprite>sprites\mainMenuHeroes_spr</sprite>
     <sprite>sprites\mainMenuQuests_spr</sprite>
+    <sprite>sprites\tempHero_spr</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\questLogic_scr.gml</script>
     <script>scripts\encLogic_scr.gml</script>
+    <script>scripts\genFoundHero_scr.gml</script>
+    <script>scripts\genFoundLoot_scr.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\mainMenuHeroes_obj</object>
     <object>objects\mainMenuQuests_obj</object>
     <object>objects\encounterSpawner_obj</object>
+    <object>objects\hero_obj</object>
+    <object>objects\party_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mainMenuMain_room</room>

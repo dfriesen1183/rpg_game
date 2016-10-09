@@ -56,7 +56,7 @@
     duration--;
     show_debug_message("spawning next in "+string(duration)+"s");
     if (duration &lt;= 0) {
-        // encounter logic
+        encLogic_scr();
         questLogic_scr();
         instance_destroy();
     } else {
