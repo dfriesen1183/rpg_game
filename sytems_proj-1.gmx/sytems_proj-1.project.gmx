@@ -5,9 +5,24 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\mainMenuHeroes_spr</sprite>
+    <sprite>sprites\mainMenuQuests_spr</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\questLogic.gml</script>
+  </scripts>
+  <objects name="objects">
+    <object>objects\mainMenuHeroes_obj</object>
+    <object>objects\mainMenuQuests_obj</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\mainMenuMain_room</room>
+    <room>rooms\mainMenuHeroes_room</room>
+    <room>rooms\mainMenuQuests_room</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
