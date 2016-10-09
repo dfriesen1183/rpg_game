@@ -11,13 +11,13 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>{
-    global.questDuration = 81;
+    global.questDuration = 2*60;
+    show_debug_message("quest duration: "+string(global.questDuration/60)+"m");
     global.currentTime = 0;
-    global.party = instance_create(375, 675, party_obj);
+    global.party = instance_create(375, 675, heroCollection_obj);
 
     //loop through selected (use refs to database)
     var hero = instance_create(375, 675, hero_obj);
-    hero.Par = party;
     hero.attr_speed = 5;
     hero.attr_strength = 5;
     hero.attr_magic = 5;

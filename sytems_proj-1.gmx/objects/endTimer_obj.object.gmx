@@ -26,9 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>{
-    self.duration = x;
-    global.currentTime += duration;
-    show_debug_message("next spawn in "+string(duration)+"s. Time will be "+string(global.currentTime)+"s");
+    duration = x;
+    show_debug_message("(no more encounters; ending in "+string(duration)+"s)");
     alarm[0] = global.roomSpeed;
 }
 </string>
@@ -56,9 +55,7 @@
             <string>{
     duration--;
     if (duration &lt;= 0) {
-        encLogic_scr();
-        questLogic_scr();
-        instance_destroy();
+        room_goto(mainMenuMain_room);
     } else {
         alarm[0] = global.roomSpeed;
     }
