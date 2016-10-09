@@ -28,9 +28,10 @@
             <string>{
     self.duration = x;
     global.currentTime += duration;
-    show_debug_message("next spawn in "+string(duration)+"s. Time will be "+string(global.currentTime)+"s");
+    show_debug_message("(next spawn in "+string(duration)+"s. Time will be "+string(global.currentTime)+"s)");
     alarm[0] = global.roomSpeed;
 }
+
 </string>
           </argument>
         </arguments>
