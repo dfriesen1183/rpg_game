@@ -5,5 +5,8 @@
     newHero.attr_speed = floor(random_range(3,8));
     newHero.attr_strength = floor(random_range(3,8));
     newHero.attr_magic = floor(random_range(3,8));
+    
     show_debug_message("found hero with "+string(newHero.attr_speed)+" speed, "+string(newHero.attr_strength)+" strength and "+string(newHero.attr_magic)+" magic");
+    // global.record.heroes...
 }
+

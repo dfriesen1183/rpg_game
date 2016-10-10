@@ -28,7 +28,7 @@
             <string>{
     duration = x;
     show_debug_message("(no more encounters; ending in "+string(duration)+"s)");
-    alarm[0] = global.roomSpeed;
+    alarm[0] = room_speed;
 }
 </string>
           </argument>
@@ -55,9 +55,10 @@
             <string>{
     duration--;
     if (duration &lt;= 0) {
-        room_goto(mainMenuMain_room);
+        show_debug_message("Quest Complete!");
+        instance_create(0,0,questMenuComplete_obj);
     } else {
-        alarm[0] = global.roomSpeed;
+        alarm[0] = room_speed;
     }
 }
 </string>

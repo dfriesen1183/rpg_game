@@ -10,7 +10,37 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>{
+    //spawn hero roster (for however many exist)
+    var numPerRow = 3;
+    var heroWidth = 32;
+    var heroHeight = 32;
+    
+    var innerMarg = 2;
+    var colTopMarg = 300;
+    var colLeftMarg = (room_width - (heroWidth*numPerRow + innerMarg*(numPerRow - 1)))/2;
+
+    var collection = instance_create(0, 0, heroCollection_obj);
+    for (var i=0; i&lt;4; i++) {
+        var hero_x = colLeftMarg + (heroWidth + innerMarg)*(i%numPerRow);
+        var hero_y = colTopMarg + (heroHeight + innerMarg)*floor(i/numPerRow);
+        var hero = instance_create(hero_x, hero_y, hero_obj);
+
+        hero.attr_speed = 5; //queried from somewhere...
+        hero.attr_strength = 5;
+        hero.attr_magic = 5;
+        hero.hp = 10;
+        //other visible stats here too?
+    }
+    
+    instance_create(275, 800, mainMenuMain_obj);
+    if (global.secondStage) {
+        instance_create(375, 800, mainMenuBegin_obj);
+    } else {
+        global.secondStage = true;
+        instance_create(375, 800, mainMenuQuests_obj);
+    }
+}</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

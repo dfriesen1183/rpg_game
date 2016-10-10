@@ -9,6 +9,12 @@
     <sprite>sprites\mainMenuHeroes_spr</sprite>
     <sprite>sprites\mainMenuQuests_spr</sprite>
     <sprite>sprites\tempHero_spr</sprite>
+    <sprite>sprites\mainMenuMain_spr</sprite>
+    <sprite>sprites\mainMenuBegin_spr</sprite>
+    <sprite>sprites\questMenu1_spr</sprite>
+    <sprite>sprites\questMenu2_spr</sprite>
+    <sprite>sprites\questMenu3_spr</sprite>
+    <sprite>sprites\questMenuComplete_spr</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -22,16 +28,24 @@
   <objects name="objects">
     <object>objects\mainMenuHeroes_obj</object>
     <object>objects\mainMenuQuests_obj</object>
+    <object>objects\mainMenuMain_obj</object>
+    <object>objects\mainMenuBegin_obj</object>
+    <object>objects\questMenuComplete_obj</object>
+    <object>objects\questMenu1_obj</object>
+    <object>objects\questMenu2_obj</object>
+    <object>objects\questMenu3_obj</object>
     <object>objects\encounterSpawner_obj</object>
     <object>objects\hero_obj</object>
     <object>objects\heroCollection_obj</object>
     <object>objects\endTimer_obj</object>
+    <object>objects\questRecord_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mainMenuMain_room</room>
     <room>rooms\mainMenuHeroes_room</room>
     <room>rooms\mainMenuQuests_room</room>
     <room>rooms\quest_room</room>
+    <room>rooms\questReview_room</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

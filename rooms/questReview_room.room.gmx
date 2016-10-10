@@ -11,20 +11,11 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>{
-    if (global.record.questDuration &lt;= 0) {
-        global.record.questDuration = 2*60;
-    }
-    show_debug_message("quest duration: "+string(global.record.questDuration/60)+"m");
-    global.record.currentTime = 0;
-    global.party = instance_create(375, 675, heroCollection_obj);
+    instance_create(0,0,mainMenuMain_obj);
+    show_debug_message("Quest Result:");
+    show_debug_message("total gold found: "+string(global.record.totalGold));
+    show_debug_message("total battles fought: "+string(global.record.battleCount));
 
-    //loop through selected (use refs to database)
-    var hero = instance_create(375, 675, hero_obj);
-    hero.attr_speed = 5;
-    hero.attr_strength = 5;
-    hero.attr_magic = 5;
-    
-    questLogic_scr();
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
