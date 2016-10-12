@@ -35,12 +35,13 @@
         
         //hero stats go here, probably queried from some kind of database, tbd
         hero.level = 3*(i+1);
-        hero.hp = 20;
+        hero.hp = 30;
+        hero.totalHp = hero.hp;
     }
     
     //menu objects
     instance_create(200, 800, mainMenuMain_obj);
-    if (global.secondStage) {
+    if (0 &lt; global.record.questDuration) {
         instance_create(350, 800, mainMenuBegin_obj);
     } else {
         instance_create(350, 800, mainMenuQuests_obj);

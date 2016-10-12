@@ -14,13 +14,8 @@
     //CONSTS
     
     randomize(); //randomizes seed (comment out for debug)
-    
-    global.secondStage = false;
-    if (instance_number(questRecord_obj) &lt;= 0) {
-        global.record = instance_create(0,0,questRecord_obj);
-    }
-    global.record.questDuration = 0;
-    global.party = 0; // deletes party array
+
+    resetGame_scr();
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

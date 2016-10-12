@@ -17,10 +17,13 @@
     show_debug_message("quest duration: "+string(global.record.questDuration/60)+"m");
     global.record.currentTime = 0;
 
-    //loop through selected (use refs to database)
-    var hero = instance_create(375, 675, hero_obj);
-    hero.index = 0;
-    
+    for (var i=0; i&lt;ds_list_size(global.party); i++) {
+        var hero = ds_list_find_value(global.party,i);
+        hero.x = 375;//only one hero so far, nothing programmatic
+        hero.y = 675;
+        hero.visible = true;
+    }
+
     questLogic_scr();
 }</code>
   <enableViews>0</enableViews>

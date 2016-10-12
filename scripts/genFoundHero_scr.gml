@@ -1,12 +1,33 @@
 {
-    var newHero_x = 375+instance_number(hero_obj)*2;
-    var newHero_y = 675;
-    var newHero = instance_create(newHero_x, newHero_y, hero_obj);
-    newHero.attr_speed = floor(random_range(3,8));
-    newHero.attr_strength = floor(random_range(3,8));
-    newHero.attr_magic = floor(random_range(3,8));
-    
-    show_debug_message("found hero with "+string(newHero.attr_speed)+" speed, "+string(newHero.attr_strength)+" strength and "+string(newHero.attr_magic)+" magic");
-    // global.record.heroes...
+    var level = floor(random_range(3,13));
+    var hp = floor(random_range(20,35));
+    show_debug_message("found a level "+string(level)+" hero with "+string(hp)+" hp");
+
+    var partySize = ds_list_size(global.party);
+    if (partySize < 4) {
+        var hero = instance_create(0,0,hero_obj);
+        hero.level = level;
+        hero.hp = hp;
+        hero.totalHp = hero.hp;
+        ds_list_add(global.party, hero);
+        
+        switch(partySize) {
+            case 1:
+                hero.x = 300;
+                hero.y = 712.5;
+                break;
+            case 2:
+                hero.x = 450;
+                hero.y = 712.5;
+                break;
+            case 3:
+                hero.x = 375;
+                hero.y = 750;
+                break;
+        }
+        hero.visible = true;
+    } else {
+        show_debug_message("no room in party");
+    }
 }
 

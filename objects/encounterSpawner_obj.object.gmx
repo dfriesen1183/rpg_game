@@ -28,8 +28,14 @@
             <string>{
     duration--;
     if (duration &lt;= 0) {
-        encLogic_scr();
-        questLogic_scr();
+        var result = encLogic_scr();
+        if (result != 0) {
+            questLogic_scr();
+        } else {
+            //end quest
+            show_debug_message("Quest failed");
+            room_goto(questReview_room);
+        }
         instance_destroy();
     } else {
         alarm[0] = room_speed;

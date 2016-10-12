@@ -109,7 +109,7 @@
     if (self.active) {
         self.active = false;
         self.sprite_index = heroButtonTempHover_spr;
-        global.party = 0;
+        ds_list_clear(global.party);
         
         if (instance_number(mainMenuBegin_obj)) {
             mainMenuBegin_obj.sprite_index = mainButtonDisabled_spr;
@@ -120,8 +120,16 @@
         self.active = true;
         self.sprite_index = heroButtonTempActive_spr;
 
-        global.party = 0;
-        global.party[0] = self;
+        //assembling party
+        var newHero = instance_create(0,0,hero_obj);
+        newHero.visible = false;
+        
+        newHero.level = self.level;
+        newHero.hp = self.hp;
+        newHero.totalHp = newHero.hp;
+        
+        ds_list_clear(global.party);
+        ds_list_add(global.party, newHero);
         
         if (instance_number(mainMenuBegin_obj)) {
             mainMenuBegin_obj.sprite_index = mainButton_spr;

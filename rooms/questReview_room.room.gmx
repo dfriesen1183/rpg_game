@@ -11,11 +11,15 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>{
+    //destroys all hero instances (need to store their stats somewhere for display/saving)
+    with(hero_obj) {
+        instance_destroy();
+    }
+
     instance_create(0,0,mainMenuMain_obj);
     show_debug_message("Quest Result:");
     show_debug_message("total gold found: "+string(global.record.totalGold));
     show_debug_message("total battles fought: "+string(global.record.battleCount));
-
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
