@@ -6,15 +6,16 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\mainMenuHeroes_spr</sprite>
-    <sprite>sprites\mainMenuQuests_spr</sprite>
-    <sprite>sprites\tempHero_spr</sprite>
-    <sprite>sprites\mainMenuMain_spr</sprite>
-    <sprite>sprites\mainMenuBegin_spr</sprite>
-    <sprite>sprites\questMenu1_spr</sprite>
-    <sprite>sprites\questMenu2_spr</sprite>
-    <sprite>sprites\questMenu3_spr</sprite>
-    <sprite>sprites\questMenuComplete_spr</sprite>
+    <sprite>sprites\heroButtonTemp_spr</sprite>
+    <sprite>sprites\heroButtonTempActive_spr</sprite>
+    <sprite>sprites\heroButtonTempHover_spr</sprite>
+    <sprite>sprites\heroButtonTempPressed_spr</sprite>
+    <sprite>sprites\mainButton_spr</sprite>
+    <sprite>sprites\mainButtonDisabled_spr</sprite>
+    <sprite>sprites\mainButtonHover_spr</sprite>
+    <sprite>sprites\mainButtonPressed_spr</sprite>
+    <sprite>sprites\mainButtonActive_spr</sprite>
+    <sprite>sprites\hero_spr</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -36,9 +37,11 @@
     <object>objects\questMenu3_obj</object>
     <object>objects\encounterSpawner_obj</object>
     <object>objects\hero_obj</object>
-    <object>objects\heroCollection_obj</object>
+    <object>objects\heroButton_obj</object>
     <object>objects\endTimer_obj</object>
     <object>objects\questRecord_obj</object>
+    <object>objects\mainButton_obj</object>
+    <object>objects\questTime_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mainMenuMain_room</room>

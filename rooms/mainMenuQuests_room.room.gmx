@@ -17,12 +17,11 @@
     instance_create(300, 400, questMenu3_obj);
 
     //main menu
-    instance_create(275, 800, mainMenuMain_obj);
+    instance_create(250, 800, mainMenuMain_obj);
     if (global.secondStage) {
-        instance_create(375, 800, mainMenuBegin_obj);
+        instance_create(350, 800, mainMenuBegin_obj);
     } else {
-        global.secondStage = true;
-        instance_create(375, 800, mainMenuHeroes_obj);
+        instance_create(350, 800, mainMenuHeroes_obj);
     }
 }</code>
   <enableViews>0</enableViews>
