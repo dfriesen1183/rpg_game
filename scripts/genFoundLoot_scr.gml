@@ -14,6 +14,7 @@
         recurGoldChance /= 1.5;
     }
     show_debug_message("found "+string(gold)+" gold");
-    global.record.totalGold += gold;
+    var currentGold = ds_map_find_value(global.record,"gold") + gold;
+    ds_map_replace(global.record, "gold", gold);
     // could have party reactions here, maybe
 }

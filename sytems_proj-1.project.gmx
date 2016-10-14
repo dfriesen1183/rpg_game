@@ -3,7 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\DSPrint</extension>
+  </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\heroButtonTemp_spr</sprite>
@@ -26,6 +28,16 @@
     <script>scripts\genFoundLoot_scr.gml</script>
     <script>scripts\genFoundEnemies_scr.gml</script>
     <script>scripts\resetGame_scr.gml</script>
+    <scripts name="DS Print">
+      <script>scripts\scr_array_print.gml</script>
+      <script>scripts\scr_ds_grid_print.gml</script>
+      <script>scripts\scr_ds_list_print.gml</script>
+      <script>scripts\scr_ds_map_print.gml</script>
+      <scripts name="Utility">
+        <script>scripts\scr_string_pad_right.gml</script>
+        <script>scripts\scr_string_trim_right.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\mainMenuHeroes_obj</object>
@@ -38,14 +50,13 @@
     <object>objects\questMenu3_obj</object>
     <object>objects\encounterSpawner_obj</object>
     <object>objects\hero_obj</object>
-    <object>objects\enemy_obj</object>
     <object>objects\heroButton_obj</object>
     <object>objects\endTimer_obj</object>
-    <object>objects\questRecord_obj</object>
     <object>objects\mainButton_obj</object>
     <object>objects\questTime_obj</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\loading_room</room>
     <room>rooms\mainMenuMain_room</room>
     <room>rooms\mainMenuHeroes_room</room>
     <room>rooms\mainMenuQuests_room</room>

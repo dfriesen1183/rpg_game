@@ -28,12 +28,12 @@
             <string>{
     event_inherited();
     if (self.active) {
-        global.record.questDuration = self.duration;
+        ds_map_replace(global.record, "duration", self.duration);
         if (instance_number(mainMenuBegin_obj)) {
             mainMenuBegin_obj.sprite_index = mainButton_spr;
         }
     } else {
-        global.record.questDuration = 0;
+        ds_map_replace(global.record, "duration", 0);
         if (instance_number(mainMenuBegin_obj)) {
             mainMenuBegin_obj.sprite_index = mainButtonDisabled_spr;
         }

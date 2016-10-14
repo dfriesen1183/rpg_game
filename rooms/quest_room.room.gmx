@@ -11,17 +11,22 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>{
-    if (global.record.questDuration &lt;= 0) {
-        global.record.questDuration = 2*60;
+    if (ds_map_find_value(global.record, "duration") &lt;= 0) {
+        ds_map_replace(global.record, "duration", 2*60);
     }
-    show_debug_message("quest duration: "+string(global.record.questDuration/60)+"m");
-    global.record.currentTime = 0;
-
+    show_debug_message("quest duration: "+string(ds_map_find_value(global.record, "duration")/60)+"m");
+    ds_map_replace(global.record, "time", 0)
+    
+    //actParty to be changed by encounters
+    //global.actParty = ds_list_create();
+    //ds_list_copy(global.actPart, global.party);
     for (var i=0; i&lt;ds_list_size(global.party); i++) {
-        var hero = ds_list_find_value(global.party,i);
-        hero.x = 375;//only one hero so far, nothing programmatic
+        var hero = instance_create(0,0,hero_obj);
+        hero.x = 375;
         hero.y = 675;
-        hero.visible = true;
+        hero.index = i;
+        ds_map_replace(ds_list_find_value(global.party, i), "index", i);;
+        //customize appearance somehow
     }
 
     questLogic_scr();

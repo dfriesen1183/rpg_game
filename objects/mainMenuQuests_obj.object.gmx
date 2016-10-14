@@ -27,9 +27,6 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-    if (global.party != 0) {
-        global.secondStage = true;
-    }
     room_goto(mainMenuQuests_room);
 }
 </string>

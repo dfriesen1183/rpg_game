@@ -1,4 +1,5 @@
 {
+    show_debug_message("---");
     var encType = ceil(random(100)); //percentage-based
     if (encType > 90) {
         //companion generated

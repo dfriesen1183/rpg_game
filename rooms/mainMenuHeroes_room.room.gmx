@@ -26,22 +26,22 @@
     innerMarg = 30;
     colTopMarg = 500;
     colLeftMarg = (room_width - (heroWidth*numPerRow + innerMarg*(numPerRow - 1)))/2;
-    for (var i=0; i&lt;3; i++) {
+    
+    var size = ds_list_size(global.heroes);
+    for (var i=0; i&lt;size; i++) {
         var hero_x = colLeftMarg + i*(heroWidth + innerMarg);
         //var hero_x = colLeftMarg + (heroWidth + innerMarg)*(i%numPerRow);
         var hero_y = colTopMarg;
         //var hero_y = colTopMarg + (heroHeight + innerMarg)*floor(i/numPerRow);
         var hero = instance_create(hero_x, hero_y, heroButton_obj);
         
-        //hero stats go here, probably queried from some kind of database, tbd
-        hero.level = 3*(i+1);
-        hero.hp = 30;
-        hero.totalHp = hero.hp;
+        //for loading data from global.heroes. or it just happens entirely here
+        hero.index = i;
     }
     
     //menu objects
     instance_create(200, 800, mainMenuMain_obj);
-    if (0 &lt; global.record.questDuration) {
+    if (0 &lt; ds_map_find_value(global.record, "duration")) {
         instance_create(350, 800, mainMenuBegin_obj);
     } else {
         instance_create(350, 800, mainMenuQuests_obj);
