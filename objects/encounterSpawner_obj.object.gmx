@@ -29,7 +29,7 @@
     duration--;
     if (duration &lt;= 0) {
         var result = encLogic_scr();
-        if (result != 0) {
+        if (result == 0) {
             questLogic_scr();
         } else {
             //end quest

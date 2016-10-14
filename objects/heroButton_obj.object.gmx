@@ -137,7 +137,6 @@
             ds_list_clear(global.party);
         }
         //assembling new, one-member party lol
-        show_debug_message(self.index);
         var newMember = ds_map_create();
         ds_map_copy(newMember, ds_list_find_value(global.heroes, self.index));
         ds_list_add(global.party, newMember);

@@ -27,10 +27,12 @@
             var level = 3*(i+1);
             ds_list_add(global.heroes, ds_map_create());
             var hero = ds_list_find_value(global.heroes, i);
+                ds_map_add(hero,"name","Hero"+string(i));
                 ds_map_add(hero,"level",level);
                 ds_map_add(hero,"hp",hp);
                 ds_map_add(hero,"maxHp",hp);
                 ds_map_add(hero,"index",0);
+                ds_map_add(hero,"friendly",true);
         }
         
         ds_map_secure_save(global.data, "save.dat");

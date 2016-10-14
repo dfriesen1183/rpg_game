@@ -14,10 +14,12 @@
         ds_list_add(global.party, hero);
         ds_list_add(global.heroes, hero);
             //maybe invest in a proper constructor for general use
+            ds_map_add(hero,"name","Hero"+string(ds_list_size(global.heroes)-1));
             ds_map_add(hero,"level",level);
             ds_map_add(hero,"hp",hp);
             ds_map_add(hero,"maxHp",hp);
             ds_map_add(hero,"index",index);
+            ds_map_add(hero,"friendly",true);
         
         switch(partySize) {
             case 1:
