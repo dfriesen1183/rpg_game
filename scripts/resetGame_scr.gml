@@ -1,13 +1,22 @@
 {
-    //randomize(); //randomizes seed
+    randomize(); //randomizes seed
+    global.saveLoc = "save.dat";
     
     //far from foolproof: we need to check against corruption, tampering, etc.
-//    if (file_exists("save.dat")) {
+    /*if (file_exists(global.saveLoc)) {
         //loading previous save data here
-//        global.data = ds_map_secure_load("save.dat");
-//        global.record = ds_map_find_value(global.data, "questRecord");
-//        global.heroes = ds_map_find_value(global.data, "heroes");
-//    } else {
+        global.data = ds_map_secure_load(global.saveLoc);
+        global.guild = ds_map_find_value(global.data, "guild");
+        global.record = ds_map_find_value(global.data, "questRecord");
+        global.heroes = ds_map_find_value(global.data, "heroes");
+        show_debug_message("should have loaded. "+string(global.data));
+        show_debug_message(ds_map_find_value(global.data, "guild"));
+        show_debug_message(ds_map_find_value(ds_map_find_value(global.data, "guild"), "gold"));
+        show_debug_message("---");
+        show_debug_message(ds_map_find_value(global.data, "heroes"));
+        show_debug_message(ds_list_find_value(ds_map_find_value(global.data, "heroes"), 0));
+        show_debug_message(ds_map_find_value(ds_list_find_value(ds_map_find_value(global.data, "heroes"), 0), "name"));
+    } else {*/
         //creating new save data
         global.data = ds_map_create();
 
@@ -40,9 +49,9 @@
                 ds_map_add(hero,"friendly",true);
         }
         
-        ds_map_secure_save(global.data, "save.dat");
+        ds_map_secure_save(global.data, global.saveLoc);
         
-//    }
+    //}
     
     //this belongs somewhere more specific, but it doesn't matter too much. I oculdn't get ds_exists() to work to create it as needed in the heroButton_obj
     global.party = ds_list_create();
