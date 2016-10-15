@@ -3,14 +3,14 @@
     ds_map_replace(global.record, "battles", battles);
     
     //assembling enemy party
-    var enemyCount = floor(random_range(1,4));
+    var enemyCount = irandom_range(1,3);
     show_debug_message(string(enemyCount)+" enemies found");
     global.enemyParty = ds_list_create();
     for (var i=0; i<enemyCount; i++) {
         ds_list_add(global.enemyParty, ds_map_create());
         var enemy = ds_list_find_value(global.enemyParty, i);
-            var level = floor(random_range(1,4));
-            var hp = floor(random_range(4,11));
+            var level = irandom_range(1,3);
+            var hp = irandom_range(4,10);
             ds_map_add(enemy, "name", "Enemy"+string(i));
             ds_map_add(enemy, "level", level);
             ds_map_add(enemy, "hp", hp);
@@ -20,7 +20,7 @@
     }
     
     //determining attack order
-    var ambushChance = irandom_range(0,100);
+    var ambushChance = irandom_range(1,100);
     if (67 > ambushChance) {
         var order = ds_list_create();
         //party ambushes enemy
@@ -81,11 +81,11 @@
     while(fighting) {
         show_debug_message("-- new round --");
     
-        var iSize = ds_list_size(order);
-        for (var i=0; i<iSize; i++) {
+        var i_size = ds_list_size(order);
+        for (var i=0; i<i_size; i++) {
             var attacker = 0;
             while (true) {
-                if (i >= iSize) {
+                if (i >= i_size) {
                     break;
                 } else {
                     attacker = ds_list_find_value(order, i);
@@ -95,7 +95,7 @@
                 }
                 i++;
             }
-            if (i >= iSize) {
+            if (i >= i_size) {
                 break;
             }
             
@@ -115,34 +115,36 @@
             if (ds_map_find_value(target, "hp") < 0) { ds_map_replace(target, "hp", 0);}
             
             if (ds_map_find_value(target, "hp") <= 0) {
-                show_debug_message(string(ds_map_find_value(attacker, "name"))+" slew "+string(ds_map_find_value(target, "name")));
+                show_debug_message(string(ds_map_find_value(attacker, "name"))+" felled "+string(ds_map_find_value(target, "name")));
                 
                 //attending to visual representation upon hero defeat
                 if (ds_map_find_value(target, "friendly")) {
-                    var deadIndex = ds_map_find_value(target,"index");
+                    var deadIndex = ds_map_find_value(target,"partyIndex");
                     with(hero_obj) {
-                        if (self.index == deadIndex) {
+                        if (self.partyIndex == deadIndex) {
                             instance_destroy();
                         }
                     }
                     var partyIndex = 0;
-                    var jSize = ds_list_size(global.party);
-                    for (var j=0; j<jSize; j++) {
+                    var j_size = ds_list_size(global.party);
+                    for (var j=0; j<j_size; j++) {
                         var hero = ds_list_find_value(global.party, j);
                         if (ds_map_find_value(hero, "hp") > 0) {
-                            var shiftIndex = ds_map_find_value(hero, "index");
+                            var shiftIndex = ds_map_find_value(hero, "partyIndex");
+                            ds_map_replace(hero, "partyIndex", partyIndex);
                             switch(partyIndex) {
                                 case 0:
                                     with(hero_obj) {
-                                        if (self.index == shiftIndex) {
+                                        if (self.partyIndex == shiftIndex) {
                                             self.x = 375;
                                             self.y = 675;
+                                            self.partyIndex = partyIndex;
                                         }
                                     }
                                     break;
                                 case 1:
                                     with(hero_obj) {
-                                        if (self.index == shiftIndex) {
+                                        if (self.partyIndex == shiftIndex) {
                                             self.x = 300;
                                             self.y = 712.5;
                                         }
@@ -150,7 +152,7 @@
                                     break;
                                 case 2:
                                     with(hero_obj) {
-                                        if (self.index == shiftIndex) {
+                                        if (self.partyIndex == shiftIndex) {
                                             self.x = 450;
                                             self.y = 712.5;
                                         }
@@ -168,9 +170,9 @@
                 } else {
                     targetParty = global.party;
                 }
-                var jSize = ds_list_size(targetParty);
+                var j_size = ds_list_size(targetParty);
                 var partyDefeated = true;
-                for (var j=0; j<jSize; j++) {
+                for (var j=0; j<j_size; j++) {
                     var member = ds_list_find_value(targetParty, j);
                     if (ds_map_find_value(member, "hp") > 0) {
                         partyDefeated = false;
@@ -192,6 +194,7 @@
             break;
         }
 
+        //either this or shuffle
         ds_list_destroy(order);
         order = orderAttackers_scr();
     }

@@ -24,9 +24,15 @@
         var hero = instance_create(0,0,hero_obj);
         hero.x = 375;
         hero.y = 675;
-        hero.index = i;
-        ds_map_replace(ds_list_find_value(global.party, i), "index", i);;
+        hero.partyIndex = i;
         //customize appearance somehow
+        
+        var heroStored = ds_list_find_value(global.party, i);
+        if (is_undefined(ds_map_find_value(heroStored, "partyIndex"))) {
+            ds_map_add(heroStored, "partyIndex", i);
+        } else {
+            ds_map_replace(heroStored, "partyIndex", i);
+        }
     }
 
     questLogic_scr();

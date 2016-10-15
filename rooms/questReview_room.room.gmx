@@ -16,10 +16,53 @@
         instance_destroy();
     }
 
-    instance_create(0,0,mainMenuMain_obj);
-    show_debug_message("Quest Result:");
+    show_debug_message("Result:");
+    show_debug_message("Party:");
+
+    var size = ds_list_size(global.party);
+    var partyDefeated = true;
+    for (var i=0; i&lt;size; i++) {
+        var hero = ds_list_find_value(global.party, i);
+        var name = ds_map_find_value(hero,"name");
+        var level = ds_map_find_value(hero,"level");
+        var hp = ds_map_find_value(hero,"hp");
+        var maxHp = ds_map_find_value(hero,"maxHp");
+        var index = ds_map_find_value(hero,"index");
+
+        var stored = 0;
+        var heroCount = ds_list_size(global.heroes);
+        for (var j=0; j&lt;heroCount; j++) {
+            stored = ds_list_find_value(global.heroes, j);
+            if (ds_map_find_value(stored, "index") == index) {
+                break;
+            }
+        }
+
+        if (ds_map_find_value(hero, "found")) {
+            ds_map_delete(stored, "found");
+            show_debug_message("Found "+name+", level "+string(level)+" Hero at "+string(maxHp)+"hp");
+        }
+        if (ds_map_find_value(hero, "hp") &gt; 0) {
+            partyDefeated = false;
+            show_debug_message(name+" was wounded to "+string(hp)+"/"+string(maxHp));
+        } else {
+            show_debug_message(name+" fell in battle");
+            ds_map_destroy(stored);
+            ds_list_delete(global.heroes, storeIndex);
+        }
+    }
+    if (!partyDefeated) {
+        show_debug_message("Party successfully completed the quest!");
+    }
+    
+    var newGold = ds_map_find_value(global.guild,"gold") + ds_map_find_value(global.record, "gold");
+    ds_map_replace(global.guild, "gold", newGold);
     show_debug_message("total gold found: "+string(ds_map_find_value(global.record, "gold")));
     show_debug_message("total battles fought: "+string(ds_map_find_value(global.record, "battles")));
+    
+    setGroundState_scr();
+    instance_create(0,0,mainMenuMain_obj);
+    
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
