@@ -11,6 +11,7 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>{
+    //randomize(); //randomizes seed
     resetGame_scr();
     room_goto(mainMenuMain_room);
 }</code>

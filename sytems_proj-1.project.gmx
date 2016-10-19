@@ -28,6 +28,7 @@
     <script>scripts\genFoundLoot_scr.gml</script>
     <script>scripts\genFoundEnemies_scr.gml</script>
     <script>scripts\resetGame_scr.gml</script>
+    <script>scripts\createNewData_scr.gml</script>
     <scripts name="DS Print">
       <script>scripts\scr_array_print.gml</script>
       <script>scripts\scr_ds_grid_print.gml</script>
@@ -43,8 +44,13 @@
     <script>scripts\setGroundState_scr.gml</script>
     <script>scripts\saveGame_scr.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\simplePixels</font>
+    <font>fonts\simplePixelsLarge</font>
+  </fonts>
   <objects name="objects">
     <object>objects\mainMenuHeroes_obj</object>
+    <object>objects\debug_obj</object>
     <object>objects\mainMenuQuests_obj</object>
     <object>objects\mainMenuMain_obj</object>
     <object>objects\mainMenuBegin_obj</object>
@@ -58,6 +64,7 @@
     <object>objects\endTimer_obj</object>
     <object>objects\mainButton_obj</object>
     <object>objects\questTime_obj</object>
+    <object>objects\buttonText_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\loading_room</room>

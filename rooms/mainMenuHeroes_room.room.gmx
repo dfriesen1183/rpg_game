@@ -11,28 +11,20 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>{
-    //spawn hero roster (for however many exist)
-    var numPerRow = 3;
-    var heroWidth = 32;
-    var heroHeight = 32;
-    
-    var innerMarg = 2;
-    var colTopMarg = 300;
-    var colLeftMarg = (room_width - (heroWidth*numPerRow + innerMarg*(numPerRow - 1)))/2;
-
     //hero objects
-    heroWidth = 100;
-    heroHeight = heroWidth;
-    innerMarg = 30;
-    colTopMarg = 500;
-    colLeftMarg = (room_width - (heroWidth*numPerRow + innerMarg*(numPerRow - 1)))/2;
+    var numPerRow = 3;
+    var heroWidth = 100;
+    var heroHeight = heroWidth;
+    var innerMarg = 30;
+    var colTopMarg = 500;
+    var colLeftMarg = (room_width - (heroWidth*numPerRow + innerMarg*(numPerRow - 1)))/2;
     
     var size = ds_list_size(global.heroes);
     for (var i=0; i&lt;size; i++) {
-        var hero_x = colLeftMarg + i*(heroWidth + innerMarg);
-        //var hero_x = colLeftMarg + (heroWidth + innerMarg)*(i%numPerRow);
-        var hero_y = colTopMarg;
-        //var hero_y = colTopMarg + (heroHeight + innerMarg)*floor(i/numPerRow);
+        //var hero_x = colLeftMarg + i*(heroWidth + innerMarg);
+        var hero_x = colLeftMarg + (heroWidth + innerMarg)*(i%numPerRow);
+        //var hero_y = colTopMarg;
+        var hero_y = colTopMarg + (heroHeight + innerMarg)*floor(i/numPerRow);
         var hero = instance_create(hero_x, hero_y, heroButton_obj);
         
         //for loading data from global.heroes. or it just happens entirely here

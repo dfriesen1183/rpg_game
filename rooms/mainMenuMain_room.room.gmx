@@ -11,6 +11,23 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>{
+    //debug buttons
+    self.newData = instance_create(0, 0, debug_obj);
+
+    //creating buttons
+    self.heroes = instance_create(room_width/2, room_height/2 - 50, mainMenuHeroes_obj);
+    //self.heroes.scale = 1;
+    //centering
+    with (mainMenuHeroes_obj) {
+        self.x -= self.scale*sprite_get_width(mainButton_spr)/2;
+        self.y -= self.scale*sprite_get_height(mainButton_spr)/2;
+    }
+
+    self.quests = instance_create(room_width/2, room_height/2 + 50, mainMenuQuests_obj);
+    with (mainMenuQuests_obj) {
+        self.x -= self.scale*sprite_get_width(mainButton_spr)/2;
+        self.y -= self.scale*sprite_get_height(mainButton_spr)/2;
+    }
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
@@ -51,10 +68,7 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
-  <instances>
-    <instance objName="mainMenuHeroes_obj" x="224" y="448" name="inst_15133D86" locked="0" code="" scaleX="3" scaleY="3" colour="4294967295" rotation="0"/>
-    <instance objName="mainMenuQuests_obj" x="224" y="704" name="inst_00722A3F" locked="0" code="" scaleX="3" scaleY="3" colour="4294967295" rotation="0"/>
-  </instances>
+  <instances/>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

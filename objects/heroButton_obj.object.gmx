@@ -141,7 +141,8 @@
         ds_map_copy(newMember, ds_list_find_value(global.heroes, self.index));
         ds_map_add(newMember, "partyIndex", ds_list_size(global.party));
         ds_list_add(global.party, newMember);
-                
+        ds_list_mark_as_map(global.party, ds_list_size(global.party)-1);
+
         if (instance_number(mainMenuBegin_obj)) {
             mainMenuBegin_obj.sprite_index = mainButton_spr;
         }

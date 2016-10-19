@@ -29,17 +29,19 @@
         var maxHp = ds_map_find_value(hero,"maxHp");
         var index = ds_map_find_value(hero,"index");
 
-        var stored = 0;
+        var store = 0;
+        var storeIndex = 0;
         var heroCount = ds_list_size(global.heroes);
         for (var j=0; j&lt;heroCount; j++) {
-            stored = ds_list_find_value(global.heroes, j);
-            if (ds_map_find_value(stored, "index") == index) {
+            store = ds_list_find_value(global.heroes, j);
+            if (ds_map_find_value(store, "index") == index) {
+                storeIndex = j;
                 break;
             }
         }
 
         if (ds_map_find_value(hero, "found")) {
-            ds_map_delete(stored, "found");
+            ds_map_delete(store, "found");
             show_debug_message("Found "+name+", level "+string(level)+" Hero at "+string(maxHp)+"hp");
         }
         if (ds_map_find_value(hero, "hp") &gt; 0) {
@@ -47,7 +49,7 @@
             show_debug_message(name+" was wounded to "+string(hp)+"/"+string(maxHp));
         } else {
             show_debug_message(name+" fell in battle");
-            ds_map_destroy(stored);
+            ds_map_destroy(store);
             ds_list_delete(global.heroes, storeIndex);
         }
     }
