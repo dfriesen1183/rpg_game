@@ -1,5 +1,10 @@
 {
-    //creating new save data
+    //deleting current data
+    /*if (!is_undefined(global.data)) {
+        //delete here
+    }*/
+
+    //creating new save data    
     global.data = ds_map_create();
 
     ds_map_add_map(global.data, "guild", ds_map_create());
@@ -21,15 +26,14 @@
     for (var i=0; i<3; i++) {
         var hp = 30;
         var level = 3*(i+1);
-        ds_list_add(global.heroes, ds_map_create());
-        var hero = ds_list_find_value(global.heroes, i);
-        ds_list_mark_as_map(global.heroes, i);
+        var hero = ds_map_create();
             ds_map_add(hero,"index",string(ds_list_size(global.heroes)-1));//identifier
             ds_map_add(hero,"name","Hero"+string(i));
             ds_map_add(hero,"level",level);
             ds_map_add(hero,"hp",hp);
             ds_map_add(hero,"maxHp",hp);
             ds_map_add(hero,"friendly",true);
+        addHero_scr(hero, 0);
     }
     ds_map_add_list(global.data, "party", ds_list_create());
     global.party = ds_map_find_value(global.data, "party");

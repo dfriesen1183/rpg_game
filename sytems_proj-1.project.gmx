@@ -43,6 +43,8 @@
     <script>scripts\setTarget_scr.gml</script>
     <script>scripts\setGroundState_scr.gml</script>
     <script>scripts\saveGame_scr.gml</script>
+    <script>scripts\addHero_scr.gml</script>
+    <script>scripts\displayPartyMember_scr.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\simplePixels</font>

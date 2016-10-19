@@ -110,41 +110,22 @@
         self.active = false;
         self.sprite_index = heroButtonTempHover_spr;
         
-        if (ds_list_size(global.party)) {
-            //maybe ds_list_clear does this already...
-            var size = ds_list_size(global.party);
-            for (var i=size-1; i&gt;=0; i--) {
-                ds_map_destroy(ds_list_find_value(global.party, i));
-            }
-            ds_list_clear(global.party);
-        }
+        var hero = ds_list_find_value(global.heroes, self.index);
+        var partyIndex = ds_map_find_value(hero, "partyIndex");
+        ds_list_delete(global.party, partyIndex);
         
         if (instance_number(mainMenuBegin_obj)) {
             mainMenuBegin_obj.sprite_index = mainButtonDisabled_spr;
         }
     } else {
-        heroButton_obj.active = false;
-        heroButton_obj.sprite_index = heroButtonTemp_spr;
-        self.active = true;
-        self.sprite_index = heroButtonTempActive_spr;
-
-        //clearing old, one-member party
-        if (ds_list_size(global.party)) {
-            var size = ds_list_size(global.party);
-            for (var i=size-1; i&gt;=0; i--) {
-                ds_map_destroy(ds_list_find_value(global.party, i));
+        var newMember = ds_list_find_value(global.heroes, self.index);
+        var result = addHero_scr(newMember, 1);
+        if (result == 0) {
+            self.active = true;
+            self.sprite_index = heroButtonTempActive_spr;
+            if (instance_number(mainMenuBegin_obj)) {
+                mainMenuBegin_obj.sprite_index = mainButton_spr;
             }
-            ds_list_clear(global.party);
-        }
-        //assembling new, one-member party lol
-        var newMember = ds_map_create();
-        ds_map_copy(newMember, ds_list_find_value(global.heroes, self.index));
-        ds_map_add(newMember, "partyIndex", ds_list_size(global.party));
-        ds_list_add(global.party, newMember);
-        ds_list_mark_as_map(global.party, ds_list_size(global.party)-1);
-
-        if (instance_number(mainMenuBegin_obj)) {
-            mainMenuBegin_obj.sprite_index = mainButton_spr;
         }
     }
 }

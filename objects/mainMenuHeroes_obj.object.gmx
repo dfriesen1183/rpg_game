@@ -54,7 +54,6 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-    saveGame_scr();
     room_goto(mainMenuHeroes_room);
 }
 </string>

@@ -22,7 +22,7 @@
     var size = ds_list_size(global.party);
     var partyDefeated = true;
     for (var i=0; i&lt;size; i++) {
-        var hero = ds_list_find_value(global.party, i);
+        hero = ds_list_find_value(global.party, i);
         var name = ds_map_find_value(hero,"name");
         var level = ds_map_find_value(hero,"level");
         var hp = ds_map_find_value(hero,"hp");
@@ -44,13 +44,15 @@
             ds_map_delete(store, "found");
             show_debug_message("Found "+name+", level "+string(level)+" Hero at "+string(maxHp)+"hp");
         }
-        if (ds_map_find_value(hero, "hp") &gt; 0) {
-            partyDefeated = false;
-            show_debug_message(name+" was wounded to "+string(hp)+"/"+string(maxHp));
-        } else {
-            show_debug_message(name+" fell in battle");
-            ds_map_destroy(store);
-            ds_list_delete(global.heroes, storeIndex);
+        if (hp &lt; maxHp) {
+            if (hp &gt; 0) {
+                partyDefeated = false;
+                show_debug_message(name+" was wounded to "+string(hp)+"/"+string(maxHp));
+            } else {
+                show_debug_message(name+" fell in battle");
+                ds_map_destroy(store);
+                ds_list_delete(global.heroes, storeIndex);
+            }
         }
     }
     if (!partyDefeated) {
