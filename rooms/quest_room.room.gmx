@@ -11,15 +11,7 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>{
-    if (ds_map_find_value(global.record, "duration") &lt;= 0) {
-        ds_map_replace(global.record, "duration", 2*60);
-    }
-    show_debug_message("quest duration: "+string(ds_map_find_value(global.record, "duration")/60)+"m");
-    ds_map_replace(global.record, "time", 0)
-    
-    //actParty to be changed by encounters
-    //global.actParty = ds_list_create();
-    //ds_list_copy(global.actPart, global.party);
+    //readying party
     for (var i=0; i&lt;ds_list_size(global.party); i++) {
         var hero = ds_list_find_value(global.party, i);
         if (is_undefined(ds_map_find_value(hero, "partyIndex"))) {
@@ -31,7 +23,7 @@
         var index = ds_map_find_value(hero, "index");
         displayPartyMember_scr(index, i, false);
     }
-
+    //initiating quest cycle
     questLogic_scr();
 }</code>
   <enableViews>0</enableViews>

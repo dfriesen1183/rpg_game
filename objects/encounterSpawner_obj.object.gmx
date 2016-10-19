@@ -26,8 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>{
-    duration--;
-    if (duration &lt;= 0) {
+    self.time++;
+    ds_map_replace(global.record, "time", self.time);
+    if (ds_map_find_value(global.record, "next") &lt;= self.time) {
         var result = encLogic_scr();
         if (result == 0) {
             questLogic_scr();
@@ -36,6 +37,7 @@
             show_debug_message("Quest failed");
             room_goto(questReview_room);
         }
+        saveGame_scr(); //saves after new encounter generated
         instance_destroy();
     } else {
         alarm[0] = room_speed;

@@ -24,8 +24,10 @@
     }
 
     var member = instance_create(member_x, member_y, hero_obj);
-    member.found = index;
-    member.found = partyIndex;
+    member.index = index;
+    member.partyIndex = partyIndex;
     member.found = found;
+    
+    renderHero_scr();
 }
 

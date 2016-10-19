@@ -26,10 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>{
-    duration--;
-    if (duration &lt;= 0) {
+    self.time++;
+    ds_map_replace(global.record, "time", self.time);
+    if (ds_map_find_value(global.record, "duration") &lt;= self.time) {
+        ds_map_replace(global.record, "active", false);
         show_debug_message("Quest Complete!");
         instance_create(0,0,questMenuComplete_obj);
+
+        saveGame_scr();
     } else {
         alarm[0] = room_speed;
     }

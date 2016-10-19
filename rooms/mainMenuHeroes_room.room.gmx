@@ -21,14 +21,21 @@
     
     var size = ds_list_size(global.heroes);
     for (var i=0; i&lt;size; i++) {
-        //var hero_x = colLeftMarg + i*(heroWidth + innerMarg);
         var hero_x = colLeftMarg + (heroWidth + innerMarg)*(i%numPerRow);
-        //var hero_y = colTopMarg;
         var hero_y = colTopMarg + (heroHeight + innerMarg)*floor(i/numPerRow);
         var hero = instance_create(hero_x, hero_y, heroButton_obj);
-        
-        //for loading data from global.heroes. or it just happens entirely here
         hero.index = i;
+    }
+    size = ds_list_size(global.party);
+    for (var i=0; i&lt;size; i++) {
+        var member = ds_list_find_value(global.party, i);
+        var memberIndex = ds_map_find_value(member, "index");
+        with (heroButton_obj) {
+            if (self.index == memberIndex) {
+                self.active = true;
+                self.sprite_index = heroButtonTempActive_spr;
+            }
+        }
     }
     
     //menu objects
