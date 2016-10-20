@@ -27,7 +27,7 @@
     <script>scripts\genFoundHero_scr.gml</script>
     <script>scripts\genFoundLoot_scr.gml</script>
     <script>scripts\genFoundEnemies_scr.gml</script>
-    <script>scripts\resetGame_scr.gml</script>
+    <script>scripts\loadGame_scr.gml</script>
     <script>scripts\createNewData_scr.gml</script>
     <scripts name="DS Print">
       <script>scripts\scr_array_print.gml</script>
@@ -47,6 +47,8 @@
     <script>scripts\displayPartyMember_scr.gml</script>
     <script>scripts\renderHero_scr.gml</script>
     <script>scripts\clearParty_scr.gml</script>
+    <script>scripts\ds_list_add_list.gml</script>
+    <script>scripts\ds_list_add_map.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\simplePixels</font>

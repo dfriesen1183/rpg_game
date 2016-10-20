@@ -35,7 +35,7 @@
             ds_list_add(order, ds_list_find_value(tempList,i));
         }
 
-        ds_list_clear(tempList);
+        /*ds_list_clear(tempList);
         size = ds_list_size(global.enemyParty);
         for (var i=0; i<size; i++) {
             ds_list_add(tempList, ds_list_find_value(global.enemyParty, i));
@@ -44,7 +44,7 @@
         for (var i=0; i<size; i++) {
             ds_list_add(order, ds_list_find_value(tempList,i));
         }
-        ds_list_destroy(tempList);
+        ds_list_destroy(tempList);*/
         
     } else if (33 > ambushChance) {
         //level opportunity
@@ -63,7 +63,7 @@
             ds_list_add(order, ds_list_find_value(tempList,i));
         }
 
-        ds_list_clear(tempList);
+        /*ds_list_clear(tempList);
         size = ds_list_size(global.party);
         for (var i=0; i<size; i++) {
             ds_list_add(tempList, ds_list_find_value(global.party, i));
@@ -72,7 +72,7 @@
         for (var i=0; i<size; i++) {
             ds_list_add(order, ds_list_find_value(tempList,i));
         }
-        ds_list_destroy(tempList);
+        ds_list_destroy(tempList);*/
         
     }
 

@@ -13,8 +13,7 @@
     
     if (ds_list_size(list) < limit) {
         var index = ds_list_size(list);
-        ds_list_add(list, hero);
-        ds_list_mark_as_map(list, index);
+        ds_list_add_map(list, hero);
         if (is_undefined(ds_map_find_value(hero, indexKey))) {
             ds_map_add(hero, indexKey, index);
         } else {

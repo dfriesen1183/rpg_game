@@ -11,6 +11,8 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>{
+    saveGame_scr();
+
     //debug buttons
     self.newData = instance_create(0, 0, debug_obj);
 

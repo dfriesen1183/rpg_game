@@ -7,6 +7,8 @@
         } else {
             ds_map_replace(hero, "index", i);
         }
+        //in the meantime, healing heroes automatically
+        ds_map_replace(hero, "hp", ds_map_find_value(hero, "maxHp"));
     }
     clearParty_scr();
     
