@@ -26,10 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>{
-    self.active = false;
+    id.active = false;
+    id.targeted = false;
     
-    self.width = sprite_get_width(sprite_index);
-    self.height = sprite_get_height(sprite_index);
+    id.width = sprite_get_width(sprite_index);
+    id.height = sprite_get_height(sprite_index);
     //-image indices-
     //image0: default
     //image1: pressed
@@ -44,7 +45,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="10">
+    <event eventtype="6" enumb="11">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -62,7 +63,10 @@
           <argument>
             <kind>1</kind>
             <string>{
-
+    global.target = -1;
+    if (!id.active) {
+        id.image_index = 0;
+    }
 }
 
 </string>
@@ -88,15 +92,18 @@
           <argument>
             <kind>1</kind>
             <string>{
-    return 0;
-    if (self.active) {
-        self.active = false;
-        image_index = 2;
-    } else {
-        object_index.active = false;
-        object_index.image_index = 0;
-        self.active = true;
-        self.image_index = 2;
+    if (id == global.target || -1 == global.target) {
+        if (id.active) {
+            id.active = false;
+            id.image_index = 0;
+        } else {
+            with (object_get_parent(id.object_index)) {
+                active = false;
+                image_index = 0;
+            }
+            id.active = true;
+            id.image_index = 2;
+        }
     }
 }
 
@@ -123,7 +130,8 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (!self.active) {
+    global.target = id;
+    if (!id.active) {
         image_index = 1;
     }
 }

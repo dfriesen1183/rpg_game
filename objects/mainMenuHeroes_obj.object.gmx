@@ -54,8 +54,11 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-    room_goto(mainMenuHeroes_room);
+    if (id == global.target || -1 == global.target) {
+        room_goto(mainMenuHeroes_room);
+    }
 }
+
 </string>
           </argument>
         </arguments>

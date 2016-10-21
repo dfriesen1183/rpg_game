@@ -36,6 +36,33 @@
         </arguments>
       </action>
     </event>
+    <event eventtype="6" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{
+    if (id == global.target || -1 == global.target) {
+        event_inherited();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="7">
       <action>
         <libid>1</libid>
@@ -54,20 +81,20 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (0 &lt; ds_map_find_value(global.record, "duration") &amp;&amp; 0 &lt; ds_list_size(global.party)) {
-        event_inherited();
-        //readying record object
-        if (ds_map_find_value(global.record, "duration") &lt;= 0) {
-            ds_map_replace(global.record, "duration", 2*60);
+    if (id == global.target || -1 == global.target) {
+        if (0 &lt; ds_map_find_value(global.record, "duration") &amp;&amp; 0 &lt; ds_list_size(global.party)) {
+            event_inherited();
+            //readying record object
+            if (ds_map_find_value(global.record, "duration") &lt;= 0) {
+                ds_map_replace(global.record, "duration", 2*60);
+            }
+            show_debug_message("quest duration: "+string(ds_map_find_value(global.record, "duration")/60)+"m");
+            ds_map_replace(global.record, "time", 0);
+            ds_map_replace(global.record, "next", 0);
+            ds_map_replace(global.record, "complete", false);
+    
+            room_goto(quest_room);
         }
-        show_debug_message("quest duration: "+string(ds_map_find_value(global.record, "duration")/60)+"m");
-        ds_map_replace(global.record, "time", 0);
-        ds_map_replace(global.record, "next", 0);
-        ds_map_replace(global.record, "complete", false);
-
-        room_goto(quest_room);
-    } else {
-        self.image_index = 3;
     }
 }
 
@@ -96,8 +123,6 @@
             <string>{
     if (0 &lt; ds_map_find_value(global.record, "duration") &amp;&amp; 0 &lt; ds_list_size(global.party)) {
         event_inherited();
-    } else {
-        self.image_index = 3;
     }
 }
 

@@ -18,5 +18,7 @@
     } else {
         createNewData_scr();
     }
+    
+    global.target = -1;
 }
 
