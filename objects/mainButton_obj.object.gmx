@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>button_obj</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,127 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>{
-    self.active = false;
-    self.scale = 1;
     sprite_index = mainButton_spr;
+    event_inherited(); //run after sprite data set
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="11">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>{
-    if (!self.active) {
-        sprite_index = mainButton_spr;
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>{
-    if (!self.active) {
-        sprite_index = mainButtonHover_spr;
-    }
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="7">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>{
-    if (self.active) {
-        self.active = false;
-        sprite_index = mainButtonHover_spr;
-    } else {
-        mainButton_obj.active = false;
-        mainButton_obj.sprite_index = mainButton_spr;
-        self.active = true;
-        sprite_index = mainButtonActive_spr;
-    }
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>{
-    if (!self.active) {
-        sprite_index = mainButtonPressed_spr;
-    }
-}
 </string>
           </argument>
         </arguments>
@@ -170,7 +53,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (self.scale &gt;= 3) {
+    if (self.height &gt;= 3*sprite_get_height(sprite_index)) {
         draw_set_font(simplePixelsLarge);
     } else {
         draw_set_font(simplePixels);
@@ -204,8 +87,8 @@
           <argument>
             <kind>1</kind>
             <string>{
-    draw_sprite_stretched(sprite_index, sprite_index, self.x, self.y, sprite_get_width(mainButton_spr)*self.scale, sprite_get_height(mainButton_spr)*self.scale);
-    draw_text(self.x + self.scale*sprite_get_width(mainButton_spr)/2, self.y + 0.9*(self.scale*sprite_get_height(mainButton_spr)/2), self.label);
+    event_inherited();
+    draw_text(self.x + self.width/2, self.y + 0.9*self.height/2, self.label);
 }
 
 </string>

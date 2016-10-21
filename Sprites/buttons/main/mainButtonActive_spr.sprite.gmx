@@ -20,9 +20,6 @@
   <width>100</width>
   <height>50</height>
   <frames>
-    <frame index="0">images\mainButton_spr_0.png</frame>
-    <frame index="1">images\mainButton_spr_1.png</frame>
-    <frame index="2">images\mainButton_spr_2.png</frame>
-    <frame index="3">images\mainButton_spr_3.png</frame>
+    <frame index="0">images\mainButtonActive_spr_0.png</frame>
   </frames>
 </sprite>

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>button_obj</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,64 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>{
-    self.active = false;
-    self.sprite_index = heroButtonTemp_spr;
+    self.sprite_index = heroButton_spr;
+    event_inherited();
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="11">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>{
-    if (!self.active) {
-        self.sprite_index = heroButtonTemp_spr;
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>{
-    if (!self.active) {
-        self.sprite_index = heroButtonTempHover_spr;
-    }
-}
-
 </string>
           </argument>
         </arguments>
@@ -109,7 +54,7 @@
             <string>{
     if (self.active) {
         self.active = false;
-        self.sprite_index = heroButtonTempHover_spr;
+        self.image_index = 0;
         
         var hero = ds_list_find_value(global.heroes, self.index);
         var partyIndex = ds_map_find_value(hero, "partyIndex");
@@ -126,48 +71,21 @@
         }
         
         if (instance_number(mainMenuBegin_obj)) {
-            mainMenuBegin_obj.sprite_index = mainButtonDisabled_spr;
+            mainMenuBegin_obj.image_index = 3;
         }
     } else {
         var newMember = ds_list_find_value(global.heroes, self.index);
         var result = addHero_scr(newMember, 1);
         if (result == 0) {
             self.active = true;
-            self.sprite_index = heroButtonTempActive_spr;
+            self.image_index = 2;
             if (instance_number(mainMenuBegin_obj)) {
-                mainMenuBegin_obj.sprite_index = mainButton_spr;
+                mainMenuBegin_obj.image_index = 0;
             }
         }
     }
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>{
-    if (!self.active) {
-        self.sprite_index = heroButtonTempPressed_spr;
-    }
-}
 </string>
           </argument>
         </arguments>

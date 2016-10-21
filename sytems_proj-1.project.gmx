@@ -8,69 +8,85 @@
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\heroButtonTemp_spr</sprite>
-    <sprite>sprites\heroButtonTempActive_spr</sprite>
-    <sprite>sprites\heroButtonTempHover_spr</sprite>
-    <sprite>sprites\heroButtonTempPressed_spr</sprite>
-    <sprite>sprites\mainButton_spr</sprite>
-    <sprite>sprites\mainButtonDisabled_spr</sprite>
-    <sprite>sprites\mainButtonHover_spr</sprite>
-    <sprite>sprites\mainButtonPressed_spr</sprite>
-    <sprite>sprites\mainButtonActive_spr</sprite>
     <sprite>sprites\hero_spr</sprite>
+    <sprites name="buttons">
+      <sprite>sprites\mainButton_spr</sprite>
+      <sprite>sprites\heroButton_spr</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\questLogic_scr.gml</script>
-    <script>scripts\encLogic_scr.gml</script>
-    <script>scripts\genFoundHero_scr.gml</script>
-    <script>scripts\genFoundLoot_scr.gml</script>
-    <script>scripts\genFoundEnemies_scr.gml</script>
-    <script>scripts\loadGame_scr.gml</script>
-    <script>scripts\createNewData_scr.gml</script>
-    <scripts name="DS Print">
-      <script>scripts\scr_array_print.gml</script>
-      <script>scripts\scr_ds_grid_print.gml</script>
-      <script>scripts\scr_ds_list_print.gml</script>
-      <script>scripts\scr_ds_map_print.gml</script>
-      <scripts name="Utility">
+    <scripts name="main">
+      <script>scripts\loadGame_scr.gml</script>
+      <script>scripts\saveGame_scr.gml</script>
+      <script>scripts\createNewData_scr.gml</script>
+      <script>scripts\setGroundState_scr.gml</script>
+    </scripts>
+    <scripts name="quest">
+      <script>scripts\questLogic_scr.gml</script>
+      <script>scripts\encLogic_scr.gml</script>
+      <script>scripts\genFoundLoot_scr.gml</script>
+      <script>scripts\genFoundHero_scr.gml</script>
+      <script>scripts\genFoundEnemies_scr.gml</script>
+      <script>scripts\orderAttackers_scr.gml</script>
+      <script>scripts\setTarget_scr.gml</script>
+    </scripts>
+    <scripts name="prequest">
+      <script>scripts\addHero_scr.gml</script>
+      <script>scripts\clearParty_scr.gml</script>
+      <script>scripts\renderHero_scr.gml</script>
+      <script>scripts\displayPartyMember_scr.gml</script>
+    </scripts>
+    <scripts name="utilities">
+      <script>scripts\ds_list_add_map.gml</script>
+      <script>scripts\ds_list_add_list.gml</script>
+      <scripts name="DS Print">
+        <script>scripts\scr_array_print.gml</script>
+        <script>scripts\scr_ds_grid_print.gml</script>
+        <script>scripts\scr_ds_list_print.gml</script>
+        <script>scripts\scr_ds_map_print.gml</script>
         <script>scripts\scr_string_pad_right.gml</script>
         <script>scripts\scr_string_trim_right.gml</script>
       </scripts>
     </scripts>
-    <script>scripts\orderAttackers_scr.gml</script>
-    <script>scripts\setTarget_scr.gml</script>
-    <script>scripts\setGroundState_scr.gml</script>
-    <script>scripts\saveGame_scr.gml</script>
-    <script>scripts\addHero_scr.gml</script>
-    <script>scripts\displayPartyMember_scr.gml</script>
-    <script>scripts\renderHero_scr.gml</script>
-    <script>scripts\clearParty_scr.gml</script>
-    <script>scripts\ds_list_add_list.gml</script>
-    <script>scripts\ds_list_add_map.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\simplePixels</font>
     <font>fonts\simplePixelsLarge</font>
   </fonts>
   <objects name="objects">
-    <object>objects\mainMenuHeroes_obj</object>
-    <object>objects\debug_obj</object>
-    <object>objects\mainMenuQuests_obj</object>
-    <object>objects\mainMenuMain_obj</object>
-    <object>objects\mainMenuBegin_obj</object>
-    <object>objects\questMenuComplete_obj</object>
-    <object>objects\questMenu1_obj</object>
-    <object>objects\questMenu2_obj</object>
-    <object>objects\questMenu3_obj</object>
-    <object>objects\encounterSpawner_obj</object>
     <object>objects\hero_obj</object>
-    <object>objects\heroButton_obj</object>
-    <object>objects\endTimer_obj</object>
-    <object>objects\mainButton_obj</object>
-    <object>objects\questTime_obj</object>
-    <object>objects\buttonText_obj</object>
+    <objects name="buttons">
+      <object>objects\button_obj</object>
+      <object>objects\debug_obj</object>
+      <object>objects\buttonText_obj</object>
+      <objects name="main">
+        <object>objects\mainButton_obj</object>
+        <objects name="derivatives">
+          <object>objects\mainMenuBegin_obj</object>
+          <object>objects\mainMenuHeroes_obj</object>
+          <object>objects\mainMenuMain_obj</object>
+          <object>objects\mainMenuQuests_obj</object>
+          <object>objects\questMenuComplete_obj</object>
+        </objects>
+      </objects>
+      <objects name="hero">
+        <object>objects\heroButton_obj</object>
+      </objects>
+      <objects name="quest_type">
+        <object>objects\questMenu_obj</object>
+        <objects name="derivatives">
+          <object>objects\questMenu1_obj</object>
+          <object>objects\questMenu2_obj</object>
+          <object>objects\questMenu3_obj</object>
+        </objects>
+      </objects>
+    </objects>
+    <objects name="quest">
+      <object>objects\encounterSpawner_obj</object>
+      <object>objects\endTimer_obj</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\loading_room</room>

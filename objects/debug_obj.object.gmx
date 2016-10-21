@@ -53,9 +53,9 @@
           <argument>
             <kind>1</kind>
             <string>{
-    event_inherited();
     createNewData_scr();
 }
+
 </string>
           </argument>
         </arguments>

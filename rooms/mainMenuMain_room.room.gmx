@@ -21,17 +21,18 @@
     //self.heroes.scale = 1;
     //centering
     with (mainMenuHeroes_obj) {
-        self.x -= self.scale*sprite_get_width(mainButton_spr)/2;
-        self.y -= self.scale*sprite_get_height(mainButton_spr)/2;
+        self.x -= sprite_get_width(sprite_index)/2;
+        self.y -= sprite_get_height(sprite_index)/2;
     }
 
     self.quests = instance_create(room_width/2, room_height/2 + 50, mainMenuQuests_obj);
     with (mainMenuQuests_obj) {
-        self.x -= self.scale*sprite_get_width(mainButton_spr)/2;
-        self.y -= self.scale*sprite_get_height(mainButton_spr)/2;
+        self.x -= sprite_get_width(sprite_index)/2;
+        self.y -= sprite_get_height(sprite_index)/2;
     }
     
     clearParty_scr();
+    ds_map_replace(global.record, "duration", 0);
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

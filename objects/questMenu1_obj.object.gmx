@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>questTime_obj</parentName>
+  <parentName>questMenu_obj</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-    self.sprite_index = mainButton_spr;
     self.duration = 2*60;
     self.label = string(self.duration/60)+" MIN";
 }
