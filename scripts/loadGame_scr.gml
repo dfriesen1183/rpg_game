@@ -13,8 +13,6 @@
         global.record = ds_map_find_value(global.data, "questRecord");
         global.heroes = ds_map_find_value(global.data, "heroes");
         global.party = ds_map_find_value(global.data, "party");
-        //show_debug_message(saveJson);
-        show_debug_message(ds_map_find_value(ds_list_find_value(ds_map_find_value(global.data, "heroes"), 0), "name"));
     } else {
         createNewData_scr();
     }

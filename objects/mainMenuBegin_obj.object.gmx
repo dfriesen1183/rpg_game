@@ -54,7 +54,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id == global.target || -1 == global.target) {
+    if (id == global.target) {
         event_inherited();
     }
 }
@@ -81,7 +81,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id == global.target || -1 == global.target) {
+    if (id == global.target) {
         if (0 &lt; ds_map_find_value(global.record, "duration") &amp;&amp; 0 &lt; ds_list_size(global.party)) {
             event_inherited();
             //readying record object

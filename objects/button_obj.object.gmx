@@ -92,7 +92,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id == global.target || -1 == global.target) {
+    if (id == global.target) {
         if (id.active) {
             id.active = false;
             id.image_index = 0;
