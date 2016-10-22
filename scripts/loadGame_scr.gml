@@ -19,7 +19,9 @@
     } else {
         createNewData_scr();
     }
+    global.logText = ds_map_find_value(global.record, "log");
+    global.logObj = ds_list_create();
     
-    global.target = -1;
+    global.target = -1;//variable used for verifying button presses
 }
 

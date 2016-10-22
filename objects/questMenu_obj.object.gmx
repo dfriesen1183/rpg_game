@@ -29,7 +29,7 @@
     id.sprite_index = mainButton_spr;
     id.labelColor = c_white;
     id.fontSml = simplePixels;
-    id.fontLrg = simplePixelsLarge;
+    id.fontLrg = simplePixelsLrg;
     event_inherited();
 }
 
@@ -98,7 +98,7 @@
     } else {
         draw_set_font(id.fontSml);
     }
-    draw_set_color(labelColor);
+    draw_set_color(id.labelColor);
     draw_set_alpha(1);
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);

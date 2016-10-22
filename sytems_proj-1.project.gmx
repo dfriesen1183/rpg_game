@@ -13,6 +13,7 @@
       <sprite>sprites\mainButton_spr</sprite>
       <sprite>sprites\heroButton_spr</sprite>
     </sprites>
+    <sprite>sprites\logBounding_spr</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -27,9 +28,15 @@
     </scripts>
     <scripts name="main">
       <script>scripts\loadGame_scr.gml</script>
-      <script>scripts\saveGame_scr.gml</script>
       <script>scripts\createNewData_scr.gml</script>
+      <script>scripts\saveGame_scr.gml</script>
       <script>scripts\setGroundState_scr.gml</script>
+    </scripts>
+    <scripts name="prequest">
+      <script>scripts\addHero_scr.gml</script>
+      <script>scripts\renderHero_scr.gml</script>
+      <script>scripts\clearParty_scr.gml</script>
+      <script>scripts\displayPartyMember_scr.gml</script>
     </scripts>
     <scripts name="quest">
       <script>scripts\questLogic_scr.gml</script>
@@ -49,14 +56,10 @@
         </scripts>
       </scripts>
     </scripts>
-    <scripts name="prequest">
-      <script>scripts\addHero_scr.gml</script>
-      <script>scripts\renderHero_scr.gml</script>
-      <script>scripts\clearParty_scr.gml</script>
-      <script>scripts\displayPartyMember_scr.gml</script>
-    </scripts>
-    <scripts name="utilities">
+    <scripts name="utility">
       <script>scripts\ds_list_add_map.gml</script>
+      <script>scripts\ds_list_insert_map.gml</script>
+      <script>scripts\ds_list_insert_list.gml</script>
       <script>scripts\ds_list_add_list.gml</script>
       <scripts name="DS Print">
         <script>scripts\scr_array_print.gml</script>
@@ -70,7 +73,8 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\simplePixels</font>
-    <font>fonts\simplePixelsLarge</font>
+    <font>fonts\simplePixelsMed</font>
+    <font>fonts\simplePixelsLrg</font>
   </fonts>
   <objects name="objects">
     <object>objects\hero_obj</object>
@@ -103,6 +107,8 @@
     <objects name="quest">
       <object>objects\encSpawner_obj</object>
       <object>objects\endTimer_obj</object>
+      <object>objects\logEntry_obj</object>
+      <object>objects\logBounding_obj</object>
     </objects>
   </objects>
   <rooms name="rooms">
