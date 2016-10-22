@@ -24,7 +24,7 @@
     var innerMargY = 5;
 
     var boundingOffset = global.logBounding.y;
-    var boundingHeight = room_height - global.logBounding.height;
+    var boundingInnerHeight = global.logBounding.height - 2*innerMargY;
     var heightTotal = 0;
     var entryWidth = global.logBounding.width - innerMargX*2;
     var entryFont = simplePixelsMed;
@@ -34,12 +34,12 @@
     for (var i=0; i<size; i++) {
         var entry = instance_create(outerMarg + innerMargX, boundingOffset + innerMargY + heightTotal, logEntry_obj);
         entry.width = entryWidth;
-        entry.text = ds_list_find_value(global.logText, i);
+        entry.text = string_upper(ds_list_find_value(global.logText, i));
         entry.font = entryFont;
         entry.height = string_height_ext(entry.text, -1, entry.width);
         
         heightTotal += entry.height;
-        if (heightTotal > boundingHeight) {
+        if (heightTotal > boundingInnerHeight) {
             with (entry) {
                 instance_destroy();
             }
