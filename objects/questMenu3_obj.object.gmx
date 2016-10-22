@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-    self.duration = 10*60;
-    self.label = string(self.duration/60)+" MIN";
+    id.duration = 10*60;
+    id.label = string(id.duration/60)+" MIN";
 }
 
 </string>

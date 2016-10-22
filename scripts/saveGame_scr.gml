@@ -1,4 +1,7 @@
 {
+    //saveGame_scr();
+    //saves game data as stored in global.data
+
     //might only need references to party members, not duplicate objects, depending on data needing collection
     /*var size = ds_list_size(global.party);
     for (var i=0; i<size; i++) {

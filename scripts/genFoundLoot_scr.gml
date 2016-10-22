@@ -1,4 +1,7 @@
 {
+    //genFoundLoot_scr();
+    //generates equipment, gold
+
     var equipChance = floor(random(100));
     while (equipChance > 80) {
         show_debug_message("found equipment");

@@ -11,18 +11,7 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>{
-    //quests
-    instance_create(300, 200, questMenu1_obj);
-    instance_create(300, 300, questMenu2_obj);
-    instance_create(300, 400, questMenu3_obj);
-
-    //main menu
-    instance_create(250, 800, mainMenuMain_obj);
-    if (0 &lt; ds_list_size(global.party)) {
-        instance_create(350, 800, mainMenuBegin_obj);
-    } else {
-        instance_create(350, 800, mainMenuHeroes_obj);
-    }
+    mainMenuQuests_code_scr();
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

@@ -1,4 +1,11 @@
 {
+    //setGroundState_scr();
+    //sterilizes working data:
+    //  realigns indentifiers, potentially the only unique data inherent to the hero
+    //  clears members from party
+    //  empties quest record
+
+
     var size = ds_list_size(global.heroes);
     for (var i=0; i<size; i++) {
         var hero = ds_list_find_value(global.heroes, i);

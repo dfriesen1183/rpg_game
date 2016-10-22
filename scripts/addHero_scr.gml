@@ -1,7 +1,12 @@
 {
+    //addHero_scr(ds_map, boolean);
+    //returns boolean 'result'
+    //adds given hero to either heroes or party
+    //marks capacities for both lists
+    
     var hero = argument0;
     var toHeroes = argument1;
-    if (toHeroes == 0) {
+    if (toHeroes) {
         var list = global.heroes;
         var limit = 30;
         var indexKey = "index";
@@ -19,14 +24,14 @@
         } else {
             ds_map_replace(hero, indexKey, index);
         }
-        return 0;
+        return true;
     } else {
-        if (toHeroes != 0) {
-            show_debug_message("no room in party");
-        } else {
+        if (toHeroes) {
             show_debug_message("no room in guild");
+        } else {
+            show_debug_message("no room in party");
         }
     }
-    return 1;
+    return false;
 }
 

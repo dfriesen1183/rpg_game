@@ -1,4 +1,7 @@
 {
+    //setTarget_scr(boolean);
+    //finds random member of the opposing party still standing
+
     if (argument0) {
         var targetGroup = global.enemyParty;
     } else {

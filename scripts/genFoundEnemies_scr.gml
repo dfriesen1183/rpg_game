@@ -1,4 +1,13 @@
 {
+    //genFoundEnemies_scr();
+    //returns boolean 'party defeat'
+    //generates enemy encounter
+    //  generates enemy party
+    //  determines ambush advantage
+    //  loops through battle until one party is defeated
+    //    determines attack order
+    //    attackers find targets and deal damage
+
     var battles = ds_map_find_value(global.record, "battles") + 1;
     ds_map_replace(global.record, "battles", battles);
     

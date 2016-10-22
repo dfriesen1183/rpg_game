@@ -11,28 +11,7 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>{
-    saveGame_scr();
-
-    //debug buttons
-    self.newData = instance_create(0, 0, debug_obj);
-
-    //creating buttons
-    self.heroes = instance_create(room_width/2, room_height/2 - 50, mainMenuHeroes_obj);
-    //self.heroes.scale = 1;
-    //centering
-    with (mainMenuHeroes_obj) {
-        self.x -= sprite_get_width(sprite_index)/2;
-        self.y -= sprite_get_height(sprite_index)/2;
-    }
-
-    self.quests = instance_create(room_width/2, room_height/2 + 50, mainMenuQuests_obj);
-    with (mainMenuQuests_obj) {
-        self.x -= sprite_get_width(sprite_index)/2;
-        self.y -= sprite_get_height(sprite_index)/2;
-    }
-    
-    clearParty_scr();
-    ds_map_replace(global.record, "duration", 0);
+    mainMenuMain_code_scr();
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

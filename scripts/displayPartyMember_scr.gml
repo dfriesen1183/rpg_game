@@ -1,4 +1,7 @@
 {
+    //displayPartyMember_scr(index, index, boolean);
+    //places party member onto quest board
+    
     var index = argument0;
     var partyIndex = argument1;
     var found = argument2;

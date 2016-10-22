@@ -17,6 +17,14 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="rooms">
+      <script>scripts\loading_code_scr.gml</script>
+      <script>scripts\mainMenuMain_code_scr.gml</script>
+      <script>scripts\mainMenuHeroes_code_scr.gml</script>
+      <script>scripts\mainMenuQuests_code_scr.gml</script>
+      <script>scripts\quest_code_scr.gml</script>
+      <script>scripts\questReview_code_scr.gml</script>
+    </scripts>
     <scripts name="main">
       <script>scripts\loadGame_scr.gml</script>
       <script>scripts\saveGame_scr.gml</script>
@@ -25,12 +33,21 @@
     </scripts>
     <scripts name="quest">
       <script>scripts\questLogic_scr.gml</script>
-      <script>scripts\encLogic_scr.gml</script>
-      <script>scripts\genFoundLoot_scr.gml</script>
-      <script>scripts\genFoundHero_scr.gml</script>
-      <script>scripts\genFoundEnemies_scr.gml</script>
-      <script>scripts\orderAttackers_scr.gml</script>
-      <script>scripts\setTarget_scr.gml</script>
+      <script>scripts\endQuest_scr.gml</script>
+      <scripts name="spawners">
+        <script>scripts\encSpawner_code_scr.gml</script>
+        <script>scripts\endTimer_code_scr.gml</script>
+      </scripts>
+      <scripts name="encounters">
+        <script>scripts\encLogic_scr.gml</script>
+        <script>scripts\genFoundLoot_scr.gml</script>
+        <script>scripts\genFoundHero_scr.gml</script>
+        <script>scripts\genFoundEnemies_scr.gml</script>
+        <scripts name="battle">
+          <script>scripts\orderAttackers_scr.gml</script>
+          <script>scripts\setTarget_scr.gml</script>
+        </scripts>
+      </scripts>
     </scripts>
     <scripts name="prequest">
       <script>scripts\addHero_scr.gml</script>
@@ -84,7 +101,7 @@
       </objects>
     </objects>
     <objects name="quest">
-      <object>objects\encounterSpawner_obj</object>
+      <object>objects\encSpawner_obj</object>
       <object>objects\endTimer_obj</object>
     </objects>
   </objects>

@@ -1,4 +1,7 @@
 {
+    //clearParty_scr();
+    //empties members from party
+    
     while(ds_list_size(global.party)) {
         ds_list_delete(global.party, 0);
     }

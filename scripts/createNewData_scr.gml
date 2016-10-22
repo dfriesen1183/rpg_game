@@ -1,4 +1,7 @@
 {
+    //createNewData_scr();
+    //readies new data for use
+
     //deleting current data
     /*if (!is_undefined(global.data)) {
         //delete here
@@ -35,7 +38,7 @@
             ds_map_add(hero,"hp",hp);
             ds_map_add(hero,"maxHp",hp);
             ds_map_add(hero,"friendly",true);
-        addHero_scr(hero, 0);
+        addHero_scr(hero, true);
     }
     ds_map_add_list(global.data, "party", ds_list_create());
     global.party = ds_map_find_value(global.data, "party");

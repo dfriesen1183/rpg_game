@@ -1,4 +1,7 @@
 {
+    //loadGame_scr();
+    //loads game data, or calls for new data to be created
+
     global.saveLoc = "save.dat";
     
     //far from foolproof: we need to check against corruption, tampering, etc.

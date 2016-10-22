@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    self.sprite_index = heroButton_spr;
+    id.sprite_index = heroButton_spr;
     event_inherited();
 }
 </string>
@@ -52,11 +52,11 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (self.active) {
-        self.active = false;
-        self.image_index = 0;
+    if (id.active) {
+        id.active = false;
+        id.image_index = 0;
         
-        var hero = ds_list_find_value(global.heroes, self.index);
+        var hero = ds_list_find_value(global.heroes, id.index);
         var partyIndex = ds_map_find_value(hero, "partyIndex");
         ds_list_delete(global.party, partyIndex);
         //updating recorded positions
@@ -70,17 +70,17 @@
             }
         }
         
-        if (instance_number(mainMenuBegin_obj)) {
-            mainMenuBegin_obj.image_index = 3;
+        with (mainMenuBegin_obj) {
+            id.image_index = 3;
         }
     } else {
-        var newMember = ds_list_find_value(global.heroes, self.index);
-        var result = addHero_scr(newMember, 1);
-        if (result == 0) {
-            self.active = true;
-            self.image_index = 2;
-            if (instance_number(mainMenuBegin_obj)) {
-                mainMenuBegin_obj.image_index = 0;
+        var newMember = ds_list_find_value(global.heroes, id.index);
+        var result = addHero_scr(newMember, false);
+        if (result) {
+            id.active = true;
+            id.image_index = 2;
+            with (mainMenuBegin_obj) {
+                id.image_index = 0;
             }
         }
     }

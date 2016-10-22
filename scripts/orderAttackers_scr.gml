@@ -1,4 +1,7 @@
 {
+    //orderAttackers_scr();
+    //concatenates opposing parties, shuffles list created
+
     var order = ds_list_create();
     
     var size = ds_list_size(global.party);

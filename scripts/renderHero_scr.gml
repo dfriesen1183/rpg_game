@@ -1,4 +1,5 @@
 {
-    //for generating the heroes themselves (within buttons, quests)
+    //renderHero_scr(index);
+    //draws hero
 }
 
