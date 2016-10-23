@@ -4,11 +4,14 @@
 
     var questSuccess = argument0;
 
-    ds_map_replace(global.record, "active", false);
     if (questSuccess) {
-        show_debug_message("Quest Complete!");
+        var msg = "Quest Complete!";
+        show_debug_message(msg);
+        genLogEntry_scr(msg);
     } else {
-        show_debug_message("Quest Failed!");
+        var msg = "Quest Failed!";
+        show_debug_message(msg);
+        genLogEntry_scr(msg);
     }
     instance_create(0,0,questMenuComplete_obj);
 

@@ -27,9 +27,17 @@
         return true;
     } else {
         if (toHeroes) {
-            show_debug_message("no room in guild");
+            var msg = "no room in guild";
+            show_debug_message(msg);
+            if (!ds_map_find_value(global.record, "complete")) {
+                genLogEntry_scr(msg);
+            }
         } else {
-            show_debug_message("no room in party");
+            var msg = "no room in party";
+            show_debug_message(msg);
+            if (!ds_map_find_value(global.record, "complete")) {
+                genLogEntry_scr(msg);
+            }
         }
     }
     return false;

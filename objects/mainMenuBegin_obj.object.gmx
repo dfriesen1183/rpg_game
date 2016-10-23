@@ -88,7 +88,6 @@
             if (ds_map_find_value(global.record, "duration") &lt;= 0) {
                 ds_map_replace(global.record, "duration", 2*60);
             }
-            show_debug_message("quest duration: "+string(ds_map_find_value(global.record, "duration")/60)+"m");
             ds_map_replace(global.record, "time", 0);
             ds_map_replace(global.record, "next", 0);
             ds_map_replace(global.record, "complete", false);

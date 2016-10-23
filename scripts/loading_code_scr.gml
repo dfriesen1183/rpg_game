@@ -8,14 +8,14 @@
     //randomize(); //randomizes seed
     loadGame_scr();
     createNewData_scr();
-    ds_map_delete(global.record, "log");
+    /*ds_map_delete(global.record, "log");
     ds_map_add_list(global.record, "log", ds_list_create());
     global.logText = ds_map_find_value(global.record, "log");
     for (var i=0; i<20; i++) {
         ds_list_add(global.logText, "fdjsklfdasjkfldjaskfl;dasjfkdlsjfieowjrqeqnfme,wqnvm,.sfjkdlsa;ioucx");
     }
     global.logText = ds_map_find_value(global.record, "log");
-    global.logObj = ds_list_create();
+    global.logObj = ds_list_create();*/
 
     if (ds_map_find_value(global.record, "complete") == true) {
         room_goto(mainMenuMain_room);

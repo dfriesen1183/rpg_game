@@ -18,7 +18,7 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <scripts name="rooms">
+    <scripts name="room_creation">
       <script>scripts\loading_code_scr.gml</script>
       <script>scripts\mainMenuMain_code_scr.gml</script>
       <script>scripts\mainMenuHeroes_code_scr.gml</script>
@@ -55,6 +55,8 @@
           <script>scripts\setTarget_scr.gml</script>
         </scripts>
       </scripts>
+      <script>scripts\genLogEntry_scr.gml</script>
+      <script>scripts\displayLogEntry_scr.gml</script>
     </scripts>
     <scripts name="utility">
       <script>scripts\ds_list_add_map.gml</script>

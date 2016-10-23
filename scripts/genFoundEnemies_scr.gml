@@ -13,7 +13,9 @@
     
     //assembling enemy party
     var enemyCount = irandom_range(1,3);
-    show_debug_message(string(enemyCount)+" enemies found");
+    var msg = string(enemyCount)+" enemies found";
+    show_debug_message(msg);
+    genLogEntry_scr(msg);
     global.enemyParty = ds_list_create();
     for (var i=0; i<enemyCount; i++) {
         ds_list_add(global.enemyParty, ds_map_create());
@@ -33,7 +35,9 @@
     if (67 > ambushChance) {
         var order = ds_list_create();
         //party ambushes enemy
-        show_debug_message("Party caught the enemy by surprise");
+        var msg = "Party caught the enemy by surprise";
+        show_debug_message(msg);
+        genLogEntry_scr(msg);
         var tempList = ds_list_create();
         var size = ds_list_size(global.party);
         for (var i=0; i<size; i++) {
@@ -59,7 +63,9 @@
         //level opportunity
         var order = orderAttackers_scr();
     } else {
-        show_debug_message("Enemy caught the party by surprise");
+        var msg = "Enemy caught the party by surprise";
+        show_debug_message(msg);
+        genLogEntry_scr(msg);
         var order = ds_list_create();
         //enemy ambushes party
         var tempList = ds_list_create();
@@ -88,7 +94,9 @@
     var victory = false;
     var fighting = true;
     while(fighting) {
-        show_debug_message("-- new round --");
+        //var msg = "-- new round --";
+        show_debug_message(msg);
+        genLogEntry_scr(msg);
     
         var i_size = ds_list_size(order);
         for (var i=0; i<i_size; i++) {
@@ -124,7 +132,9 @@
             if (ds_map_find_value(target, "hp") < 0) { ds_map_replace(target, "hp", 0);}
             
             if (ds_map_find_value(target, "hp") <= 0) {
-                show_debug_message(string(ds_map_find_value(attacker, "name"))+" felled "+string(ds_map_find_value(target, "name")));
+                var msg = string(ds_map_find_value(attacker, "name"))+" felled "+string(ds_map_find_value(target, "name"));
+                show_debug_message(msg);
+                genLogEntry_scr(msg);
                 
                 //attending to visual representation upon hero defeat
                 if (ds_map_find_value(target, "friendly")) {
@@ -196,7 +206,9 @@
                     break;
                 }
             } else {
-                show_debug_message(string(ds_map_find_value(attacker, "name"))+" hit "+string(ds_map_find_value(target, "name"))+" for "+string(dmg)+"dmg. "+string(ds_map_find_value(target, "name"))+" has "+string(ds_map_find_value(target, "hp"))+" health left");
+                var msg = string(ds_map_find_value(attacker, "name"))+" hit "+string(ds_map_find_value(target, "name"))+" for "+string(dmg)+"dmg. "+string(ds_map_find_value(target, "name"))+" has "+string(ds_map_find_value(target, "hp"))+" health left";
+                show_debug_message(msg);
+                genLogEntry_scr(msg);
             }
         }
         if (false == fighting) {
@@ -215,10 +227,14 @@
     ds_list_destroy(global.enemyParty);
     
     if (victory) {
-        show_debug_message("No Enemies left standing");
+        var msg = "No Enemies left standing";
+        show_debug_message(msg);
+        genLogEntry_scr(msg);
         return 0;
     } else {
-        show_debug_message("No Heroes left standing");
+        var msg = "No Heroes left standing";
+        show_debug_message(msg);
+        genLogEntry_scr(msg);
         return 1;
     }
 

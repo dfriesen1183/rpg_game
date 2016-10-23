@@ -19,38 +19,48 @@
     
     //readying log
     var outerMarg = 5;
+    var innerMarg_x = 20;
+    var innerMarg_y = 5;
     global.logBounding = instance_create(outerMarg,850,logBounding_obj);
-    var innerMargX = 20;
-    var innerMargY = 5;
-
-    var boundingOffset = global.logBounding.y;
-    var boundingInnerHeight = global.logBounding.height - 2*innerMargY;
-    var heightTotal = 0;
-    var entryWidth = global.logBounding.width - innerMargX*2;
-    var entryFont = simplePixelsMed;
     
-    draw_set_font(entryFont);
+    global.logFormat = ds_map_create();
+        ds_map_add(global.logFormat, "outMarg", outerMarg);
+        ds_map_add(global.logFormat, "inMarg_x", innerMarg_x);
+        ds_map_add(global.logFormat, "inMarg_y", innerMarg_y);
+        ds_map_add(global.logFormat, "offset", global.logBounding.y);
+        ds_map_add(global.logFormat, "innerHeight", global.logBounding.height - 2*innerMarg_y);
+        ds_map_add(global.logFormat, "font", simplePixelsMed);
+        ds_map_add(global.logFormat, "width", global.logBounding.width - innerMarg_x*2);
+
+    var index = 0;
+    var width = ds_map_find_value(global.logFormat, "width");
+    var heightTotal = 0;
+    var boundingInnerHeight = ds_map_find_value(global.logFormat, "innerHeight");
+
+    draw_set_font(ds_map_find_value(global.logFormat, "font"));
     size = ds_list_size(global.logText);
-    for (var i=0; i<size; i++) {
-        var entry = instance_create(outerMarg + innerMargX, boundingOffset + innerMargY + heightTotal, logEntry_obj);
-        entry.width = entryWidth;
-        entry.text = string_upper(ds_list_find_value(global.logText, i));
-        entry.font = entryFont;
-        entry.height = string_height_ext(entry.text, -1, entry.width);
-        
-        heightTotal += entry.height;
+    for (; index<size; index++) {
+        var text = ds_list_find_value(global.logText, index);
+        var height = string_height_ext(text, -1, width);
+
+        heightTotal += height;
         if (heightTotal > boundingInnerHeight) {
-            with (entry) {
-                instance_destroy();
-            }
             break;
-        } else {
-            ds_list_add(global.logObj, entry);
         }
+    }
+    for (var i=index-1; i>=0; i--) {
+        var text = ds_list_find_value(global.logText, i);
+        displayLogEntry_scr(text);
     }
     draw_set_font(-1);
     
     //initiating quest cycle
+    if (size == 0) {
+        var durHuman = string(ds_map_find_value(global.record, "duration")/60);
+        var msg = "Embarked on "+durHuman+"m quest";
+        genLogEntry_scr(msg);
+        show_debug_message(msg);
+    }
     questLogic_scr();
 }
 

@@ -4,7 +4,9 @@
 
     var equipChance = floor(random(100));
     while (equipChance > 80) {
-        show_debug_message("found equipment");
+        var msg = "found equipment";
+        show_debug_message(msg);
+        genLogEntry_scr(msg);
         // global.record.equip...
         equipChance = floor(random(100));
     }
@@ -16,7 +18,9 @@
         goldChance = floor(random(100));
         recurGoldChance /= 1.5;
     }
-    show_debug_message("found "+string(gold)+" gold");
+    var msg = "found "+string(gold)+" gold";
+    show_debug_message(msg);
+    genLogEntry_scr(msg);
     var currentGold = ds_map_find_value(global.record,"gold") + gold;
     ds_map_replace(global.record, "gold", gold);
     // could have party reactions here, maybe

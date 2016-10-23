@@ -5,7 +5,9 @@
 
     var level = floor(random_range(3,13));
     var hp = floor(random_range(20,35));
-    show_debug_message("found a level "+string(level)+" hero with "+string(hp)+" hp");
+    var msg = "found a level "+string(level)+" hero with "+string(hp)+" hp";
+    show_debug_message(msg);
+    genLogEntry_scr(msg);
 
     var index = ds_list_size(global.heroes);
     var partyIndex = ds_list_size(global.party);
