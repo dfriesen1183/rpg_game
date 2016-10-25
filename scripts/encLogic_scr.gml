@@ -3,9 +3,7 @@
     //returns boolean 'quest failure'
     //determines encounter type
     
-    var msg = "----------";
-    show_debug_message(msg);
-    genLogEntry_scr(msg);
+    genLogEntry_scr("----------");
     var encType = ceil(random(100)); //percentage-based
     if (encType > 90) {
         //companion generated

@@ -6,60 +6,62 @@
     //readying party
     var size = ds_list_size(global.party);
     for (var i=0; i<size; i++) {
-        var hero = ds_list_find_value(global.party, i);
-        if (is_undefined(ds_map_find_value(hero, "partyIndex"))) {
-            ds_map_add(hero, "partyIndex", i);
-        } else {
-            ds_map_replace(hero, "partyIndex", i);
-        }
+        var hero = global.party[| i];
+        hero[? "partyIndex"] = i;
 
-        var index = ds_map_find_value(hero, "index");
+        var index = hero[? "index"];
         displayPartyMember_scr(index, i, false);
     }
     
+    
     //readying log
-    var outerMarg = 5;
-    var innerMarg_x = 20;
-    var innerMarg_y = 5;
-    global.logBounding = instance_create(outerMarg,850,logBounding_obj);
+    
+    var outerMarg = ds_list_create();
+    outerMarg[| 0] = 5;//left
+    outerMarg[| 1] = 5;//right
+    outerMarg[| 2] = 850;//top
+    outerMarg[| 3] = 5;//bottom
+    var innerMarg = ds_list_create();
+    innerMarg[| 0] = 20;//left
+    innerMarg[| 1] = 20;//right
+    innerMarg[| 2] = 5;//top
+    innerMarg[| 3] = 5;//bottom
+
+    global.logBounding = instance_create(outerMarg[| 0],outerMarg[| 2],logBounding_obj);
     
     global.logFormat = ds_map_create();
-        ds_map_add(global.logFormat, "outMarg", outerMarg);
-        ds_map_add(global.logFormat, "inMarg_x", innerMarg_x);
-        ds_map_add(global.logFormat, "inMarg_y", innerMarg_y);
-        ds_map_add(global.logFormat, "offset", global.logBounding.y);
-        ds_map_add(global.logFormat, "innerHeight", global.logBounding.height - 2*innerMarg_y);
-        ds_map_add(global.logFormat, "font", simplePixelsMed);
-        ds_map_add(global.logFormat, "width", global.logBounding.width - innerMarg_x*2);
+    global.logFormat[? "outMarg"] = outerMarg;
+    global.logFormat[? "inMarg"] = innerMarg;
+    global.logFormat[? "inWidth"] = global.logBounding.width - (innerMarg[| 0] + innerMarg[| 1]);
+    global.logFormat[? "inHeight"] = global.logBounding.height - (innerMarg[| 2] + innerMarg[| 3]);
+    global.logFormat[? "font"] = simplePixelsMed;
+
 
     var index = 0;
-    var width = ds_map_find_value(global.logFormat, "width");
     var heightTotal = 0;
-    var boundingInnerHeight = ds_map_find_value(global.logFormat, "innerHeight");
+    var width = global.logFormat[? "inWidth"];
+    var boundingInnerHeight = global.logFormat[? "inHeight"];
 
-    draw_set_font(ds_map_find_value(global.logFormat, "font"));
+    draw_set_font(global.logFormat[? "font"]);
     size = ds_list_size(global.logText);
     for (; index<size; index++) {
-        var text = ds_list_find_value(global.logText, index);
-        var height = string_height_ext(text, -1, width);
-
-        heightTotal += height;
         if (heightTotal > boundingInnerHeight) {
             break;
         }
+        var text = global.logText[| index];
+        var height = string_height_ext(text, -1, width);
+        heightTotal += height;
     }
     for (var i=index-1; i>=0; i--) {
-        var text = ds_list_find_value(global.logText, i);
+        var text = global.logText[| i];
         displayLogEntry_scr(text);
     }
-    draw_set_font(-1);
     
+
     //initiating quest cycle
     if (size == 0) {
-        var durHuman = string(ds_map_find_value(global.record, "duration")/60);
-        var msg = "Embarked on "+durHuman+"m quest";
-        genLogEntry_scr(msg);
-        show_debug_message(msg);
+        var durHuman = secToTime_scr(global.record[? "duration"]);
+        genLogEntry_scr("Embarked on "+string(durHuman)+"m quest");
     }
     questLogic_scr();
 }

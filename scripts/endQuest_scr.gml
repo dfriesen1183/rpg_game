@@ -5,13 +5,9 @@
     var questSuccess = argument0;
 
     if (questSuccess) {
-        var msg = "Quest Complete!";
-        show_debug_message(msg);
-        genLogEntry_scr(msg);
+        genLogEntry_scr("Quest Complete!");
     } else {
-        var msg = "Quest Failed!";
-        show_debug_message(msg);
-        genLogEntry_scr(msg);
+        genLogEntry_scr("Quest Failed!");
     }
     instance_create(0,0,questMenuComplete_obj);
 

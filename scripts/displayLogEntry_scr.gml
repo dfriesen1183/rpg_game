@@ -4,10 +4,10 @@
     
     var text = argument0;
     
-    var entry_x = ds_map_find_value(global.logFormat, "outMarg") + ds_map_find_value(global.logFormat, "inMarg_x");
-    var entry_y = ds_map_find_value(global.logFormat, "offset") + ds_map_find_value(global.logFormat, "inMarg_y");
-    var width = ds_map_find_value(global.logFormat, "width");
-    draw_set_font(ds_map_find_value(global.logFormat, "font"));
+    var entry_x = ds_list_find_value(global.logFormat[? "outMarg"], 0) + ds_list_find_value(global.logFormat[? "inMarg"], 0);
+    var entry_y = ds_list_find_value(global.logFormat[? "outMarg"], 2) + ds_list_find_value(global.logFormat[? "inMarg"], 2);
+    var width = global.logFormat[? "inWidth"];
+    draw_set_font(global.logFormat[? "font"]);
     var _height = string_height_ext(text, -1, width);
 
     with (logEntry_obj) {
@@ -15,14 +15,20 @@
     }
     
     var lastIndex = ds_list_size(global.logObj) - 1;
-    if (lastIndex >= 0) {
-        var lastEntry = ds_list_find_value(global.logObj, lastIndex);
-        var border = room_height - ds_map_find_value(global.logFormat, "outMarg") - ds_map_find_value(global.logFormat, "inMarg_y");
-        if (lastEntry.y + lastEntry.height > border) {
-            with (lastEntry) {
-                instance_destroy();
+    var border = room_height - ds_list_find_value(global.logFormat[? "outMarg"], 3) - ds_list_find_value(global.logFormat[? "inMarg"], 3);
+    for (var i=lastIndex; i>=0; i--) {
+        var entry = global.logObj[| i];
+        if (ds_exists(entry, ds_type_list)) {
+            if (entry.y > border) {
+                with (entry) {
+                    instance_destroy();
+                }
+                ds_list_delete(global.logObj, i);
+            } else {
+                break;
             }
-            ds_list_delete(global.logObj, lastIndex);
+        } else {
+            ds_list_delete(global.logObj, i);
         }
     }
     
@@ -30,7 +36,7 @@
     ds_list_insert(global.logObj, 0, entry);
     entry.width = width;
     entry.text = string_upper(text);
-    entry.font = ds_map_find_value(global.logFormat, "font");
+    entry.font = global.logFormat[? "font"];
     entry.height = _height;
 }
 

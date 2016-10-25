@@ -26,9 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>{
+    id.duration = 1*10;
     event_inherited();
-    id.duration = 1*60;
-    id.label = string(id.duration/60)+" MIN";
 }
 
 </string>

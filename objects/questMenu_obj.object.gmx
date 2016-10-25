@@ -30,6 +30,7 @@
     id.labelColor = c_white;
     id.fontSml = simplePixels;
     id.fontLrg = simplePixelsLrg;
+    id.label = secToTime_scr(id.duration)+" MIN";
     event_inherited();
 }
 

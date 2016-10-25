@@ -71,6 +71,8 @@
         <script>scripts\scr_string_pad_right.gml</script>
         <script>scripts\scr_string_trim_right.gml</script>
       </scripts>
+      <script>scripts\recursive_ds_destroy.gml</script>
+      <script>scripts\secToTime_scr.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

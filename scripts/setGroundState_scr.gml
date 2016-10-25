@@ -23,6 +23,8 @@
     ds_map_replace(global.record,"time",0);
     ds_map_replace(global.record,"next",0);
     ds_map_replace(global.record,"complete",true);
-    ds_list_clear(ds_map_find_value(global.record, "log"));
+    ds_list_clear(global.logText);
+    ds_list_clear(global.logObj);
+    //recursive_ds_destroy(global.logFormat);
 }
 
