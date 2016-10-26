@@ -31,6 +31,6 @@
     member.partyIndex = partyIndex;
     member.found = found;
     
-    renderHero_scr();
+    renderHero_scr(member);
 }
 

@@ -38,6 +38,7 @@
             ds_map_add(hero,"hp",hp);
             ds_map_add(hero,"maxHp",hp);
             ds_map_add(hero,"friendly",true);
+            ds_map_add(hero,"sprite",irandom_range(0,5));
         addHero_scr(hero, true);
     }
     ds_map_add_list(global.data, "party", ds_list_create());

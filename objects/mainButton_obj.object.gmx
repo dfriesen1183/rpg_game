@@ -29,7 +29,10 @@
     id.sprite_index = mainButton_spr;
     id.labelColor = c_white;
     id.fontSml = simplePixels;
+    id.fontMed = simplePixelsMed;
     id.fontLrg = simplePixelsLrg;
+    id.scale = 1.5;
+    
     event_inherited(); //run after sprite data set
 }
 
@@ -58,8 +61,10 @@
             <string>{
     event_inherited();
     
-    if (self.height &gt;= 3*sprite_get_height(sprite_index)) {
+    if (id.scale &gt;= 3) {
         draw_set_font(id.fontLrg);
+    } else if (id.scale &gt;= 2) {
+        draw_set_font(id.fontMed);
     } else {
         draw_set_font(id.fontSml);
     }
@@ -68,7 +73,7 @@
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
     
-    draw_text(id.x + id.width/2, id.y + 0.9*id.height/2, id.label);
+    draw_text(id.x + id.width*id.scale/2, id.y + 0.9*id.height*id.scale/2, id.label);
 }
 
 </string>

@@ -8,7 +8,12 @@
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\hero_spr</sprite>
+    <sprite>sprites\hero0_spr</sprite>
+    <sprite>sprites\hero1_spr</sprite>
+    <sprite>sprites\hero2_spr</sprite>
+    <sprite>sprites\hero3_spr</sprite>
+    <sprite>sprites\hero4_spr</sprite>
+    <sprite>sprites\hero5_spr</sprite>
     <sprites name="buttons">
       <sprite>sprites\mainButton_spr</sprite>
       <sprite>sprites\heroButton_spr</sprite>

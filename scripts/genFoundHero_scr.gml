@@ -19,6 +19,7 @@
         ds_map_add(hero,"index",index);
         ds_map_add(hero,"friendly",true);
         ds_map_add(hero,"partyIndex",partyIndex);
+        ds_map_add(hero,"sprite",irandom_range(0,5));
         
     var heroes = addHero_scr(hero, true);
     var party = addHero_scr(hero, false);

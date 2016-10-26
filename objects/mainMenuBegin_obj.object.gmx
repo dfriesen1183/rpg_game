@@ -27,8 +27,10 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-    self.image_index = 3;
-    self.label = "DEPART";
+    id.image_index = 3;
+    //id.image_xscale = 3;
+    //id.image_yscale = id.image_xscale;
+    id.label = "DEPART";
 }
 
 </string>

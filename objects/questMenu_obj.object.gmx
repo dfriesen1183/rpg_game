@@ -27,8 +27,10 @@
             <kind>1</kind>
             <string>{
     id.sprite_index = mainButton_spr;
+    id.scale = 1;
     id.labelColor = c_white;
     id.fontSml = simplePixels;
+    id.fontMed = simplePixelsMed;
     id.fontLrg = simplePixelsLrg;
     id.label = secToTime_scr(id.duration)+" MIN";
     event_inherited();

@@ -29,8 +29,15 @@
     id.active = false;
     id.targeted = false;
     
-    id.width = sprite_get_width(sprite_index);
-    id.height = sprite_get_height(sprite_index);
+    id.width = sprite_get_width(sprite_index);//*id.scale;
+    id.height = sprite_get_height(sprite_index);//*id.scale;
+    
+    show_debug_message(id.bbox_bottom);
+    show_debug_message(id.bbox_right);
+    
+    //id.bbox_bottom = id.y + id.height;
+    //id.bbox_right = id.x + id.width;
+    
     //-image indices-
     //image0: default
     //image1: pressed
@@ -159,7 +166,9 @@
           <argument>
             <kind>1</kind>
             <string>{
-    draw_sprite_stretched(sprite_index, image_index, self.x, self.y, self.width, self.height);
+    id.image_xscale = id.scale;
+    id.image_yscale = id.scale;
+    draw_sprite_stretched(sprite_index, image_index, id.x, id.y, id.width*id.scale, id.height*id.scale);
 }
 
 </string>
