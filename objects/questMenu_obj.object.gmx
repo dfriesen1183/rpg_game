@@ -32,7 +32,7 @@
     id.fontSml = simplePixels;
     id.fontMed = simplePixelsMed;
     id.fontLrg = simplePixelsLrg;
-    id.label = secToTime_scr(id.duration)+" MIN";
+    id.label = string_upper(secToTime_scr(id.duration));
     event_inherited();
 }
 

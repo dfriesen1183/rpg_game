@@ -61,7 +61,7 @@
     //initiating quest cycle
     if (size == 0) {
         var durHuman = secToTime_scr(global.record[? "duration"]);
-        genLogEntry_scr("Embarked on "+string(durHuman)+"m quest");
+        genLogEntry_scr("Embarked on "+string(durHuman)+" quest");
     }
     questLogic_scr();
 }
