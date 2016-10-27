@@ -79,9 +79,9 @@
     } else {
         var newMember = ds_list_find_value(global.heroes, id.index);
         var result = addHero_scr(newMember, false);
-        if (result) {
-            id.active = true;
-            id.image_index = 2;
+        id.active = true;
+        id.image_index = 2;
+        if (result &amp;&amp; global.record[? "duration"] != 0) {
             with (mainMenuBegin_obj) {
                 id.image_index = 0;
             }

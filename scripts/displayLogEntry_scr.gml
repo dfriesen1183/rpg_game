@@ -52,7 +52,6 @@
     
     var new_y = room_height - (ds_list_find_value(global.logFormat[? "outMarg"], 3) + ds_list_find_value(global.logFormat[? "inMarg"], 3) + _height);
     entry.y = new_y;
-    show_debug_message(new_y);
 }
 
 

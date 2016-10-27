@@ -26,17 +26,14 @@
         with (heroButton_obj) {
             if (self.index == memberIndex) {
                 self.active = true;
-                self.sprite_index = heroButtonTempActive_spr;
+                self.image_index = 2;
             }
         }
     }
     
     //menu objects
     instance_create(200, 800, mainMenuMain_obj);
-    if (0 < ds_map_find_value(global.record, "duration")) {
-        instance_create(350, 800, mainMenuBegin_obj);
-    } else {
-        instance_create(350, 800, mainMenuQuests_obj);
-    }
+    instance_create(350, 900, mainMenuBegin_obj);
+    instance_create(350, 800, mainMenuQuests_obj);
 }
 

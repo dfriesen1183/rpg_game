@@ -62,8 +62,10 @@
     event_inherited();
     if (id.active) {
         ds_map_replace(global.record, "duration", self.duration);
-        with (mainMenuBegin_obj) {
-            id.image_index = 0;
+        if (ds_list_size(global.party)) {
+            with (mainMenuBegin_obj) {
+                id.image_index = 0;
+            }
         }
     } else {
         ds_map_replace(global.record, "duration", 0);

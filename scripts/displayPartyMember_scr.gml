@@ -20,7 +20,7 @@
             member_x = 450;
             member_y = 712.5;
             break;
-        case 3:
+        default:
             member_x = 375;
             member_y = 750;
             break;

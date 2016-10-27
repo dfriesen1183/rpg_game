@@ -16,8 +16,9 @@
     //generating log items for each party member
     var size = ds_list_size(global.party);
     var partyDefeated = true;
+
     for (var i=0; i<size; i++) {
-        hero = ds_list_find_value(global.party, i);
+        var hero = ds_list_find_value(global.party, i);
         var name = ds_map_find_value(hero,"name");
         var level = ds_map_find_value(hero,"level");
         var hp = ds_map_find_value(hero,"hp");
