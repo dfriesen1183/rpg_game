@@ -15,11 +15,11 @@
         hpLeft += ds_map_find_value(global.party[| i], "hp");
     }
     
-    message += "Heroes fought a party of "+string(enemyCount);
+    message += "Party fought";
     if (enemyCount > 1) {
-        message += " enemies";
+        message += " a group of "+string(enemyCount)+" enemies";
     } else {
-        message += " enemy";
+        message += " an enemy";
     }
     if (victory) {
         message += " and won";

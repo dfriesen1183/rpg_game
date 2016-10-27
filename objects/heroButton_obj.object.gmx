@@ -28,8 +28,10 @@
             <string>{
     id.sprite_index = heroButton_spr;
     id.scale = 1;
+    
     event_inherited();
 }
+
 </string>
           </argument>
         </arguments>

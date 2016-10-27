@@ -13,10 +13,11 @@
     
     var size = ds_list_size(global.heroes);
     for (var i=0; i<size; i++) {
-        var hero_x = colLeftMarg + (heroWidth + innerMarg)*(i%numPerRow);
-        var hero_y = colTopMarg + (heroHeight + innerMarg)*floor(i/numPerRow);
-        var hero = instance_create(hero_x, hero_y, heroButton_obj);
-        hero.index = i;
+        var heroButton_x = colLeftMarg + (heroWidth + innerMarg)*(i%numPerRow);
+        var heroButton_y = colTopMarg + (heroHeight + innerMarg)*floor(i/numPerRow);
+        var heroButton = instance_create(heroButton_x, heroButton_y, heroButton_obj);
+        heroButton.index = i;
+        displayGuildHero_scr(heroButton);
     }
     size = ds_list_size(global.party);
     for (var i=0; i<size; i++) {

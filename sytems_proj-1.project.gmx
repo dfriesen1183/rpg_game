@@ -39,9 +39,10 @@
     </scripts>
     <scripts name="prequest">
       <script>scripts\addHero_scr.gml</script>
-      <script>scripts\renderHero_scr.gml</script>
       <script>scripts\clearParty_scr.gml</script>
+      <script>scripts\displayGuildHero_scr.gml</script>
       <script>scripts\displayPartyMember_scr.gml</script>
+      <script>scripts\renderHero_scr.gml</script>
     </scripts>
     <scripts name="quest">
       <script>scripts\questLogic_scr.gml</script>
