@@ -32,9 +32,6 @@
     id.width = sprite_get_width(sprite_index);//*id.scale;
     id.height = sprite_get_height(sprite_index);//*id.scale;
     
-    show_debug_message(id.bbox_bottom);
-    show_debug_message(id.bbox_right);
-    
     //id.bbox_bottom = id.y + id.height;
     //id.bbox_right = id.x + id.width;
     

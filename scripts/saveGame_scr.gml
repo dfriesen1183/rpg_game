@@ -15,6 +15,9 @@
     file_text_write_string(file, saveData);
     file_text_close(file);
     show_debug_message(saveData);*/
-    ds_map_secure_save(global.data, global.saveLoc);
+    ds_map_secure_save(global.guild, global.saveLoc+"guild");
+    ds_map_secure_save(global.record, global.saveLoc+"record");
+    ds_map_secure_save(global.heroes, global.saveLoc+"heroes");
+    ds_map_secure_save(global.party, global.saveLoc+"party");
 }
 

@@ -58,6 +58,7 @@
         <scripts name="battle">
           <script>scripts\orderAttackers_scr.gml</script>
           <script>scripts\setTarget_scr.gml</script>
+          <script>scripts\battleRecap_scr.gml</script>
         </scripts>
       </scripts>
       <script>scripts\genLogEntry_scr.gml</script>
@@ -81,9 +82,12 @@
     </scripts>
   </scripts>
   <fonts name="fonts">
-    <font>fonts\simplePixels</font>
-    <font>fonts\simplePixelsMed</font>
-    <font>fonts\simplePixelsLrg</font>
+    <font>fonts\simplePixels12</font>
+    <font>fonts\simplePixels16</font>
+    <font>fonts\simplePixels20</font>
+    <font>fonts\simplePixels24</font>
+    <font>fonts\simplePixels28</font>
+    <font>fonts\simplePixels32</font>
   </fonts>
   <objects name="objects">
     <object>objects\hero_obj</object>

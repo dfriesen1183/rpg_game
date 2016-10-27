@@ -28,9 +28,9 @@
             <string>{
     id.sprite_index = mainButton_spr;
     id.labelColor = c_white;
-    id.fontSml = simplePixels;
-    id.fontMed = simplePixelsMed;
-    id.fontLrg = simplePixelsLrg;
+    id.fontSml = simplePixels12;
+    id.fontMed = simplePixels16;
+    id.fontLrg = simplePixels20;
     id.scale = 1.5;
     
     event_inherited(); //run after sprite data set
@@ -61,9 +61,9 @@
             <string>{
     event_inherited();
     
-    if (id.scale &gt;= 3) {
+    if (id.scale &gt;= 2) {
         draw_set_font(id.fontLrg);
-    } else if (id.scale &gt;= 2) {
+    } else if (id.scale &gt;= 1.5) {
         draw_set_font(id.fontMed);
     } else {
         draw_set_font(id.fontSml);

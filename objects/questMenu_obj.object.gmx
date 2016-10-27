@@ -29,9 +29,9 @@
     id.sprite_index = mainButton_spr;
     id.scale = 1;
     id.labelColor = c_white;
-    id.fontSml = simplePixels;
-    id.fontMed = simplePixelsMed;
-    id.fontLrg = simplePixelsLrg;
+    id.fontSml = simplePixels12;
+    id.fontMed = simplePixels16;
+    id.fontLrg = simplePixels20;
     id.label = string_upper(secToTime_scr(id.duration));
     event_inherited();
 }

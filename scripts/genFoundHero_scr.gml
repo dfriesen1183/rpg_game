@@ -5,7 +5,7 @@
 
     var level = floor(random_range(3,13));
     var hp = floor(random_range(20,35));
-    genLogEntry_scr("found a level "+string(level)+" hero with "+string(hp)+" hp");
+    var message = "Found a level "+string(level)+" hero with "+string(hp)+" hp.";
 
     var index = ds_list_size(global.heroes);
     var partyIndex = ds_list_size(global.party);
@@ -25,8 +25,14 @@
     var party = addHero_scr(hero, false);
     if (party) {
         displayPartyMember_scr(index, partyIndex, true);
-    } else if (!heroes) {//!heroes && !party
-        ds_map_destroy(hero);
+    } else {
+        message += "#No room in party";
     }
+    if (heroes) {//!heroes && !party
+        ds_map_destroy(hero);
+    } else {
+        message += "#No room in guild";
+    }
+    genLogEntry_scr(message, true, false);
 }
 

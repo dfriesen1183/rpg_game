@@ -2,7 +2,7 @@
     //questLogic_scr();
     //coordinates spawners
 
-    var newLull = floor(random_range(10,20));
+    var newLull = irandom_range(10,20);
     if (newLull + ds_map_find_value(global.record, "time") < ds_map_find_value(global.record, "duration")) {
         var newTime = ds_map_find_value(global.record, "time") + newLull;
         ds_map_replace(global.record, "next", newTime);

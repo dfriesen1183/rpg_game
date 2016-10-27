@@ -5,9 +5,9 @@
     var questSuccess = argument0;
 
     if (questSuccess) {
-        genLogEntry_scr("Quest Complete!");
+        genLogEntry_scr("Quest Complete!", true, true);
     } else {
-        genLogEntry_scr("Quest Failed!");
+        genLogEntry_scr("Quest Failed!", false, true);
     }
     instance_create(0,0,questMenuComplete_obj);
 
