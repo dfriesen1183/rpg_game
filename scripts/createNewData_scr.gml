@@ -27,7 +27,7 @@
         ds_map_add(global.record, "damageDealt", 0);
         ds_map_add(global.record, "damageTaken", 0);
         ds_map_add_list(global.record, "log", ds_list_create());
-    
+        
     ds_map_add_list(global.data, "heroes", ds_list_create());
     global.heroes = ds_map_find_value(global.data, "heroes");
     for (var i=0; i<3; i++) {
@@ -43,9 +43,10 @@
             ds_map_add(hero,"sprite",irandom_range(0,5));
         addHero_scr(hero, true);
     }
+    
     ds_map_add_list(global.data, "party", ds_list_create());
     global.party = ds_map_find_value(global.data, "party");
-    
+
     saveGame_scr();
 }
 

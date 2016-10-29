@@ -24,6 +24,13 @@
         } else {
             ds_map_replace(hero, indexKey, index);
         }
+    /*show_debug_message("");
+    var data = ds_map_create();
+    ds_map_add_list(data, "party", global.party);
+    var output = json_encode(data);
+    show_debug_message(output);
+    ds_map_delete(data, "party");
+    ds_map_destroy(data);*/
         return true;
     }
     return false;

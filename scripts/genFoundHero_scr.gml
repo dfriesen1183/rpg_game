@@ -1,8 +1,4 @@
 {
-    var data = ds_map_create();
-    ds_map_add_list(data, "party", global.party);
-    var output = json_encode(data);
-    show_debug_message(output);
     //genFoundHero_scr();
     //generates hero encountered
     //attempts to add hero to both guild and party independently (possibility for temporary party members & non-party guild members)
@@ -27,23 +23,18 @@
         
     var heroes = addHero_scr(hero, true);
     var party = addHero_scr(hero, false);
+
     if (party) {
         displayPartyMember_scr(index, partyIndex, true);
     } else {
         message += "#No room in party";
     }
     if (heroes) {//!heroes && !party
-        ds_map_destroy(hero);
+        //
     } else {
+        ds_map_destroy(hero);
         message += "#No room in guild";
     }
     genLogEntry_scr(message, true, false);
-    
-    var data = ds_map_create();
-    ds_map_add_list(data, "party", global.party);
-    var output = json_encode(data);
-    show_debug_message(output);
-    ds_map_delete(data, "party");
-    ds_map_destroy(data);
 }
 
