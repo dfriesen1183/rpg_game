@@ -33,9 +33,21 @@
     </scripts>
     <scripts name="main">
       <script>scripts\loadGame_scr.gml</script>
-      <script>scripts\createNewData_scr.gml</script>
       <script>scripts\saveGame_scr.gml</script>
       <script>scripts\setGroundState_scr.gml</script>
+      <scripts name="createData">
+        <script>scripts\createSaveIndex_scr.gml</script>
+        <script>scripts\createSaveIndexItem_scr.gml</script>
+        <script>scripts\createNewData_scr.gml</script>
+        <scripts name="createResource">
+          <script>scripts\create_guild_scr.gml</script>
+          <script>scripts\create_heroes_scr.gml</script>
+          <script>scripts\create_record_scr.gml</script>
+          <script>scripts\create_party_scr.gml</script>
+        </scripts>
+      </scripts>
+      <script>scripts\viewActiveData_scr.gml</script>
+      <script>scripts\viewSavedData_scr.gml</script>
     </scripts>
     <scripts name="prequest">
       <script>scripts\addHero_scr.gml</script>
@@ -80,6 +92,8 @@
       </scripts>
       <script>scripts\recursive_ds_destroy.gml</script>
       <script>scripts\secToTime_scr.gml</script>
+      <script>scripts\output_list.gml</script>
+      <script>scripts\output_map.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

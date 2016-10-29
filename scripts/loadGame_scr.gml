@@ -1,23 +1,41 @@
 {
     //loadGame_scr();
     //loads game data, or calls for new data to be created
-
-    global.saveLoc = "data/";
+    createSaveIndex_scr();
+    viewSavedData_scr();
+    show_debug_message(" ");
+    viewActiveData_scr();
     
-    //far from foolproof: we need to check against corruption, tampering, etc.
-    if (file_exists(global.saveLoc)) {
-        //loading previous save data here
-        /*var file = file_text_open_read(global.saveLoc);
-        var saveJson = file_text_read_string(file);
-        file_text_close(file);
-        global.data = json_decode(saveJson);*/
-        global.guild = ds_map_secure_load(global.saveLoc+"guild");
-        global.record = ds_map_secure_load(global.saveLoc+"record");
-        global.heroes = ds_map_secure_load(global.saveLoc+"heroes");
-        global.party = ds_map_secure_load(global.saveLoc+"party");
-    } else {
-        createNewData_scr();
+    var size = ds_map_size(global.saveIndex);
+    var key = ds_map_find_first(global.saveIndex);
+    for (var i=0; i<size; i++) {
+        //doesn't check for corruption, etc.
+        var fileName = ds_map_find_value(global.saveIndex[? key], "file");
+        show_debug_message("file: "+fileName);
+        show_debug_message(key);
+        if (file_exists(fileName)) {
+            var ds = ds_map_find_value(global.saveIndex[? key], "ds");
+            var type = ds_map_find_value(global.saveIndex[? key], "type");
+            if (type == ds_type_list) {
+                var store = ds_map_create();
+                store = ds_map_secure_load(fileName);
+                ds_list_copy(ds, store[? key]);
+                ds_map_delete(store, key);
+                ds_map_destroy(store);
+            } else {
+                var store = ds_map_secure_load(fileName);
+                ds_map_copy(ds, store);
+            }
+        } else {
+            var scriptToCall = asset_get_index("create_"+key+"_scr");
+            script_execute(scriptToCall);
+        }
+        key = ds_map_find_next(global.saveIndex, key);
     }
+    show_debug_message(" ");
+    viewActiveData_scr();
+    show_debug_message(" ");
+    
     global.logText = ds_map_find_value(global.record, "log");
     global.logObj = ds_list_create();
     

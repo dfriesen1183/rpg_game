@@ -24,7 +24,8 @@
         self.y -= sprite_get_height(sprite_index)/2;
     }
     
-    clearParty_scr();
+    //clearParty_scr();
     ds_map_replace(global.record, "duration", 0);
+    ds_map_replace(global.record, "complete", true);
 }
 
