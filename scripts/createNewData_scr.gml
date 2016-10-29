@@ -3,7 +3,6 @@
     //readies new data for use
 
     createSaveIndex_scr();
-    
     //creating new save data
     var size = ds_map_size(global.saveIndex);
     var key = ds_map_find_first(global.saveIndex);
