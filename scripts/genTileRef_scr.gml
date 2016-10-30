@@ -5,6 +5,6 @@
     var tile_x = argument0;
     var tile_y = argument1;
     
-    return (tile_y - 1)*global.tileRow + tile_x - 1;
+    return tile_y*global.tileRow + tile_x;
 }
 

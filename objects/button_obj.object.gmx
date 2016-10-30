@@ -29,6 +29,7 @@
     id.active = false;
     id.targeted = false;
     
+    id.depth = -10;
     id.width = sprite_get_width(sprite_index);//*id.scale;
     id.height = sprite_get_height(sprite_index);//*id.scale;
     

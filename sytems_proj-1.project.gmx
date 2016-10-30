@@ -85,7 +85,8 @@
       <scripts name="bgTilesGeneration">
         <script>scripts\genPotentialIndex_tileset1_scr.gml</script>
         <script>scripts\genPotentialIndexItem_scr.gml</script>
-        <script>scripts\genTileRef_scr.gml</script>
+        <script>scripts\drawTileRow_scr.gml</script>
+        <script>scripts\getTile_scr.gml</script>
       </scripts>
     </scripts>
     <scripts name="utility">
@@ -154,7 +155,6 @@
       </objects>
       <objects name="background">
         <object>objects\bgTileSpawner_obj</object>
-        <object>objects\bgTile_obj</object>
       </objects>
     </objects>
   </objects>

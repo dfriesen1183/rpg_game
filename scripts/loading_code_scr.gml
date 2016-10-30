@@ -6,6 +6,7 @@
     //  if quest is active, automatically redirects there
 
     //randomize(); //randomizes seed
+    texture_set_interpolation(false);
     loadGame_scr();
 
     if (ds_map_find_value(global.record, "complete")) {

@@ -12,7 +12,9 @@
         var index = hero[? "index"];
         displayPartyMember_scr(index, i, false);
     }
-    
+
+    //bg creation
+    global.tileSpawner = instance_create(0,0,bgTileSpawner_obj);
     
     //readying log
     
