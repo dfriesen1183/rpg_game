@@ -31,7 +31,7 @@
     id.lastRow = ds_list_create();
 
     id.tileset = "tileset1";
-    var scriptGenRef = asset_get_index("genPotentialIndex_"+id.tileset+"scr");
+    var scriptGenRef = asset_get_index("genPotentialIndex_"+id.tileset+"_scr");
     script_execute(scriptGenRef);
     id.tileset = asset_get_index(id.tileset);
     
