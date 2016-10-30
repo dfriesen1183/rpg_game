@@ -18,6 +18,7 @@
         key = ds_map_find_next(global.tileGroup, key);
     }
     
+    //defining complementary pairs
     global.conGroup = ds_map_create();
     ds_map_add_list(global.conGroup, "left", ds_list_create());
     var left = global.conGroup[? "left"];

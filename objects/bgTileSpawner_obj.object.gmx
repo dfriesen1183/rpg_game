@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>{
+    id.active = false;
     id.currentRow = ds_list_create();
     id.lastRow = ds_list_create();
 
@@ -39,6 +40,8 @@
         var tile_y = room_height - drawSize*(i+1);
         drawTileRow_scr(tile_y);
     }
+    
+    id.active = true;
 }
 
 </string>
@@ -90,7 +93,15 @@
           <argument>
             <kind>1</kind>
             <string>{
-    //spawn when needed
+    if (id.active) {
+        var drawSize = id.scale*id.size;
+        var tile = tile_layer_find(1, drawSize/2, 0);
+        show_debug_message(tile);
+        tile_layer_shift(1,0,2);
+        if (tile_get_y(tile) &gt; 0) {
+            drawTileRow_scr(tile_get_y(tile) - drawSize);
+        }
+    }
 }
 
 </string>
