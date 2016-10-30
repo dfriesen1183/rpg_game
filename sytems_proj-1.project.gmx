@@ -24,7 +24,9 @@
       <sprite>sprites\logBounding_spr</sprite>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\tileset1</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="room_creation">
@@ -80,6 +82,11 @@
       </scripts>
       <script>scripts\genLogEntry_scr.gml</script>
       <script>scripts\displayLogEntry_scr.gml</script>
+      <scripts name="bgTilesGeneration">
+        <script>scripts\genPotentialIndex_tileset1_scr.gml</script>
+        <script>scripts\genPotentialIndexItem_scr.gml</script>
+        <script>scripts\genTileRef_scr.gml</script>
+      </scripts>
     </scripts>
     <scripts name="utility">
       <script>scripts\ds_list_add_map.gml</script>
@@ -137,10 +144,18 @@
       </objects>
     </objects>
     <objects name="quest">
-      <object>objects\encSpawner_obj</object>
-      <object>objects\endTimer_obj</object>
-      <object>objects\logEntry_obj</object>
-      <object>objects\logBounding_obj</object>
+      <objects name="time">
+        <object>objects\encSpawner_obj</object>
+        <object>objects\endTimer_obj</object>
+      </objects>
+      <objects name="log">
+        <object>objects\logBounding_obj</object>
+        <object>objects\logEntry_obj</object>
+      </objects>
+      <objects name="background">
+        <object>objects\bgTileSpawner_obj</object>
+        <object>objects\bgTile_obj</object>
+      </objects>
     </objects>
   </objects>
   <rooms name="rooms">
