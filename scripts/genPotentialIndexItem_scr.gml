@@ -1,4 +1,7 @@
 {
+    //genPotentialIndexItem_scr(x,y, int,int,int,int)
+    //index item constructor
+    
     var index_x = argument0;
     var index_y = argument1;
 

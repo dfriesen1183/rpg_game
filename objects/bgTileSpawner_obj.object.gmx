@@ -30,12 +30,16 @@
     id.currentRow = ds_list_create();
     id.lastRow = ds_list_create();
 
-    genPotentialIndex_tileset1_scr();
+    id.tileset = "tileset1";
+    var scriptGenRef = asset_get_index("genPotentialIndex_"+id.tileset+"scr");
+    script_execute(scriptGenRef);
+    id.tileset = asset_get_index(id.tileset);
     
     id.scale = 4;
     id.size = 16;
     var drawSize = 16*id.scale;
     var rowCount = ceil(room_height/drawSize);
+    //generate tile rows bottom to top
     for (var i=0; i&lt;rowCount; i++) {
         var tile_y = room_height - drawSize*(i+1);
         drawTileRow_scr(tile_y);
@@ -95,11 +99,22 @@
             <string>{
     if (id.active) {
         var drawSize = id.scale*id.size;
-        var tile = tile_layer_find(1, drawSize/2, 0);
-        show_debug_message(tile);
+        var tileLeading = tile_layer_find(1, drawSize/2, 0);
+        var tileTrailing = tile_layer_find(1, drawSize/2, room_height);
         tile_layer_shift(1,0,2);
-        if (tile_get_y(tile) &gt; 0) {
-            drawTileRow_scr(tile_get_y(tile) - drawSize);
+        //create head
+        if (tile_exists(tileLeading) &amp;&amp; tile_get_y(tileLeading) &gt; 0) {
+            drawTileRow_scr(tile_get_y(tileLeading) - drawSize);
+        }
+        //destroy tail
+        if (tile_exists(tileTrailing) &amp;&amp; tile_get_y(tileTrailing) &gt; room_height) {
+            var colCount = ceil(room_width/drawSize);
+            var roomHeight = room_height;
+            var _id, _ids = tile_get_ids();
+            for (var i=0; i&lt;array_length_1d(_ids); i++) {
+                _id = _ids[i];
+                if (tile_get_y(_id) &gt; roomHeight) tile_delete(_id);
+            }
         }
     }
 }

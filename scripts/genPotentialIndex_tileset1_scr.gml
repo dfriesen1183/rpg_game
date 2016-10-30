@@ -1,7 +1,11 @@
 {
+    //genPotentialIndex_tileset1_scr();
+    //(called from bgTileSpawner_obj)
+    //prepares <tileset1> reference data for procedural generation of backgrounds during quest
+
     global.tileRow = 7;
     
-    
+    //preparing group holders
     global.tileGroup = ds_map_create();
     ds_map_add_list(global.tileGroup, "left", ds_list_create());
     ds_map_add_list(global.tileGroup, "right", ds_list_create());
@@ -18,7 +22,7 @@
         key = ds_map_find_next(global.tileGroup, key);
     }
     
-    //defining complementary pairs
+    //defining complementary pairs (retroactively placed here)
     global.conGroup = ds_map_create();
     ds_map_add_list(global.conGroup, "left", ds_list_create());
     var left = global.conGroup[? "left"];
@@ -46,6 +50,7 @@
         down[| 3] = 0;
     
     
+    //preparing index with references to groups
     global.tileIndex = ds_grid_create(global.tileRow, global.tileRow);
     
     genPotentialIndexItem_scr(0,0, 0,0,0,0);
@@ -98,6 +103,7 @@
 
     genPotentialIndexItem_scr(6,6, 0,1,0,3);
 
+    //filling relevant groups with references back to index
     var width = ds_grid_width(global.tileIndex);
     var height = ds_grid_height(global.tileIndex) - 1;
     for (var i=0; i<width; i++) {
@@ -116,10 +122,6 @@
         }
     }
     
-    show_debug_message("");
-    var output = json_encode(global.tileGroup);
-    show_debug_message(output);
-
     /*show_debug_message("");
     var data = ds_map_create();
     ds_map_add_list(data, "up", global.tileGroup[? "up"]);

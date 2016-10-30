@@ -1,5 +1,6 @@
 {
     //drawTileRow_scr(y)
+    //generates row of tiles at given y coordinate, from left to right
     
     var tile_y = argument0;
     
@@ -11,7 +12,7 @@
         ds_list_add_list(id.currentRow, tileRef);
         
         var tile_x = drawSize*i;
-        var tile = tile_add(tileset1, tileRef[| 0]*id.size, tileRef[| 1]*id.size, id.size, id.size, tile_x, tile_y, 1);
+        var tile = tile_add(id.tileset, tileRef[| 0]*id.size, tileRef[| 1]*id.size, id.size, id.size, tile_x, tile_y, 1);
         tile_set_scale(tile, id.scale, id.scale);
     }
     

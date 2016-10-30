@@ -60,7 +60,7 @@
             ds_list_copy(candList, groupList);
         }
         
-        //chose candidate
+        //choose candidate
         tile = ds_list_create();
         var rangeEnd = ds_list_size(candList) - 1;
         if (rangeEnd >= 0) {
