@@ -47,7 +47,5 @@
     
         key = ds_map_find_next(global.saveIndex, key);
     }
-    
-    viewSavedData_scr();
 }
 

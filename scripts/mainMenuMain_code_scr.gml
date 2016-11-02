@@ -7,25 +7,14 @@
     saveGame_scr();
 
     //debug buttons
-    self.newData = instance_create(0, 0, debug_obj);
+    var newData = createInstance_scr(debug_obj, 0,0, 0,0, 0.2,-1);
 
     //creating buttons
-    self.heroes = instance_create(room_width/2, room_height/2 - 50, mainMenuHeroes_obj);
-    //self.heroes.scale = 1;
-    //centering
-    with (mainMenuHeroes_obj) {
-        self.x -= sprite_get_width(sprite_index)/2;
-        self.y -= sprite_get_height(sprite_index)/2;
-    }
-
-    self.quests = instance_create(room_width/2, room_height/2 + 50, mainMenuQuests_obj);
-    with (mainMenuQuests_obj) {
-        self.x -= sprite_get_width(sprite_index)/2;
-        self.y -= sprite_get_height(sprite_index)/2;
-    }
+    var heroes = createInstance_scr(mainMenuHeroes_obj, 0.5,0.45, 1,1, 0.2,-1);
+    var quests = createInstance_scr(mainMenuQuests_obj, 0.5,0.55, 1,1, 0.2,-1);
     
     //clearParty_scr();
-    ds_map_replace(global.record, "duration", 0);
+    //ds_map_replace(global.record, "duration", 0);
     ds_map_replace(global.record, "complete", true);
 }
 

@@ -1,10 +1,8 @@
 {
-    //loadGame_scr();
+    //loadGame_scr()
     //loads game data, or calls for new data to be created
     createSaveIndex_scr();
-    viewSavedData_scr();
-    show_debug_message(" ");
-    viewActiveData_scr();
+    
     
     var size = ds_map_size(global.saveIndex);
     var key = ds_map_find_first(global.saveIndex);
@@ -32,9 +30,6 @@
         }
         key = ds_map_find_next(global.saveIndex, key);
     }
-    show_debug_message(" ");
-    viewActiveData_scr();
-    show_debug_message(" ");
     
     global.logText = ds_map_find_value(global.record, "log");
     global.logObj = ds_list_create();

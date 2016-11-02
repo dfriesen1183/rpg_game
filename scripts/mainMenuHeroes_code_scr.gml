@@ -5,17 +5,17 @@
 
     //hero objects
     var numPerRow = 3;
-    var heroWidth = 100;
+    var heroWidth = 0.18;
     var heroHeight = heroWidth;
-    var innerMarg = 30;
-    var colTopMarg = 500;
-    var colLeftMarg = (room_width - (heroWidth*numPerRow + innerMarg*(numPerRow - 1)))/2;
+    var innerMarg = 0.02;
+    var colTopMarg = 0.2;
+    var colLeftMarg = 0.2;
     
     var size = ds_list_size(global.heroes);
     for (var i=0; i<size; i++) {
         var heroButton_x = colLeftMarg + (heroWidth + innerMarg)*(i%numPerRow);
-        var heroButton_y = colTopMarg + (heroHeight + innerMarg)*floor(i/numPerRow);
-        var heroButton = instance_create(heroButton_x, heroButton_y, heroButton_obj);
+        var heroButton_y = colTopMarg*global.roomHeight + (heroHeight + innerMarg)*global.roomWidth*floor(i/numPerRow);
+        var heroButton = createInstance_scr(heroButton_obj, heroButton_x,heroButton_y, 0,0, heroWidth,-1);
         heroButton.index = i;
         displayGuildHero_scr(heroButton);
     }
@@ -32,8 +32,8 @@
     }
     
     //menu objects
-    instance_create(200, 800, mainMenuMain_obj);
-    instance_create(350, 900, mainMenuBegin_obj);
-    instance_create(350, 800, mainMenuQuests_obj);
+    var main = createInstance_scr(mainMenuMain_obj, 0.475,0.75, 2,0, 0.2,-1);
+    var heroes = createInstance_scr(mainMenuQuests_obj, 0.525,0.75, 0,0, 0.2,-1);
+    var depart = createInstance_scr(mainMenuBegin_obj, 0.525,0.825, 0,0, 0.2,-1);
 }
 

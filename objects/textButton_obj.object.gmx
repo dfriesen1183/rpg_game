@@ -5,41 +5,9 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>button_obj</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>{
-    //does not need to derive from rootDrawnObj_obj, as it already draws relative to room
-
-    id.depth = -1;
-    id.width = global.logFormat[? "outWidth"];
-    id.height = global.logFormat[? "outHeight"];
-
-    id.sprite_index = logBounding_spr;
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -58,7 +26,21 @@
           <argument>
             <kind>1</kind>
             <string>{
-    draw_sprite_stretched(id.sprite_index,id.sprite_index, id.x, id.y, id.width, id.height);
+    event_inherited();
+
+    if (id.scale_x &gt;= 2) {
+        draw_set_font(id.fontLrg);
+    } else if (id.scale_x &gt;= 1.5) {
+        draw_set_font(id.fontMed);
+    } else {
+        draw_set_font(id.fontSml);
+    }
+    draw_set_color(id.labelColor);
+    draw_set_alpha(1);
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    
+    draw_text(id.x + id.width*id.scale_x/2, id.y + 0.9*id.height*id.scale_y/2, id.label);
 }
 
 </string>

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>rootDrawnObj_obj</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,15 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>{
+    event_inherited();
+
     id.active = false;
     id.targeted = false;
     
     id.depth = -10;
-    id.width = sprite_get_width(sprite_index);//*id.scale;
-    id.height = sprite_get_height(sprite_index);//*id.scale;
-    
-    //id.bbox_bottom = id.y + id.height;
-    //id.bbox_right = id.x + id.width;
     
     //-image indices-
     //image0: default
@@ -139,34 +136,6 @@
     if (!id.active) {
         image_index = 1;
     }
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>{
-    id.image_xscale = id.scale;
-    id.image_yscale = id.scale;
-    draw_sprite_stretched(sprite_index, image_index, id.x, id.y, id.width*id.scale, id.height*id.scale);
 }
 
 </string>

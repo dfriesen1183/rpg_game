@@ -37,6 +37,10 @@
       <script>scripts\quest_code_scr.gml</script>
       <script>scripts\questReview_code_scr.gml</script>
     </scripts>
+    <scripts name="drawing">
+      <script>scripts\createInstance_scr.gml</script>
+      <script>scripts\drawSprite_scr.gml</script>
+    </scripts>
     <scripts name="main">
       <script>scripts\loadGame_scr.gml</script>
       <script>scripts\saveGame_scr.gml</script>
@@ -59,10 +63,14 @@
       <script>scripts\addHero_scr.gml</script>
       <script>scripts\clearParty_scr.gml</script>
       <script>scripts\displayGuildHero_scr.gml</script>
-      <script>scripts\displayPartyMember_scr.gml</script>
       <script>scripts\renderHero_scr.gml</script>
     </scripts>
     <scripts name="quest">
+      <script>scripts\displayPartyMember_scr.gml</script>
+      <scripts name="log">
+        <script>scripts\genLogEntry_scr.gml</script>
+        <script>scripts\displayLogEntry_scr.gml</script>
+      </scripts>
       <script>scripts\questLogic_scr.gml</script>
       <script>scripts\endQuest_scr.gml</script>
       <scripts name="spawners">
@@ -80,8 +88,6 @@
           <script>scripts\battleRecap_scr.gml</script>
         </scripts>
       </scripts>
-      <script>scripts\genLogEntry_scr.gml</script>
-      <script>scripts\displayLogEntry_scr.gml</script>
       <scripts name="bgTilesGeneration">
         <script>scripts\genPotentialIndex_tileset1_scr.gml</script>
         <script>scripts\genPotentialIndexItem_scr.gml</script>
@@ -117,18 +123,18 @@
     <font>fonts\simplePixels32</font>
   </fonts>
   <objects name="objects">
-    <object>objects\hero_obj</object>
+    <object>objects\rootDrawnObj_obj</object>
     <objects name="buttons">
       <object>objects\button_obj</object>
-      <object>objects\debug_obj</object>
-      <object>objects\buttonText_obj</object>
+      <object>objects\textButton_obj</object>
       <objects name="main">
         <object>objects\mainButton_obj</object>
         <objects name="derivatives">
-          <object>objects\mainMenuBegin_obj</object>
-          <object>objects\mainMenuHeroes_obj</object>
+          <object>objects\debug_obj</object>
           <object>objects\mainMenuMain_obj</object>
+          <object>objects\mainMenuHeroes_obj</object>
           <object>objects\mainMenuQuests_obj</object>
+          <object>objects\mainMenuBegin_obj</object>
           <object>objects\questMenuComplete_obj</object>
         </objects>
       </objects>
@@ -145,6 +151,7 @@
       </objects>
     </objects>
     <objects name="quest">
+      <object>objects\hero_obj</object>
       <objects name="time">
         <object>objects\encSpawner_obj</object>
         <object>objects\endTimer_obj</object>

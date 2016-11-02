@@ -63,6 +63,6 @@
     
     //reseting active variables (record, party, heroes...)
     setGroundState_scr();
-    instance_create(0,0,mainMenuMain_obj);
+    var newData = createInstance_scr(mainMenuMain_obj, 0,0, 0,0, 0.2,-1);
 }
 

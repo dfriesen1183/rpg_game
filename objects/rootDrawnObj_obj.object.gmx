@@ -26,13 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>{
-    //does not need to derive from rootDrawnObj_obj, as it already draws relative to room
-
-    id.depth = -1;
-    id.width = global.logFormat[? "outWidth"];
-    id.height = global.logFormat[? "outHeight"];
-
-    id.sprite_index = logBounding_spr;
+    //universal properties for drawn objects
+    
+    id.width = 0;
+    id.height = 0;
+    id.scale_x = 0;
+    id.scale_y = 0;
 }
 
 </string>
@@ -58,7 +57,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    draw_sprite_stretched(id.sprite_index,id.sprite_index, id.x, id.y, id.width, id.height);
+    drawSprite_scr();
 }
 
 </string>

@@ -36,7 +36,7 @@
     global.logFormat[? "outHeight"] = room_height - (outerMarg[| 2] + outerMarg[| 3]);
     global.logFormat[? "inWidth"] = global.logFormat[? "outWidth"] - (innerMarg[| 0] + innerMarg[| 1]);
     global.logFormat[? "inHeight"] = global.logFormat[? "outHeight"] - (innerMarg[| 2] + innerMarg[| 3]);
-    global.logFormat[? "font"] = simplePixels16;
+    global.logFormat[? "font"] = simplePixels20;
 
     global.logBounding = instance_create(outerMarg[| 0],outerMarg[| 2],logBounding_obj);
 

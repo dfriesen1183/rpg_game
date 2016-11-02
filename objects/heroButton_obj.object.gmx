@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>{
     id.sprite_index = heroButton_spr;
-    id.scale = 1;
+    id.scale_x = 1;
+    id.scale_y = 1;
     
     event_inherited();
 }

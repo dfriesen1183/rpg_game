@@ -9,7 +9,7 @@
     } else {
         genLogEntry_scr("Quest Failed!", false, true);
     }
-    instance_create(0,0,questMenuComplete_obj);
+    var newData = createInstance_scr(questMenuComplete_obj, 0,0, 0,0, 0.2,-1);
 
     saveGame_scr();
 }
