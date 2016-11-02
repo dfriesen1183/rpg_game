@@ -19,6 +19,37 @@
       <sprite>sprites\hero3_spr</sprite>
       <sprite>sprites\hero4_spr</sprite>
       <sprite>sprites\hero5_spr</sprite>
+      <sprite>sprites\hero6_spr</sprite>
+      <sprite>sprites\hero7_spr</sprite>
+      <sprite>sprites\hero8_spr</sprite>
+      <sprite>sprites\hero9_spr</sprite>
+      <sprite>sprites\hero10_spr</sprite>
+      <sprite>sprites\hero11_spr</sprite>
+      <sprite>sprites\hero12_spr</sprite>
+      <sprite>sprites\hero13_spr</sprite>
+      <sprite>sprites\hero14_spr</sprite>
+      <sprite>sprites\hero15_spr</sprite>
+      <sprite>sprites\hero16_spr</sprite>
+      <sprite>sprites\hero17_spr</sprite>
+      <sprite>sprites\hero18_spr</sprite>
+      <sprite>sprites\hero19_spr</sprite>
+      <sprite>sprites\hero20_spr</sprite>
+      <sprite>sprites\hero21_spr</sprite>
+      <sprite>sprites\hero22_spr</sprite>
+      <sprite>sprites\hero23_spr</sprite>
+      <sprite>sprites\hero24_spr</sprite>
+      <sprite>sprites\hero25_spr</sprite>
+      <sprite>sprites\hero26_spr</sprite>
+      <sprite>sprites\hero27_spr</sprite>
+      <sprite>sprites\hero28_spr</sprite>
+      <sprite>sprites\hero29_spr</sprite>
+      <sprite>sprites\hero30_spr</sprite>
+      <sprite>sprites\hero31_spr</sprite>
+      <sprite>sprites\hero32_spr</sprite>
+      <sprite>sprites\hero33_spr</sprite>
+      <sprite>sprites\hero34_spr</sprite>
+      <sprite>sprites\hero35_spr</sprite>
+      <sprite>sprites\hero36_spr</sprite>
     </sprites>
     <sprites name="quest">
       <sprite>sprites\logBounding_spr</sprite>
@@ -52,6 +83,7 @@
         <scripts name="createResource">
           <script>scripts\create_guild_scr.gml</script>
           <script>scripts\create_heroes_scr.gml</script>
+          <script>scripts\createHero_scr.gml</script>
           <script>scripts\create_record_scr.gml</script>
           <script>scripts\create_party_scr.gml</script>
         </scripts>
