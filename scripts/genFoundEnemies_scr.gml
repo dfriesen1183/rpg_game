@@ -14,14 +14,14 @@
     var dmgDealt = 0;
     
     //assembling enemy party
-    var enemyCount = irandom_range(1,3);
+    var enemyCount = 4;
     genLogEntry_scr(string(enemyCount)+" enemies found", false, false);
     global.enemyParty = ds_list_create();
     for (var i=0; i<enemyCount; i++) {
         ds_list_add(global.enemyParty, ds_map_create());
         var enemy = ds_list_find_value(global.enemyParty, i);
-            var level = irandom_range(1,3);
-            var hp = irandom_range(4,10);
+            var level = irandom_range(2,3);
+            var hp = irandom_range(10,15);
             ds_map_add(enemy, "name", "Enemy"+string(i));
             ds_map_add(enemy, "level", level);
             ds_map_add(enemy, "hp", hp);

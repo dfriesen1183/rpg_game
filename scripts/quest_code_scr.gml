@@ -3,21 +3,33 @@
     //(called from quest_room creation code)
     //readies quest board
 
+    
     //readying party
+    var partyActive = false;
     var size = ds_list_size(global.party);
     for (var i=0; i<size; i++) {
         var hero = global.party[| i];
         hero[? "partyIndex"] = i;
-
-        var index = hero[? "index"];
-        displayPartyMember_scr(index, i, false);
+        
+        if (0 < hero[? "hp"]) {
+            partyActive = true;
+            var index = hero[? "index"];
+            displayPartyMember_scr(index, i, false);
+        }
+    }
+    var questActive;
+    if (global.record[? "time"] < global.record[? "duration"]) {
+        questActive = true;
+    } else {
+        questActive = false;
     }
 
-    //bg creation
+    
+    //background tile assembly
     global.tileSpawner = instance_create(0,0,bgTileSpawner_obj);
     
-    //readying log
     
+    //readying log
     var outerMarg = ds_list_create();
     outerMarg[| 0] = 5;//left
     outerMarg[| 1] = 5;//right
@@ -65,10 +77,25 @@
     
 
     //initiating quest cycle
-    if (size == 0) {
-        var durHuman = secToTime_scr(global.record[? "duration"]);
-        genLogEntry_scr("Embarked on a "+string(durHuman)+" quest", true, false);
+    if (questActive && partyActive) {
+        if (!size) {
+            var durHuman = secToTime_scr(global.record[? "duration"]);
+            genLogEntry_scr("Embarked on a "+string(durHuman)+" quest", true, false);
+        }
+        if (0 < global.record[? "time"]) {
+            if (global.record[? "next"] < global.record[? "duration"]) {
+                createSpawner_scr(encSpawner_obj);
+            } else {
+                createSpawner_scr(endTimer_obj);
+            }
+        } else {
+            questLogic_scr();
+        }
+    } else {
+        if (false == partyActive) {
+            global.tileSpawner.active = false;
+        }
+        spawnQuestEndMenu_scr();
     }
-    questLogic_scr();
 }
 

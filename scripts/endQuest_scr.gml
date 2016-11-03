@@ -8,8 +8,12 @@
         genLogEntry_scr("Quest Complete!", true, true);
     } else {
         genLogEntry_scr("Quest Failed!", false, true);
+        with (hero_obj) {
+            instance_destroy();
+        }
+        global.tileSpawner.active = false;
     }
-    var newData = createInstance_scr(questMenuComplete_obj, 0,0, 0,0, 0.2,-1);
+    spawnQuestEndMenu_scr();
 
     saveGame_scr();
 }

@@ -74,6 +74,7 @@
     </scripts>
     <scripts name="main">
       <script>scripts\loadGame_scr.gml</script>
+      <script>scripts\saveStructure_scr.gml</script>
       <script>scripts\saveGame_scr.gml</script>
       <script>scripts\setGroundState_scr.gml</script>
       <scripts name="createData">
@@ -100,12 +101,16 @@
     <scripts name="quest">
       <script>scripts\displayPartyMember_scr.gml</script>
       <scripts name="log">
+        <script>scripts\drawLog_scr.gml</script>
         <script>scripts\genLogEntry_scr.gml</script>
         <script>scripts\displayLogEntry_scr.gml</script>
+        <script>scripts\displayLogPage_scr.gml</script>
       </scripts>
       <script>scripts\questLogic_scr.gml</script>
+      <script>scripts\spawnQuestEndMenu_scr.gml</script>
       <script>scripts\endQuest_scr.gml</script>
       <scripts name="spawners">
+        <script>scripts\createSpawner_scr.gml</script>
         <script>scripts\encSpawner_code_scr.gml</script>
         <script>scripts\endTimer_code_scr.gml</script>
       </scripts>

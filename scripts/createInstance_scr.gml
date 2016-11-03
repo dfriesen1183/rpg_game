@@ -7,8 +7,8 @@
     var inst_y = argument2;
     var align_x = argument3; //positioned by: 0=left edge, 1=center, 2=right edge
     var align_y = argument4; //positioned by: 0=top edge, 1=center, 2=bottom edge
-    var scale_x = argument5; //ideal ratio
-    var scale_y = argument6; //ideal ratio
+    var scale_x = argument5; //'ideal' ratio
+    var scale_y = argument6; //'ideal' ratio
     
     
     //instantiation
