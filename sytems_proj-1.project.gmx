@@ -71,6 +71,7 @@
     <scripts name="drawing">
       <script>scripts\createInstance_scr.gml</script>
       <script>scripts\drawSprite_scr.gml</script>
+      <script>scripts\moveInstance_scr.gml</script>
     </scripts>
     <scripts name="main">
       <script>scripts\loadGame_scr.gml</script>
@@ -99,6 +100,7 @@
       <script>scripts\renderHero_scr.gml</script>
     </scripts>
     <scripts name="quest">
+      <script>scripts\movePartyMember_scr.gml</script>
       <script>scripts\displayPartyMember_scr.gml</script>
       <scripts name="log">
         <script>scripts\drawLog_scr.gml</script>
