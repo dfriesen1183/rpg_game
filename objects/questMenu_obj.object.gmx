@@ -37,6 +37,10 @@
     id.label = string_upper(secToTime_scr(id.duration));
     
     event_inherited();
+    
+    if (global.record[? "duration"] == id.duration) {
+        id.image_index = 2;
+    }
 }
 
 </string>

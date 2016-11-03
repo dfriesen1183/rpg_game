@@ -10,7 +10,6 @@
     
     var hero = ds_map_create();
         //maybe invest in a proper constructor for general use
-        ds_map_add(hero,"found",true);
         ds_map_add(hero,"name","Hero"+string(index));
         ds_map_add(hero,"level",level);
         ds_map_add(hero,"hp",hp);
