@@ -1,6 +1,6 @@
 {
     //drawSprite_scr()
-    //called from draw event
+    //(called from object)
     //universal call for responsive implementation
     
     id.image_xscale = id.scale_x;

@@ -30,6 +30,7 @@
     
     id.halign = fa_left;
     id.valign = fa_top;
+    id.lineHeight = -1;
     
     id.width = 0;
     id.height = 0;
@@ -60,10 +61,10 @@
           <argument>
             <kind>1</kind>
             <string>{
-    var pos_x = id.x;
-    var pos_y = id.y;
+    pos_x = id.x;
+    pos_y = id.y;
     
-    setFontScale_scr();
+    draw_set_font(id.font);
     drawText_scr();
 }
 
