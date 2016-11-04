@@ -32,7 +32,7 @@
         id.textAlign_x = 1;
     id.valign = fa_middle;
         id.textAlign_y = 1;
-    id.lineHeight = -0.5;
+    id.lineHeight = -1;
 }
 
 </string>
