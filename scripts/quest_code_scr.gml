@@ -6,15 +6,17 @@
     
     //readying party
     var partyActive = false;
+    var partyIndex = 0;
     var size = ds_list_size(global.party);
     for (var i=0; i<size; i++) {
         var hero = global.party[| i];
-        hero[? "partyIndex"] = i;
+        hero[? "partyIndex"] = partyIndex;
         
         if (0 < hero[? "hp"]) {
             partyActive = true;
             var index = hero[? "index"];
-            displayPartyMember_scr(index, i, false);
+            displayPartyMember_scr(index, partyIndex, false);
+            partyIndex++;
         }
     }
     var questActive;

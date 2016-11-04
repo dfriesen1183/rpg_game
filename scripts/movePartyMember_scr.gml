@@ -3,7 +3,7 @@
     var member_x,
         member_y;
 
-    switch(member[? "partyIndex"]) {
+    switch(member.partyIndex) {
         case 0:
             member_x = 0.5;
             member_y = 0.49;

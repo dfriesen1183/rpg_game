@@ -3,7 +3,6 @@
     //(called from mainMenuHeroes_room creation code)
     //loads room ui
 
-    show_debug_message(global.record[? "duration"]);
     
     //hero objects
     var numPerRow = 3;

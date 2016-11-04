@@ -12,7 +12,9 @@
         var tile = id.currentRow[| size];
         var tile_x = tile[| 0];
         var tile_y = tile[| 1];
+        
         var tileMap = global.tileIndex[# tile_x, tile_y];
+        show_debug_message("current gotten "+string(tile_x)+":"+string(tile_y));
         leftGroup = tileMap[? "right"];
         leftGroup = ds_list_find_value(global.conGroup[? "right"], leftGroup);
     }
@@ -23,9 +25,11 @@
         var tile_x = tile[| 0];
         var tile_y = tile[| 1];
         var tileMap = global.tileIndex[# tile_x, tile_y];
+        show_debug_message("last row gotten "+string(tile_x)+":"+string(tile_y));
         downGroup = tileMap[? "up"];
         downGroup = ds_list_find_value(global.conGroup[? "up"], downGroup);
     }
+    show_debug_message("ref gotten");
     
     if (downGroup < 0 && leftGroup < 0) {
         tile = ds_list_create();
@@ -44,7 +48,9 @@
                     var candidate = candList[| i];
                     var cand_x = candidate[| 0];
                     var cand_y = candidate[| 1];
+                    show_debug_message("cand get "+string(cand_x)+":"+string(cand_y));
                     var candMap = global.tileIndex[# cand_x, cand_y];
+                    show_debug_message("cand gotten");
                     var candGroup = candMap[? "left"];
                     if (candGroup != leftGroup) {
                         ds_list_delete(candList, i);

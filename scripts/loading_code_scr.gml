@@ -17,15 +17,7 @@
         setGroundState_scr();
         room_goto(mainMenuMain_room);
     } else {
-        /*var time = ds_map_find_value(global.record, "time");
-        var duration = ds_map_find_value(global.record, "duration");
-        if (time < duration) {*/
-        
-            //extra "quest complete" log entry generate as a result of not going directly to review after reload
-            room_goto(quest_room);
-        /*} else {
-            room_goto(questReview_room);
-        }*/
+        room_goto(quest_room);
     }
 }
 

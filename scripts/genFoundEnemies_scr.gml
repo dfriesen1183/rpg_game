@@ -13,77 +13,47 @@
     var dmgDealt = 0;
     
     //assembling enemy party
-    var enemyCount = 4;
+    var enemyCount = irandom_range(1,4);
     genLogEntry_scr(string(enemyCount)+" enemies found", false, false);
     global.enemyParty = ds_list_create();
+    
     for (var i=0; i<enemyCount; i++) {
-        ds_list_add(global.enemyParty, ds_map_create());
+        global.enemyParty[| i] = ds_map_create();
         var enemy = global.enemyParty[| i];
             var level = irandom_range(2,3);
-            var hp = irandom_range(10,15);
-            ds_map_add(enemy, "name", "Enemy"+string(i));
-            ds_map_add(enemy, "level", level);
-            ds_map_add(enemy, "hp", hp);
-            ds_map_add(enemy, "maxHp", hp);
-            ds_map_add(enemy, "index", i);
-            ds_map_add(enemy, "friendly", false);
+            var hp = irandom_range(5,15);
+            enemy[? "name"] = "Enemy"+string(i);
+            enemy[? "level"] = level;
+            enemy[? "hp"] = hp;
+            enemy[? "maxHp"] = hp;
+            enemy[? "index"] = i;
+            enemy[? "friendly"] = false;
     }
     
     //determining attack order
     var ambushChance = irandom_range(1,100);
     if (67 > ambushChance) {
-        var order = ds_list_create();
         //party ambushes enemy
         genLogEntry_scr("Party caught the enemy by surprise", false, false);
-        var tempList = ds_list_create();
+        var order = ds_list_create();
         var size = ds_list_size(global.party);
         for (var i=0; i<size; i++) {
-            ds_list_add(tempList, global.party[| i]);
+            ds_list_add(order, global.party[| i]);
         }
-        ds_list_shuffle(tempList);
-        for (var i=0; i<size; i++) {
-            ds_list_add(order, tempList[| i]);
-        }
-
-        /*ds_list_clear(tempList);
-        size = ds_list_size(global.enemyParty);
-        for (var i=0; i<size; i++) {
-            ds_list_add(tempList, global.enemyParty[| i]);
-        }
-        ds_list_shuffle(tempList);
-        for (var i=0; i<size; i++) {
-            ds_list_add(order, tempList[| i]);
-        }
-        ds_list_destroy(tempList);*/
+        ds_list_shuffle(order);
         
     } else if (33 > ambushChance) {
         //level opportunity
         var order = orderAttackers_scr();
     } else {
+        //enemy ambushes party
         genLogEntry_scr("Enemy caught the party by surprise", false, false);
         var order = ds_list_create();
-        //enemy ambushes party
-        var tempList = ds_list_create();
         var size = ds_list_size(global.enemyParty);
         for (var i=0; i<size; i++) {
-            ds_list_add(tempList, global.enemyParty[| i]);
+            ds_list_add(order, global.enemyParty[| i]);
         }
-        ds_list_shuffle(tempList);
-        for (var i=0; i<size; i++) {
-            ds_list_add(order, tempList[| i]);
-        }
-
-        /*ds_list_clear(tempList);
-        size = ds_list_size(global.party);
-        for (var i=0; i<size; i++) {
-            ds_list_add(tempList, global.party[| i]);
-        }
-        ds_list_shuffle(tempList);
-        for (var i=0; i<size; i++) {
-            ds_list_add(order, tempList[| i]);
-        }
-        ds_list_destroy(tempList);*/
-        
+        ds_list_shuffle(order);
     }
 
     var victory = false;
@@ -140,18 +110,20 @@
                             instance_destroy();
                         }
                     }
+                    var _partyIndex = 0;
                     var partySize = ds_list_size(global.party);
                     for (var j=0; j<partySize; j++) {
                         var hero = global.party[| j];
                         if (0 < hero[? "hp"]) {
                             var shiftIndex = hero[? "partyIndex"];
-                            hero[? "partyIndex"] = j;
+                            hero[? "partyIndex"] = _partyIndex;
                             with(hero_obj) {
                                 if (shiftIndex == id.partyIndex) {
-                                    id.partyIndex = j;
+                                    id.partyIndex = _partyIndex;
                                     movePartyMember_scr(id);
                                 }
                             }
+                            _partyIndex++;
                         }
                     }
                 }

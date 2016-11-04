@@ -14,9 +14,7 @@
     
     var key = ds_map_find_first(global.tileGroup);
     for (var i=0; i<4; i++) {
-        show_debug_message(key);
         for (var j=0; j<4; j++) {
-            show_debug_message(j);
             ds_list_add_list(global.tileGroup[? key], ds_list_create());
         }
         key = ds_map_find_next(global.tileGroup, key);
