@@ -27,7 +27,7 @@
         with (heroButton_obj) {
             if (self.index == memberIndex) {
                 self.active = true;
-                self.image_index = 2;
+                self.image_index = global.btnStateActive;
             }
         }
     }

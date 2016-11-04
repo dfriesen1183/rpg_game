@@ -11,6 +11,7 @@
     <sprites name="buttons">
       <sprite>sprites\mainButton_spr</sprite>
       <sprite>sprites\heroButton_spr</sprite>
+      <sprite>sprites\questButton_spr</sprite>
     </sprites>
     <sprites name="heroes">
       <sprite>sprites\hero0_spr</sprite>

@@ -39,7 +39,7 @@
     //image2: released
     //image3: disabled
     image_speed = 0;
-    image_index = 0;
+    image_index = global.btnStateUp;
 }
 
 </string>
@@ -67,7 +67,7 @@
             <string>{
     global.target = -1;
     if (!id.active) {
-        id.image_index = 0;
+        id.image_index = global.btnStateUp;
     }
 }
 
@@ -97,14 +97,14 @@
     if (id == global.target) {
         if (id.active) {
             id.active = false;
-            id.image_index = 0;
+            id.image_index = global.btnStateUp;
         } else {
             with (object_get_parent(id.object_index)) {
                 active = false;
-                image_index = 0;
+                image_index = global.btnStateUp;
             }
             id.active = true;
-            id.image_index = 2;
+            id.image_index = global.btnStateActive;
         }
     }
 }
@@ -134,7 +134,7 @@
             <string>{
     global.target = id;
     if (!id.active) {
-        image_index = 1;
+        image_index = global.btnStateDown;
     }
 }
 

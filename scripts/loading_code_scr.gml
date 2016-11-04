@@ -11,6 +11,11 @@
     global.roomHeight = room_height;
     global.roomSpeed = room_speed;
     
+    global.btnStateUp = 0;
+    global.btnStateDown = 1;
+    global.btnStateActive = 2;
+    global.btnStateDisabled = 3;
+    
     loadGame_scr();
 
     if (ds_map_find_value(global.record, "complete")) {
