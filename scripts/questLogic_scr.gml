@@ -2,7 +2,6 @@
     //questLogic_scr();
     //coordinates spawners
     
-    saveGame_scr();
 
     var newLull = irandom_range(10,20);
     if (newLull + ds_map_find_value(global.record, "time") < ds_map_find_value(global.record, "duration")) {
@@ -20,5 +19,7 @@
         
         createSpawner_scr(endTimer_obj);
     }
+    //saves once encounter is made
+    saveGame_scr();
 }
 

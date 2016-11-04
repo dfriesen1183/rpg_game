@@ -50,7 +50,7 @@
     
     //preparing index with references to groups
     global.tileIndex = ds_grid_create(global.tileRow, global.tileRow);
-    
+    //row 1
     genPotentialIndexItem_scr(0,0, 0,0,0,0);
     genPotentialIndexItem_scr(1,0, 1,0,0,1);
     genPotentialIndexItem_scr(2,0, 1,0,0,1);
@@ -58,7 +58,7 @@
     genPotentialIndexItem_scr(4,0, 1,0,0,1);
     genPotentialIndexItem_scr(5,0, 1,1,0,2);
     genPotentialIndexItem_scr(6,0, 0,1,0,3);
-
+    //row 2
     genPotentialIndexItem_scr(0,1, 0,2,1,0);
     genPotentialIndexItem_scr(1,1, 2,3,2,2);
     genPotentialIndexItem_scr(2,1, 3,2,2,0);
@@ -66,7 +66,7 @@
     genPotentialIndexItem_scr(4,1, 2,2,2,1);
     genPotentialIndexItem_scr(5,1, 2,1,3,2);
     genPotentialIndexItem_scr(6,1, 0,1,0,3);
-
+    //row 3
     genPotentialIndexItem_scr(0,2, 0,2,1,0);
     genPotentialIndexItem_scr(1,2, 2,0,3,1);
     genPotentialIndexItem_scr(2,2, 1,2,1,1);
@@ -74,7 +74,7 @@
     genPotentialIndexItem_scr(4,2, 2,2,2,1);
     genPotentialIndexItem_scr(5,2, 2,1,3,2);
     genPotentialIndexItem_scr(6,2, 0,1,0,3);
-
+    //row 4
     genPotentialIndexItem_scr(0,3, 0,2,1,0);
     genPotentialIndexItem_scr(1,3, 1,3,1,2);
     genPotentialIndexItem_scr(2,3, 3,0,3,0);
@@ -82,7 +82,7 @@
     genPotentialIndexItem_scr(4,3, 2,2,2,1);
     genPotentialIndexItem_scr(5,3, 2,1,3,2);
     genPotentialIndexItem_scr(6,3, 0,1,0,3);
-
+    //row 5
     genPotentialIndexItem_scr(0,4, 0,2,1,0);
     genPotentialIndexItem_scr(1,4, 3,0,3,0);
     genPotentialIndexItem_scr(2,4, 1,3,1,2);
@@ -90,7 +90,7 @@
     genPotentialIndexItem_scr(4,4, 2,2,2,1);
     genPotentialIndexItem_scr(5,4, 2,1,3,2);
     genPotentialIndexItem_scr(6,4, 0,1,0,3);
-
+    //row 6
     genPotentialIndexItem_scr(0,5, 0,3,1,3);
     genPotentialIndexItem_scr(1,5, 3,3,2,3);
     genPotentialIndexItem_scr(2,5, 3,3,2,3);
@@ -98,10 +98,11 @@
     genPotentialIndexItem_scr(4,5, 3,3,2,3);
     genPotentialIndexItem_scr(5,5, 3,1,3,3);
     genPotentialIndexItem_scr(6,5, 0,1,0,3);
-
+    //row 7 (not used)
     genPotentialIndexItem_scr(6,6, 0,1,0,3);
 
-    //filling relevant groups with references back to index
+    
+    //filling relevant groups with references back to indices
     var width = ds_grid_width(global.tileIndex);
     var height = ds_grid_height(global.tileIndex) - 1;
     for (var i=0; i<width; i++) {
