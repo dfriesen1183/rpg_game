@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>textButton_obj</parentName>
+  <parentName>pureTextButton_obj</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -30,11 +30,11 @@
     id.scale_x = 1;
     id.scale_y = 1;
     
-    id.labelColor = c_white;
+    id.textColor = c_white;
     id.fontSml = simplePixels12;
     id.fontMed = simplePixels16;
     id.fontLrg = simplePixels20;
-    id.label = string_upper(secToTime_scr(id.duration));
+    id.text = string_upper(secToTime_scr(id.duration));
     
     event_inherited();
     

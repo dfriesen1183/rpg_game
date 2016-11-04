@@ -61,6 +61,30 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="main">
+      <script>scripts\loadGame_scr.gml</script>
+      <scripts name="saveData">
+        <script>scripts\createSaveIndex_scr.gml</script>
+        <script>scripts\createSaveIndexItem_scr.gml</script>
+        <script>scripts\saveGame_scr.gml</script>
+        <script>scripts\saveStructure_scr.gml</script>
+      </scripts>
+      <scripts name="createData">
+        <script>scripts\createNewData_scr.gml</script>
+        <script>scripts\create_guild_scr.gml</script>
+        <script>scripts\create_heroes_scr.gml</script>
+        <script>scripts\createHero_scr.gml</script>
+        <script>scripts\create_record_scr.gml</script>
+        <script>scripts\create_party_scr.gml</script>
+      </scripts>
+      <scripts name="viewData">
+        <script>scripts\viewSavedData_scr.gml</script>
+        <script>scripts\viewSavedStructure_scr.gml</script>
+        <script>scripts\viewActiveData_scr.gml</script>
+        <script>scripts\viewActiveStructure_scr.gml</script>
+      </scripts>
+      <script>scripts\setGroundState_scr.gml</script>
+    </scripts>
     <scripts name="room_creation">
       <script>scripts\loading_code_scr.gml</script>
       <script>scripts\mainMenuMain_code_scr.gml</script>
@@ -71,28 +95,10 @@
     </scripts>
     <scripts name="drawing">
       <script>scripts\createInstance_scr.gml</script>
-      <script>scripts\drawSprite_scr.gml</script>
       <script>scripts\moveInstance_scr.gml</script>
-    </scripts>
-    <scripts name="main">
-      <script>scripts\loadGame_scr.gml</script>
-      <script>scripts\saveStructure_scr.gml</script>
-      <script>scripts\saveGame_scr.gml</script>
-      <script>scripts\setGroundState_scr.gml</script>
-      <scripts name="createData">
-        <script>scripts\createSaveIndex_scr.gml</script>
-        <script>scripts\createSaveIndexItem_scr.gml</script>
-        <script>scripts\createNewData_scr.gml</script>
-        <scripts name="createResource">
-          <script>scripts\create_guild_scr.gml</script>
-          <script>scripts\create_heroes_scr.gml</script>
-          <script>scripts\createHero_scr.gml</script>
-          <script>scripts\create_record_scr.gml</script>
-          <script>scripts\create_party_scr.gml</script>
-        </scripts>
-      </scripts>
-      <script>scripts\viewActiveData_scr.gml</script>
-      <script>scripts\viewSavedData_scr.gml</script>
+      <script>scripts\drawSprite_scr.gml</script>
+      <script>scripts\setFontScale_scr.gml</script>
+      <script>scripts\drawText_scr.gml</script>
     </scripts>
     <scripts name="prequest">
       <script>scripts\addHero_scr.gml</script>
@@ -155,6 +161,7 @@
     </scripts>
   </scripts>
   <fonts name="fonts">
+    <font>fonts\simplePixels8</font>
     <font>fonts\simplePixels12</font>
     <font>fonts\simplePixels16</font>
     <font>fonts\simplePixels20</font>
@@ -164,9 +171,11 @@
   </fonts>
   <objects name="objects">
     <object>objects\rootDrawnObj_obj</object>
+    <object>objects\text_obj</object>
     <objects name="buttons">
       <object>objects\button_obj</object>
       <object>objects\textButton_obj</object>
+      <object>objects\pureTextButton_obj</object>
       <objects name="main">
         <object>objects\mainButton_obj</object>
         <objects name="derivatives">
@@ -203,6 +212,7 @@
       <objects name="background">
         <object>objects\bgTileSpawner_obj</object>
       </objects>
+      <object>objects\reviewText_obj</object>
     </objects>
   </objects>
   <rooms name="rooms">

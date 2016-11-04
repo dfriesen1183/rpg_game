@@ -18,6 +18,7 @@
         var heroButton_y = colTopMarg*global.roomHeight + (heroHeight + innerMarg)*global.roomWidth*floor(i/numPerRow);
         var heroButton = createInstance_scr(heroButton_obj, heroButton_x,heroButton_y, 0,0, heroWidth,-1);
         heroButton.index = i;
+        heroButton.label = "LVL " + string(ds_map_find_value(global.heroes[| i], "level"));
         displayGuildHero_scr(heroButton);
     }
     size = ds_list_size(global.party);

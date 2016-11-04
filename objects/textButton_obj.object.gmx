@@ -27,20 +27,8 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-
-    if (id.scale_x &gt;= 2) {
-        draw_set_font(id.fontLrg);
-    } else if (id.scale_x &gt;= 1.5) {
-        draw_set_font(id.fontMed);
-    } else {
-        draw_set_font(id.fontSml);
-    }
-    draw_set_color(id.labelColor);
-    draw_set_alpha(1);
-    draw_set_halign(fa_center);
-    draw_set_valign(fa_middle);
-    
-    draw_text(id.x + id.width*id.scale_x/2, id.y + 0.9*id.height*id.scale_y/2, id.label);
+    setFontScale_scr();
+    drawText_scr();
 }
 
 </string>

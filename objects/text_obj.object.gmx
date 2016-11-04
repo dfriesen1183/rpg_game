@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>mainButton_obj</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,8 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>{
-    event_inherited();
-    self.text = "QUESTS";
+    id.text = "";
+    
+    id.halign = fa_left;
+    id.valign = fa_top;
+    
+    id.width = 0;
+    id.height = 0;
+    id.scale_x = 1;
+    id.scale_y = 1;
 }
 
 </string>
@@ -35,7 +42,7 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="7">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -53,10 +60,11 @@
           <argument>
             <kind>1</kind>
             <string>{
-    event_inherited();
-    if (id == global.target) {
-        room_goto(mainMenuQuests_room);
-    }
+    var pos_x = id.x;
+    var pos_y = id.y;
+    
+    setFontScale_scr();
+    drawText_scr();
 }
 
 </string>

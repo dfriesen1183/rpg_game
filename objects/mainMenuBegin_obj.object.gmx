@@ -34,7 +34,7 @@
     }
     //id.image_xscale = 3;
     //id.image_yscale = id.image_xscale;
-    id.label = "DEPART";
+    id.text = "DEPART";
 }
 
 </string>

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-    self.label = "CONTINUE";
+    self.text = "CONTINUE";
 }
 
 </string>
