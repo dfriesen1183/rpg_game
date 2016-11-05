@@ -53,6 +53,10 @@
     global.logFormat[? "font"] = simplePixels20;
 
     global.logBounding = instance_create(outerMarg[| 0],outerMarg[| 2],logBounding_obj);
+    
+    //readying clock
+    global.cwestCloc = instance_create(0,0,clock_obj);
+    
 
     var index = 0;
     var heightTotal = 0;

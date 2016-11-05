@@ -114,6 +114,7 @@
         <script>scripts\genLogEntry_scr.gml</script>
         <script>scripts\displayLogEntry_scr.gml</script>
         <script>scripts\displayLogPage_scr.gml</script>
+        <script>scripts\updateClock_scr.gml</script>
       </scripts>
       <script>scripts\questLogic_scr.gml</script>
       <script>scripts\endQuest_scr.gml</script>
@@ -155,6 +156,7 @@
         <script>scripts\scr_string_trim_right.gml</script>
       </scripts>
       <script>scripts\recursive_ds_destroy.gml</script>
+      <script>scripts\secToClock_scr.gml</script>
       <script>scripts\secToTime_scr.gml</script>
       <script>scripts\output_list.gml</script>
       <script>scripts\output_map.gml</script>
@@ -208,6 +210,8 @@
       <objects name="log">
         <object>objects\logBounding_obj</object>
         <object>objects\logEntry_obj</object>
+        <object>objects\clock_obj</object>
+        <object>objects\clockText_obj</object>
       </objects>
       <objects name="background">
         <object>objects\bgTileSpawner_obj</object>
