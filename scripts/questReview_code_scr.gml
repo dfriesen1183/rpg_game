@@ -128,7 +128,8 @@
         new_y = genHeroReview_scr(collected, new_y);
         
         for (var i=size-1; i>=0; i--) {
-            ds_map_destroy(collected[| i]);//'killing' hero
+            ds_list_delete(global.heroes, ds_map_find_value(collected[| i], "index"));
+            ds_map_destroy(collected[| i]);
             ds_list_delete(collected, i);
         }
     }
