@@ -39,7 +39,7 @@
         //global.logBounding.y -= global.cwestCloc.height;
     } else {
         with (logEntry_obj) {
-            id.y -= entry.height;
+            id.y -= _height;
         }
     }
     var entry = instance_create(entry_x, 0, logEntry_obj);

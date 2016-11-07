@@ -9,8 +9,9 @@
     if (ds_map_find_value(global.record, "duration") <= self.time) {
         endQuest_scr(true);
     } else {
-        self.alarm[0] = room_speed;
+        saveStructure_scr("record");
         updateClock_scr(global.cwestCloc);
+        self.alarm[0] = room_speed;
     }
 }
 
