@@ -10,14 +10,15 @@
         var result = encLogic_scr();
         if (result == 0) {
             questLogic_scr();
+            updateClock_scr(global.cwestCloc);
         } else {
             endQuest_scr(false);
         }
         instance_destroy();
     } else {
         saveStructure_scr("record");
+        updateClock_scr(global.cwestCloc);
         self.alarm[0] = room_speed;
     }
-    updateClock_scr(global.cwestCloc);
 }
 

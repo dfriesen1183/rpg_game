@@ -1,7 +1,6 @@
 {
     var list = argument0;
     var offset = argument1;
-    show_debug_message(offset);
     
     var numPerRow = 6;
     var margLeft = 0.1;
@@ -20,20 +19,10 @@
         displayGuildHero_scr(hero);
     }
     
-    var rowCount = (size - 1)%numPerRow + 1;
-    show_debug_message(rowCount);
-    var add = 0;
+    var rowCount = floor((size - 1)/numPerRow) + 1;
     if (rowCount) {
-        add = width*rowCount;
-        if (rowCount > 1) {
-            add += sep*(rowCount - 1);
-            show_debug_message("separated");
-        }
-        add *= global.roomWidth;
+        offset += (width*rowCount + sep*(rowCount - 1))*global.roomWidth;
     }
-    show_debug_message(offset);
-    offset += add;
-    show_debug_message(offset);
     return offset;
 }
 

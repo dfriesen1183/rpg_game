@@ -54,9 +54,9 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-    if (id == global.target) {
+    //if (id == global.target) {
         room_goto(mainMenuHeroes_room);
-    }
+    //}
 }
 
 </string>

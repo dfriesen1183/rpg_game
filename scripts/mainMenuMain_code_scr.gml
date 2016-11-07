@@ -7,7 +7,7 @@
     saveGame_scr();
 
     //debug buttons
-    var newData = createInstance_scr(debug_obj, 0,0, 0,0, 0.2,-1);
+    var newData = createInstance_scr(debug_obj, 10,10, 0,0, 0.2,-1);
 
     //creating buttons
     var heroes = createInstance_scr(mainMenuHeroes_obj, 0.5,0.475, 1,2, -1,0.085);
