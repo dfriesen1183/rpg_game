@@ -10,8 +10,7 @@
         endQuest_scr(true);
     } else {
         self.alarm[0] = room_speed;
+        updateClock_scr(global.cwestCloc);
     }
-    
-    updateClock_scr(global.cwestCloc);
 }
 

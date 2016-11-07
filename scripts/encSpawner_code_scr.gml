@@ -18,7 +18,6 @@
         saveStructure_scr("record");
         self.alarm[0] = room_speed;
     }
-    
     updateClock_scr(global.cwestCloc);
 }
 
