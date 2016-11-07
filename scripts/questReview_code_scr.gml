@@ -79,6 +79,7 @@
     draw_set_font(battleText.font);
     battleText.height = string_height_ext(battleText.text,battleText.lineHeight,_width);
     
+    var new_y = battleText.y + battleText.height;
     //heroes found
     var size = ds_list_size(global.heroes);
     var collected = ds_list_create();
@@ -88,8 +89,8 @@
             ds_map_delete(global.heroes[| i], "found");
         }
     }
-    var new_y = battleText.y + battleText.height;
-    if (ds_list_size(collected)) {
+    size = ds_list_size(collected);
+    if (size) {
         new_y += sep;
         var foundText = instance_create(margLeft,new_y,reviewText_obj);
         foundText.text = string_upper("Heroes met:");
@@ -99,22 +100,23 @@
         
         new_y += foundText.height + sep;
         new_y = genHeroReview_scr(collected, new_y);
-        show_debug_message(new_y);
-    }
-    for (var i=size-1; i>=0; i--) {
-        ds_list_delete(collected, i);
+
+        for (var i=size-1; i>=0; i--) {
+            ds_list_delete(collected, i);
+        }
     }
     ds_list_destroy(collected);
     
     //heroes fallen
-    var size = ds_list_size(global.heroes);
+    size = ds_list_size(global.heroes);
     var collected = ds_list_create();
     for (var i=0; i<size; i++) {
         if (0 >= ds_map_find_value(global.heroes[| i], "hp")) {
             ds_list_add(collected, global.heroes[| i]);
         }
     }
-    if (ds_list_size(collected)) {
+    size = ds_list_size(collected);
+    if (size) {
         new_y += sep;
         var fallenText = instance_create(margLeft,new_y,reviewText_obj);
         fallenText.text = string_upper("Heroes lost:");
@@ -124,10 +126,11 @@
         
         new_y += fallenText.height + sep;
         new_y = genHeroReview_scr(collected, new_y);
-    }
-    for (var i=size-1; i>=0; i--) {
-        ds_map_destroy(collected[| i]);//'killing' heroes
-        ds_list_delete(collected, i);
+        
+        for (var i=size-1; i>=0; i--) {
+            ds_map_destroy(collected[| i]);//'killing' heroes
+            ds_list_delete(collected, i);
+        }
     }
     ds_list_destroy(collected);
     
