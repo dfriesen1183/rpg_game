@@ -1,8 +1,8 @@
 {
     //loadGame_scr()
     //loads game data, or calls for new data to be created
-    createSaveIndex_scr();
     
+    createSaveIndex_scr();
     
     var size = ds_map_size(global.saveIndex);
     var key = ds_map_find_first(global.saveIndex);

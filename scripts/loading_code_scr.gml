@@ -6,7 +6,6 @@
     //  if quest is active, automatically redirects there
 
     //randomize(); //randomizes seed
-    texture_set_interpolation(false);
     global.roomWidth = room_width;
     global.roomHeight = room_height;
     global.roomSpeed = room_speed;
