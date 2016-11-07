@@ -27,13 +27,13 @@
             <kind>1</kind>
             <string>{
     id.sprite_index = mainButton_spr;
+    event_inherited(); //run after sprite data set
     
-    id.textColor = c_white;
     id.fontSml = simplePixels12;
     id.fontMed = simplePixels16;
     id.fontLrg = simplePixels20;
     
-    event_inherited(); //run after sprite data set
+    id.textColor = c_white;
 }
 
 </string>

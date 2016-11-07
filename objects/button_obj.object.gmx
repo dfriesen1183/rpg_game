@@ -65,9 +65,11 @@
           <argument>
             <kind>1</kind>
             <string>{
-    global.target = -1;
-    if (!id.active) {
-        id.image_index = global.btnStateUp;
+    if (id.image_index != global.btnStateStatic) {
+        global.target = -1;
+        if (!id.active) {
+            id.image_index = global.btnStateUp;
+        }
     }
 }
 
@@ -94,17 +96,19 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id == global.target) {
-        if (id.active) {
-            id.active = false;
-            id.image_index = global.btnStateUp;
-        } else {
-            with (object_get_parent(id.object_index)) {
-                active = false;
-                image_index = global.btnStateUp;
+    if (id.image_index != global.btnStateStatic) {
+        if (id == global.target) {
+            if (id.active) {
+                id.active = false;
+                id.image_index = global.btnStateUp;
+            } else {
+                with (object_get_parent(id.object_index)) {
+                    active = false;
+                    image_index = global.btnStateUp;
+                }
+                id.active = true;
+                id.image_index = global.btnStateActive;
             }
-            id.active = true;
-            id.image_index = global.btnStateActive;
         }
     }
 }
@@ -132,9 +136,11 @@
           <argument>
             <kind>1</kind>
             <string>{
-    global.target = id;
-    if (!id.active) {
-        image_index = global.btnStateDown;
+    if (id.image_index != global.btnStateStatic) {
+        global.target = id;
+        if (!id.active) {
+            image_index = global.btnStateDown;
+        }
     }
 }
 

@@ -10,7 +10,7 @@
         instance_destroy();
     }
 
-    show_debug_message("Result:");
+    /*show_debug_message("Result:");
     show_debug_message("Party:");
 
     //generating log items for each party member
@@ -53,16 +53,112 @@
     }
     if (!partyDefeated) {
         show_debug_message("Party successfully completed the quest!");
-    }
+    }*/
     
     //updating guild data
     var newGold = ds_map_find_value(global.guild,"gold") + ds_map_find_value(global.record, "gold");
     ds_map_replace(global.guild, "gold", newGold);
-    show_debug_message("total gold found: "+string(ds_map_find_value(global.record, "gold")));
-    show_debug_message("total battles fought: "+string(ds_map_find_value(global.record, "battles")));
+    
+    var reviewFont = simplePixels24;
+    var margTop = 0.15*global.roomHeight;
+    var margLeft = 0.1*global.roomWidth;
+    var _width = global.roomWidth - 2*margLeft;
+    var sep = 0.01*global.roomHeight;
+    
+    //gold
+    var goldText = instance_create(margLeft,margTop,reviewText_obj);
+    goldText.text = string_upper("total gold found:#   "+string(global.record[? "gold"]));
+    goldText.width = _width;
+    draw_set_font(goldText.font);
+    goldText.height = string_height_ext(goldText.text,goldText.lineHeight,_width);
+    
+    //battles
+    var battleText = instance_create(margLeft,goldText.y+goldText.height+sep,reviewText_obj);
+    battleText.text = string_upper("total battles fought:#   "+string(ds_map_find_value(global.record, "battles")));
+    battleText.width = _width;
+    draw_set_font(battleText.font);
+    battleText.height = string_height_ext(battleText.text,battleText.lineHeight,_width);
+    
+    //heroes found
+    var size = ds_list_size(global.heroes);
+    var collected = ds_list_create();
+    for (var i=0; i<size; i++) {
+        if (ds_map_find_value(global.heroes[| i], "found")) {
+            ds_list_add(collected, global.heroes[| i]);
+            ds_map_delete(global.heroes[| i], "found");
+        }
+    }
+    var new_y = battleText.y + battleText.height;
+    if (ds_list_size(collected)) {
+        new_y += sep;
+        var foundText = instance_create(margLeft,new_y,reviewText_obj);
+        foundText.text = string_upper("Heroes met:");
+        foundText.width = _width;
+        draw_set_font(foundText.font);
+        foundText.height = string_height_ext(foundText.text,foundText.lineHeight,_width);
+        
+        new_y += foundText.height + sep;
+        new_y = genHeroReview_scr(collected, new_y);
+        show_debug_message(new_y);
+    }
+    for (var i=size-1; i>=0; i--) {
+        ds_list_delete(collected, i);
+    }
+    ds_list_destroy(collected);
+    
+    //heroes fallen
+    var size = ds_list_size(global.heroes);
+    var collected = ds_list_create();
+    for (var i=0; i<size; i++) {
+        if (0 >= ds_map_find_value(global.heroes[| i], "hp")) {
+            ds_list_add(collected, global.heroes[| i]);
+        }
+    }
+    if (ds_list_size(collected)) {
+        new_y += sep;
+        var fallenText = instance_create(margLeft,new_y,reviewText_obj);
+        fallenText.text = string_upper("Heroes lost:");
+        fallenText.width = _width;
+        draw_set_font(fallenText.font);
+        fallenText.height = string_height_ext(fallenText.text,fallenText.lineHeight,_width);
+        
+        new_y += fallenText.height + sep;
+        new_y = genHeroReview_scr(collected, new_y);
+    }
+    for (var i=size-1; i>=0; i--) {
+        ds_map_destroy(collected[| i]);//'killing' heroes
+        ds_list_delete(collected, i);
+    }
+    ds_list_destroy(collected);
+    
+    
+    var border = 0.08;
+    var backWidth = _width/global.roomWidth + border;
+    var backHeight = (new_y - margTop + border*global.roomWidth)/global.roomHeight;
+    var back_x = (1 - backWidth)/2;
+    var back_y = (margTop - sep)/global.roomHeight;
+    show_debug_message(string(back_x)+":"+string(back_y)+" "+string(backWidth)+":"+string(backHeight));
+    var backdrop = createInstance_scr(logBounding_obj, back_x,back_y, 0,0, backWidth,backHeight);
     
     //reseting active variables (record, party, heroes...)
     setGroundState_scr();
-    var newData = createInstance_scr(mainMenuMain_obj, 0,0, 0,0, 0.2,-1);
+    var main = createInstance_scr(mainMenuMain_obj, 0.5,1-margTop/global.roomHeight, 1,2, 0.3,-1);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

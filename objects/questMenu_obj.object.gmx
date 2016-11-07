@@ -27,20 +27,16 @@
             <kind>1</kind>
             <string>{
     id.sprite_index = questButton_spr;
-    id.scale_x = 1;
-    id.scale_y = 1;
+    event_inherited();
+    if (global.record[? "duration"] == id.duration) {
+        id.image_index = global.btnStateActive;
+    }
     
     id.textColor = c_white;
     id.fontSml = simplePixels12;
     id.fontMed = simplePixels16;
     id.fontLrg = simplePixels20;
     id.text = string_upper(secToTime_scr(id.duration));
-    
-    event_inherited();
-    
-    if (global.record[? "duration"] == id.duration) {
-        id.image_index = global.btnStateActive;
-    }
 }
 
 </string>

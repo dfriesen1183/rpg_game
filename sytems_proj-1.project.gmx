@@ -5,6 +5,8 @@
   </Configs>
   <NewExtensions>
     <extension index="0">extensions\DSPrint</extension>
+    <extension index="1">extensions\PlayAPKExpansionExtension</extension>
+    <extension index="2">extensions\GooglePlayLicensingAsExt</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -141,6 +143,9 @@
         <script>scripts\drawTileRow_scr.gml</script>
         <script>scripts\getTile_scr.gml</script>
       </scripts>
+    </scripts>
+    <scripts name="postquest">
+      <script>scripts\genHeroReview_scr.gml</script>
     </scripts>
     <scripts name="utility">
       <script>scripts\ds_list_add_map.gml</script>

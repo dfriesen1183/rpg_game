@@ -15,6 +15,7 @@
     global.btnStateDown = 1;
     global.btnStateActive = 2;
     global.btnStateDisabled = 3;
+    global.btnStateStatic = 4;
     
     loadGame_scr();
 

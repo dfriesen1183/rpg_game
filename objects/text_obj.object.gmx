@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>{
     id.text = "";
+    id.textColor = c_white;
     
     id.halign = fa_left;
     id.valign = fa_top;
