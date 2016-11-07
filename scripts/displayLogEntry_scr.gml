@@ -37,17 +37,16 @@
         global.logBounding.height = ds_list_find_value(global.logFormat[? "inMarg"], 2) + ds_list_find_value(global.logFormat[? "inMarg"], 3);
         global.logBounding.y = room_height - (global.logBounding.height + ds_list_find_value(global.logFormat[? "outMarg"], 3));
         //global.logBounding.y -= global.cwestCloc.height;
+    } else {
+        with (logEntry_obj) {
+            id.y -= entry.height;
+        }
     }
     var entry = instance_create(entry_x, 0, logEntry_obj);
     ds_list_add(global.logObj, entry);
     entry.width = _width;
     entry.height = _height;
     entry.text = text;
-    if (add) {
-        with (logEntry_obj) {
-            id.y -= entry.height;
-        }
-    }
     global.logBounding.y -= _height;
     global.logBounding.height += _height;
     

@@ -54,6 +54,7 @@
             <kind>1</kind>
             <string>{
     createNewData_scr();
+    id.image_index = global.btnStateUp;
 }
 
 </string>
