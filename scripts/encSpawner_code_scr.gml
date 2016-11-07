@@ -5,7 +5,6 @@
 
     self.time++;
     ds_map_replace(global.record, "time", self.time);
-    updateClock_scr(global.cwestCloc);
     
     if (ds_map_find_value(global.record, "next") <= self.time) {
         var result = encLogic_scr();
@@ -19,5 +18,7 @@
         saveStructure_scr("record");
         self.alarm[0] = room_speed;
     }
+    
+    updateClock_scr(global.cwestCloc);
 }
 

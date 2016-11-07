@@ -30,7 +30,6 @@
     //background tile assembly
     global.tileSpawner = instance_create(0,0,bgTileSpawner_obj);
     
-    
     //readying log
     var outerMarg = ds_list_create();
     outerMarg[| 0] = 5;//left
@@ -97,6 +96,7 @@
         } else {
             questLogic_scr();
         }
+        updateClock_scr(global.cwestCloc);
     } else {
         if (false == partyActive) {
             global.tileSpawner.active = false;

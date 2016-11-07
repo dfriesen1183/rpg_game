@@ -14,7 +14,8 @@
     cloc.height += ds_list_find_value(global.clockFormat[? "inMarg"], 2) + ds_list_find_value(global.clockFormat[? "inMarg"], 3);
     cloc.scale_y = cloc.height/global.roomHeight;
     
-    var new_y = global.roomHeight - ds_list_find_value(global.logFormat[? "outMarg"], 3);
+    var new_y = global.logBounding.y - 10;
     moveInstance_scr(cloc, 0.5,new_y, 1,2, cloc.scale_x,cloc.scale_y);
+    cloc.textObj.y = cloc.y + 0.85*cloc.height/2;
 }
 

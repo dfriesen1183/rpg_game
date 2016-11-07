@@ -46,7 +46,35 @@
     id.textObj = instance_create(0,0,clockText_obj);
     updateClock_scr(id);
     id.textObj.x = id.x + id.width/2;
-    id.textObj.y = id.y + 0.75*id.height/2;
+    //id.textObj.y = id.y + 0.75*id.height/2;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{
+    with (id.textObj) {
+        instance_destroy();
+    }
 }
 
 </string>

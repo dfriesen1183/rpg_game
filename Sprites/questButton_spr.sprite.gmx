@@ -24,5 +24,6 @@
     <frame index="1">images\questButton_spr_1.png</frame>
     <frame index="2">images\questButton_spr_2.png</frame>
     <frame index="3">images\questButton_spr_3.png</frame>
+    <frame index="4">images\questButton_spr_4.png</frame>
   </frames>
 </sprite>

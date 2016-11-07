@@ -23,6 +23,8 @@
     ds_map_replace(global.record,"time",0);
     ds_map_replace(global.record,"next",0);
     ds_map_replace(global.record,"complete",true);
+    ds_map_replace(global.record,"gold",0);
+    ds_map_replace(global.record,"battles",0);
     ds_list_clear(global.logText);
     ds_list_clear(global.logObj);
     //recursive_ds_destroy(global.logFormat);
