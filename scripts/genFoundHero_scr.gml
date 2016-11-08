@@ -5,9 +5,9 @@
 
     var level = floor(random_range(3,13));
     var maxHp = floor(random_range(20,35));
-    var hp = floor((random(1) + random(1))*maxHp);
+    var hp = floor((random(1)/2 + random(1))*maxHp);
     if (hp > maxHp) hp = maxHp;
-    var message = "Found a level "+string(level)+" hero with "+string(hp)+" hp.";
+    var message = "Found a level "+string(level)+" hero with "+string(hp)+"/"+string(maxHp)+" hp";
 
     var index = ds_list_size(global.heroes);
     var partyIndex = ds_list_size(global.party);
