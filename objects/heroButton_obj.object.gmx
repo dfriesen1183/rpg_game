@@ -99,6 +99,8 @@
                         id.image_index = global.btnStateUp;
                     }
                 }
+            } else {
+                id.image_index = global.btnStateUp;
             }
         }
     }
