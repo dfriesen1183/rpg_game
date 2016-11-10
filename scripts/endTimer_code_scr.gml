@@ -10,7 +10,7 @@
         endQuest_scr(true);
     } else {
         saveStructure_scr("record");
-        updateClock_scr(global.cwestCloc);
+        //updateClock_scr(global.cwestCloc);
         self.alarm[0] = room_speed;
     }
 }

@@ -16,6 +16,7 @@
     global.btnStateDisabled = 3;
     global.btnStateStatic = 4;
     
+    //createNewData_scr();
     loadGame_scr();
 
     if (ds_map_find_value(global.record, "complete")) {

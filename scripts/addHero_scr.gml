@@ -29,11 +29,7 @@
     if (size < limit) {
         var index = ds_list_size(list);
         ds_list_add_map(list, hero);
-        if (is_undefined(ds_map_find_value(hero, indexKey))) {
-            ds_map_add(hero, indexKey, index);
-        } else {
-            ds_map_replace(hero, indexKey, index);
-        }
+        hero[? indexKey] = index;
     /*show_debug_message("");
     var data = ds_map_create();
     ds_map_add_list(data, "party", global.party);

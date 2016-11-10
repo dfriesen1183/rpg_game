@@ -2,7 +2,7 @@
     //displayLogEntry_scr(string);
     //displays log entry
     
-    var text = string_upper(argument0);
+    /*var text = string_upper(argument0);
     var add = argument1;
     
     var entry_x = ds_list_find_value(global.logFormat[? "outMarg"], 0) + ds_list_find_value(global.logFormat[? "inMarg"], 0);
@@ -10,7 +10,7 @@
     var totalOutMarg = ds_list_find_value(global.logFormat[? "outMarg"], 0) + ds_list_find_value(global.logFormat[? "outMarg"], 1);
     var _width = room_width - (totalInMarg + totalOutMarg);// - ;//*7/8;
     draw_set_font(global.logFormat[? "font"]);
-    var _height = string_height_ext(text, -1, _width);
+    var _height = string_height_ext(text, -1, _width);*/
     
     /*var lastIndex = ds_list_size(global.logObj) - 1;
     var border = room_height - ds_list_find_value(global.logFormat[? "outMarg"], 3) - ds_list_find_value(global.logFormat[? "inMarg"], 3);
@@ -30,7 +30,7 @@
         }
     }*/
     
-    if (false == add) {
+    /*if (false == add) {
         with (logEntry_obj) {
             instance_destroy();
         }
@@ -52,7 +52,7 @@
     
     var new_y = room_height - (ds_list_find_value(global.logFormat[? "outMarg"], 3) + ds_list_find_value(global.logFormat[? "inMarg"], 3) + _height);
     //new_y -= global.cwestCloc.height;
-    entry.y = new_y;
+    entry.y = new_y;*/
 }
 
 

@@ -4,7 +4,7 @@
     //determines encounter type
     
     genLogEntry_scr("----------", false, false);
-    var encType = ceil(random(100)); //percentage-based
+    var encType = irandom_range(1,100); //percentage-based
     if (encType > 90) {
         //companion generated
         genFoundHero_scr();

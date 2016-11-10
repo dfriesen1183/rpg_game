@@ -26,13 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    event_inherited();
-    
-    id.depth = -1;
-    //id.width = global.logFormat[? "outWidth"];
-    //id.height = global.logFormat[? "outHeight"];
-
-    id.sprite_index = logBounding_spr;
+    id.sprite_index = mapLength_spr;
 }
 
 </string>

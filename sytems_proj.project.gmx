@@ -54,6 +54,9 @@
     </sprites>
     <sprites name="quest">
       <sprite>sprites\logBounding_spr</sprite>
+      <sprite>sprites\mapBackTemp_spr</sprite>
+      <sprite>sprites\mapMark_spr</sprite>
+      <sprite>sprites\mapLength_spr</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -107,22 +110,19 @@
       <script>scripts\renderHero_scr.gml</script>
     </scripts>
     <scripts name="quest">
-      <script>scripts\displayPartyMember_scr.gml</script>
-      <script>scripts\movePartyMember_scr.gml</script>
+      <scripts name="questVisual">
+        <script>scripts\planEncounters_scr.gml</script>
+        <script>scripts\displayPartyMember_scr.gml</script>
+        <script>scripts\movePartyMember_scr.gml</script>
+      </scripts>
       <scripts name="log">
-        <script>scripts\drawLog_scr.gml</script>
         <script>scripts\genLogEntry_scr.gml</script>
         <script>scripts\displayLogEntry_scr.gml</script>
-        <script>scripts\displayLogPage_scr.gml</script>
         <script>scripts\updateClock_scr.gml</script>
       </scripts>
-      <script>scripts\questLogic_scr.gml</script>
-      <script>scripts\endQuest_scr.gml</script>
-      <script>scripts\spawnQuestEndMenu_scr.gml</script>
       <scripts name="spawners">
-        <script>scripts\createSpawner_scr.gml</script>
-        <script>scripts\encSpawner_code_scr.gml</script>
-        <script>scripts\endTimer_code_scr.gml</script>
+        <script>scripts\createQuestTimer_scr.gml</script>
+        <script>scripts\questTimer_code_scr.gml</script>
       </scripts>
       <scripts name="encounters">
         <script>scripts\encLogic_scr.gml</script>
@@ -137,10 +137,12 @@
       </scripts>
       <scripts name="bgTilesGeneration">
         <script>scripts\genPotentialIndex_tileset1_scr.gml</script>
-        <script>scripts\genPotentialIndexItem_scr.gml</script>
         <script>scripts\drawTileRow_scr.gml</script>
+        <script>scripts\genPotentialIndexItem_scr.gml</script>
         <script>scripts\getTile_scr.gml</script>
       </scripts>
+      <script>scripts\endQuest_scr.gml</script>
+      <script>scripts\spawnQuestEndMenu_scr.gml</script>
     </scripts>
     <scripts name="postquest">
       <script>scripts\genHeroReview_scr.gml</script>
@@ -207,8 +209,7 @@
     <objects name="quest">
       <object>objects\hero_obj</object>
       <objects name="time">
-        <object>objects\encSpawner_obj</object>
-        <object>objects\endTimer_obj</object>
+        <object>objects\questTimer_obj</object>
       </objects>
       <objects name="log">
         <object>objects\logBounding_obj</object>
@@ -216,8 +217,11 @@
         <object>objects\clock_obj</object>
         <object>objects\clockText_obj</object>
       </objects>
-      <objects name="background">
+      <objects name="visual">
         <object>objects\bgTileSpawner_obj</object>
+        <object>objects\questVisual_obj</object>
+        <object>objects\mapLength_obj</object>
+        <object>objects\mapMark_obj</object>
       </objects>
       <object>objects\reviewText_obj</object>
     </objects>

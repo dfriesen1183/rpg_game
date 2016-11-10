@@ -18,7 +18,7 @@
     var party = addHero_scr(hero, false);
 
     if (party) {
-        displayPartyMember_scr(index, partyIndex, true);
+        displayPartyMember_scr(index,partyIndex, true);
     } else {
         message += "#No room in party";
     }

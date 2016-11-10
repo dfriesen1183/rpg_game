@@ -11,7 +11,7 @@
         with (hero_obj) {
             instance_destroy();
         }
-        global.tileSpawner.active = false;
+        //global.tileSpawner.active = false;
     }
     spawnQuestEndMenu_scr();
 
