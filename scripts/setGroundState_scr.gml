@@ -33,9 +33,11 @@
             if (0 <= questIndex) {
                 if (questIndex == global.quest) {
                     with (hero_obj) {
+                        //not sure why this fails...
+                        /*show_debug_message("hero");
                         if (id.partyIndex == hero[? "partyIndex"]) {
                             id.index = i;
-                        }
+                        }*/
                     }
                 }
                 if (hero[? "found"] == quest) {

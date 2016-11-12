@@ -68,7 +68,7 @@
         var hero = party[| i];
         
         if (0 < hero[? "hp"]) {
-            displayPartyMember_scr(hero[? "index"], hero[? "partyIndex"], hero[? "found"]);
+            //displayPartyMember_scr(hero[? "index"], hero[? "partyIndex"], hero[? "found"]);
         }
     }
 }
