@@ -1,11 +1,16 @@
 {
     //setTarget_scr(boolean);
     //finds random member of the opposing party still standing
+    
+    
+    var record = argument0;
+    var party = record[? "party"];
 
-    if (argument0) {
+
+    if (argument1) {
         var targetGroup = global.enemyParty;
     } else {
-        targetGroup = global.party;
+        targetGroup = party;
     }
     
     var viableTargets = ds_list_create();

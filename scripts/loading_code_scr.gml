@@ -19,11 +19,11 @@
     //createNewData_scr();
     loadGame_scr();
 
-    if (ds_map_find_value(global.record, "complete")) {
-        setGroundState_scr();
+    /*if (ds_map_find_value(global.record, "complete")) {
+        setGroundState_scr();*/
         room_goto(mainMenuMain_room);
-    } else {
+    /*} else {
         room_goto(quest_room);
-    }
+    }*/
 }
 

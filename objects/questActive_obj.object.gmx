@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>button_obj</parentName>
+  <parentName>pureTextButton_obj</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,19 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>{
-    id.sprite_index = heroButton_spr;
+    id.sprite_index = mainButton_spr;
     event_inherited();
     
-    id.text = "";
     id.textColor = c_white;
-    id.fontSml = simplePixels20;
-    id.fontMed = simplePixels20;
+    id.fontSml = simplePixels12;
+    id.fontMed = simplePixels16;
     id.fontLrg = simplePixels20;
-    
-    id.halign = fa_center;
-        id.textAlign_x = 1;
-    id.valign = fa_bottom;
-        id.textAlign_y = 2;
+    id.index = -1;
+    id.text = string_upper("Active "+string(id.index + 1));
 }
 
 </string>
@@ -64,70 +60,12 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id.image_index != global.btnStateStatic) {
-        if (id.active) {
-            id.active = false;
-            id.image_index = global.btnStateUp;
-            
-            var hero = ds_list_find_value(global.heroes, id.index);
-            var partyIndex = ds_map_find_value(hero, "partyIndex");
-            ds_list_delete(global.party, partyIndex);
-            
-            //updating recorded positions
-            var size = ds_list_size(global.party);
-            for (var i=0; i&lt;size; i++) {
-                hero = ds_list_find_value(global.party, i);
-                hero[? "partyIndex"] = i;
-            }
-            if (!size) {
-                with (mainMenuBegin_obj) {
-                    id.image_index = global.btnStateDisabled;
-                }
-            }
-        } else {
-            var newMember = global.heroes[| id.index];
-            var result = addHero_scr(newMember, false);
-            if (result) {
-                id.active = true;
-                id.image_index = global.btnStateActive;
-                if (global.record[? "duration"] != 0) {
-                    with (mainMenuBegin_obj) {
-                        id.image_index = global.btnStateUp;
-                    }
-                }
-            } else {
-                id.image_index = global.btnStateUp;
-            }
-        }
-    }
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>{
-    id.pos_x = id.x;
-    id.pos_y = id.y;
     event_inherited();
+    if (id.image_index != global.btnStateStatic)
+    {
+        global.quest = id.index;
+        room_goto(quest_room);
+    }
 }
 
 </string>

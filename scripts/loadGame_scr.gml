@@ -26,14 +26,23 @@
             }
         } else {
             var scriptToCall = asset_get_index("create_"+key+"_scr");
+            show_debug_message(scriptToCall);
             script_execute(scriptToCall);
         }
         key = ds_map_find_next(global.saveIndex, key);
     }
     
-    global.logText = ds_map_find_value(global.record, "log");
-    global.logObj = ds_list_create();
     
-    global.target = -1;//variable used for verifying button presses
+    global.record = ds_map_create();
+    createRecord_scr();
+    global.party = global.record[? "party"];
+    
+    global.quest = -1;
+    global.clock = instance_create(0,0, clock_obj);
+    
+    
+    var date1 = date_create_datetime(2016,11,11,15,48,0);
+    var date2 = date_create_datetime(2016,11,11,15,49,0);
+    show_debug_message(date_compare_datetime(date1, date2));
 }
 

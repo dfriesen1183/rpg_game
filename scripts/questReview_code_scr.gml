@@ -5,58 +5,15 @@
 
     saveGame_scr();
     
+    var record = global.activeQuests[| global.quest];
+    
     //deleting heroes displayed
     with(hero_obj) {
         instance_destroy();
     }
-
-    /*show_debug_message("Result:");
-    show_debug_message("Party:");
-
-    //generating log items for each party member
-    var size = ds_list_size(global.party);
-    var partyDefeated = true;
-
-    for (var i=0; i<size; i++) {
-        var hero = ds_list_find_value(global.party, i);
-        var name = ds_map_find_value(hero,"name");
-        var level = ds_map_find_value(hero,"level");
-        var hp = ds_map_find_value(hero,"hp");
-        var maxHp = ds_map_find_value(hero,"maxHp");
-        var index = ds_map_find_value(hero,"index");
-
-        var store = 0;
-        var storeIndex = 0;
-        var heroCount = ds_list_size(global.heroes);
-        for (var j=0; j<heroCount; j++) {
-            store = ds_list_find_value(global.heroes, j);
-            if (ds_map_find_value(store, "index") == index) {
-                storeIndex = j;
-                break;
-            }
-        }
-
-        if (ds_map_find_value(hero, "found")) {
-            ds_map_delete(store, "found");
-            show_debug_message("Found "+name+", level "+string(level)+" Hero at "+string(maxHp)+"hp");
-        }
-        if (hp < maxHp) {
-            if (hp > 0) {
-                partyDefeated = false;
-                show_debug_message(name+" was wounded to "+string(hp)+"/"+string(maxHp));
-            } else {
-                show_debug_message(name+" fell in battle");
-                ds_map_destroy(store);
-                ds_list_delete(global.heroes, storeIndex);
-            }
-        }
-    }
-    if (!partyDefeated) {
-        show_debug_message("Party successfully completed the quest!");
-    }*/
     
     //updating guild data
-    var newGold = ds_map_find_value(global.guild,"gold") + ds_map_find_value(global.record, "gold");
+    var newGold = ds_map_find_value(global.guild,"gold") + ds_map_find_value(record, "gold");
     ds_map_replace(global.guild, "gold", newGold);
     
     var reviewFont = simplePixels24;
@@ -67,14 +24,14 @@
     
     //gold
     var goldText = instance_create(margLeft,margTop,reviewText_obj);
-    goldText.text = string_upper("total gold found:#   "+string(global.record[? "gold"]));
+    goldText.text = string_upper("total gold found:#   "+string(record[? "gold"]));
     goldText.width = _width;
     draw_set_font(goldText.font);
     goldText.height = string_height_ext(goldText.text,goldText.lineHeight,_width);
     
     //battles
     var battleText = instance_create(margLeft,goldText.y+goldText.height+sep,reviewText_obj);
-    battleText.text = string_upper("total battles fought:#   "+string(ds_map_find_value(global.record, "battles")));
+    battleText.text = string_upper("total battles fought:#   "+string(ds_map_find_value(record, "battles")));
     battleText.width = _width;
     draw_set_font(battleText.font);
     battleText.height = string_height_ext(battleText.text,battleText.lineHeight,_width);
@@ -145,24 +102,8 @@
     var backdrop = createInstance_scr(logBounding_obj, back_x,back_y, 0,0, backWidth,backHeight);
     
     //reseting active variables (record, party, heroes...)
+    destroyQuest_scr(global.quest);
     setGroundState_scr();
     var main = createInstance_scr(mainMenuMain_obj, 0.5,1-margTop/global.roomHeight, 1,2, 0.3,-1);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

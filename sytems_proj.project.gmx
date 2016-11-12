@@ -66,6 +66,10 @@
   <scripts name="scripts">
     <scripts name="main">
       <script>scripts\loadGame_scr.gml</script>
+      <scripts name="systemTime">
+        <script>scripts\loadSystemTime_scr.gml</script>
+        <script>scripts\updateSystemTime_scr.gml</script>
+      </scripts>
       <scripts name="saveData">
         <script>scripts\createSaveIndex_scr.gml</script>
         <script>scripts\createSaveIndexItem_scr.gml</script>
@@ -77,8 +81,8 @@
         <script>scripts\create_guild_scr.gml</script>
         <script>scripts\create_heroes_scr.gml</script>
         <script>scripts\createHero_scr.gml</script>
-        <script>scripts\create_record_scr.gml</script>
-        <script>scripts\create_party_scr.gml</script>
+        <script>scripts\create_activeQuests_scr.gml</script>
+        <script>scripts\createRecord_scr.gml</script>
       </scripts>
       <scripts name="viewData">
         <script>scripts\viewSavedData_scr.gml</script>
@@ -105,44 +109,41 @@
     </scripts>
     <scripts name="prequest">
       <script>scripts\addHero_scr.gml</script>
-      <script>scripts\clearParty_scr.gml</script>
       <script>scripts\displayGuildHero_scr.gml</script>
       <script>scripts\renderHero_scr.gml</script>
+      <script>scripts\confirm_quest_scr.gml</script>
     </scripts>
     <scripts name="quest">
-      <scripts name="questVisual">
+      <script>scripts\createQuest_scr.gml</script>
+      <script>scripts\destroyQuest_scr.gml</script>
+      <scripts name="time">
         <script>scripts\planEncounters_scr.gml</script>
-        <script>scripts\displayPartyMember_scr.gml</script>
-        <script>scripts\movePartyMember_scr.gml</script>
-      </scripts>
-      <scripts name="log">
-        <script>scripts\genLogEntry_scr.gml</script>
-        <script>scripts\displayLogEntry_scr.gml</script>
-        <script>scripts\updateClock_scr.gml</script>
-      </scripts>
-      <scripts name="spawners">
-        <script>scripts\createQuestTimer_scr.gml</script>
-        <script>scripts\questTimer_code_scr.gml</script>
+        <script>scripts\updateAllQuests_scr.gml</script>
+        <script>scripts\updateOneQuest_scr.gml</script>
+        <script>scripts\endQuest_scr.gml</script>
+        <script>scripts\spawnQuestEndMenu_scr.gml</script>
       </scripts>
       <scripts name="encounters">
-        <script>scripts\encLogic_scr.gml</script>
+        <script>scripts\runEncounter_scr.gml</script>
         <script>scripts\genFoundLoot_scr.gml</script>
         <script>scripts\genFoundHero_scr.gml</script>
         <script>scripts\genFoundEnemies_scr.gml</script>
-        <scripts name="battle">
+        <scripts name="combat">
           <script>scripts\orderAttackers_scr.gml</script>
           <script>scripts\setTarget_scr.gml</script>
           <script>scripts\battleRecap_scr.gml</script>
         </scripts>
       </scripts>
-      <scripts name="bgTilesGeneration">
-        <script>scripts\genPotentialIndex_tileset1_scr.gml</script>
-        <script>scripts\drawTileRow_scr.gml</script>
-        <script>scripts\genPotentialIndexItem_scr.gml</script>
-        <script>scripts\getTile_scr.gml</script>
+      <scripts name="visual">
+        <script>scripts\questVisual_creation_scr.gml</script>
+        <script>scripts\displayPartyMember_scr.gml</script>
+        <script>scripts\movePartyMember_scr.gml</script>
+        <script>scripts\updateParty_scr.gml</script>
       </scripts>
-      <script>scripts\endQuest_scr.gml</script>
-      <script>scripts\spawnQuestEndMenu_scr.gml</script>
+      <scripts name="log">
+        <script>scripts\genLogEntry_scr.gml</script>
+        <script>scripts\displayLogEntry_scr.gml</script>
+      </scripts>
     </scripts>
     <scripts name="postquest">
       <script>scripts\genHeroReview_scr.gml</script>
@@ -205,23 +206,23 @@
           <object>objects\questMenu3_obj</object>
         </objects>
       </objects>
+      <objects name="questActive">
+        <object>objects\questActive_obj</object>
+      </objects>
     </objects>
     <objects name="quest">
       <object>objects\hero_obj</object>
       <objects name="time">
-        <object>objects\questTimer_obj</object>
+        <object>objects\clock_obj</object>
+      </objects>
+      <objects name="visual">
+        <object>objects\questVisual_obj</object>
+        <object>objects\mapLength_obj</object>
+        <object>objects\mapMark_obj</object>
       </objects>
       <objects name="log">
         <object>objects\logBounding_obj</object>
         <object>objects\logEntry_obj</object>
-        <object>objects\clock_obj</object>
-        <object>objects\clockText_obj</object>
-      </objects>
-      <objects name="visual">
-        <object>objects\bgTileSpawner_obj</object>
-        <object>objects\questVisual_obj</object>
-        <object>objects\mapLength_obj</object>
-        <object>objects\mapMark_obj</object>
       </objects>
       <object>objects\reviewText_obj</object>
     </objects>

@@ -4,34 +4,37 @@
     //readies quest board
 
     
+    var record = global.activeQuests[| global.quest];
+    var party = record[? "party"];
+    
     //checking quest activity
     var partyActive = false;
     var partyIndex = 0;
-    var size = ds_list_size(global.party);
+    var size = ds_list_size(party);
     for (var i=0; i<size; i++) {
-        var hero = global.party[| i];
+        var hero = party[| i];
         if (0 < hero[? "hp"]) {
             partyActive = true;
             break;
         }
     }
     var questActive;
-    if (global.record[? "time"] < global.record[? "duration"]) {
+    if (date_compare_datetime(record[? "endTime"], global.sysTime[? "val"]) > 0) {
         questActive = true;
     } else {
         questActive = false;
     }
     
+    global.onQuestMenuOffset = 0.05;
+    var backToQuests = createInstance_scr(mainMenuQuests_obj, 0,0, 0,0, -1,global.onQuestMenuOffset);
+    
+    global.questVisual = instance_create(0,0, questVisual_obj);
     if (questActive && partyActive) {
         //initiating quest cycle
         if (!size) {
-            var durHuman = secToTime_scr(global.record[? "duration"]);
-            genLogEntry_scr("Embarked on a "+string(durHuman)+" quest", true, false);
+            var durHuman = secToTime_scr(record[? "duration"]);
+            genLogEntry_scr(record, "Embarked on a "+string(durHuman)+" quest", true, false);
         }
-        if (0 >= global.record[? "time"]) {
-            planEncounters_scr();
-        }
-        global.questVisual = instance_create(0,0, questVisual_obj);
     } else {
         //returning to end screen
         show_debug_message("inactive quest");

@@ -55,6 +55,7 @@
             <string>{
     event_inherited();
     //if (id == global.target) {
+        global.quest = -1;
         room_goto(mainMenuQuests_room);
     //}
 }

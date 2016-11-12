@@ -2,6 +2,14 @@
     //mainMenuQuests_code_scr()
     //(called from mainMenuQuests_room creation code)
     //loads room ui
+    
+    //active
+    var size = ds_list_size(global.activeQuests);
+    for (var i=0; i<size; i++) {
+        var active = createInstance_scr(questActive_obj, 10,0, 0,0, 0.2,-1);
+        active.index = i;
+        active.y = i*(active.height*active.scale_y + 10) + 10;
+    }
 
     //quests
     var quest1 = createInstance_scr(questMenu1_obj, 0.5,0.2, 1,0, 0.25,-1);

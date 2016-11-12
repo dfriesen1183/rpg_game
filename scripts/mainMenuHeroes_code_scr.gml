@@ -22,6 +22,7 @@
         displayGuildHero_scr(heroButton);
     }
     size = ds_list_size(global.party);
+    output_list(global.party);
     for (var i=0; i<size; i++) {
         var member = ds_list_find_value(global.party, i);
         var memberIndex = ds_map_find_value(member, "index");

@@ -3,12 +3,13 @@
     //returns boolean 'quest failure'
     //determines encounter type
     
+    var enc = argument0;
+    
     genLogEntry_scr("----------", false, false);
-    var encType = irandom_range(1,100); //percentage-based
-    if (encType > 90) {
+    if (enc[? "type"] > 90) {
         //companion generated
         genFoundHero_scr();
-    } else if (encType > 75) {
+    } else if (enc[? "type"] > 75) {
         //loot generated
         genFoundLoot_scr();
     } else {

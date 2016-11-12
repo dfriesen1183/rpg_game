@@ -1,11 +1,16 @@
 {
     //genFoundLoot_scr();
     //generates equipment, gold
+ 
+    
+    var record = argument0;
+    var party = record[? "party"];
+
 
     var equipChance = floor(random(100));
     while (equipChance > 80) {
-        genLogEntry_scr("found equipment", false, false);
-        // global.record.equip...
+        genLogEntry_scr(record, "found equipment", false, false);
+        // record.equip...
         equipChance = floor(random(100));
     }
     var goldChance = floor(random(100));
@@ -16,7 +21,7 @@
         goldChance = floor(random(100));
         recurGoldChance /= 1.5;
     }
-    genLogEntry_scr("found "+string(gold)+" gold", true, false);
-    global.record[? "gold"] += gold;
+    genLogEntry_scr(record, "found "+string(gold)+" gold", true, false);
+    record[? "gold"] += gold;
     // could have party reactions here, maybe
 }

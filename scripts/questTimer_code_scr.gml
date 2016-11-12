@@ -27,20 +27,12 @@
     var index = global.record[? "encIndex"];
     var enc = encounters[| index];
     
-    if (enc[? "unmet"])
-    {
+    if (enc[? "unmet"]) {
         if (enc[? "time"] <= id.time) {
-            var result = encLogic_scr();
-            enc[? "unmet"] = false;
-            if (result == 0) {
-                //updateClock_scr(global.cwestCloc);
-            } else {
-                saveGame_scr();
+            var result = runEncounter_scr(enc);
+            if (1 == result) {
                 endQuest_scr(false);
                 return 0;
-            }
-            if (index + 1 < ds_list_size(encounters)) {
-                global.record[? "encIndex"]++;
             }
             saveGame_scr();
         } else {

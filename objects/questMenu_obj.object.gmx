@@ -30,6 +30,7 @@
     event_inherited();
     if (global.record[? "duration"] == id.duration) {
         id.image_index = global.btnStateActive;
+        id.active = true;
     }
     
     id.textColor = c_white;

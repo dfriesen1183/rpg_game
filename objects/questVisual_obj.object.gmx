@@ -26,58 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    global.questVisual = id;
-
-    //map background
-    var pos_x = 0;
-    var pos_y = 0.05;
-    var widthScale = 1;
-    var heightScale = 1 - pos_y;
-    id.background = createInstance_scr(logBounding_obj, pos_x,pos_y, 0,0, widthScale,heightScale);
-    id.background.sprite_index = mapBackTemp_spr;
-    id.background.depth = -1;
-    //map line
-    var mapLengthWidth = 0.01;
-    var mapLengthLeft = widthScale/2;
-    var mapLengthTop = heightScale*0.125;//mapLengthLeft*global.roomWidth/global.roomHeight + pos_y;
-    id.mapLengthHeight = heightScale - mapLengthTop*2;
-    mapLengthTop += pos_y;
-    id.mapLength = createInstance_scr(mapLength_obj, mapLengthLeft,mapLengthTop, 1,0, mapLengthWidth,id.mapLengthHeight);
-    id.mapLength.depth = -2;
-    
-    //map markings
-    var base_y = mapLengthTop + id.mapLengthHeight;
-    var width = mapLengthWidth*5;
-    var height = mapLengthWidth*global.roomWidth/global.roomHeight;
-    var encs = global.record[? "encounters"];
-    var size = ds_list_size(encs);
-    var duration = global.record[? "duration"];
-    for (var i=0; i&lt;size; i++) {
-        var part = ds_map_find_value(encs[| i], "time") / duration;
-        part *= id.mapLengthHeight;
-        var mark_y = base_y - part;
-        var mark = createInstance_scr(mapMark_obj, mapLengthLeft,mark_y, 1,1, width,height);
-        mark.depth = -3;
-    }
-
-    //placing party members
-    id.party_y = -(global.record[? "time"] / global.record[? "duration"]);
-    id.party_y *= id.mapLengthHeight;
-    id.party_y += base_y;
-    id.party_x = mapLengthLeft;
-    
-    var size = ds_list_size(global.party);
-    for (var i=0; i&lt;size; i++) {
-        var hero = global.party[| i];
-        hero[? "partyIndex"] = i;
-        
-        if (0 &lt; hero[? "hp"]) {
-            var index = hero[? "index"];
-            displayPartyMember_scr(index,i, false);
-        }
-    }
-    
-    createQuestTimer_scr();
+    questVisual_creation_scr();
 }
 
 </string>

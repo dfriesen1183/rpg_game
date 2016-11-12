@@ -7,14 +7,18 @@
     //  loops through battle until one party is defeated
     //    determines attack order
     //    attackers find targets and deal damage
+    
+    
+    var record = argument0;
+    var party = record[? "party"];
 
-    global.record[? "battles"] += 1;
+    record[? "battles"] += 1;
     var dmgTaken = 0;
     var dmgDealt = 0;
     
     //assembling enemy party
     var enemyCount = irandom_range(1,4);
-    genLogEntry_scr(string(enemyCount)+" enemies found", false, false);
+    genLogEntry_scr(record, string(enemyCount)+" enemies found", false, false);
     global.enemyParty = ds_list_create();
     
     for (var i=0; i<enemyCount; i++) {
@@ -34,20 +38,20 @@
     var ambushChance = irandom_range(1,100);
     if (67 > ambushChance) {
         //party ambushes enemy
-        genLogEntry_scr("Party caught the enemy by surprise", false, false);
+        genLogEntry_scr(record, "Party caught the enemy by surprise", false, false);
         var order = ds_list_create();
-        var size = ds_list_size(global.party);
+        var size = ds_list_size(party);
         for (var i=0; i<size; i++) {
-            ds_list_add(order, global.party[| i]);
+            ds_list_add(order, party[| i]);
         }
         ds_list_shuffle(order);
         
     } else if (33 > ambushChance) {
         //level opportunity
-        var order = orderAttackers_scr();
+        var order = orderAttackers_scr(record);
     } else {
         //enemy ambushes party
-        genLogEntry_scr("Enemy caught the party by surprise", false, false);
+        genLogEntry_scr(record, "Enemy caught the party by surprise", false, false);
         var order = ds_list_create();
         var size = ds_list_size(global.enemyParty);
         for (var i=0; i<size; i++) {
@@ -79,7 +83,7 @@
                 break;
             }
             
-            var target = setTarget_scr(attacker[? "friendly"]);
+            var target = setTarget_scr(record, attacker[? "friendly"]);
             //this should never trigger
             if (target == 0) {
                 fighting = false;
@@ -100,20 +104,21 @@
             }
             
             if (0 >= target[? "hp"]) {
-                genLogEntry_scr(string(attacker[? "name"])+" felled "+string(target[? "name"]), false, false);
+                genLogEntry_scr(record, string(attacker[? "name"])+" felled "+string(target[? "name"]), false, false);
                 
                 //attending to visual representation upon hero defeat
                 if (target[? "friendly"]) {
                     var deadIndex = target[? "partyIndex"];
                     with(hero_obj) {
                         if (id.partyIndex == deadIndex) {
+                            id.partyIndex = -1;
                             instance_destroy();
                         }
                     }
                     var _partyIndex = 0;
-                    var partySize = ds_list_size(global.party);
+                    var partySize = ds_list_size(party);
                     for (var j=0; j<partySize; j++) {
-                        var hero = global.party[| j];
+                        var hero = party[| j];
                         if (0 < hero[? "hp"]) {
                             var shiftIndex = hero[? "partyIndex"];
                             hero[? "partyIndex"] = _partyIndex;
@@ -132,7 +137,7 @@
                 if (attacker[? "friendly"]) {
                     var targetParty = global.enemyParty;
                 } else {
-                    targetParty = global.party;
+                    targetParty = party;
                 }
                 var j_size = ds_list_size(targetParty);
                 var partyDefeated = true;
@@ -151,7 +156,7 @@
                     break;
                 }
             } else {
-                genLogEntry_scr(string(attacker[? "name"])+" hit "+string(target[? "name"])+" for "+string(dmg)+"dmg. "+string(target[? "name"])+" has "+string(target[? "hp"])+" health left", false, false);
+                genLogEntry_scr(record, string(attacker[? "name"])+" hit "+string(target[? "name"])+" for "+string(dmg)+"dmg. "+string(target[? "name"])+" has "+string(target[? "hp"])+" health left", false, false);
             }
         }
         if (false == fighting) {
@@ -160,10 +165,10 @@
 
         //either this or shuffle
         ds_list_destroy(order);
-        order = orderAttackers_scr();
+        order = orderAttackers_scr(record);
     }
 
-    battleRecap_scr(victory, dmgDealt, dmgTaken);
+    battleRecap_scr(record, victory, dmgDealt, dmgTaken);
         
     var size = ds_list_size(global.enemyParty);
     for (var i=size-1; i>=0; i--) {
@@ -172,9 +177,9 @@
     ds_list_destroy(global.enemyParty);
 
     if (victory) {
-        return 0;
+        return true;
     } else {
-        return 1;
+        return false;
     }
 
 }

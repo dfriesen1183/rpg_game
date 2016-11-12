@@ -18,12 +18,8 @@
         createSaveIndexItem_scr(key, 1);
         global.heroes = ds_map_find_value(global.saveIndex[? key], "ds");
         
-        key = "record";
-        createSaveIndexItem_scr(key, 0);
-        global.record = ds_map_find_value(global.saveIndex[? key], "ds");
-        
-        key = "party";
+        key = "activeQuests";
         createSaveIndexItem_scr(key, 1);
-        global.party = ds_map_find_value(global.saveIndex[? key], "ds");
+        global.activeQuests = ds_map_find_value(global.saveIndex[? key], "ds");
 }
 

@@ -2,17 +2,21 @@
     //battleRecap_scr(boolean, int, int)
     //logs summary of last battle
     
-    var victory = argument0;
-    var dmgDealt = argument1;
-    var dmgTaken = argument2;
+
+    var record = argument0;
+    var party = record[? "party"];
+        
+    var victory = argument1;
+    var dmgDealt = argument2;
+    var dmgTaken = argument3;
     var message = "";
     
     var enemyCount = ds_list_size(global.enemyParty);
     
     var hpLeft = 0;
-    var size = ds_list_size(global.party);
+    var size = ds_list_size(party);
     for (var i=0; i<size; i++) {
-        hpLeft += ds_map_find_value(global.party[| i], "hp");
+        hpLeft += ds_map_find_value(party[| i], "hp");
     }
     
     message += "Party fought";
@@ -41,6 +45,6 @@
         message += " and lost...#Quest unfinished.";
     }
     
-    genLogEntry_scr(message, true, false);
+    genLogEntry_scr(record, message, true, false);
 }
 
