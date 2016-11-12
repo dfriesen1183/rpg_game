@@ -1,5 +1,6 @@
 {
-    var rec = argument0;
+    var quest = argument0;
+    var rec = global.activeQuests[| quest];
     var enc = argument1;
 
     
@@ -7,7 +8,7 @@
     genLogEntry_scr(rec, "----------", false, false);
     if (enc[? "type"] > 90) {
         //companion generated
-        genFoundHero_scr(rec);
+        genFoundHero_scr(quest);
     } else if (enc[? "type"] > 75) {
         //loot generated
         genFoundLoot_scr(rec);

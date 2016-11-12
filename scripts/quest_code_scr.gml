@@ -25,7 +25,7 @@
         questActive = false;
     }
     
-    global.onQuestMenuOffset = 0.05;
+    global.onQuestMenuOffset = 0.08;
     var backToQuests = createInstance_scr(mainMenuQuests_obj, 0,0, 0,0, -1,global.onQuestMenuOffset);
     
     global.questVisual = instance_create(0,0, questVisual_obj);

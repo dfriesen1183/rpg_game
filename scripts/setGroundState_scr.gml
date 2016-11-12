@@ -1,22 +1,47 @@
 {
     //setGroundState_scr();
-    //sterilizes working data:
-    //  realigns indentifiers, potentially the only unique data inherent to the hero
-    //  clears members from party
-    //  empties quest record
+    //sterilizes data:
+    //  restores recently returned heroes to prequest state
+    //  realigns indentifying information after hero deaths
+    
+    
+    var quest = argument0;
+    var rec = global.activeQuests[| quest];
+    var party = rec[? "party"];
+    
+    
+    var size = ds_list_size(party);
+    for (var i=size-1; i>=0; i--) {
+        var member = party[| i];
+        if (0 >= member[? "hp"]) {
+            ds_list_delete(global.heroes, member[? "index"]);
+            ds_map_destroy(member);
+            ds_list_delete(party, i);
+        } else {
+            //member[? "questIndex"] = -1;
+            show_debug_message("ground "+string(member[? "questIndex"]));
+            ds_map_delete(member, "found");
+        }
+    }
 
-
-    var size = ds_list_size(global.heroes);
+    size = ds_list_size(global.heroes);
     for (var i=0; i<size; i++) {
         var hero = ds_list_find_value(global.heroes, i);
         if (ds_exists(hero, ds_type_map)) {
-            if (is_undefined(ds_map_find_value(hero, "index"))) {
-                ds_map_add(hero, "index", i);
-            } else {
-                ds_map_replace(hero, "index", i);
+            hero[? "index"] = i;
+            var questIndex = hero[? "questIndex"];
+            if (0 <= questIndex) {
+                if (questIndex == global.quest) {
+                    with (hero_obj) {
+                        if (id.partyIndex == hero[? "partyIndex"]) {
+                            id.index = i;
+                        }
+                    }
+                }
+                if (hero[? "found"] == quest) {
+                    ds_map_delete(hero, "found");
+                }
             }
-            //in the meantime, healing heroes automatically
-            ds_map_replace(hero, "hp", ds_map_find_value(hero, "maxHp"));
         } else {
             ds_list_delete(global.heroes, i);
             i--; size--;

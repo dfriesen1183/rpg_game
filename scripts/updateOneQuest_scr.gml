@@ -10,13 +10,16 @@
     while (size) {
         var enc = encs[| 0];
         if (date_compare_datetime(global.sysTime[? "val"], enc[? "time"]) > 0) {
-            var result = runEncounter_scr(record, enc);
+            var result = runEncounter_scr(quest, enc);
             ds_list_add_map(record[? "pastEnc"], enc);
             ds_list_delete(encs, 0);
             size--;
             if (1 == result) {
                 record[? "complete"] = true;
                 record[? "success"] = false;
+                if (quest == global.quest) {
+                    spawnQuestEndMenu_scr();
+                }
             }
         } else {
             break;
@@ -26,6 +29,9 @@
     if (date_compare_datetime(global.sysTime[? "val"], record[? "endTime"]) > 0) {
         record[? "complete"] = true;
         record[? "success"] = true;
+        if (quest == global.quest) {
+            spawnQuestEndMenu_scr();
+        }
     }
     //updating displayed party members
     if (quest == global.quest) {

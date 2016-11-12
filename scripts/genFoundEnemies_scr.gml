@@ -109,6 +109,7 @@
                 //attending to visual representation upon hero defeat
                 if (target[? "friendly"]) {
                     var deadIndex = target[? "partyIndex"];
+                    target[? "partyIndex"] = -1;
                     with(hero_obj) {
                         if (id.partyIndex == deadIndex) {
                             id.partyIndex = -1;

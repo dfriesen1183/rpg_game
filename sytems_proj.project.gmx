@@ -107,11 +107,10 @@
       <script>scripts\setFontScale_scr.gml</script>
       <script>scripts\drawText_scr.gml</script>
     </scripts>
-    <scripts name="prequest">
+    <scripts name="metaquest">
       <script>scripts\addHero_scr.gml</script>
       <script>scripts\displayGuildHero_scr.gml</script>
       <script>scripts\renderHero_scr.gml</script>
-      <script>scripts\confirm_quest_scr.gml</script>
     </scripts>
     <scripts name="quest">
       <script>scripts\createQuest_scr.gml</script>

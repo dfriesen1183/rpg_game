@@ -6,6 +6,7 @@
     
     var hero = argument0;
     var toHeroes = argument1;
+    var record = argument2;
     
     var list, limit, size, indexKey;
     if (toHeroes) {
@@ -14,7 +15,11 @@
         size = ds_list_size(list);
         indexKey = "index";
     } else {
-        list = global.party;
+        if (record < 0) {
+            list = global.party;
+        } else {
+            list = record[? "party"];
+        }
         limit = 4;
         size = ds_list_size(list);
         for (var i=0; i<size; i++) {

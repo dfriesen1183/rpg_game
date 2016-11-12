@@ -15,6 +15,11 @@
     ds_list_add_map(global.activeQuests, global.record);
     var index = ds_list_size(global.activeQuests) - 1;
     global.quest = index;
+    var size = ds_list_size(global.party);
+    for (var i=0; i<size; i++) {
+        var member = global.party[| i];
+        member[? "questIndex"] = index;
+    }
     
     var record = global.activeQuests[| global.quest];
     show_debug_message("recorded endTime:");

@@ -4,7 +4,8 @@
     //attempts to add hero to both guild and party independently (possibility for temporary party members & non-party guild members)
     
     
-    var record = argument0;
+    var quest = argument0;
+    var record = global.activeQuests[| quest];
     var party = record[? "party"];
     
 
@@ -15,17 +16,25 @@
     var message = "Found a level "+string(level)+" hero with "+string(hp)+"/"+string(maxHp)+" hp";
 
     var index = ds_list_size(global.heroes);
-    var partyIndex = ds_list_size(party);
+    var partyIndex = 0;
+    var size = ds_list_size(party);
+    for (var i=0; i<size; i++) {
+        var member = party[| i];
+        if (0 < member[? "hp"]) {
+            partyIndex++; //not great, but probably okay
+        }
+    }
     var hero = createHero_scr(index, level, hp, maxHp, partyIndex);
-    hero[? "found"] = true;
+    hero[? "found"] = quest;
     
-    var heroes = addHero_scr(hero, true);
-    var party = addHero_scr(hero, false);
+    var heroes = addHero_scr(hero, true, -1);
+    var party = addHero_scr(hero, false, record);
 
     if (party) {
-        //
+        hero[? "questIndex"] = quest;
     } else {
         message += "#No room in party";
+        hero[? "partyIndex"] = -1;
     }
     if (heroes) {//!heroes && !party
         //

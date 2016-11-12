@@ -19,6 +19,10 @@
         var heroButton = createInstance_scr(heroButton_obj, heroButton_x,heroButton_y, 0,0, heroWidth,-1);
         heroButton.index = i;
         heroButton.label = "LVL " + string(ds_map_find_value(global.heroes[| i], "level"));
+        var hero = global.heroes[| i];
+        if (0 <= hero[? "questIndex"]) {
+            heroButton.image_index = global.btnStateDisabled;
+        }
         displayGuildHero_scr(heroButton);
     }
     size = ds_list_size(global.party);

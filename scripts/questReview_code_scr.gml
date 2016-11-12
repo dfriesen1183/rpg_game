@@ -6,6 +6,7 @@
     saveGame_scr();
     
     var record = global.activeQuests[| global.quest];
+    var party = record[? "party"];
     
     //deleting heroes displayed
     with(hero_obj) {
@@ -38,12 +39,12 @@
     
     var new_y = battleText.y + battleText.height;
     //heroes found
-    var size = ds_list_size(global.heroes);
+    var size = ds_list_size(party);
     var collected = ds_list_create();
     for (var i=0; i<size; i++) {
-        if (ds_map_find_value(global.heroes[| i], "found")) {
-            ds_list_add(collected, global.heroes[| i]);
-            ds_map_delete(global.heroes[| i], "found");
+        var hero = party[| i];
+        if (ds_map_find_value(hero, "found") == global.quest) {
+            ds_list_add(collected, hero);
         }
     }
     size = ds_list_size(collected);
@@ -65,11 +66,11 @@
     ds_list_destroy(collected);
     
     //heroes fallen
-    size = ds_list_size(global.heroes);
+    size = ds_list_size(party);
     var collected = ds_list_create();
     for (var i=0; i<size; i++) {
-        if (0 >= ds_map_find_value(global.heroes[| i], "hp")) {
-            ds_list_add(collected, global.heroes[| i]);
+        if (0 >= ds_map_find_value(party[| i], "hp")) {
+            ds_list_add(collected, party[| i]);
         }
     }
     size = ds_list_size(collected);
@@ -83,12 +84,6 @@
         
         new_y += fallenText.height + sep;
         new_y = genHeroReview_scr(collected, new_y);
-        
-        for (var i=size-1; i>=0; i--) {
-            ds_list_delete(global.heroes, ds_map_find_value(collected[| i], "index"));
-            ds_map_destroy(collected[| i]);
-            ds_list_delete(collected, i);
-        }
     }
     ds_list_destroy(collected);
     
@@ -101,9 +96,10 @@
     show_debug_message(string(back_x)+":"+string(back_y)+" "+string(backWidth)+":"+string(backHeight));
     var backdrop = createInstance_scr(logBounding_obj, back_x,back_y, 0,0, backWidth,backHeight);
     
+    
     //reseting active variables (record, party, heroes...)
+    setGroundState_scr(global.quest);
     destroyQuest_scr(global.quest);
-    setGroundState_scr();
     var main = createInstance_scr(mainMenuMain_obj, 0.5,1-margTop/global.roomHeight, 1,2, 0.3,-1);
 }
 

@@ -5,7 +5,7 @@
         var hp = 30;
         
         var hero = createHero_scr(index, level, hp, hp, -1);
-        addHero_scr(hero, true);
+        addHero_scr(hero, true, -1);
     }
 }
 

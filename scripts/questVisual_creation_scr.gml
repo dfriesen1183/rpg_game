@@ -66,11 +66,9 @@
     var size = ds_list_size(party);
     for (var i=0; i<size; i++) {
         var hero = party[| i];
-        hero[? "partyIndex"] = i;
         
         if (0 < hero[? "hp"]) {
-            var index = hero[? "index"];
-            displayPartyMember_scr(index,i, false);
+            displayPartyMember_scr(hero[? "index"], hero[? "partyIndex"], hero[? "found"]);
         }
     }
 }

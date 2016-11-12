@@ -92,7 +92,7 @@
     //if (id == global.target) {
         if (0 &lt; global.record[? "duration"] &amp;&amp; 0 &lt; ds_list_size(global.party)) {
             event_inherited();
-            confirm_quest_scr();
+            createQuest_scr();
         }
     //}
 }

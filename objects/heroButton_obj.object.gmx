@@ -46,6 +46,37 @@
         </arguments>
       </action>
     </event>
+    <event eventtype="6" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{
+    if (id.image_index != global.btnStateStatic) {
+        var hero = global.heroes[| id.index];
+        if (hero[? "questIndex"] &lt; 0) {
+            event_inherited();
+        }
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="7">
       <action>
         <libid>1</libid>
@@ -65,39 +96,71 @@
             <kind>1</kind>
             <string>{
     if (id.image_index != global.btnStateStatic) {
-        if (id.active) {
-            id.active = false;
-            id.image_index = global.btnStateUp;
-            
-            var hero = ds_list_find_value(global.heroes, id.index);
-            var partyIndex = ds_map_find_value(hero, "partyIndex");
-            ds_list_delete(global.party, partyIndex);
-            
-            //updating recorded positions
-            var size = ds_list_size(global.party);
-            for (var i=0; i&lt;size; i++) {
-                hero = ds_list_find_value(global.party, i);
-                hero[? "partyIndex"] = i;
-            }
-            if (!size) {
-                with (mainMenuBegin_obj) {
-                    id.image_index = global.btnStateDisabled;
+        var hero = global.heroes[| id.index];
+        if (hero[? "questIndex"] &lt; 0) {
+            if (id.active) {
+                id.active = false;
+                id.image_index = global.btnStateUp;
+                
+                var partyIndex = hero[? "partyIndex"];
+                ds_list_delete(global.party, partyIndex);
+                
+                //updating recorded positions
+                var size = ds_list_size(global.party);
+                for (var i=0; i&lt;size; i++) {
+                    hero = global.party[| i];
+                    hero[? "partyIndex"] = i;
                 }
-            }
-        } else {
-            var newMember = global.heroes[| id.index];
-            var result = addHero_scr(newMember, false);
-            if (result) {
-                id.active = true;
-                id.image_index = global.btnStateActive;
-                if (global.record[? "duration"] != 0) {
+                if (!size) {
                     with (mainMenuBegin_obj) {
-                        id.image_index = global.btnStateUp;
+                        id.image_index = global.btnStateDisabled;
                     }
                 }
             } else {
-                id.image_index = global.btnStateUp;
+                var result = addHero_scr(hero, false, -1);
+                if (result) {
+                    id.active = true;
+                    id.image_index = global.btnStateActive;
+                    if (global.record[? "duration"] != 0) {
+                        with (mainMenuBegin_obj) {
+                            id.image_index = global.btnStateUp;
+                        }
+                    }
+                } else {
+                    id.image_index = global.btnStateUp;
+                }
             }
+        }
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{
+    if (id.image_index != global.btnStateStatic) {
+        var hero = global.heroes[| id.index];
+        if (hero[? "questIndex"] &lt; 0) {
+            event_inherited();
         }
     }
 }
