@@ -11,7 +11,7 @@
         var enc = encs[| 0];
         if (date_compare_datetime(global.sysTime[? "val"], enc[? "time"]) > 0) {
             var result = runEncounter_scr(quest, enc);
-            show_debug_message(record[? "gold"]);
+            show_debug_message("party");
             output_list(record[? "party"]);
             ds_list_add_map(record[? "pastEnc"], enc);
             ds_list_delete(encs, 0);
@@ -31,6 +31,9 @@
     if (date_compare_datetime(global.sysTime[? "val"], record[? "endTime"]) > 0) {
         record[? "complete"] = true;
         record[? "success"] = true;
+        var party = record[? "party"];
+        show_debug_message("final party:");
+        show_debug_message(party);
         if (quest == global.quest) {
             spawnQuestEndMenu_scr();
         }

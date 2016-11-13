@@ -1,9 +1,11 @@
 {
     var record = argument0;
     
-    
     //destroying data structures
     var party = record[? "party"];
+    show_debug_message("final party:");
+    show_debug_message(party);
+    output_list(party);
     var size = ds_list_size(party);
     for (var i=size-1; i>=0; i--) {
         var member = party[| i];

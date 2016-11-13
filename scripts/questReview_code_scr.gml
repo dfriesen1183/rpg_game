@@ -7,7 +7,9 @@
     
     var record = global.activeQuests[| global.quest];
     var party = record[? "party"];
-    
+    show_debug_message("final party at review:");
+    show_debug_message(party);
+
     //deleting heroes displayed
     with(hero_obj) {
         instance_destroy();
@@ -98,8 +100,15 @@
     
     
     //reseting active variables (record, party, heroes...)
+    show_debug_message("final party after review stuff:");
+    show_debug_message(party);
     setGroundState_scr(global.quest);
-    destroyQuest_scr(global.quest);
+    show_debug_message("final party after groundstate:");
+    show_debug_message(party);
+    output_list(party);
+    show_debug_message("activeQuests:");
+    output_list(global.activeQuests);
+    destroyQuest_scr(0);
     var main = createInstance_scr(mainMenuMain_obj, 0.5,1-margTop/global.roomHeight, 1,2, 0.3,-1);
 }
 

@@ -2,8 +2,12 @@
     updateSystemTime_scr();
     
     //appending working record
+    show_debug_message("base record:");
+    output_map(global.record);
     ds_list_add_map(global.activeQuests, global.record);
     var index = ds_list_size(global.activeQuests) - 1;
+    show_debug_message("activeQuest index:");
+    output_map(global.activeQuests[| index]);
     global.quest = index;
     
     var size = ds_list_size(global.party);

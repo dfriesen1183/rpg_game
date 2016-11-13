@@ -21,7 +21,8 @@
                         ds_map_destroy(party[| j]);
                         
                         member = encParty[| j];
-                        party[| j] = ds_map_create();
+                        ds_list_delete(party, j);
+                        ds_list_insert_map(party, j, ds_map_create());
                         ds_map_copy(party[| j], member);
                         
                         global.heroes[| index] = ds_map_create();
@@ -29,7 +30,7 @@
                     }
                     size = ds_list_size(encParty);
                     for (; j<size; j++) {
-                        party[| j] = ds_map_create();
+                        ds_list_add_map(party, ds_map_create());
                         ds_map_copy(party[| j], encParty[| j]);
                     }
                     break;
