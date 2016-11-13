@@ -1,8 +1,13 @@
 {
-    var record = argument0;
+    var quest = argument0;
+    var record = global.activeQuests[| quest];
     
     //destroying data structures
     var party = record[? "party"];
+    show_debug_message("final active");
+    output_list(global.activeQuests);
+    show_debug_message("final record");
+    output_map(record);
     show_debug_message("final party:");
     show_debug_message(party);
     output_list(party);
@@ -38,11 +43,11 @@
     
     //removing index from global.activeQuests
     ds_map_destroy(record);
-    ds_list_delete(global.activeQuests, index);
+    ds_list_delete(global.activeQuests, quest);
     
     //realigning questIndices
     size = ds_list_size(global.activeQuests);
-    for (var i=index; i<size; i++) {
+    for (var i=quest; i<size; i++) {
         var rec = global.activeQuests[| i];
         var party = rec[? "party"];
         var j_size = ds_list_size(party);

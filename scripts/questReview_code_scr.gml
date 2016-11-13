@@ -108,7 +108,7 @@
     output_list(party);
     show_debug_message("activeQuests:");
     output_list(global.activeQuests);
-    destroyQuest_scr(0);
+    destroyQuest_scr(global.quest);
     var main = createInstance_scr(mainMenuMain_obj, 0.5,1-margTop/global.roomHeight, 1,2, 0.3,-1);
 }
 
