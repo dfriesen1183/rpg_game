@@ -56,10 +56,11 @@
             <kind>1</kind>
             <string>{
     updateSystemTime_scr();
-    show_debug_message(string(date_get_hour(global.sysTime[? "val"]))+":"+string(date_get_minute(global.sysTime[? "val"]))+":"+string(date_get_second(global.sysTime[? "val"])));
+    //show_debug_message(string(date_get_hour(global.sysTime[? "val"]))+":"+string(date_get_minute(global.sysTime[? "val"]))+":"+string(date_get_second(global.sysTime[? "val"])));
     with (questVisual_obj) {
-        var record = global.activeQuests[| global.quest];
-        var temp = 1 / ds_map_find_value(record, "duration");
+        var quest = getQuestIndex_scr(global.quest);
+        var record = global.activeQuests[| quest];
+        var temp = 1 / record[? "duration"];
         id.party_y -= temp*id.mapLengthHeight;
     }
     updateAllQuests_scr();

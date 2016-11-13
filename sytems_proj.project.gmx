@@ -147,6 +147,8 @@
         <script>scripts\genLogEntry_scr.gml</script>
         <script>scripts\displayLogEntry_scr.gml</script>
       </scripts>
+      <script>scripts\getQuestId_scr.gml</script>
+      <script>scripts\getQuestIndex_scr.gml</script>
     </scripts>
     <scripts name="postquest">
       <script>scripts\genHeroReview_scr.gml</script>

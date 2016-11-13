@@ -7,7 +7,8 @@
     var size = ds_list_size(global.activeQuests);
     for (var i=0; i<size; i++) {
         var active = createInstance_scr(questActive_obj, 10,0, 0,0, 0.2,-1);
-        active.index = i;
+        var record = global.activeQuests[| i];
+        active.questId = record[? "id"];
         active.text = string_upper("Active "+string(i));
         active.y = i*(active.height*active.scale_y + 10) + 10;
     }

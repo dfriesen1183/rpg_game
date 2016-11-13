@@ -5,10 +5,9 @@
 
     saveGame_scr();
     
-    var record = global.activeQuests[| global.quest];
+    var quest = getQuestIndex_scr(global.quest);
+    var record = global.activeQuests[| quest];
     var party = record[? "party"];
-    show_debug_message("final party at review:");
-    show_debug_message(party);
 
     //deleting heroes displayed
     with(hero_obj) {
@@ -95,19 +94,11 @@
     var backHeight = (new_y - margTop + border*global.roomWidth)/global.roomHeight;
     var back_x = (1 - backWidth)/2;
     var back_y = (margTop - sep)/global.roomHeight;
-    show_debug_message(string(back_x)+":"+string(back_y)+" "+string(backWidth)+":"+string(backHeight));
     var backdrop = createInstance_scr(logBounding_obj, back_x,back_y, 0,0, backWidth,backHeight);
     
     
     //reseting active variables (record, party, heroes...)
-    show_debug_message("final party after review stuff:");
-    show_debug_message(party);
     setGroundState_scr(global.quest);
-    show_debug_message("final party after groundstate:");
-    show_debug_message(party);
-    output_list(party);
-    show_debug_message("activeQuests:");
-    output_list(global.activeQuests);
     destroyQuest_scr(global.quest);
     var main = createInstance_scr(mainMenuMain_obj, 0.5,1-margTop/global.roomHeight, 1,2, 0.3,-1);
 }

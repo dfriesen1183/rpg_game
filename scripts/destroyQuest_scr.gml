@@ -4,18 +4,9 @@
     
     //destroying data structures
     var party = record[? "party"];
-    show_debug_message("final active");
-    output_list(global.activeQuests);
-    show_debug_message("final record");
-    output_map(record);
-    show_debug_message("final party:");
-    show_debug_message(party);
-    output_list(party);
     var size = ds_list_size(party);
     for (var i=size-1; i>=0; i--) {
         var member = party[| i];
-        member[? "questIndex"] = -1;
-        show_debug_message("destroy "+string(member[? "questIndex"]));
         ds_list_delete(party, i);
     }
     ds_list_destroy(record[? "party"]);
@@ -53,7 +44,6 @@
         var j_size = ds_list_size(party);
         for (var j=0; j<j_size; j++) {
             var member = party[| j];
-            member[? "questIndex"]--;
         }
         //push notification payloads updated
         var encs = rec[? "pastEnc"];
@@ -69,10 +59,5 @@
             push[| 4]--;
         }
     }
-    
-
-    /*//recycle indices above
-    size = ds_list_size(global.activeQuests);
-    for (var i=index; i<*/
 }
 

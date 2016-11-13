@@ -2,18 +2,15 @@
     updateSystemTime_scr();
     
     //appending working record
-    show_debug_message("base record:");
-    output_map(global.record);
     ds_list_add_map(global.activeQuests, global.record);
-    var index = ds_list_size(global.activeQuests) - 1;
-    show_debug_message("activeQuest index:");
-    output_map(global.activeQuests[| index]);
-    global.quest = index;
+    
+    global.record[? "id"] = random(1);
+    global.quest = global.record[? "id"];
     
     var size = ds_list_size(global.party);
     for (var i=0; i<size; i++) {
         var member = global.party[| i];
-        member[? "questIndex"] = index;
+        member[? "questIndex"] = global.record[? "id"];
     }
     
     //readying record object

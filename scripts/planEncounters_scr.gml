@@ -12,13 +12,17 @@
     ds_map_copy(encRec, global.record);
     ds_map_delete(encRec, "pastEnc");
     ds_map_delete(encRec, "futureEnc");
-    output_map(encRec);
-    output_map(global.record);
-    show_debug_message("<<<<<");
     
     var duration = global.record[? "duration"];
     var currentTime = irandom_range(10,20);
     
+    var quest = getQuestIndex_scr(global.quest);
+    if (0 > quest) {
+        show_debug_message("no quest exists with id "+string(global.quest));
+        exit;
+    } else {
+        show_debug_message("plan quest "+string(quest));
+    }
     var questViable = true;
     
     //keepNotifying conditional to prevent unnecessary load on quest startup from generation of unused encounters
@@ -28,12 +32,10 @@
         
         newEnc[? "time"] = date_inc_second(global.sysTime[? "val"], currentTime);
         newEnc[? "type"] = irandom_range(1,100);
-        //newEnc[? "record"] = encRec;
         ds_map_add_map(newEnc, "record", encRec);
-        show_debug_message("newEnc at "+string(i));
-        output_map(newEnc);
-        show_debug_message("<");
-        var result = simEncounter_scr(global.quest, i);
+        show_debug_message("encRec");
+        output_map(encRec);
+        var result = simEncounter_scr(quest, i);
         
         currentTime += irandom_range(10,20);
         if (currentTime < duration) {
