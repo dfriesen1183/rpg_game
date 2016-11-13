@@ -7,16 +7,34 @@
         encs = global.record[? "futureEnc"];
     }
     
-    updateSystemTime_scr();
+        
+    var encRec = ds_map_create();
+    ds_map_copy(encRec, global.record);
+    
     var duration = global.record[? "duration"];
     var currentTime = irandom_range(10,20);
-    for (var i=0; currentTime < duration; i++) {
+    
+    var questViable = true;
+    
+    //keepNotifying conditional to prevent unnecessary load on quest startup from generation of unused encounters
+    for (var i=0; currentTime < duration && questViable; i++) {
         var newEnc = ds_map_create();
         ds_list_add_map(encs, newEnc);
+        
         newEnc[? "time"] = date_inc_second(global.sysTime[? "val"], currentTime);
         newEnc[? "type"] = irandom_range(1,100);
+        newEnc[? "record"] = encRec;
+        var result = simEncounter_scr(global.quest, i);
         
         currentTime += irandom_range(10,20);
+        if (currentTime < duration) {
+            if (0 != result) {
+                questViable = false;
+            } else { //normally would be alongside if above, but put here to prevent memory leak from early loop exit via keepNotifying
+                encRec = ds_map_create();
+                ds_map_copy(encRec, newEnc[? "record"]);
+            }
+        }
     }
 }
 

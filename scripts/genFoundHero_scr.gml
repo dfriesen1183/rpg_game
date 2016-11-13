@@ -4,9 +4,10 @@
     //attempts to add hero to both guild and party independently (possibility for temporary party members & non-party guild members)
     
     
-    var quest = argument0;
-    var record = global.activeQuests[| quest];
+    var enc = argument0;
+    var record = enc[? "record"];
     var party = record[? "party"];
+    var quest = argument1;
     
 
     var level = floor(random_range(3,13));
@@ -32,12 +33,19 @@
 
     if (party) {
         hero[? "questIndex"] = quest;
+        var push = enc[? "push"];
+        push[| 2] = "Found Hero";
+        push[| 3] = "Found lvl "+string(level)+" hero!";
     } else {
         message += "#No room in party";
         hero[? "partyIndex"] = -1;
     }
     if (heroes) {//!heroes && !party
-        //
+        if (!party) {
+            var push = enc[? "push"];
+            push[| 2] = "Found Hero";
+            push[| 3] = "Found lvl "+string(level)+" hero!";
+        }
     } else {
         ds_map_destroy(hero);
         message += "#No room in guild";

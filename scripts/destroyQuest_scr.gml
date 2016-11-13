@@ -1,6 +1,5 @@
 {
-    var index = argument0;
-    var record = global.activeQuests[| index];
+    var record = argument0;
     
     
     //destroying data structures
@@ -48,6 +47,19 @@
         for (var j=0; j<j_size; j++) {
             var member = party[| j];
             member[? "questIndex"]--;
+        }
+        //push notification payloads updated
+        var encs = rec[? "pastEnc"];
+        for (var j=0; j<j_size; j++) {
+            enc = encs[| j];
+            var push = enc[? "push"];
+            push[| 4]--;
+        }
+        encs = rec[? "futureEnc"];
+        for (var j=0; j<j_size; j++) {
+            enc = encs[| j];
+            var push = enc[? "push"];
+            push[| 4]--;
         }
     }
     

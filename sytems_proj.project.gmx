@@ -111,6 +111,7 @@
       <script>scripts\addHero_scr.gml</script>
       <script>scripts\displayGuildHero_scr.gml</script>
       <script>scripts\renderHero_scr.gml</script>
+      <script>scripts\resetWorkingRecord_scr.gml</script>
     </scripts>
     <scripts name="quest">
       <script>scripts\createQuest_scr.gml</script>
@@ -123,14 +124,17 @@
       </scripts>
       <scripts name="encounters">
         <script>scripts\planEncounters_scr.gml</script>
+        <script>scripts\simEncounter_scr.gml</script>
         <script>scripts\runEncounter_scr.gml</script>
-        <script>scripts\genFoundLoot_scr.gml</script>
-        <script>scripts\genFoundHero_scr.gml</script>
-        <script>scripts\genFoundEnemies_scr.gml</script>
-        <scripts name="combat">
-          <script>scripts\orderAttackers_scr.gml</script>
-          <script>scripts\setTarget_scr.gml</script>
-          <script>scripts\battleRecap_scr.gml</script>
+        <scripts name="encType">
+          <script>scripts\genFoundLoot_scr.gml</script>
+          <script>scripts\genFoundHero_scr.gml</script>
+          <scripts name="genFoundEnemies">
+            <script>scripts\genFoundEnemies_scr.gml</script>
+            <script>scripts\orderAttackers_scr.gml</script>
+            <script>scripts\setTarget_scr.gml</script>
+            <script>scripts\battleRecap_scr.gml</script>
+          </scripts>
         </scripts>
       </scripts>
       <scripts name="visual">

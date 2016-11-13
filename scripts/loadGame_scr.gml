@@ -32,17 +32,9 @@
         key = ds_map_find_next(global.saveIndex, key);
     }
     
-    
-    global.record = ds_map_create();
-    createRecord_scr();
-    global.party = global.record[? "party"];
+    resetWorkingRecord_scr();    
     
     global.quest = -1;
     global.clock = instance_create(0,0, clock_obj);
-    
-    
-    var date1 = date_create_datetime(2016,11,11,15,48,0);
-    var date2 = date_create_datetime(2016,11,11,15,49,0);
-    show_debug_message(date_compare_datetime(date1, date2));
 }
 

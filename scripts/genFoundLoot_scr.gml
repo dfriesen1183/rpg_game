@@ -3,8 +3,10 @@
     //generates equipment, gold
  
     
-    var record = argument0;
+    var enc = argument0;
+    var record = enc[? "record"];
     var party = record[? "party"];
+    var quest = argument1;
 
 
     var equipChance = floor(random(100));
@@ -23,5 +25,9 @@
     }
     genLogEntry_scr(record, "found "+string(gold)+" gold", true, false);
     record[? "gold"] += gold;
+    
+    var push = enc[? "push"];
+    push[| 2] = "Found loot!";
+    push[| 3] = "Found "+string(gold)+"gold!";
     // could have party reactions here, maybe
 }

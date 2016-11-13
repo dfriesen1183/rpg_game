@@ -9,8 +9,10 @@
     //    attackers find targets and deal damage
     
     
-    var record = argument0;
+    var enc = argument0;
+    var record = enc[? "record"];
     var party = record[? "party"];
+    var quest = argument1;
 
     record[? "battles"] += 1;
     var dmgTaken = 0;
@@ -178,8 +180,14 @@
     ds_list_destroy(global.enemyParty);
 
     if (victory) {
+        var push = enc[? "push"];
+        push[| 2] = "Fought a battle and won!"
+        push[| 3] = "Fought "+string(enemyCount)+" enemies";
         return true;
     } else {
+        var push = enc[? "push"];
+        push[| 2] = "Quest Failed!"
+        push[| 3] = "The party failed the quest...";
         return false;
     }
 
