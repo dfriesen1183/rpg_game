@@ -4,7 +4,8 @@
     //readies quest board
 
     
-    var record = global.activeQuests[| global.quest];
+    var quest = getQuestIndex_scr(global.quest);
+    var record = global.activeQuests[| quest];
     var party = record[? "party"];
     
     //checking quest activity

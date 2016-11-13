@@ -1,6 +1,7 @@
 {
     global.questVisual = id;
-    var record = global.activeQuests[| global.quest];
+    var quest = getQuestIndex_scr(global.quest);
+    var record = global.activeQuests[| quest];
     var party = record[? "party"];
     output_list(global.activeQuests);
 
@@ -68,7 +69,7 @@
         var hero = party[| i];
         
         if (0 < hero[? "hp"]) {
-            displayPartyMember_scr(hero[? "index"], hero[? "partyIndex"], hero[? "found"]);
+            displayPartyMember_scr(hero);
         }
     }
 }

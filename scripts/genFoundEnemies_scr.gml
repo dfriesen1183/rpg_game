@@ -9,10 +9,12 @@
     //    attackers find targets and deal damage
     
     
-    var enc = argument0;
+    var questId = argument0;
+    var quest = getQuestIndex_scr(questId);
+    var enc = argument1;
     var record = enc[? "record"];
+    var rootRecord = global.activeQuests[| quest];
     var party = record[? "party"];
-    var quest = argument1;
 
     record[? "battles"] += 1;
     var dmgTaken = 0;
@@ -112,12 +114,6 @@
                 if (target[? "friendly"]) {
                     var deadIndex = target[? "partyIndex"];
                     target[? "partyIndex"] = -1;
-                    with(hero_obj) {
-                        if (id.partyIndex == deadIndex) {
-                            id.partyIndex = -1;
-                            instance_destroy();
-                        }
-                    }
                     var _partyIndex = 0;
                     var partySize = ds_list_size(party);
                     for (var j=0; j<partySize; j++) {
@@ -125,12 +121,6 @@
                         if (0 < hero[? "hp"]) {
                             var shiftIndex = hero[? "partyIndex"];
                             hero[? "partyIndex"] = _partyIndex;
-                            with(hero_obj) {
-                                if (shiftIndex == id.partyIndex) {
-                                    id.partyIndex = _partyIndex;
-                                    movePartyMember_scr(id);
-                                }
-                            }
                             _partyIndex++;
                         }
                     }
@@ -178,6 +168,7 @@
         ds_map_destroy(global.enemyParty[| i]);
     }
     ds_list_destroy(global.enemyParty);
+
 
     if (victory) {
         var push = enc[? "push"];

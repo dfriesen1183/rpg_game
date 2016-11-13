@@ -8,29 +8,32 @@
         
         }
     }*/
-    var party = ds_map_find_value(global.activeQuests[| global.quest], "party");
-    var size = ds_list_size(party);
-    for (var i=0; i<size; i++) {
-        var member = party[| i];
-        if (0 < member[? "hp"] && 0 <= member[? "partyIndex"]) {
-            var heroUnfound = true;
-            with (hero_obj) {
-                if (id.partyIndex == member[? "partyIndex"]) {
-                    heroUnfound = false;
-                    movePartyMember_scr(id);
-                }
-            }
-            if (heroUnfound) {
-                show_debug_message(string(member[? "index"])+", "+string(member[? "partyIndex"])+", "+string(member[? "found"]));
-                displayPartyMember_scr(member[? "index"], member[? "partyIndex"], member[? "found"]);
+    
+    var questId = argument0;
+    show_debug_message(questId);
+    
+    if (questId == global.quest) {
+        var quest = getQuestIndex_scr(questId);
+        var party = ds_map_find_value(global.activeQuests[| quest], "party");
+        var size = ds_list_size(party);
+        for (var i=0; i<size; i++) {
+            var member = party[| i];
+            if (0 < member[? "hp"]) {
+                var heroUnfound = true;
                 with (hero_obj) {
-                    show_debug_message(string(id.index)+", "+string(id.partyIndex)+", "+string(id.found));
+                    if (id.partyIndex == member[? "partyIndex"]) {
+                        heroUnfound = false;
+                        movePartyMember_scr(id);
+                    }
                 }
-            }
-        } else {
-            with (hero_obj) {
-                if (id.partyIndex == member[? "partyIndex"]) {
-                    instance_destroy();
+                if (heroUnfound) {
+                    displayPartyMember_scr(member);
+                }
+            } else {
+                with (hero_obj) {
+                    if (id.heroId == member[? "id"]) {
+                        instance_destroy();
+                    }
                 }
             }
         }

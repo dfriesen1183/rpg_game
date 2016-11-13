@@ -1,11 +1,11 @@
 {
-    var quest = argument0;
-    var index = argument1;
+    var questId = argument0;
+    var encIndex = argument1;
     
-    var enc = global.activeQuests[| quest];
-    var questId = enc[? "id"];
+    var questIndex = getQuestIndex_scr(questId);
+    var enc = global.activeQuests[| questIndex];
     enc = enc[? "futureEnc"];
-    enc = enc[| index];
+    enc = enc[| encIndex];
     var encType = enc[? "type"];
     var encRec = enc[? "record"];
     
@@ -36,20 +36,20 @@
     genLogEntry_scr(encRec, "----------", false, false);
     if (encType > 90) {
         //companion generated
-        genFoundHero_scr(enc, quest);
+        genFoundHero_scr(questId, enc);
     } else if (encType > 75) {
         //loot generated
-        genFoundLoot_scr(enc, quest);
+        genFoundLoot_scr(questId, enc);
     } else {
         //enemy generated
-        result = genFoundEnemies_scr(enc, quest);
+        result = genFoundEnemies_scr(questId, enc);
     }
     
 
     //priming push notification
     var push = enc[? "push"];
     push_local_notification(push[| 1], push[| 2], push[| 3], push[| 4]);
-    
+
     
     if (result) {
         return 0;

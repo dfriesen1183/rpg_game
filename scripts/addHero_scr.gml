@@ -10,9 +10,28 @@
     
     var list, limit, size, indexKey;
     if (toHeroes) {
-        list = global.heroes;
         limit = 30;
-        size = ds_list_size(list);
+        if (record < 0) {
+            list = global.heroes;
+        } else {
+            list = record[? "heroes"];
+            var questIndex = getQuestIndex_scr(record[? "id"]);
+            size = ds_list_size(global.activeQuests);
+            for (var i=0; i<size; i++) {
+                if (questIndex != i) {
+                    var activeRec = global.activeQuests[| i];
+                    var activeEncs = activeRec[? "futureEnc"];
+                    var j_index = ds_list_size(activeEncs) - 1;
+                    if (0 <= j_index) {
+                        var activeEnc = activeEncs[| j_index];
+                        var activeEncRec = activeEnc[? "record"];
+                        var activeHeroes = activeEncRec[? "heroes"];
+                        limit -= ds_list_size(activeHeroes);
+                    }
+                }
+            }
+        }
+        size = ds_list_size(global.heroes);
         indexKey = "index";
     } else {
         if (record < 0) {
@@ -35,13 +54,6 @@
         var index = ds_list_size(list);
         ds_list_add_map(list, hero);
         hero[? indexKey] = index;
-    /*show_debug_message("");
-    var data = ds_map_create();
-    ds_map_add_list(data, "party", global.party);
-    var output = json_encode(data);
-    show_debug_message(output);
-    ds_map_delete(data, "party");
-    ds_map_destroy(data);*/
         return true;
     }
     return false;

@@ -3,10 +3,11 @@
     //generates equipment, gold
  
     
-    var enc = argument0;
+    var questId = argument0;
+    var quest = getQuestIndex_scr(questId);
+    var enc = argument1;
     var record = enc[? "record"];
     var party = record[? "party"];
-    var quest = argument1;
 
 
     var equipChance = floor(random(100));
@@ -31,3 +32,4 @@
     push[| 3] = "Found "+string(gold)+"gold!";
     // could have party reactions here, maybe
 }
+

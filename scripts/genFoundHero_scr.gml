@@ -4,10 +4,11 @@
     //attempts to add hero to both guild and party independently (possibility for temporary party members & non-party guild members)
     
     
-    var enc = argument0;
+    var questId = argument0;
+    var quest = getQuestIndex_scr(questId);
+    var enc = argument1;
     var record = enc[? "record"];
     var party = record[? "party"];
-    var quest = argument1;
     
 
     var level = floor(random_range(3,13));
@@ -16,7 +17,6 @@
     if (hp > maxHp) hp = maxHp;
     var message = "Found a level "+string(level)+" hero with "+string(hp)+"/"+string(maxHp)+" hp";
 
-    var index = ds_list_size(global.heroes);
     var partyIndex = 0;
     var size = ds_list_size(party);
     for (var i=0; i<size; i++) {
@@ -25,10 +25,11 @@
             partyIndex++; //not great, but probably okay
         }
     }
+    var index = ds_list_size(global.heroes);
     var hero = createHero_scr(index, level, hp, maxHp, partyIndex);
     hero[? "found"] = quest;
     
-    var heroes = addHero_scr(hero, true, -1);
+    var heroes = addHero_scr(hero, true, record);
     var party = addHero_scr(hero, false, record);
 
     if (party) {

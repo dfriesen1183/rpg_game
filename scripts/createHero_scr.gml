@@ -13,6 +13,7 @@
         hero[? "level"] = level;
         hero[? "hp"] = hp;
         hero[? "maxHp"] = hp;
+        hero[? "id"] = random(1);
         hero[? "index"] = index;
         hero[? "friendly"] = true;
         hero[? "partyIndex"] = partyIndex;

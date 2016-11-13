@@ -6,6 +6,7 @@
     global.record[? "success"] = false;
     
     ds_map_add_list(global.record, "party", ds_list_create());
+    ds_map_add_list(global.record, "heroes", ds_list_create());
     ds_map_add_list(global.record, "pastEnc", ds_list_create());
     ds_map_add_list(global.record, "futureEnc", ds_list_create());
     ds_map_add_list(global.record, "log", ds_list_create());

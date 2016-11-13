@@ -5,6 +5,7 @@
     ds_list_add_map(global.activeQuests, global.record);
     
     global.record[? "id"] = random(1);
+    show_debug_message(global.record[? "id"]);
     global.quest = global.record[? "id"];
     
     var size = ds_list_size(global.party);
@@ -19,6 +20,9 @@
     }
     global.record[? "endTime"] = date_inc_second(global.sysTime[? "val"], global.record[? "duration"]);
     global.record[? "complete"] = false;
+    
+    show_debug_message("outbound party");
+    output_list(global.party);
     
     planEncounters_scr();
     
