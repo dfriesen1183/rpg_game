@@ -30,8 +30,7 @@
                         ds_list_insert_map(party, j, ds_map_create());
                         ds_map_copy(party[| j], member);
                         
-                        global.heroes[| index] = ds_map_create();
-                        ds_map_copy(global.heroes[| index], member);
+                        global.heroes[| index] = party[| j];
                     }
                     j_size = ds_list_size(encParty);
                     for (; j<j_size; j++) {

@@ -33,8 +33,6 @@
         newEnc[? "time"] = date_inc_second(global.sysTime[? "val"], currentTime);
         newEnc[? "type"] = irandom_range(1,100);
         ds_map_add_map(newEnc, "record", encRec);
-        show_debug_message("encRec");
-        output_map(encRec);
         var result = simEncounter_scr(quest, i);
         
         currentTime += irandom_range(10,20);

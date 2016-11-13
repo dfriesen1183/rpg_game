@@ -98,8 +98,8 @@
     
     
     //reseting active variables (record, party, heroes...)
-    setGroundState_scr(global.quest);
-    destroyQuest_scr(global.quest);
+    setGroundState_scr(quest);
+    destroyQuest_scr(quest);
     var main = createInstance_scr(mainMenuMain_obj, 0.5,1-margTop/global.roomHeight, 1,2, 0.3,-1);
 }
 

@@ -1,63 +1,57 @@
 {
     var quest = argument0;
     var record = global.activeQuests[| quest];
+    show_debug_message("record");
+    output_map(record);
     
-    //destroying data structures
+    
+    //unmarking party members
     var party = record[? "party"];
     var size = ds_list_size(party);
+    show_debug_message("party");
+    output_list(party);
     for (var i=size-1; i>=0; i--) {
         var member = party[| i];
-        ds_list_delete(party, i);
+        member[? "questIndex"] = -1;
+        member[? "partyIndex"] = -1;
+        show_debug_message("member");
+        output_map(member);
     }
-    ds_list_destroy(record[? "party"]);
     
+    //destroying data structures
     var pastEnc = record[? "pastEnc"];
     size = ds_list_size(pastEnc);
     for (var i=size-1; i>=0; i--) {
         var enc = pastEnc[| i];
+        
+        var encRec = enc[? "record"];
+        destroyRecord_scr(encRec);
+        
         ds_map_destroy(enc);
         ds_list_delete(pastEnc, i);
     }
     ds_list_destroy(record[? "pastEnc"]);
     
+    
     var futureEnc = record[? "futureEnc"];
     size = ds_list_size(futureEnc);
     for (var i=size-1; i>=0; i--) {
         var enc = futureEnc[| i];
+        
+        var encRec = enc[? "record"];
+        destroyRecord_scr(encRec);
+        
         ds_map_destroy(enc);
         ds_list_delete(futureEnc, i);
     }
     ds_list_destroy(record[? "futureEnc"]);
     
-    ds_list_destroy(record[? "log"]);
     
+    destroyRecord_scr(record);   
     
-    //removing index from global.activeQuests
-    ds_map_destroy(record);
+    //removing index
     ds_list_delete(global.activeQuests, quest);
-    
-    //realigning questIndices
-    size = ds_list_size(global.activeQuests);
-    for (var i=quest; i<size; i++) {
-        var rec = global.activeQuests[| i];
-        var party = rec[? "party"];
-        var j_size = ds_list_size(party);
-        for (var j=0; j<j_size; j++) {
-            var member = party[| j];
-        }
-        //push notification payloads updated
-        var encs = rec[? "pastEnc"];
-        for (var j=0; j<j_size; j++) {
-            enc = encs[| j];
-            var push = enc[? "push"];
-            push[| 4]--;
-        }
-        encs = rec[? "futureEnc"];
-        for (var j=0; j<j_size; j++) {
-            enc = encs[| j];
-            var push = enc[? "push"];
-            push[| 4]--;
-        }
-    }
+    show_debug_message("heroes");
+    output_list(global.heroes);
 }
 

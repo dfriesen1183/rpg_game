@@ -3,6 +3,7 @@
     var index = argument1;
     
     var enc = global.activeQuests[| quest];
+    var questId = enc[? "id"];
     enc = enc[? "futureEnc"];
     enc = enc[| index];
     var encType = enc[? "type"];
@@ -28,7 +29,7 @@
         push[| 1] = enc[? "time"];
         push[| 2] = "";
         push[| 3] = "";
-        push[| 4] = quest;
+        push[| 4] = questId;
 
 
     var result = true;

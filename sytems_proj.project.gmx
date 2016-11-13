@@ -82,6 +82,7 @@
         <script>scripts\create_heroes_scr.gml</script>
         <script>scripts\createHero_scr.gml</script>
         <script>scripts\create_activeQuests_scr.gml</script>
+        <script>scripts\destroyRecord_scr.gml</script>
         <script>scripts\createRecord_scr.gml</script>
       </scripts>
       <scripts name="viewData">

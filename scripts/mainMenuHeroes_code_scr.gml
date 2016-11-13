@@ -18,8 +18,8 @@
         var heroButton_y = colTopMarg*global.roomHeight + (heroHeight + innerMarg)*global.roomWidth*floor(i/numPerRow);
         var heroButton = createInstance_scr(heroButton_obj, heroButton_x,heroButton_y, 0,0, heroWidth,-1);
         heroButton.index = i;
-        heroButton.label = "LVL " + string(ds_map_find_value(global.heroes[| i], "level"));
         var hero = global.heroes[| i];
+        heroButton.label = "LVL " + string(hero[? "level"]);
         if (0 <= hero[? "questIndex"]) {
             heroButton.image_index = global.btnStateDisabled;
         }

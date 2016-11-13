@@ -63,7 +63,7 @@
     event_inherited();
     if (id.image_index != global.btnStateStatic)
     {
-        global.quest = getQuestIndex_scr(id.questId);
+        global.quest = id.questId;
         if (0 &gt; global.quest) {
             show_debug_message("quest index unfound");
             exit;
