@@ -9,7 +9,7 @@
     
     var heroScale = 0.60*(button.width*button.scale_x/global.roomWidth);
     button.ownHero = createInstance_scr(hero_obj, hero_x,hero_y, 1,1, heroScale,-1);
-        button.ownHero.index = button.index;
+        button.ownHero.heroId = button.heroId;
     renderHero_scr(button.ownHero);
 }
 

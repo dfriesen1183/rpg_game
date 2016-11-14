@@ -83,6 +83,7 @@
         <script>scripts\createHero_scr.gml</script>
         <script>scripts\create_activeQuests_scr.gml</script>
         <script>scripts\createRecord_scr.gml</script>
+        <script>scripts\duplicateRecord_scr.gml</script>
         <script>scripts\destroyRecord_scr.gml</script>
       </scripts>
       <scripts name="viewData">
@@ -113,6 +114,7 @@
       <script>scripts\displayGuildHero_scr.gml</script>
       <script>scripts\renderHero_scr.gml</script>
       <script>scripts\resetWorkingRecord_scr.gml</script>
+      <script>scripts\getHeroById_scr.gml</script>
     </scripts>
     <scripts name="quest">
       <script>scripts\createQuest_scr.gml</script>

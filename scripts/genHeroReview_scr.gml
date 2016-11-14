@@ -15,7 +15,9 @@
         var new_y = offset + floor(i/numPerRow)*(width + sep)*global.roomHeight;
         var hero = createInstance_scr(heroButton_obj, new_x,new_y, 0,0, width,-1);
         hero.image_index = global.btnStateStatic;
-        hero.index = ds_map_find_value(list[| i], "index");
+        var dsHero = list[| i];
+        hero.index = dsHero[? "index"];
+        hero.heroId = dsHero[? "id"];
         displayGuildHero_scr(hero);
     }
     

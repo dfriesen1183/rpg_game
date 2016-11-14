@@ -10,9 +10,7 @@
     var questId = global.record[? "id"];
         
     var encRec = ds_map_create();
-    ds_map_copy(encRec, global.record);
-    ds_map_delete(encRec, "pastEnc");
-    ds_map_delete(encRec, "futureEnc");
+    duplicateRecord_scr(encRec, global.record);
     
     var duration = global.record[? "duration"];
     var currentTime = irandom_range(10,20);

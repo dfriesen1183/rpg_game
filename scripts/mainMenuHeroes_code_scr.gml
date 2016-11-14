@@ -12,6 +12,9 @@
     var colTopMarg = 0.2;
     var colLeftMarg = 0.2;
     
+    show_debug_message("heroes");
+    output_list(global.heroes);
+    
     var size = ds_list_size(global.heroes);
     for (var i=0; i<size; i++) {
         var hero = global.heroes[| i];

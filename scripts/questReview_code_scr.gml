@@ -70,7 +70,7 @@
     size = ds_list_size(party);
     var collected = ds_list_create();
     for (var i=0; i<size; i++) {
-        if (0 >= ds_map_find_value(party[| i], "hp")) {
+        if (0 >= ds_map_find_value(party[| i], "hp") && ds_map_find_value(hero, "died") == global.quest) {
             ds_list_add(collected, party[| i]);
         }
     }
@@ -98,8 +98,7 @@
     
     
     //reseting active variables (record, party, heroes...)
-    setGroundState_scr(quest);
-    destroyQuest_scr(quest);
+    record[? "destroy"] = true;
     var main = createInstance_scr(mainMenuMain_obj, 0.5,1-margTop/global.roomHeight, 1,2, 0.3,-1);
 }
 

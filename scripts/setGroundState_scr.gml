@@ -7,6 +7,7 @@
     
     var quest = argument0;
     var rec = global.activeQuests[| quest];
+    var questId = rec[? "id"];
     var party = rec[? "party"];
     
     
@@ -26,21 +27,25 @@
 
     size = ds_list_size(global.heroes);
     for (var i=0; i<size; i++) {
-        var hero = ds_list_find_value(global.heroes, i);
+        var hero = global.heroes[| i];
         if (ds_exists(hero, ds_type_map)) {
             hero[? "index"] = i;
             var questIndex = hero[? "questIndex"];
             if (0 <= questIndex) {
-                if (questIndex == global.quest) {
+                /*if (questIndex == global.quest) {
                     with (hero_obj) {
                         //not sure why this fails...
-                        /*show_debug_message("hero");
+                        *show_debug_message("hero");
                         if (id.partyIndex == hero[? "partyIndex"]) {
                             id.index = i;
-                        }*/
+                        }*
                     }
-                }
-                if (hero[? "found"] == quest) {
+                }*/
+                if (0 < hero[? "hp"] && hero[? "died"] == questId) {
+                    ds_map_destroy(hero);
+                    ds_list_delete(global.heroes, i);
+                    i--; size--;
+                } else if (hero[? "found"] == questId) {
                     ds_map_delete(hero, "found");
                 }
             }

@@ -51,6 +51,7 @@
         ds_map_copy(party[| j], member);
         
         global.heroes[| index] = party[| j];
+        ds_list_mark_as_map(global.heroes, index);
     }
     j_size = ds_list_size(encParty);
     for (; j<j_size; j++) {

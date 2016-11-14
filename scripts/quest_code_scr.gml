@@ -27,7 +27,8 @@
     }
     
     global.onQuestMenuOffset = 0.08;
-    var backToQuests = createInstance_scr(mainMenuQuests_obj, 0,0, 0,0, -1,global.onQuestMenuOffset);
+    var menu_y = 1 - global.onQuestMenuOffset;
+    var backToQuests = createInstance_scr(mainMenuQuests_obj, 0,menu_y, 0,0, -1,global.onQuestMenuOffset);
     
     global.questVisual = instance_create(0,0, questVisual_obj);
     if (questActive && partyActive) {

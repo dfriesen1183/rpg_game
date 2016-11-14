@@ -2,5 +2,6 @@
     /*with (global.cwestCloc) {
         instance_destroy();
     }*/
-    var toReview = createInstance_scr(questMenuComplete_obj, global.roomWidth,/*global.logBounding.y - 10*/0, 2,0, -1,global.onQuestMenuOffset);
+    var menu_y = 1 - global.onQuestMenuOffset;
+    var toReview = createInstance_scr(questMenuComplete_obj, global.roomWidth,menu_y, 2,0, -1,global.onQuestMenuOffset);
 }

@@ -19,14 +19,14 @@
         for (var i=0; i<size; i++) {
             var member = party[| i];
             if (0 < member[? "hp"]) {
-                var heroUnfound = true;
+                var _heroUnfound = true;
                 with (hero_obj) {
-                    if (id.partyIndex == member[? "partyIndex"]) {
-                        heroUnfound = false;
+                    if (id.heroId == member[? "id"]) {
+                        _heroUnfound = false;
                         movePartyMember_scr(id);
                     }
                 }
-                if (heroUnfound) {
+                if (_heroUnfound) {
                     displayPartyMember_scr(member);
                 }
             } else {
