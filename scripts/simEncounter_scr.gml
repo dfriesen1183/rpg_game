@@ -29,7 +29,7 @@
         push[| 1] = enc[? "time"];
         push[| 2] = "";
         push[| 3] = "";
-        push[| 4] = questId;
+        push[| 4] = string(questId);
 
 
     var result = true;
