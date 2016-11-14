@@ -44,29 +44,10 @@
     
     //push notification lists + calls
     
-    show_debug_message("activeQuests size pre destroy:");
-    show_debug_message(ds_list_size(global.activeQuests));
-    show_debug_message("quest index");
-    show_debug_message(quest);
-    output_list(global.activeQuests);
     
-    show_debug_message("record about to be destroyed:");
-    output_map(record);
-    //destroyRecord_scr(record);
-    show_debug_message("record destroyed:");
-    output_map(record);
+    destroyRecord_scr(record);
     
     //removing index
-    show_debug_message("activeQuests size post destroy:");
-    show_debug_message(ds_list_size(global.activeQuests));
-    
-    show_debug_message("quest index");
-    show_debug_message(quest);
     ds_list_delete(global.activeQuests, quest);
-    
-    show_debug_message("activeQuests post-deletion");
-    output_list(global.activeQuests);
-    show_debug_message("activeQuests size post deletion:");
-    show_debug_message(ds_list_size(global.activeQuests));
 }
 

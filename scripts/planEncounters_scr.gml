@@ -33,7 +33,7 @@
                 questViable = false;
             } else { //normally would be alongside if above, but put here to prevent memory leak from early loop exit via keepNotifying
                 encRec = ds_map_create();
-                ds_map_copy(encRec, newEnc[? "record"]);
+                duplicateRecord_scr(encRec, newEnc[? "record"]);
             }
         }
     }

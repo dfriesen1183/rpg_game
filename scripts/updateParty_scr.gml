@@ -10,7 +10,6 @@
     }*/
     
     var questId = argument0;
-    show_debug_message(questId);
     
     if (questId == global.quest) {
         var quest = getQuestIndex_scr(questId);

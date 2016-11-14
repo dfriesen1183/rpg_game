@@ -173,11 +173,16 @@
         var push = enc[? "push"];
         push[| 2] = "Fought a battle and won!"
         push[| 3] = "Fought "+string(enemyCount)+" enemies";
+        
         return true;
     } else {
         var push = enc[? "push"];
         push[| 2] = "Quest Failed!"
         push[| 3] = "The party failed the quest...";
+        
+        record[? "complete"] = true;
+        record[? "success"] = false; //redundant
+        
         return false;
     }
 

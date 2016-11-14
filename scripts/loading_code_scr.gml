@@ -16,7 +16,7 @@
     global.btnStateDisabled = 3;
     global.btnStateStatic = 4;
     
-    //createNewData_scr();
+    createNewData_scr();
     loadGame_scr();
 
     room_goto(mainMenuMain_room);
