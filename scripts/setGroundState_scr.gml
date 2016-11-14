@@ -20,7 +20,6 @@
             ds_list_delete(party, i);
         } else {
             //member[? "questIndex"] = -1;
-            show_debug_message("ground "+string(member[? "questIndex"]));
             ds_map_delete(member, "found");
         }
     }

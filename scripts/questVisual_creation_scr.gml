@@ -3,7 +3,6 @@
     var quest = getQuestIndex_scr(global.quest);
     var record = global.activeQuests[| quest];
     var party = record[? "party"];
-    output_list(global.activeQuests);
 
     //map background
     var pos_x = 0;

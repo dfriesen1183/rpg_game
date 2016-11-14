@@ -12,8 +12,6 @@
     var colTopMarg = 0.2;
     var colLeftMarg = 0.2;
     
-    show_debug_message("heroes");
-    output_list(global.heroes);
     
     var size = ds_list_size(global.heroes);
     for (var i=0; i<size; i++) {
@@ -30,7 +28,6 @@
         displayGuildHero_scr(heroButton);
     }
     size = ds_list_size(global.party);
-    output_list(global.party);
     for (var i=0; i<size; i++) {
         var member = ds_list_find_value(global.party, i);
         var memberIndex = ds_map_find_value(member, "index");

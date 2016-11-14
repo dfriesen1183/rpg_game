@@ -10,8 +10,6 @@
         ds_list_destroy(party);
     }
     
-    show_debug_message("heroes");
-    output_map(record);
     
     var heroes = record[? "heroes"];
     if (!is_undefined(heroes) && "null" != heroes && ds_exists(heroes, ds_type_list)) {
@@ -27,8 +25,6 @@
         ds_list_destroy(log);
     }
     
-    show_debug_message("destroying record");
-    output_map(record);
     
     ds_map_destroy(record);
 }
