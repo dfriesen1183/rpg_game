@@ -20,6 +20,7 @@
             ds_list_delete(party, i);
         } else {
             //member[? "questIndex"] = -1;
+            member[? "hp"] = member[? "maxHp"];
             ds_map_delete(member, "found");
         }
     }

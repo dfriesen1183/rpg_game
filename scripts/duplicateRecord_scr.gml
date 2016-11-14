@@ -13,7 +13,6 @@
         heroes = ds_list_create();
         ds_map_add_list(des, "heroes", heroes);
     }
-    heroes = ds_list_create();
     var srcHeroes = src[? "heroes"];
     var size = ds_list_size(srcHeroes);
     for (var i=0; i<size; i++) {

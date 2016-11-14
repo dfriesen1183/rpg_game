@@ -56,13 +56,6 @@
             <kind>1</kind>
             <string>{
     updateSystemTime_scr();
-    //show_debug_message(string(date_get_hour(global.sysTime[? "val"]))+":"+string(date_get_minute(global.sysTime[? "val"]))+":"+string(date_get_second(global.sysTime[? "val"])));
-    with (questVisual_obj) {
-        var quest = getQuestIndex_scr(global.quest);
-        var record = global.activeQuests[| quest];
-        var temp = 1 / record[? "duration"];
-        id.party_y -= temp*id.mapLengthHeight;
-    }
     updateAllQuests_scr();
     id.alarm[0] = global.roomSpeed;
 }

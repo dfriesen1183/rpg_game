@@ -112,17 +112,15 @@
                 
                 //attending to visual representation upon hero defeat
                 if (target[? "friendly"]) {
-                    target[? "partyIndex"] = -1;
-                    target[? "died"] = questId;
-                    var _partyIndex = 0;
                     var partySize = ds_list_size(party);
-                    for (var j=0; j<partySize; j++) {
+                    for (var j=target[? "partyIndex"] + 1; j<partySize; j++) {
                         var hero = party[| j];
-                        if (0 < hero[? "hp"]) {
-                            hero[? "partyIndex"] = _partyIndex;
-                            _partyIndex++;
+                        if (0 <= hero[? "partyIndex"]) {
+                            hero[? "partyIndex"]--;
                         }
                     }
+                    target[? "partyIndex"] = -1;
+                    target[? "died"] = questId;
                 }
                 
                 //seeing if party still stands

@@ -5,7 +5,8 @@
 
     saveGame_scr();
     
-    var quest = getQuestIndex_scr(global.quest);
+    var questId = global.quest;
+    var quest = getQuestIndex_scr(questId);
     var record = global.activeQuests[| quest];
     var party = record[? "party"];
 
@@ -40,11 +41,11 @@
     
     var new_y = battleText.y + battleText.height;
     //heroes found
-    var size = ds_list_size(party);
+    var size = ds_list_size(global.heroes);
     var collected = ds_list_create();
     for (var i=0; i<size; i++) {
-        var hero = party[| i];
-        if (ds_map_find_value(hero, "found") == global.quest) {
+        var hero = global.heroes[| i];
+        if (ds_map_find_value(hero, "found") == questId) {
             ds_list_add(collected, hero);
         }
     }
@@ -67,11 +68,12 @@
     ds_list_destroy(collected);
     
     //heroes fallen
-    size = ds_list_size(party);
+    size = ds_list_size(global.heroes);
     var collected = ds_list_create();
     for (var i=0; i<size; i++) {
-        if (0 >= ds_map_find_value(party[| i], "hp") && ds_map_find_value(hero, "died") == global.quest) {
-            ds_list_add(collected, party[| i]);
+        var hero = global.heroes[| i];
+        if (questId == hero[? "died"]) {
+            ds_list_add(collected, global.heroes[| i]);
         }
     }
     size = ds_list_size(collected);

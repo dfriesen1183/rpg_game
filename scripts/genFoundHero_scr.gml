@@ -27,19 +27,20 @@
     }
     var index = ds_list_size(global.heroes);
     var hero = createHero_scr(index, level, hp, maxHp, partyIndex);
-    hero[? "found"] = quest;
+    hero[? "found"] = questId;
     
     var heroes = addHero_scr(hero, true, record);
     var party = addHero_scr(hero, false, record);
 
     if (party) {
-        hero[? "questIndex"] = quest;
+        hero[? "questIndex"] = questId;
         var push = enc[? "push"];
         push[| 2] = "Found Hero";
         push[| 3] = "Found lvl "+string(level)+" hero!";
     } else {
         message += "#No room in party";
         hero[? "partyIndex"] = -1;
+        hero[? "questIndex"] = -1;
     }
     if (heroes) {//!heroes && !party
         if (!party) {

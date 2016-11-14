@@ -23,7 +23,7 @@
     id.mapLength.depth = -2;
     
     //map markings
-    var base_y = mapLengthTop + id.mapLengthHeight;
+    id.base_y = mapLengthTop + id.mapLengthHeight;
     var width = mapLengthWidth*5;
     var height = mapLengthWidth*global.roomWidth/global.roomHeight;
     
@@ -36,7 +36,7 @@
         var part = (duration - seconds) / duration;
         id.party_y = -(record[? "duration"] - seconds) / record[? "duration"];
         part *= id.mapLengthHeight;
-        var mark_y = base_y - part;
+        var mark_y = id.base_y - part;
         var mark = createInstance_scr(mapMark_obj, mapLengthLeft,mark_y, 1,1, width,height);
         mark.depth = -3;
     }
@@ -47,7 +47,7 @@
         var seconds = date_second_span(enc[? "time"], record[? "endTime"]);
         var part = (duration - seconds) / duration;
         part *= id.mapLengthHeight;
-        var mark_y = base_y - part;
+        var mark_y = id.base_y - part;
         var mark = createInstance_scr(mapMark_obj, mapLengthLeft,mark_y, 1,1, width,height);
         mark.depth = -3;
     }
@@ -61,7 +61,7 @@
     }
     id.party_y = -(duration - seconds) / duration;
     id.party_y *= id.mapLengthHeight;
-    id.party_y += base_y;
+    id.party_y += id.base_y;
     id.party_x = mapLengthLeft;
     
     var size = ds_list_size(party);

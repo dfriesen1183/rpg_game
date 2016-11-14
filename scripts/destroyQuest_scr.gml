@@ -1,5 +1,6 @@
 {
-    var quest = argument0;
+    var questId = argument0;
+    var quest = getQuestIndex_scr(questId);
     var record = global.activeQuests[| quest];
     
     

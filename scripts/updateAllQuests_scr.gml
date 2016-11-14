@@ -7,10 +7,10 @@
             updateOneQuest_scr(i);
         }
     }
-    for (var i=0; i<numQuests; i++) {
+    for (var i=numQuests - 1; i>=0; i--) {
         var record = global.activeQuests[| i];
         if (!is_undefined(record) && true == record[? "destroy"]) {
-            destroyQuest_scr(i);
+            destroyQuest_scr(record[? "id"]);
         }
     }
     saveGame_scr();

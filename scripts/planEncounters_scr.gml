@@ -13,11 +13,13 @@
     duplicateRecord_scr(encRec, global.record);
     
     var duration = global.record[? "duration"];
-    var currentTime = irandom_range(10,20);
+    var startRange = 10;//duration/6;
+    var endRange = 20;//duration/3;
+    var currentTime = irandom_range(startRange,endRange);
     
     var questViable = true;
     
-    //keepNotifying conditional to prevent unnecessary load on quest startup from generation of unused encounters
+    //questViable conditional to prevent unnecessary load on quest startup from generation of unused encounters
     for (var i=0; currentTime < duration && questViable; i++) {
         var newEnc = ds_map_create();
         ds_list_add_map(encs, newEnc);
@@ -25,13 +27,17 @@
         newEnc[? "time"] = date_inc_second(global.sysTime[? "val"], currentTime);
         newEnc[? "type"] = irandom_range(1,100);
         ds_map_add_map(newEnc, "record", encRec);
+        show_debug_message("heroes");
+        output_list(encRec[? "heroes"]);
+        show_debug_message("party");
+        output_list(encRec[? "party"]);
         var result = simEncounter_scr(questId, i);
         
-        currentTime += irandom_range(10,20);
+        currentTime += irandom_range(startRange,endRange);
         if (currentTime < duration) {
             if (0 != result) {
                 questViable = false;
-            } else { //normally would be alongside if above, but put here to prevent memory leak from early loop exit via keepNotifying
+            } else { //normally would be alongside if above, but put here to prevent memory leak from early loop exit via questViable
                 encRec = ds_map_create();
                 duplicateRecord_scr(encRec, newEnc[? "record"]);
             }

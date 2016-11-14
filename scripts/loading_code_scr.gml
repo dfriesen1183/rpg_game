@@ -19,10 +19,6 @@
     //createNewData_scr();
     loadGame_scr();
     
-    var fireTime = date_inc_second(date_current_datetime(), 10);
-    var data = "daily_reward";
-    push_local_notification(fireTime, "Ahoy!", "Catch The Haggis Has A Present", data);
-
     room_goto(mainMenuMain_room);
 }
 

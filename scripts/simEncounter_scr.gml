@@ -34,10 +34,10 @@
 
     var result = true;
     genLogEntry_scr(encRec, "----------", false, false);
-    if (encType > 90) {
+    if (encType > 95) {
         //companion generated
         genFoundHero_scr(questId, enc);
-    } else if (encType > 75) {
+    } else if (encType > 70) {
         //loot generated
         genFoundLoot_scr(questId, enc);
     } else {
