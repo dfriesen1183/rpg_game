@@ -46,6 +46,7 @@
     }
     
     var push = ds_list_create();
+    global.record[? "push"] = push;
     push[| 0] = "";
     if (questViable) {
         push[| 1] = date_inc_second(global.sysTime[? "val"], duration);
@@ -58,6 +59,5 @@
     }
     push[| 4] = string(questId);
     push_local_notification(push[| 1], push[| 2], push[| 3], push[| 4]);
-    ds_list_destroy(push);
 }
 

@@ -30,6 +30,9 @@
     ds_list_destroy(record[? "pastEnc"]);
     
     
+    //push notification calls
+    
+    
     var futureEnc = record[? "futureEnc"];
     size = ds_list_size(futureEnc);
     for (var i=size-1; i>=0; i--) {
@@ -43,7 +46,6 @@
     }
     ds_list_destroy(record[? "futureEnc"]);
     
-    //push notification lists + calls
     
     
     destroyRecord_scr(record);

@@ -25,6 +25,11 @@
         ds_list_destroy(log);
     }
     
+    var push = record[? "push"];
+    if (!is_undefined(log) && "null" != log && ds_exists(log, ds_type_list)) {
+        ds_list_destroy(push);
+    }
+    
     
     ds_map_destroy(record);
 }
