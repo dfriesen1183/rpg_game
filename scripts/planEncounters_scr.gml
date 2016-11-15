@@ -18,10 +18,11 @@
     var currentTime = irandom_range(startRange,endRange);
     
     var questViable = true;
+    var newEnc;
     
     //questViable conditional to prevent unnecessary load on quest startup from generation of unused encounters
     for (var i=0; currentTime < duration && questViable; i++) {
-        var newEnc = ds_map_create();
+        newEnc = ds_map_create();
         ds_list_add_map(encs, newEnc);
         
         newEnc[? "time"] = date_inc_second(global.sysTime[? "val"], currentTime);
@@ -43,5 +44,20 @@
             }
         }
     }
+    
+    var push = ds_list_create();
+    push[| 0] = "";
+    if (questViable) {
+        push[| 1] = date_inc_second(global.sysTime[? "val"], duration);
+        push[| 2] = "Quest Complete!";
+        push[| 3] = "The party successfully completed a "+secToTime_scr(duration)+" quest!";
+    } else {
+        push[| 1] = newEnc[? "time"];
+        push[| 2] = "Quest Failed...";
+        push[| 3] = "The party failed to complete a "+secToTime_scr(duration)+" quest";
+    }
+    push[| 4] = string(questId);
+    push_local_notification(push[| 1], push[| 2], push[| 3], push[| 4]);
+    ds_list_destroy(push);
 }
 

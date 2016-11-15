@@ -48,7 +48,7 @@
 
     //priming push notification
     var push = enc[? "push"];
-    push_local_notification(push[| 1], push[| 2], push[| 3], push[| 4]);
+    //push_local_notification(push[| 1], push[| 2], push[| 3], push[| 4]);
 
     
     if (result) {
