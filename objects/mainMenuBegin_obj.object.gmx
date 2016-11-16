@@ -60,11 +60,14 @@
           <argument>
             <kind>1</kind>
             <string>{
-    //if (id == global.target) {
-        if (0 &lt; global.record[? "duration"] &amp;&amp; 0 &lt; ds_list_size(global.party)) {
-            event_inherited();
-        }
-    //}
+    if (id.image_index != global.btnStateStatic)
+    {
+        //if (id == global.target) {
+            if (0 &lt; global.record[? "duration"] &amp;&amp; 0 &lt; ds_list_size(global.party)) {
+                event_inherited();
+            }
+        //}
+    }
 }
 </string>
           </argument>
@@ -89,12 +92,15 @@
           <argument>
             <kind>1</kind>
             <string>{
-    //if (id == global.target) {
-        if (0 &lt; global.record[? "duration"] &amp;&amp; 0 &lt; ds_list_size(global.party)) {
-            event_inherited();
-            createQuest_scr();
-        }
-    //}
+    if (id.image_index != global.btnStateStatic)
+    {
+        //if (id == global.target) {
+            if (0 &lt; global.record[? "duration"] &amp;&amp; 0 &lt; ds_list_size(global.party)) {
+                event_inherited();
+                createQuest_scr();
+            }
+        //}
+    }
 }
 
 </string>
@@ -120,8 +126,11 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (0 &lt; ds_map_find_value(global.record, "duration") &amp;&amp; 0 &lt; ds_list_size(global.party)) {
-        event_inherited();
+    if (id.image_index != global.btnStateStatic)
+    {
+        if (0 &lt; ds_map_find_value(global.record, "duration") &amp;&amp; 0 &lt; ds_list_size(global.party)) {
+            event_inherited();
+        }
     }
 }
 

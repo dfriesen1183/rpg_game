@@ -18,6 +18,7 @@
     
     //createNewData_scr();
     loadGame_scr();
+    loadSettings_scr();
     
     room_goto(mainMenuMain_room);
 }

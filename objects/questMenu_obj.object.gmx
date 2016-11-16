@@ -63,18 +63,21 @@
           <argument>
             <kind>1</kind>
             <string>{
-    event_inherited();
-    if (id.active) {
-        ds_map_replace(global.record, "duration", self.duration);
-        if (ds_list_size(global.party)) {
-            with (mainMenuBegin_obj) {
-                id.image_index = global.btnStateUp;
+    if (id.image_index != global.btnStateStatic)
+    {
+        event_inherited();
+        if (id.active) {
+            ds_map_replace(global.record, "duration", self.duration);
+            if (ds_list_size(global.party)) {
+                with (mainMenuBegin_obj) {
+                    id.image_index = global.btnStateUp;
+                }
             }
-        }
-    } else {
-        ds_map_replace(global.record, "duration", 0);
-        with (mainMenuBegin_obj) {
-            id.image_index = global.btnStateDisabled;
+        } else {
+            ds_map_replace(global.record, "duration", 0);
+            with (mainMenuBegin_obj) {
+                id.image_index = global.btnStateDisabled;
+            }
         }
     }
 }

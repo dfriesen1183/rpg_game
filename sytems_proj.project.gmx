@@ -67,6 +67,10 @@
   <scripts name="scripts">
     <scripts name="main">
       <script>scripts\loadGame_scr.gml</script>
+      <scripts name="settings">
+        <script>scripts\loadSettings_scr.gml</script>
+        <script>scripts\saveSettings_scr.gml</script>
+      </scripts>
       <scripts name="systemTime">
         <script>scripts\loadSystemTime_scr.gml</script>
         <script>scripts\updateSystemTime_scr.gml</script>
@@ -217,6 +221,11 @@
       </objects>
       <objects name="questActive">
         <object>objects\questActive_obj</object>
+      </objects>
+      <objects name="settings">
+        <object>objects\prefSound_obj</object>
+        <object>objects\prefMusic_obj</object>
+        <object>objects\prefPush_obj</object>
       </objects>
     </objects>
     <objects name="quest">

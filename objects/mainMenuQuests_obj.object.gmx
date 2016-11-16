@@ -53,11 +53,14 @@
           <argument>
             <kind>1</kind>
             <string>{
-    event_inherited();
-    //if (id == global.target) {
-        global.quest = -1;
-        room_goto(mainMenuQuests_room);
-    //}
+    if (id.image_index != global.btnStateStatic)
+    {
+        event_inherited();
+        //if (id == global.target) {
+            global.quest = -1;
+            room_goto(mainMenuQuests_room);
+        //}
+    }
 }
 
 </string>

@@ -53,10 +53,13 @@
           <argument>
             <kind>1</kind>
             <string>{
-    event_inherited();
-    //if (id == global.target) {
-        room_goto(mainMenuHeroes_room);
-    //}
+    if (id.image_index != global.btnStateStatic)
+    {
+        event_inherited();
+        //if (id == global.target) {
+            room_goto(mainMenuHeroes_room);
+        //}
+    }
 }
 
 </string>
