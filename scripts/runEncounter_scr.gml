@@ -47,6 +47,15 @@
         global.heroes[| index] = party[| j];
         ds_list_mark_as_map(global.heroes, index);
     }
+    
+    
+    //showing latest log entry
+    var log = record[? "log"];
+    var size = ds_list_size(log);
+    for (var i=0; i<size; i++) {
+        var index = size - 1;
+        displayLogEntry2_scr(log[| index]);
+    }
 
 
     if (record[? "complete"] && false == record[? "success"]) {

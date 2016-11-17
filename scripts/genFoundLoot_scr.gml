@@ -12,7 +12,7 @@
 
     var equipChance = floor(random(100));
     while (equipChance > 80) {
-        genLogEntry_scr(record, "found equipment", false, false);
+        //genLogEntry_scr(record, "found equipment", false, false);
         // record.equip...
         equipChance = floor(random(100));
     }

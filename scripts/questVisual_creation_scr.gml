@@ -13,6 +13,8 @@
     id.background = createInstance_scr(logBounding_obj, pos_x,pos_y_top, 0,0, widthScale,heightScale);
     id.background.sprite_index = mapBackTemp_spr;
     id.background.depth = -1;
+    //making room for log atop background image
+        heightScale -= global.questFeedOffset;
     //map line
     var mapLengthWidth = 0.01;
     var mapLengthLeft = widthScale/2;

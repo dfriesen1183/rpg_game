@@ -2,7 +2,7 @@
 <Config>
   <Options>
     <option_aborterrors>False</option_aborterrors>
-    <option_android_GPU_device>0</option_android_GPU_device>
+    <option_android_GPU_device>1</option_android_GPU_device>
     <option_android_adcolony_ads>0</option_android_adcolony_ads>
     <option_android_advertising_enable>false</option_android_advertising_enable>
     <option_android_advertising_key></option_android_advertising_key>
@@ -67,7 +67,7 @@
     <option_android_set_device_id></option_android_set_device_id>
     <option_android_sleep_margin>4</option_android_sleep_margin>
     <option_android_splash_png>Configs\Default\android\splash.png</option_android_splash_png>
-    <option_android_splash_time>0</option_android_splash_time>
+    <option_android_splash_time>3</option_android_splash_time>
     <option_android_support_lib_version>23.2.1</option_android_support_lib_version>
     <option_android_target_sdk_version>23</option_android_target_sdk_version>
     <option_android_texture_page>1024</option_android_texture_page>

@@ -173,6 +173,7 @@
       </scripts>
       <scripts name="log">
         <script>scripts\genLogEntry_scr.gml</script>
+        <script>scripts\displayLogEntry2_scr.gml</script>
         <script>scripts\displayLogEntry_scr.gml</script>
       </scripts>
       <script>scripts\getQuestId_scr.gml</script>
@@ -251,6 +252,7 @@
     </objects>
     <objects name="quest">
       <object>objects\hero_obj</object>
+      <object>objects\colorBlock_obj</object>
       <objects name="time">
         <object>objects\clock_obj</object>
       </objects>

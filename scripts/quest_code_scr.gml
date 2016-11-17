@@ -26,11 +26,18 @@
         questActive = false;
     }
     
-    global.onQuestMenuOffset = 0.08;
+    global.onQuestMenuOffset = 0;//0.08;
+    global.questFeedOffset = 0.1;
     var menu_y = 1 - global.onQuestMenuOffset;
     //var backToQuests = createInstance_scr(mainMenuQuests_obj, 0,menu_y, 0,0, -1,global.onQuestMenuOffset);
     
     global.questVisual = instance_create(0,0, questVisual_obj);
+    
+    var _width = 0.95;
+    //var log_y = global.roomHeight - global.questFeedOffset
+    global.logObj = createInstance_scr(logBounding_obj, 0,0, 0,0, _width,0);
+    
+    
     if (questActive && partyActive) {
         //initiating quest cycle
         if (!size) {
@@ -42,5 +49,11 @@
         show_debug_message("inactive quest");
         spawnQuestEndMenu_scr();
     }
+    
+    var log = record[? "log"];
+    output_map(record);
+    output_list(log);
+    var index = ds_list_size(log) - 1;
+    displayLogEntry2_scr(log[| index]);
 }
 

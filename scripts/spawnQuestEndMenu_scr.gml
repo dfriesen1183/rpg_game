@@ -7,4 +7,7 @@
     if (global.prefSound) {
         audio_play_sound(success_snd,1,false);
     }
+    
+    //beta route
+    room_goto(questReview_room);
 }

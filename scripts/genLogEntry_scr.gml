@@ -10,8 +10,5 @@
     var logText = rec[? "log"];
     ds_list_add(logText, text);
     show_debug_message(text);
-    if (display) {
-        //displayLogEntry_scr(text, add);
-    }
 }
 

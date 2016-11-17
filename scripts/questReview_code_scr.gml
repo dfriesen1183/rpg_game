@@ -96,7 +96,7 @@
     var backHeight = (new_y - margTop + border*global.roomWidth)/global.roomHeight;
     var back_x = (1 - backWidth)/2;
     var back_y = (margTop - sep)/global.roomHeight;
-    var backdrop = createInstance_scr(logBounding_obj, back_x,back_y, 0,0, backWidth,backHeight);
+    var backdrop = createInstance_scr(colorBlock_obj, back_x,back_y, 0,0, backWidth,backHeight);
     
     
     //reseting active variables (record, party, heroes...)
