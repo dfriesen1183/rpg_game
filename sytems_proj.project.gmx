@@ -7,12 +7,21 @@
     <extension index="0">extensions\DSPrint</extension>
     <extension index="1">extensions\GooglePlayServicesExtension</extension>
   </NewExtensions>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\background_snd</sound>
+    <sound>sound\buttonPush_snd</sound>
+    <sound>sound\success_snd</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="buttons">
       <sprite>sprites\mainButton_spr</sprite>
       <sprite>sprites\heroButton_spr</sprite>
       <sprite>sprites\questButton_spr</sprite>
+      <sprites name="pref">
+        <sprite>sprites\prefSound_spr</sprite>
+        <sprite>sprites\prefMusic_spr</sprite>
+        <sprite>sprites\prefPush_spr</sprite>
+      </sprites>
     </sprites>
     <sprites name="heroes">
       <sprite>sprites\hero0_spr</sprite>
@@ -66,7 +75,32 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="main">
-      <script>scripts\loadGame_scr.gml</script>
+      <scripts name="game">
+        <script>scripts\loadGame_scr.gml</script>
+        <scripts name="saveData">
+          <script>scripts\createSaveIndex_scr.gml</script>
+          <script>scripts\createSaveIndexItem_scr.gml</script>
+          <script>scripts\saveGame_scr.gml</script>
+          <script>scripts\saveStructure_scr.gml</script>
+        </scripts>
+        <scripts name="createData">
+          <script>scripts\createNewData_scr.gml</script>
+          <script>scripts\create_guild_scr.gml</script>
+          <script>scripts\create_heroes_scr.gml</script>
+          <script>scripts\createHero_scr.gml</script>
+          <script>scripts\create_activeQuests_scr.gml</script>
+          <script>scripts\createRecord_scr.gml</script>
+          <script>scripts\duplicateRecord_scr.gml</script>
+          <script>scripts\destroyRecord_scr.gml</script>
+        </scripts>
+        <scripts name="viewData">
+          <script>scripts\viewSavedData_scr.gml</script>
+          <script>scripts\viewSavedStructure_scr.gml</script>
+          <script>scripts\viewActiveData_scr.gml</script>
+          <script>scripts\viewActiveStructure_scr.gml</script>
+        </scripts>
+        <script>scripts\setGroundState_scr.gml</script>
+      </scripts>
       <scripts name="settings">
         <script>scripts\loadSettings_scr.gml</script>
         <script>scripts\saveSettings_scr.gml</script>
@@ -75,29 +109,6 @@
         <script>scripts\loadSystemTime_scr.gml</script>
         <script>scripts\updateSystemTime_scr.gml</script>
       </scripts>
-      <scripts name="saveData">
-        <script>scripts\createSaveIndex_scr.gml</script>
-        <script>scripts\createSaveIndexItem_scr.gml</script>
-        <script>scripts\saveGame_scr.gml</script>
-        <script>scripts\saveStructure_scr.gml</script>
-      </scripts>
-      <scripts name="createData">
-        <script>scripts\createNewData_scr.gml</script>
-        <script>scripts\create_guild_scr.gml</script>
-        <script>scripts\create_heroes_scr.gml</script>
-        <script>scripts\createHero_scr.gml</script>
-        <script>scripts\create_activeQuests_scr.gml</script>
-        <script>scripts\createRecord_scr.gml</script>
-        <script>scripts\duplicateRecord_scr.gml</script>
-        <script>scripts\destroyRecord_scr.gml</script>
-      </scripts>
-      <scripts name="viewData">
-        <script>scripts\viewSavedData_scr.gml</script>
-        <script>scripts\viewSavedStructure_scr.gml</script>
-        <script>scripts\viewActiveData_scr.gml</script>
-        <script>scripts\viewActiveStructure_scr.gml</script>
-      </scripts>
-      <script>scripts\setGroundState_scr.gml</script>
     </scripts>
     <scripts name="room_creation">
       <script>scripts\loading_code_scr.gml</script>
@@ -115,11 +126,20 @@
       <script>scripts\drawText_scr.gml</script>
     </scripts>
     <scripts name="metaquest">
-      <script>scripts\addHero_scr.gml</script>
-      <script>scripts\displayGuildHero_scr.gml</script>
-      <script>scripts\renderHero_scr.gml</script>
       <script>scripts\resetWorkingRecord_scr.gml</script>
-      <script>scripts\getHeroById_scr.gml</script>
+      <scripts name="hero">
+        <script>scripts\addHero_scr.gml</script>
+        <script>scripts\renderHero_scr.gml</script>
+        <script>scripts\displayGuildHero_scr.gml</script>
+        <script>scripts\getHeroById_scr.gml</script>
+      </scripts>
+      <scripts name="push">
+        <script>scripts\unsetAllPush_scr.gml</script>
+        <script>scripts\unsetQuestPush_scr.gml</script>
+        <script>scripts\resetAllPush_scr.gml</script>
+        <script>scripts\resetQuestPush_scr.gml</script>
+        <script>scripts\resetOnePush_scr.gml</script>
+      </scripts>
     </scripts>
     <scripts name="quest">
       <script>scripts\createQuest_scr.gml</script>
@@ -223,6 +243,7 @@
         <object>objects\questActive_obj</object>
       </objects>
       <objects name="settings">
+        <object>objects\pref_obj</object>
         <object>objects\prefSound_obj</object>
         <object>objects\prefMusic_obj</object>
         <object>objects\prefPush_obj</object>
@@ -244,6 +265,7 @@
       </objects>
       <object>objects\reviewText_obj</object>
     </objects>
+    <object>objects\backgroundMusic_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\loading_room</room>

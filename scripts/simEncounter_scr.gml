@@ -25,7 +25,7 @@
     //preparing push notification container
     ds_map_add_list(enc, "push", ds_list_create());
         var push = enc[? "push"];
-        push[| 0] = "";
+        push[| 0] = false;
         push[| 1] = enc[? "time"];
         push[| 2] = "";
         push[| 3] = "";
@@ -48,7 +48,7 @@
 
     //priming push notification
     var push = enc[? "push"];
-    //push_local_notification(push[| 1], push[| 2], push[| 3], push[| 4]);
+    resetOnePush_scr(push);
 
     
     if (result) {

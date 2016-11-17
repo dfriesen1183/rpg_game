@@ -30,6 +30,7 @@
 
     id.active = false;
     id.targeted = false;
+    id.exclusive = true;
     
     id.depth = -10;
     
@@ -104,9 +105,11 @@
                 id.active = false;
                 id.image_index = global.btnStateUp;
             } else {
-                with (object_get_parent(id.object_index)) {
-                    active = false;
-                    image_index = global.btnStateUp;
+                if (id.exclusive) {
+                    with (object_get_parent(id.object_index)) {
+                        active = false;
+                        image_index = global.btnStateUp;
+                    }
                 }
                 id.active = true;
                 id.image_index = global.btnStateActive;
