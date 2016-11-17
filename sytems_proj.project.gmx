@@ -148,7 +148,6 @@
       <scripts name="time">
         <script>scripts\updateAllQuests_scr.gml</script>
         <script>scripts\updateOneQuest_scr.gml</script>
-        <script>scripts\endQuest_scr.gml</script>
         <script>scripts\spawnQuestEndMenu_scr.gml</script>
       </scripts>
       <scripts name="encounters">
