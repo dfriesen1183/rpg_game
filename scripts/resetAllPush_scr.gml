@@ -3,7 +3,7 @@
     for (var i=0; i<size; i++) {
         var record = global.activeQuests[| i];
         var questId = record[? "id"];
-        resetOnePush_scr(questId);
+        resetQuestPush_scr(questId);
     }
 }
 
