@@ -25,6 +25,7 @@
         ds_list_destroy(log);
     }
     
+    //not stored here... need to find a better place
     var push = record[? "push"];
     if (!is_undefined(log) && "null" != log && ds_exists(log, ds_type_list)) {
         ds_list_destroy(push);

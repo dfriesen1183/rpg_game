@@ -24,13 +24,18 @@
         var encRec = enc[? "record"];
         destroyRecord_scr(encRec);
         
+        var push = enc[? "push"];
+        if (!is_undefined(log) && "null" != log && ds_exists(log, ds_type_list)) {
+            ds_list_destroy(push);
+        }
+        
         ds_map_destroy(enc);
         ds_list_delete(pastEnc, i);
     }
     ds_list_destroy(record[? "pastEnc"]);
     
     
-    //push notification calls
+    unsetQuestPush_scr(questId);
     
     
     var futureEnc = record[? "futureEnc"];
@@ -41,11 +46,15 @@
         var encRec = enc[? "record"];
         destroyRecord_scr(encRec);
         
+        var push = enc[? "push"];
+        if (!is_undefined(log) && "null" != log && ds_exists(log, ds_type_list)) {
+            ds_list_destroy(push);
+        }
+        
         ds_map_destroy(enc);
         ds_list_delete(futureEnc, i);
     }
     ds_list_destroy(record[? "futureEnc"]);
-    
     
     
     destroyRecord_scr(record);
