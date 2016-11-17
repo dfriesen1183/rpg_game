@@ -24,8 +24,8 @@
         var encRec = enc[? "record"];
         destroyRecord_scr(encRec);
         
-        var push = enc[? "push"];
-        if (!is_undefined(log) && "null" != log && ds_exists(log, ds_type_list)) {
+        var push = enc[? "push"];//temp solution
+        if (!is_undefined(push) && "null" != push && ds_exists(push, ds_type_list)) {
             ds_list_destroy(push);
         }
         
@@ -46,8 +46,8 @@
         var encRec = enc[? "record"];
         destroyRecord_scr(encRec);
         
-        var push = enc[? "push"];
-        if (!is_undefined(log) && "null" != log && ds_exists(log, ds_type_list)) {
+        var push = enc[? "push"];//temp solution
+        if (!is_undefined(push) && "null" != push && ds_exists(push, ds_type_list)) {
             ds_list_destroy(push);
         }
         

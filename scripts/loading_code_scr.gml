@@ -23,10 +23,24 @@
         instance_create(0,0,backgroundMusic_obj);
     }
     
-    var sound = createInstance_scr(prefSound_obj, 1/4,9/10, 1,1, 1/10,-1);
-    var music = createInstance_scr(prefMusic_obj, 2/4,9/10, 1,1, 1/10,-1);
-    var push = createInstance_scr(prefPush_obj, 3/4,9/10, 1,1, 1/10,-1);
+    var width = 1/10;
+    var height = width*global.roomWidth/global.roomHeight;
+    var border = 0.02;
+    var pref_y = border;
+    var base_x = 1 - border*global.roomHeight/global.roomWidth;
+    var int_x = 1 - base_x + width;
+    var sound = createInstance_scr(prefSound_obj, (base_x - 2*int_x),pref_y, 2,0, width,height);
+    var music = createInstance_scr(prefMusic_obj, (base_x - int_x),pref_y, 2,0, width,height);
+    var push = createInstance_scr(prefPush_obj, base_x,pref_y, 2,0, width,height);
     
-    room_goto(mainMenuMain_room);
+    
+    //room_goto(mainMenuMain_room);
+    if (ds_list_size(global.activeQuests)) {
+        var rec = global.activeQuests[| 0];
+        global.quest = rec[? "id"];
+        room_goto(quest_room);
+    } else {
+        room_goto(mainMenuMain_room);
+    }
 }
 
