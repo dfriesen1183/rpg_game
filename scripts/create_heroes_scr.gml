@@ -1,10 +1,12 @@
 {
     for (var i=0; i<3; i++) {
         var index = ds_list_size(global.heroes);
-        var level = 3*(i+1);
-        var hp = 30;
+        var heroVal = genHero_scr(i + 1);
+            var level = heroVal[0];
+            var maxHp = heroVal[1];
+            var sprite = heroVal[2];
         
-        var hero = createHero_scr(index, level, hp, hp, -1);
+        var hero = createHero_scr(index, level, maxHp, maxHp, sprite, -1);
         addHero_scr(hero, true, -1);
     }
 }

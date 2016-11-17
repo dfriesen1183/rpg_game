@@ -120,6 +120,9 @@
                     with (mainMenuBegin_obj) {
                         id.image_index = global.btnStateDisabled;
                     }
+                    with (mainMenuQuests_obj) {
+                        id.image_index = global.btnStateDisabled;
+                    }
                 }
             } else {
                 var result = addHero_scr(hero, false, -1);
@@ -130,6 +133,9 @@
                         with (mainMenuBegin_obj) {
                             id.image_index = global.btnStateUp;
                         }
+                    }
+                    with (mainMenuQuests_obj) {
+                        id.image_index = global.btnStateUp;
                     }
                 } else {
                     id.image_index = global.btnStateUp;

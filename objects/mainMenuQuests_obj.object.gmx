@@ -28,6 +28,41 @@
             <string>{
     event_inherited();
     self.text = "QUESTS";
+    
+    if (0 == ds_list_size(global.party)) {
+        id.image_index = global.btnStateDisabled;
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{
+    if (id.image_index != global.btnStateStatic)
+    {
+        if (0 &lt; ds_list_size(global.party)) {
+            event_inherited();
+        }
+    }
 }
 
 </string>
@@ -55,11 +90,44 @@
             <string>{
     if (id.image_index != global.btnStateStatic)
     {
-        event_inherited();
-        //if (id == global.target) {
-            global.quest = -1;
-            room_goto(mainMenuQuests_room);
-        //}
+        if (0 &lt; ds_list_size(global.party)) {
+            event_inherited();
+            //if (id == global.target) {
+                global.quest = -1;
+                room_goto(mainMenuQuests_room);
+            //}
+        }
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{
+    if (id.image_index != global.btnStateStatic)
+    {
+        if (0 &lt; ds_list_size(global.party)) {
+            event_inherited();
+        }
     }
 }
 

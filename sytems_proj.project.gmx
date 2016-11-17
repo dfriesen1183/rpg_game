@@ -128,6 +128,7 @@
     <scripts name="metaquest">
       <script>scripts\resetWorkingRecord_scr.gml</script>
       <scripts name="hero">
+        <script>scripts\genHero_scr.gml</script>
         <script>scripts\addHero_scr.gml</script>
         <script>scripts\renderHero_scr.gml</script>
         <script>scripts\displayGuildHero_scr.gml</script>

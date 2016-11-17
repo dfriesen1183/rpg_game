@@ -10,9 +10,25 @@
     var record = enc[? "record"];
     var party = record[? "party"];
     
+    
+    var tier;
+    var tierChance = irandom_range(1,100);
+    if (tierChance > 95) {
+        tier = 4;
+    } else if (tierChance > 80) {
+        tier = 3;
+    } else if (tierChance > 60) {
+        tier = 2;
+    } else if (tierChance > 20) {
+        tier = 1;
+    } else {
+        tier = 0;
+    }
 
-    var level = floor(random_range(3,13));
-    var maxHp = floor(random_range(20,35));
+    var heroVal = genHero_scr(tier);
+        var level = heroVal[0];
+        var maxHp = heroVal[1];
+        var sprite = heroVal[2];
     var hp = floor((random(1)/2 + random(1))*maxHp);
     if (hp > maxHp) hp = maxHp;
     var message = "Found a level "+string(level)+" hero with "+string(hp)+"/"+string(maxHp)+" hp";
@@ -26,7 +42,7 @@
         }
     }
     var index = ds_list_size(global.heroes);
-    var hero = createHero_scr(index, level, hp, maxHp, partyIndex);
+    var hero = createHero_scr(index, level, hp, maxHp, sprite, partyIndex);
     hero[? "found"] = questId;
     
     var heroes = addHero_scr(hero, true, record);

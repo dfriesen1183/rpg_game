@@ -6,7 +6,8 @@
     var level = argument1;
     var hp = argument2;
     var maxHp = argument3;
-    var partyIndex = argument4;
+    var sprite = argument4;
+    var partyIndex = argument5;
     
     var hero = ds_map_create();
         hero[? "name"] = "Hero"+string(index);
@@ -18,7 +19,7 @@
         hero[? "friendly"] = true;
         hero[? "partyIndex"] = partyIndex;
         hero[? "questIndex"] = -1;
-        hero[? "sprite"] = irandom_range(0,36);
+        hero[? "sprite"] = sprite;
         
     return hero;
 }
