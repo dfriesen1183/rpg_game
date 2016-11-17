@@ -95,9 +95,14 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id.image_index != global.btnStateStatic) {
+    if (id.image_index != global.btnStateStatic)
+    {
         var hero = global.heroes[| id.index];
         if (hero[? "questIndex"] &lt; 0) {
+            if (global.prefSound) {
+                audio_play_sound(buttonPush_snd,0,false);
+            }
+
             if (id.active) {
                 id.active = false;
                 id.image_index = global.btnStateUp;

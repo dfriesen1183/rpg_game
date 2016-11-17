@@ -66,6 +66,9 @@
     if (id.image_index != global.btnStateStatic)
     {
         event_inherited();
+        if (global.prefSound) {
+            audio_play_sound(buttonPush_snd,0,false);
+        }
         if (id.active) {
             ds_map_replace(global.record, "duration", self.duration);
             if (ds_list_size(global.party)) {

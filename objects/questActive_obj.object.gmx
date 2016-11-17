@@ -63,6 +63,9 @@
     if (id.image_index != global.btnStateStatic)
     {
         event_inherited();
+        if (global.prefSound) {
+            audio_play_sound(buttonPush_snd,0,false);
+        }
         global.quest = id.questId;
         if (0 &gt; global.quest) {
             show_debug_message("quest index unfound");
