@@ -37,8 +37,12 @@
     //var log_y = global.roomHeight - global.questFeedOffset
     global.questLog = createInstance_scr(questLog_obj, (1-_width)/2,0, 0,0, _width,0);
     
-    global.questClock = createInstance_scr(questVisualClock_obj, 0,0, 0,0, 0,0);
+    var topHudOffset = 0.15;
+    global.questClock = createInstance_scr(questVisualClock_obj, 0,topHudOffset, 0,0, 0,0);
     startClock_scr();
+    
+    global.questGold = createInstance_scr(questVisualGold_obj, 0,topHudOffset, 0,0, 0,0);
+    startGoldCount_scr();
     
     
     var log = record[? "log"];

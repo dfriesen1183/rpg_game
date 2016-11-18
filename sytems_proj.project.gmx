@@ -68,6 +68,9 @@
       <sprite>sprites\mapMark_spr</sprite>
       <sprite>sprites\mapLength_spr</sprite>
     </sprites>
+    <sprites name="icons">
+      <sprite>sprites\goldCoin_spr</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\tileset1</background>
@@ -177,6 +180,11 @@
           <script>scripts\startClock_scr.gml</script>
           <script>scripts\updateClock_scr.gml</script>
         </scripts>
+        <scripts name="goldCounter">
+          <script>scripts\questVisualGold_creation_scr.gml</script>
+          <script>scripts\startGoldCount_scr.gml</script>
+          <script>scripts\updateGoldCount_scr.gml</script>
+        </scripts>
       </scripts>
       <scripts name="log">
         <script>scripts\questLog_creation_scr.gml</script>
@@ -275,6 +283,10 @@
           <object>objects\questVisualClock_obj</object>
           <object>objects\questVisualClockText_obj</object>
         </objects>
+        <objects name="gold">
+          <object>objects\questVisualGold_obj</object>
+          <object>objects\questVisualGoldText_obj</object>
+        </objects>
       </objects>
       <objects name="log">
         <object>objects\questLog_obj</object>
@@ -282,6 +294,9 @@
       </objects>
       <object>objects\menuFrame_obj</object>
       <object>objects\reviewText_obj</object>
+    </objects>
+    <objects name="icons">
+      <object>objects\goldIcon_obj</object>
     </objects>
     <object>objects\backgroundMusic_obj</object>
   </objects>

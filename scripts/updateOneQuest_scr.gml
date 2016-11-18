@@ -37,5 +37,6 @@
     //updating displayed party members
     updateParty_scr(questId);
     updateClock_scr(questId);
+    updateGoldCount_scr(questId);
 }
 
