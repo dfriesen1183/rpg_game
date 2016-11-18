@@ -35,12 +35,13 @@
     
     var _width = 0.95;
     //var log_y = global.roomHeight - global.questFeedOffset
-    global.logObj = createInstance_scr(logBounding_obj, 0,0, 0,0, _width,0);
+    global.logObj = createInstance_scr(logBounding_obj, (1-_width)/2,0, 0,0, _width,0);
     
     
+    var log = record[? "log"];
     if (questActive && partyActive) {
-        //initiating quest cycle
-        if (!size) {
+        size = ds_list_size(log);
+        if (0 >= size) {
             var durHuman = secToTime_scr(record[? "duration"]);
             genLogEntry_scr(record, "Embarked on a "+string(durHuman)+" quest", true, false);
         }
@@ -51,8 +52,6 @@
     }
     
     var log = record[? "log"];
-    output_map(record);
-    output_list(log);
     var index = ds_list_size(log) - 1;
     displayLogEntry2_scr(log[| index]);
 }

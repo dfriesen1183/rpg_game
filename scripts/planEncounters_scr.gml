@@ -49,12 +49,12 @@
     global.record[? "push"] = push;
     push[| 0] = true;
     if (questViable) {
-        genLogEntry_scr(newEnc[? "record"], "Quest Complete!", true, true);
+        //genLogEntry_scr(newEnc[? "record"], "Quest Complete!", true, true);
         push[| 1] = date_inc_second(global.sysTime[? "val"], duration);
         push[| 2] = "Quest Complete!";
         push[| 3] = "The party successfully completed a "+secToTime_scr(duration)+" quest!";
     } else {
-        genLogEntry_scr(newEnc[? "record"], "Quest Failed!", false, true);
+        //genLogEntry_scr(newEnc[? "record"], "Quest Failed!", false, true);
         push[| 1] = newEnc[? "time"];
         push[| 2] = "Quest Failed...";
         push[| 3] = "The party failed to complete a "+secToTime_scr(duration)+" quest";

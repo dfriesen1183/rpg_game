@@ -1,58 +1,40 @@
 {
-    //displayLogEntry_scr(string);
-    //displays log entry
+    var text = argument0;
+    show_debug_message(text);
     
-    /*var text = string_upper(argument0);
-    var add = argument1;
+    if (0 < instance_number(logBounding_obj)) {
     
-    var entry_x = ds_list_find_value(global.logFormat[? "outMarg"], 0) + ds_list_find_value(global.logFormat[? "inMarg"], 0);
-    var totalInMarg = ds_list_find_value(global.logFormat[? "inMarg"], 0) + ds_list_find_value(global.logFormat[? "inMarg"], 1);
-    var totalOutMarg = ds_list_find_value(global.logFormat[? "outMarg"], 0) + ds_list_find_value(global.logFormat[? "outMarg"], 1);
-    var _width = room_width - (totalInMarg + totalOutMarg);// - ;//*7/8;
-    draw_set_font(global.logFormat[? "font"]);
-    var _height = string_height_ext(text, -1, _width);*/
+        
+        var log = global.logObj;
+        text = string_upper(text);
     
-    /*var lastIndex = ds_list_size(global.logObj) - 1;
-    var border = room_height - ds_list_find_value(global.logFormat[? "outMarg"], 3) - ds_list_find_value(global.logFormat[? "inMarg"], 3);
-    for (var i=lastIndex; i>=0; i--) {
-        var entry = global.logObj[| i];
-        if (ds_exists(entry, ds_type_list)) {
-            if (entry.y > border) {
-                with (entry) {
-                    instance_destroy();
-                }
-                ds_list_delete(global.logObj, i);
-            } else {
-                break;
+        var logWidth = log.width*log.scale_x/global.roomWidth;
+        var _width = logWidth - (log.margin[| 0] + log.margin[| 1]);
+        draw_set_font(log.font);
+        var _height = string_height_ext(text, -1, _width*global.roomWidth)/global.roomHeight;
+        
+        var logHeight = _height + log.margin[| 2] + log.margin[| 3];
+        var log_y = 1 - (logHeight + log.susp_y);
+        moveInstance_scr(log, log.x,log_y, 0,0, logWidth,logHeight);
+        
+        var text_x = log.x + log.margin[| 0]*global.roomWidth;
+        var text_y = log_y + log.margin[| 2];
+        var entry = createInstance_scr(logEntry_obj, text_x,text_y, 0,0, _width,_height);
+        entry.text = text;
+        entry.font = log.font;
+        
+        //clearing text
+        var size = ds_list_size(log.text);
+        for (var i=size - 1; i>=0; i--) {
+            with (log.text[| i]) {
+                instance_destroy();
             }
-        } else {
-            ds_list_delete(global.logObj, i);
+            ds_list_delete(log.text, i);
         }
-    }*/
-    
-    /*if (false == add) {
-        with (logEntry_obj) {
-            instance_destroy();
-        }
-        global.logBounding.height = ds_list_find_value(global.logFormat[? "inMarg"], 2) + ds_list_find_value(global.logFormat[? "inMarg"], 3);
-        global.logBounding.y = room_height - (global.logBounding.height + ds_list_find_value(global.logFormat[? "outMarg"], 3));
-        //global.logBounding.y -= global.cwestCloc.height;
-    } else {
-        with (logEntry_obj) {
-            id.y -= _height;
-        }
+        
+        ds_list_add(log.text, entry);
+        
+        
     }
-    var entry = instance_create(entry_x, 0, logEntry_obj);
-    ds_list_add(global.logObj, entry);
-    entry.width = _width;
-    entry.height = _height;
-    entry.text = text;
-    global.logBounding.y -= _height;
-    global.logBounding.height += _height;
-    
-    var new_y = room_height - (ds_list_find_value(global.logFormat[? "outMarg"], 3) + ds_list_find_value(global.logFormat[? "inMarg"], 3) + _height);
-    //new_y -= global.cwestCloc.height;
-    entry.y = new_y;*/
 }
-
 

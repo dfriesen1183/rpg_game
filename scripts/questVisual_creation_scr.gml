@@ -10,8 +10,7 @@
     var pos_y_bottom = global.onQuestMenuOffset;
     var widthScale = 1;
     var heightScale = 1 - pos_y_top - pos_y_bottom;
-    id.background = createInstance_scr(logBounding_obj, pos_x,pos_y_top, 0,0, widthScale,heightScale);
-    id.background.sprite_index = mapBackTemp_spr;
+    id.background = createInstance_scr(mapBack_obj, pos_x,pos_y_top, 0,0, widthScale,heightScale);
     id.background.depth = -1;
     //making room for log atop background image
         heightScale -= global.questFeedOffset;

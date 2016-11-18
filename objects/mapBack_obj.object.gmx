@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>text_obj</parentName>
+  <parentName>rootDrawnObj_obj</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,18 +27,7 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-    id.depth = -4;
-    
-    id.halign = fa_left;
-        id.textAlign_x = 0;
-    id.valign = fa_top;
-        id.textAlign_y = 0;
-        
-    id.textColor = c_white;
-    id.font = simplePixels24;
-    id.fontSml = simplePixels12;
-    id.fontMed = simplePixels16;
-    id.fontLrg = simplePixels20;
+    id.sprite_index = mapBackTemp_spr;
 }
 
 </string>

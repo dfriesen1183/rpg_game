@@ -26,36 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    event_inherited();
-    
-    
-    id.depth = -1;
-    id.sprite_index = logBounding_spr;
-    
-    
-    global.logObj = id;
-    
-    id.margin = ds_list_create();
-        id.margin[| 0] = 10/global.roomWidth; //not technically responsive
-        id.margin[| 1] = 10/global.roomWidth;
-        id.margin[| 2] = 10/global.roomHeight;
-        id.margin[| 3] = 10/global.roomHeight;
-    id.susp_y = 20/global.roomHeight;
-    id.font = simplePixels20;
-    id.text = ds_list_create();
-    
-    if (0 &lt;= global.quest) {
-        var quest = getQuestIndex_scr(global.quest);
-        var record = global.activeQuests[| quest];
-        var log = record[? "log"];
-        var size = ds_list_size(log);
-        if (0 &lt;= size) {
-            var index = size - 1;
-            //displayLogEntry2_scr(log[| index]);
-        }
-    } else {
-        instance_destroy();
-    }
+    log_creation_scr();
 }
 
 </string>

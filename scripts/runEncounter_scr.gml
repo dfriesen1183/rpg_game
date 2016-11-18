@@ -54,7 +54,7 @@
     var size = ds_list_size(log);
     for (var i=0; i<size; i++) {
         var index = size - 1;
-        displayLogEntry2_scr(log[| index]);
+        displayLogEntry_scr(log[| index]);
     }
 
 

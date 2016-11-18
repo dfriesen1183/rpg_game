@@ -172,8 +172,8 @@
         <script>scripts\updateParty_scr.gml</script>
       </scripts>
       <scripts name="log">
+        <script>scripts\log_creation_scr.gml</script>
         <script>scripts\genLogEntry_scr.gml</script>
-        <script>scripts\displayLogEntry2_scr.gml</script>
         <script>scripts\displayLogEntry_scr.gml</script>
       </scripts>
       <script>scripts\getQuestId_scr.gml</script>
@@ -258,6 +258,7 @@
       </objects>
       <objects name="visual">
         <object>objects\questVisual_obj</object>
+        <object>objects\mapBack_obj</object>
         <object>objects\mapLength_obj</object>
         <object>objects\mapMark_obj</object>
       </objects>
@@ -265,6 +266,7 @@
         <object>objects\logBounding_obj</object>
         <object>objects\logEntry_obj</object>
       </objects>
+      <object>objects\menuFrame_obj</object>
       <object>objects\reviewText_obj</object>
     </objects>
     <object>objects\backgroundMusic_obj</object>
