@@ -13,11 +13,11 @@
     
     var tier;
     var tierChance = irandom_range(1,100);
-    if (tierChance > 95) {
+    if (tierChance > 98) {
         tier = 4;
-    } else if (tierChance > 80) {
+    } else if (tierChance > 90) {
         tier = 3;
-    } else if (tierChance > 60) {
+    } else if (tierChance > 50) {
         tier = 2;
     } else if (tierChance > 20) {
         tier = 1;

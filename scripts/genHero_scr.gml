@@ -8,7 +8,8 @@
     //level
     var levelFactor = (tier + 1)/(totalTiers + 1);
     var level = 1;
-    while (levelFactor > random(1)/totalTiers) {
+    var percentile = random(1)/totalTiers;
+    while (levelFactor > percentile) {
         //break;
         level++;
         levelFactor *= levelFactor + (1 - levelFactor)/2;

@@ -34,7 +34,7 @@
 
     var result = true;
     genLogEntry_scr(encRec, "----------", false, false);
-    if (encType > 85) {
+    if (encType > 92.5) {
         //companion generated
         genFoundHero_scr(questId, enc);
     } else if (encType > 65) {

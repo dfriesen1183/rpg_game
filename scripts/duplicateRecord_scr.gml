@@ -50,8 +50,16 @@
     var key = ds_map_find_first(src);
     var size = ds_map_size(src);
     for (var i=0; i<size; i++) {
-        if ("pastEnc" != key && "futureEnc" != key && "log" != key && "party" != key && "heroes" != key) {
-            des[? key] = src[? key];
+        switch(key) {
+            case "pastEnc": break;
+            case "futureEnc": break;
+            case "log": break;
+            case "party": break;
+            case "heroes": break;
+            case "beginTime": break;
+            default:
+                des[? key] = src[? key];
+                break;
         }
         key = ds_map_find_next(src, key);
     }

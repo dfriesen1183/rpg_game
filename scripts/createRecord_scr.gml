@@ -2,6 +2,7 @@
     //quest record items
     global.record[? "complete"] = true;
     global.record[? "duration"] = 0;
+    global.record[? "startTime"] = 0;
     global.record[? "endTime"] = 0;
     global.record[? "success"] = false;
     

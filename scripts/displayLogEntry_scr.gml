@@ -2,10 +2,10 @@
     var text = argument0;
     show_debug_message(text);
     
-    if (0 < instance_number(logBounding_obj)) {
+    if (0 < instance_number(questLog_obj)) {
     
         
-        var log = global.logObj;
+        var log = global.questLog;
         text = string_upper(text);
     
         var logWidth = log.width*log.scale_x/global.roomWidth;
@@ -19,7 +19,7 @@
         
         var text_x = log.x + log.margin[| 0]*global.roomWidth;
         var text_y = log_y + log.margin[| 2];
-        var entry = createInstance_scr(logEntry_obj, text_x,text_y, 0,0, _width,_height);
+        var entry = createInstance_scr(questLogEntry_obj, text_x,text_y, 0,0, _width,_height);
         entry.text = text;
         entry.font = log.font;
         

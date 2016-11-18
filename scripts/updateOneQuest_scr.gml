@@ -36,5 +36,6 @@
     }
     //updating displayed party members
     updateParty_scr(questId);
+    updateClock_scr(questId);
 }
 

@@ -17,6 +17,7 @@
     if (global.record[? "duration"] <= 0) {
         global.record[? "duration"] = 2*60;
     }
+    global.record[? "startTime"] = global.sysTime[? "val"];
     global.record[? "endTime"] = date_inc_second(global.sysTime[? "val"], global.record[? "duration"]);
     global.record[? "complete"] = false;
     
