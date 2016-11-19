@@ -71,6 +71,9 @@
     <sprites name="icons">
       <sprite>sprites\goldCoin_spr</sprite>
     </sprites>
+    <sprites name="backgrounds">
+      <sprite>sprites\mainBackground_spr</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\tileset1</background>
@@ -125,8 +128,9 @@
       <script>scripts\createInstance_scr.gml</script>
       <script>scripts\moveInstance_scr.gml</script>
       <script>scripts\drawSprite_scr.gml</script>
-      <script>scripts\setFontScale_scr.gml</script>
       <script>scripts\drawText_scr.gml</script>
+      <script>scripts\setFontScale_scr.gml</script>
+      <script>scripts\setBackgroundImage_scr.gml</script>
     </scripts>
     <scripts name="metaquest">
       <script>scripts\resetWorkingRecord_scr.gml</script>
@@ -298,6 +302,7 @@
     <objects name="icons">
       <object>objects\goldIcon_obj</object>
     </objects>
+    <object>objects\backImage_obj</object>
     <object>objects\backgroundMusic_obj</object>
   </objects>
   <rooms name="rooms">

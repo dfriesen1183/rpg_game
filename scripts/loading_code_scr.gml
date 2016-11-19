@@ -23,6 +23,10 @@
         instance_create(0,0,backgroundMusic_obj);
     }
     
+    //var bck = createInstance_scr(backgroundImage_obj, 0,0, 0,0, 1,1);
+    //bck.sprite_index = mainBackground_spr;
+    setBackgroundImage_scr(mainBackground_spr);
+    
     var width = 1/10;
     var height = width*global.roomWidth/global.roomHeight;
     var border = 0.02;
