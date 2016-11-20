@@ -13,7 +13,7 @@
         id.margin[| 1] = 20/global.roomWidth;
         id.margin[| 2] = 10/global.roomHeight;
         id.margin[| 3] = 20/global.roomHeight;
-    id.susp_y = 20/global.roomHeight;
+    id.susp_y = 2/16;
     id.font = simplePixels24;
     id.text = ds_list_create();
     

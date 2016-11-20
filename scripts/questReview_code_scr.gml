@@ -16,31 +16,61 @@
     }
     
     //updating guild data
-    var newGold = ds_map_find_value(global.guild,"gold") + ds_map_find_value(record, "gold");
-    ds_map_replace(global.guild, "gold", newGold);
+    global.guild[? "gold"] += record[? "gold"];
+    global.guild[? "questsTotal"]++;
+    if (record[? "success"]) {
+        global.guild[? "questsWon"]++;
+    }
     
-    var reviewFont = simplePixels24;
-    var margTop = 0.15*global.roomHeight;
-    var margLeft = 0.1*global.roomWidth;
-    var _width = global.roomWidth - 2*margLeft;
-    var sep = 0.01*global.roomHeight;
     
+    var title = createInstance_scr(titleText_obj, 1/2,2/16, 0,0, 7/9,1/16);
+    title.font = simplePixels44;
+    title.textColor = c_aqua;
+    if (record[? "success"]) {
+        title.text = "VICTORY!!!";
+    } else {
+        title.text = "DEFEAT...";
+    }
+    var main = createInstance_scr(mainMenuMain_obj, 1/2,3/4, 1,0, 7/9,1/8);
+    setBtnFontLarge_scr(main);
+    if (record[? "success"]) {
+        main.text = "COLLECT LOOT &#RETURN TO GUILD";
+    } else {
+        main.text = "RETURN TO GUILD";
+    }
+
+    
+    //preparing stats
+    //container:
+    var review = createInstance_scr(reviewWindow_obj, 1/9,3.5/16, 0,0, 7/9,8/16);
+    review.leftBorder = createInstance_scr(windowBorder_obj, 1/9,3.5/16, 0,0, 1/6/9,8/16);
+    review.rightBorder = createInstance_scr(windowBorder_obj, 8/9,3.5/16, 2,0, 1/6/9,8/16);
+    review.topBorder = createInstance_scr(windowBorder_obj, 1/9,3.5/16, 0,0, 7/9,1/6/16);
+    review.bottomBorder = createInstance_scr(windowBorder_obj, 1/9,11.5/16, 0,2, 7/9,1/6/16);
     //gold
-    var goldText = instance_create(margLeft,margTop,reviewText_obj);
-    goldText.text = string_upper("total gold found:#   "+string(record[? "gold"]));
-    goldText.width = _width;
-    draw_set_font(goldText.font);
-    goldText.height = string_height_ext(goldText.text,goldText.lineHeight,_width);
+    var goldIcon = createInstance_scr(goldIcon_obj, 2/9,4/16, 1,0, -1,1.5/16);
+    var goldTitle = createInstance_scr(titleText_obj, 7.5/9,4.5/16, 0,0, 4/9,1/16);
+    goldTitle.font = simplePixels32;
+    goldTitle.halign = fa_right;
+    goldTitle.textAlign_x = 2;
+    goldTitle.textColor = c_yellow;
+    goldTitle.text = "Gold Looted";
+    var goldMain = createInstance_scr(titleText_obj, 7.5/9,5.5/16, 0,0, 6/9,1/16);
+    goldMain.font = simplePixels24;
+    goldMain.halign = fa_right;
+    goldMain.textAlign_x = 2;
+    goldMain.textColor = c_yellow;
+    goldMain.text = "+ "+string(record[? "gold"])+"g";
     
-    //battles
-    var battleText = instance_create(margLeft,goldText.y+goldText.height+sep,reviewText_obj);
-    battleText.text = string_upper("total battles fought:#   "+string(ds_map_find_value(record, "battles")));
-    battleText.width = _width;
-    draw_set_font(battleText.font);
-    battleText.height = string_height_ext(battleText.text,battleText.lineHeight,_width);
-    
-    var new_y = battleText.y + battleText.height;
     //heroes found
+    var heroIcon = createInstance_scr(heroIcon_obj, 2/9,7/16, 1,1, 1/9,-1);
+    var foundMain = createInstance_scr(titleText_obj, 7.5/9,6.5/16, 0,0, 5/9,1/16);
+    foundMain.font = simplePixels32;
+    foundMain.halign = fa_right;
+    foundMain.textAlign_x = 2;
+    foundMain.textColor = c_green;
+    foundMain.text = "Heroes Met:";
+    
     var size = ds_list_size(global.heroes);
     var collected = ds_list_create();
     for (var i=0; i<size; i++) {
@@ -49,18 +79,18 @@
             ds_list_add(collected, hero);
         }
     }
+    
+    var foundTitle = createInstance_scr(titleText_obj, 7.5/9,7.5/16, 0,0, 1/9,1/16);
+    foundTitle.font = simplePixels28;
+    foundTitle.halign = fa_right;
+    foundTitle.textAlign_x = 2;
+    foundTitle.textColor = c_green;
     size = ds_list_size(collected);
+    foundTitle.text = size;
+    
     if (size) {
-        new_y += sep;
-        var foundText = instance_create(margLeft,new_y,reviewText_obj);
-        foundText.text = string_upper("Heroes met:");
-        foundText.width = _width;
-        draw_set_font(foundText.font);
-        foundText.height = string_height_ext(foundText.text,foundText.lineHeight,_width);
-        
-        new_y += foundText.height + sep;
-        new_y = genHeroReview_scr(collected, new_y);
-
+        var new_y = 7.5/16;
+        genHeroReview_scr(collected, new_y);
         for (var i=size-1; i>=0; i--) {
             ds_list_delete(collected, i);
         }
@@ -68,6 +98,14 @@
     ds_list_destroy(collected);
     
     //heroes fallen
+    var lostIcon = createInstance_scr(questIcon_obj, 2/9,10/16, 1,1, 1/9,-1);
+    var lostMain = createInstance_scr(titleText_obj, 7.5/9,9.5/16, 0,0, 5/9,1/16);
+    lostMain.font = simplePixels32;
+    lostMain.halign = fa_right;
+    lostMain.textAlign_x = 2;
+    lostMain.textColor = c_red;
+    lostMain.text = "Heroes Lost:";
+
     size = ds_list_size(global.heroes);
     var collected = ds_list_create();
     for (var i=0; i<size; i++) {
@@ -76,31 +114,23 @@
             ds_list_add(collected, global.heroes[| i]);
         }
     }
+    
+    var lostTitle = createInstance_scr(titleText_obj, 7.5/9,10.5/16, 0,0, 1/9,1/16);
+    lostTitle.font = simplePixels28;
+    lostTitle.halign = fa_right;
+    lostTitle.textAlign_x = 2;
+    lostTitle.textColor = c_red;
     size = ds_list_size(collected);
+    lostTitle.text = size;
+
     if (size) {
-        new_y += sep;
-        var fallenText = instance_create(margLeft,new_y,reviewText_obj);
-        fallenText.text = string_upper("Heroes lost:");
-        fallenText.width = _width;
-        draw_set_font(fallenText.font);
-        fallenText.height = string_height_ext(fallenText.text,fallenText.lineHeight,_width);
-        
-        new_y += fallenText.height + sep;
-        new_y = genHeroReview_scr(collected, new_y);
+        var new_y = 10.5/16;
+        genHeroReview_scr(collected, new_y);
     }
     ds_list_destroy(collected);
     
     
-    var border = 0.08;
-    var backWidth = _width/global.roomWidth + border;
-    var backHeight = (new_y - margTop + border*global.roomWidth)/global.roomHeight;
-    var back_x = (1 - backWidth)/2;
-    var back_y = (margTop - sep)/global.roomHeight;
-    var backdrop = createInstance_scr(colorBlock_obj, back_x,back_y, 0,0, backWidth,backHeight);
-    
-    
     //reseting active variables (record, party, heroes...)
     record[? "destroy"] = true;
-    var main = createInstance_scr(mainMenuMain_obj, 0.5,1-margTop/global.roomHeight, 1,2, 0.3,-1);
 }
 

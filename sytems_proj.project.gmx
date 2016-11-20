@@ -14,6 +14,7 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="buttons">
+      <sprite>sprites\setupStageNav_spr</sprite>
       <sprite>sprites\mainButton_spr</sprite>
       <sprite>sprites\heroButton_spr</sprite>
       <sprite>sprites\questButton_spr</sprite>
@@ -70,10 +71,18 @@
     </sprites>
     <sprites name="icons">
       <sprite>sprites\goldCoin_spr</sprite>
+      <sprite>sprites\heroEmblem_spr</sprite>
+      <sprite>sprites\questMark_spr</sprite>
     </sprites>
     <sprites name="backgrounds">
       <sprite>sprites\mainBackground_spr</sprite>
+      <sprites name="windows">
+        <sprite>sprites\statsWindowFill_spr</sprite>
+        <sprite>sprites\reviewWindowFill_spr</sprite>
+        <sprite>sprites\statsWindowBorder_spr</sprite>
+      </sprites>
     </sprites>
+    <sprite>sprites\colorBlock_spr</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\tileset1</background>
@@ -125,11 +134,20 @@
       <script>scripts\questReview_code_scr.gml</script>
     </scripts>
     <scripts name="drawing">
+      <scripts name="grid">
+        <script>scripts\showGrid_scr.gml</script>
+      </scripts>
       <script>scripts\createInstance_scr.gml</script>
       <script>scripts\moveInstance_scr.gml</script>
-      <script>scripts\drawSprite_scr.gml</script>
-      <script>scripts\drawText_scr.gml</script>
-      <script>scripts\setFontScale_scr.gml</script>
+      <scripts name="universalDrawing">
+        <script>scripts\drawSprite_scr.gml</script>
+        <script>scripts\drawText_scr.gml</script>
+        <script>scripts\setFontScale_scr.gml</script>
+      </scripts>
+      <scripts name="buttonFont">
+        <script>scripts\setBtnFontSmall_scr.gml</script>
+        <script>scripts\setBtnFontLarge_scr.gml</script>
+      </scripts>
       <script>scripts\setBackgroundImage_scr.gml</script>
     </scripts>
     <scripts name="metaquest">
@@ -230,6 +248,9 @@
     <font>fonts\simplePixels24</font>
     <font>fonts\simplePixels28</font>
     <font>fonts\simplePixels32</font>
+    <font>fonts\simplePixels36</font>
+    <font>fonts\simplePixels40</font>
+    <font>fonts\simplePixels44</font>
   </fonts>
   <objects name="objects">
     <object>objects\rootDrawnObj_obj</object>
@@ -301,9 +322,22 @@
     </objects>
     <objects name="icons">
       <object>objects\goldIcon_obj</object>
+      <object>objects\heroIcon_obj</object>
+      <object>objects\questIcon_obj</object>
     </objects>
-    <object>objects\backImage_obj</object>
+    <objects name="floatingText">
+      <object>objects\titleText_obj</object>
+    </objects>
+    <objects name="backgrounds">
+      <object>objects\backImage_obj</object>
+      <objects name="windows">
+        <object>objects\statsWindow_obj</object>
+        <object>objects\reviewWindow_obj</object>
+        <object>objects\windowBorder_obj</object>
+      </objects>
+    </objects>
     <object>objects\backgroundMusic_obj</object>
+    <object>objects\gridMarker_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\loading_room</room>

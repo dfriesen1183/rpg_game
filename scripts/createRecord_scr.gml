@@ -12,6 +12,7 @@
     ds_map_add_list(global.record, "futureEnc", ds_list_create());
     ds_map_add_list(global.record, "log", ds_list_create());
     
+    global.record[? "title"] = "";
     global.record[? "gold"] = 0;
     global.record[? "battles"] = 0;
     global.record[? "damageDealt"] = 0;

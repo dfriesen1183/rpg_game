@@ -28,7 +28,7 @@
             <string>{
     id.sprite_index = mainBackground_spr;
     event_inherited();
-    id.depth = 1;
+    id.depth = 100;
     
     global.backImage = id;
 }

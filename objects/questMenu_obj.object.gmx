@@ -38,6 +38,7 @@
     id.fontMed = simplePixels16;
     id.fontLrg = simplePixels20;
     id.text = string_upper(secToTime_scr(id.duration));
+    id.title = secToTime_scr(id.duration)+" quest";
 }
 
 </string>
@@ -70,14 +71,16 @@
             audio_play_sound(buttonPush_snd,0,false);
         }
         if (id.active) {
-            ds_map_replace(global.record, "duration", self.duration);
+            global.record[? "duration"] = id.duration;
+            global.record[? "title"] = id.title;
             if (ds_list_size(global.party)) {
                 with (mainMenuBegin_obj) {
                     id.image_index = global.btnStateUp;
                 }
             }
         } else {
-            ds_map_replace(global.record, "duration", 0);
+            global.record[? "duration"] = 0;
+            global.record[? "title"] = "";
             with (mainMenuBegin_obj) {
                 id.image_index = global.btnStateDisabled;
             }

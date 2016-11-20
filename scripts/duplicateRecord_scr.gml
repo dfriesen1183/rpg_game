@@ -57,6 +57,9 @@
             case "party": break;
             case "heroes": break;
             case "beginTime": break;
+            case "endTime": break;
+            case "duration": break;
+            case "title": break;
             default:
                 des[? key] = src[? key];
                 break;

@@ -13,14 +13,32 @@
         active.y = i*(active.height*active.scale_y + 10) + 10;
     }
 
-    //quests
-    var quest1 = createInstance_scr(questMenu1_obj, 0.5,0.2, 1,0, 0.25,-1);
-    var quest2 = createInstance_scr(questMenu2_obj, 0.5,0.35, 1,0, 0.25,-1);
-    var quest3 = createInstance_scr(questMenu3_obj, 0.5,0.5, 1,0, 0.25,-1);
+    var title = createInstance_scr(titleText_obj, 1/2,1.5/16, 0,0, 1,1/16);
+    title.font = simplePixels32;
+    title.textColor = c_aqua;
+    title.text = "Choose your Quest";
+    
+    //menu objects
+    var heroes = createInstance_scr(mainMenuHeroes_obj, 0,12.5/16, 0,0, 2/9,1.5/16);
+    setBtnFontLarge_scr(heroes);
+    heroes.text = "BACK";
+    var start = createInstance_scr(mainMenuBegin_obj, 1,12.5/16, 2,0, 2/9,1.5/16);
+    setBtnFontLarge_scr(start);
+    start.text = "NEXT"
+    //var depart = createInstance_scr(mainMenuBegin_obj, 0.5,0.825, 1,0, 0.2,-1);
 
-    //main menu
-    //var main = createInstance_scr(mainMenuMain_obj, 0.475,0.75, 2,0, 0.2,-1);
-    var heroes = createInstance_scr(mainMenuHeroes_obj, 0.525,0.75, 0,0, 0.2,-1);
-    var depart = createInstance_scr(mainMenuBegin_obj, 0.5,0.825, 1,0, 0.2,-1);
+    //quests
+    var quest1 = createInstance_scr(questMenu1_obj, 1/9,3/16, 0,0, 3.5/9,2/16);
+    setBtnFontLarge_scr(quest1);
+    var skull = createInstance_scr(questIcon_obj, 5.5/9,4/16, 1,1, -1,1/16);
+    var quest2 = createInstance_scr(questMenu2_obj, 1/9,6/16, 0,0, 3.5/9,2/16);
+    setBtnFontLarge_scr(quest2);
+    var skull = createInstance_scr(questIcon_obj, 5.5/9,7/16, 1,1, -1,1/16);
+    var skull = createInstance_scr(questIcon_obj, 6.5/9,7/16, 1,1, -1,1/16);
+    var quest3 = createInstance_scr(questMenu3_obj, 1/9,9/16, 0,0, 3.5/9,2/16);
+    setBtnFontLarge_scr(quest3);
+    var skull = createInstance_scr(questIcon_obj, 5.5/9,10/16, 1,1, -1,1/16);
+    var skull = createInstance_scr(questIcon_obj, 6.5/9,10/16, 1,1, -1,1/16);
+    var skull = createInstance_scr(questIcon_obj, 7.5/9,10/16, 1,1, -1,1/16);
 }
 

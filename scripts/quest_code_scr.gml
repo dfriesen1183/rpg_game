@@ -20,29 +20,29 @@
         }
     }
     var questActive;
-    if (date_compare_datetime(record[? "endTime"], global.sysTime[? "val"]) > 0) {
-        questActive = true;
-    } else {
+    if (record[? "complete"]) {
         questActive = false;
+    } else {
+        questActive = true;
     }
     
-    global.onQuestMenuOffset = 0;//0.08;
-    global.questFeedOffset = 0.1;
-    var menu_y = 1 - global.onQuestMenuOffset;
-    //var backToQuests = createInstance_scr(mainMenuQuests_obj, 0,menu_y, 0,0, -1,global.onQuestMenuOffset);
+    setBackgroundImage_scr(setupStageNav_spr);
     
     global.questVisual = instance_create(0,0, questVisual_obj);
     
-    var _width = 0.95;
-    //var log_y = global.roomHeight - global.questFeedOffset
+    //log
+    var _width = 15/16;
     global.questLog = createInstance_scr(questLog_obj, (1-_width)/2,0, 0,0, _width,0);
-    
-    var topHudOffset = 0.15;
+    //clock
+    var topHudOffset = 3/16;
     global.questClock = createInstance_scr(questVisualClock_obj, 0,topHudOffset, 0,0, 0,0);
     startClock_scr();
-    
+    //gold
     global.questGold = createInstance_scr(questVisualGold_obj, 0,topHudOffset, 0,0, 0,0);
     startGoldCount_scr();
+    //title
+    var title = createInstance_scr(titleText_obj, 1/2,1/8, 0,0, 7/9,1/8);
+    title.text = record[? "title"];
     
     
     var log = record[? "log"];

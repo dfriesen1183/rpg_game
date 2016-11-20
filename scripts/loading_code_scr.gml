@@ -23,19 +23,15 @@
         instance_create(0,0,backgroundMusic_obj);
     }
     
-    //var bck = createInstance_scr(backgroundImage_obj, 0,0, 0,0, 1,1);
-    //bck.sprite_index = mainBackground_spr;
-    setBackgroundImage_scr(mainBackground_spr);
-    
-    var width = 1/10;
+    var width = 1/12;
     var height = width*global.roomWidth/global.roomHeight;
-    var border = 0.02;
-    var pref_y = border;
-    var base_x = 1 - border*global.roomHeight/global.roomWidth;
-    var int_x = 1 - base_x + width;
-    var sound = createInstance_scr(prefSound_obj, (base_x - 2*int_x),pref_y, 2,0, width,height);
-    var music = createInstance_scr(prefMusic_obj, (base_x - int_x),pref_y, 2,0, width,height);
-    var push = createInstance_scr(prefPush_obj, base_x,pref_y, 2,0, width,height);
+    var sound = createInstance_scr(prefSound_obj, 6/9,15/16, 2,1, width,height);
+    var music = createInstance_scr(prefMusic_obj, 7/9,15/16, 2,1, width,height);
+    var push = createInstance_scr(prefPush_obj, 8/9,15/16, 2,1, width,height);
+    
+    
+    //grid
+    //showGrid_scr();
     
     
     //room_goto(mainMenuMain_room);

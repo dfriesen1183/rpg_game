@@ -2,6 +2,21 @@
     //mainMenuHeroes_code_scr()
     //(called from mainMenuHeroes_room creation code)
     //loads room ui
+    
+    
+    var title = createInstance_scr(titleText_obj, 1/2,1.5/16, 0,0, 1,1/16);
+    title.font = simplePixels32;
+    title.textColor = c_green;
+    title.text = "Hire your HEROES ("+string(ds_list_size(global.party))+"/4)";
+    
+    //menu objects
+    var main = createInstance_scr(mainMenuMain_obj, 0,12.5/16, 0,0, 2/9,1.5/16);
+    setBtnFontLarge_scr(main);
+    main.text = "BACK";
+    var quests = createInstance_scr(mainMenuQuests_obj, 1,12.5/16, 2,0, 2/9,1.5/16);
+    setBtnFontLarge_scr(quests);
+    quests.text = "NEXT"
+    //var depart = createInstance_scr(mainMenuBegin_obj, 0.5,0.825, 1,0, 0.2,-1);
 
     
     //hero objects
@@ -21,7 +36,6 @@
         var heroButton = createInstance_scr(heroButton_obj, heroButton_x,heroButton_y, 0,0, heroWidth,-1);
         heroButton.index = i;
         heroButton.heroId = hero[? "id"];
-        heroButton.label = "LVL " + string(hero[? "level"]);
         if (0 <= hero[? "questIndex"]) {
             heroButton.image_index = global.btnStateDisabled;
         }
@@ -38,10 +52,5 @@
             }
         }
     }
-    
-    //menu objects
-    var main = createInstance_scr(mainMenuMain_obj, 0.475,0.75, 2,0, 0.2,-1);
-    var heroes = createInstance_scr(mainMenuQuests_obj, 0.525,0.75, 0,0, 0.2,-1);
-    //var depart = createInstance_scr(mainMenuBegin_obj, 0.5,0.825, 1,0, 0.2,-1);
 }
 

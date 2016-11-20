@@ -34,7 +34,7 @@
     id.valign = fa_top;
         id.textAlign_y = 0;
         
-    id.textColor = c_white;
+    id.textColor = c_yellow;
     id.font = simplePixels24;
     id.fontSml = simplePixels12;
     id.fontMed = simplePixels16;

@@ -18,8 +18,8 @@
     if (0 <= global.quest) {
         var quest = getQuestIndex_scr(global.quest);
         var record = global.activeQuests[| quest];
-        id.time = floor(date_second_span(global.sysTime[? "val"], record[? "startTime"]));
-        var text = secToClock_scr(id.time, 1);
+        id.time = record[? "duration"] - floor(date_second_span(global.sysTime[? "val"], record[? "startTime"]));
+        var text = "00:00";
         
         id.display = instance_create(0,0, questVisualClockText_obj);
         id.display.text = text;
