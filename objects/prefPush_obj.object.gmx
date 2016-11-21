@@ -60,19 +60,19 @@
             <string>{
     if (id.image_index != global.btnStateStatic)
     {
-        event_inherited();
         if (global.prefPush) {
             global.prefPush = 0;
         } else {
             global.prefPush = 1;
         }
-        saveSettings_scr();
         
         if (global.prefPush) {
             resetAllPush_scr();
         } else {
             unsetAllPush_scr();
         }
+        
+        event_inherited();
     }
 }
 

@@ -134,9 +134,6 @@
       <script>scripts\questReview_code_scr.gml</script>
     </scripts>
     <scripts name="drawing">
-      <scripts name="grid">
-        <script>scripts\showGrid_scr.gml</script>
-      </scripts>
       <script>scripts\createInstance_scr.gml</script>
       <script>scripts\moveInstance_scr.gml</script>
       <scripts name="universalDrawing">
@@ -149,6 +146,10 @@
         <script>scripts\setBtnFontLarge_scr.gml</script>
       </scripts>
       <script>scripts\setBackgroundImage_scr.gml</script>
+      <scripts name="grid">
+        <script>scripts\showGrid_scr.gml</script>
+        <script>scripts\hideGrid_scr.gml</script>
+      </scripts>
     </scripts>
     <scripts name="metaquest">
       <script>scripts\resetWorkingRecord_scr.gml</script>
@@ -290,10 +291,10 @@
         <object>objects\prefMusic_obj</object>
         <object>objects\prefPush_obj</object>
       </objects>
+      <object>objects\gridToggle_obj</object>
     </objects>
     <objects name="quest">
       <object>objects\hero_obj</object>
-      <object>objects\colorBlock_obj</object>
       <objects name="time">
         <object>objects\clock_obj</object>
       </objects>
@@ -318,7 +319,6 @@
         <object>objects\questLogEntry_obj</object>
       </objects>
       <object>objects\menuFrame_obj</object>
-      <object>objects\reviewText_obj</object>
     </objects>
     <objects name="icons">
       <object>objects\goldIcon_obj</object>
@@ -335,6 +335,7 @@
         <object>objects\reviewWindow_obj</object>
         <object>objects\windowBorder_obj</object>
       </objects>
+      <object>objects\colorBlock_obj</object>
     </objects>
     <object>objects\backgroundMusic_obj</object>
     <object>objects\gridMarker_obj</object>

@@ -28,6 +28,7 @@
             <string>{
     loadSystemTime_scr();
     updateSystemTime_scr();
+    global.updating = false;
     updateAllQuests_scr();
     id.alarm[0] = global.roomSpeed;
 }

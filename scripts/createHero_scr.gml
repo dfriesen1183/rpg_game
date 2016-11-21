@@ -13,12 +13,13 @@
         hero[? "name"] = "Hero"+string(index);
         hero[? "level"] = level;
         hero[? "hp"] = hp;
-        hero[? "maxHp"] = hp;
+        hero[? "maxHp"] = maxHp;
         hero[? "id"] = random(1);
         hero[? "index"] = index;
         hero[? "friendly"] = true;
         hero[? "partyIndex"] = partyIndex;
         hero[? "questIndex"] = -1;
+        hero[? "died"] = -1;
         hero[? "sprite"] = sprite;
         
     return hero;

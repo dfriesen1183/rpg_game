@@ -21,22 +21,22 @@
     var newEnc;
     
     //questViable conditional to prevent unnecessary load on quest startup from generation of unused encounters
-    for (var i=0; currentTime < duration && questViable; i++) {
+    for (var i=0; currentTime < duration; i++) {
         newEnc = ds_map_create();
         ds_list_add_map(encs, newEnc);
         
         newEnc[? "time"] = date_inc_second(global.sysTime[? "val"], currentTime);
         newEnc[? "type"] = irandom_range(1,100);
         ds_map_add_map(newEnc, "record", encRec);
-        show_debug_message("heroes");
-        output_list(encRec[? "heroes"]);
-        show_debug_message("party");
-        output_list(encRec[? "party"]);
-        var result = simEncounter_scr(questId, i);
+        if (false == encRec[? "complete"]) {
+            var result = simEncounter_scr(questId, i);
+        }
         
         currentTime += irandom_range(startRange,endRange);
         if (currentTime < duration) {
-            if (0 != result) {
+            if (false == encRec[? "complete"] && 0 != result) {
+                encRec[? "complete"] = true;
+                encRec[? "success"] = false;
                 questViable = false;
             } else { //normally would be alongside if above, but put here to prevent memory leak from early loop exit via questViable
                 encRec = ds_map_create();
@@ -49,6 +49,8 @@
     global.record[? "push"] = push;
     push[| 0] = true;
     if (questViable) {
+        encRec[? "complete"] = true;
+        encRec[? "success"] = true;
         //genLogEntry_scr(newEnc[? "record"], "Quest Complete!", true, true);
         push[| 1] = date_inc_second(global.sysTime[? "val"], duration);
         push[| 2] = "Quest Complete!";

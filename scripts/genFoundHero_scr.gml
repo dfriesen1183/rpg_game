@@ -15,7 +15,7 @@
     var tierChance = irandom_range(1,100);
     if (tierChance > 98) {
         tier = 4;
-    } else if (tierChance > 90) {
+    } else if (tierChance > 92.5) {
         tier = 3;
     } else if (tierChance > 50) {
         tier = 2;

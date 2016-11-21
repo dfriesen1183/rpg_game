@@ -29,9 +29,8 @@
     var music = createInstance_scr(prefMusic_obj, 7/9,15/16, 2,1, width,height);
     var push = createInstance_scr(prefPush_obj, 8/9,15/16, 2,1, width,height);
     
-    
     //grid
-    //showGrid_scr();
+    var grid = createInstance_scr(gridToggle_obj, 1/9,1/16, 1,1, width,height);
     
     
     //room_goto(mainMenuMain_room);

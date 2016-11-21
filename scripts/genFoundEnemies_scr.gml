@@ -112,14 +112,6 @@
                 
                 //attending to visual representation upon hero defeat
                 if (target[? "friendly"]) {
-                    var partySize = ds_list_size(party);
-                    for (var j=target[? "partyIndex"] + 1; j<partySize; j++) {
-                        var hero = party[| j];
-                        if (0 <= hero[? "partyIndex"]) {
-                            hero[? "partyIndex"]--;
-                        }
-                    }
-                    target[? "partyIndex"] = -1;
                     target[? "died"] = questId;
                 }
                 

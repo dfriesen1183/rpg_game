@@ -24,11 +24,12 @@
     if (0 == tier) {
         spriteStart = 0;
     } else {
-        var spriteStart = totalSprites - power(2, totalTiers - tier);
+        var spriteStart = totalSprites - power(2, totalTiers - tier) + 1;
         if (spriteStart < 0) {
             spriteStart = 0;
         }
     }
+    show_debug_message(string(spriteStart)+"-"+string(spriteEnd));
     var sprite = irandom_range(spriteStart, spriteEnd);
     
     

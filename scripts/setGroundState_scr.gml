@@ -41,7 +41,7 @@
                         }*
                     }
                 }*/
-                if (0 < hero[? "hp"] && hero[? "died"] == questId) {
+                if (hero[? "died"] == questId) {
                     ds_map_destroy(hero);
                     ds_list_delete(global.heroes, i);
                     i--; size--;

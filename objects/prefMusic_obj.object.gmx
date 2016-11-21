@@ -60,13 +60,11 @@
             <string>{
     if (id.image_index != global.btnStateStatic)
     {
-        event_inherited();
         if (global.prefMusic) {
             global.prefMusic = 0;
         } else {
             global.prefMusic = 1;
         }
-        saveSettings_scr();
         
         if (global.prefMusic) {
             var count = instance_number(backgroundMusic_obj);
@@ -78,6 +76,7 @@
                 instance_destroy();
             }
         }
+        event_inherited();
     }
 }
 

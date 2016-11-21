@@ -1,6 +1,5 @@
 {
     var text = argument0;
-    show_debug_message(text);
     
     if (0 < instance_number(questLog_obj)) {
     

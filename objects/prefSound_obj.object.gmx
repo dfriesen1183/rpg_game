@@ -60,13 +60,12 @@
             <string>{
     if (id.image_index != global.btnStateStatic)
     {
-        event_inherited();
         if (global.prefSound) {
             global.prefSound = 0;
         } else {
             global.prefSound = 1;
         }
-        saveSettings_scr();
+        event_inherited();
     }
 }
 

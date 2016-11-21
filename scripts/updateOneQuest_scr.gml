@@ -13,9 +13,9 @@
             ds_list_add_map(record[? "pastEnc"], enc);
             ds_list_delete(encs, 0);
             size--;
-            if (1 == result) {
-                record[? "complete"] = true;
-                record[? "success"] = false;
+            if (/*1 == result*/record[? "complete"]) {
+                //record[? "complete"] = true;
+                //record[? "success"] = false;
                 if (questId == global.quest) {
                     spawnQuestEndMenu_scr();
                 }
@@ -29,7 +29,6 @@
     if (date_compare_datetime(global.sysTime[? "val"], record[? "endTime"]) > 0) {
         record[? "complete"] = true;
         record[? "success"] = true;
-        var party = record[? "party"];
         if (questId == global.quest) {
             spawnQuestEndMenu_scr();
         }

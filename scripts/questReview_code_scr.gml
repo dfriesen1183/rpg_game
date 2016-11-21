@@ -2,6 +2,7 @@
     //questReview_code_scr()
     //(called from questReview_room creation code)
     //displays quest result
+    
 
     saveGame_scr();
     
@@ -16,9 +17,9 @@
     }
     
     //updating guild data
-    global.guild[? "gold"] += record[? "gold"];
     global.guild[? "questsTotal"]++;
     if (record[? "success"]) {
+        global.guild[? "gold"] += record[? "gold"];
         global.guild[? "questsWon"]++;
     }
     
@@ -63,8 +64,8 @@
     goldMain.text = "+ "+string(record[? "gold"])+"g";
     
     //heroes found
-    var heroIcon = createInstance_scr(heroIcon_obj, 2/9,7/16, 1,1, 1/9,-1);
-    var foundMain = createInstance_scr(titleText_obj, 7.5/9,6.5/16, 0,0, 5/9,1/16);
+    var heroIcon = createInstance_scr(heroIcon_obj, 2/9,7.5/16, 1,1, 1/9,-1);
+    var foundMain = createInstance_scr(titleText_obj, 7.5/9,7/16, 0,0, 5/9,1/16);
     foundMain.font = simplePixels32;
     foundMain.halign = fa_right;
     foundMain.textAlign_x = 2;
@@ -80,7 +81,7 @@
         }
     }
     
-    var foundTitle = createInstance_scr(titleText_obj, 7.5/9,7.5/16, 0,0, 1/9,1/16);
+    var foundTitle = createInstance_scr(titleText_obj, 7.5/9,8/16, 0,0, 1/9,1/16);
     foundTitle.font = simplePixels28;
     foundTitle.halign = fa_right;
     foundTitle.textAlign_x = 2;
@@ -89,7 +90,7 @@
     foundTitle.text = size;
     
     if (size) {
-        var new_y = 7.5/16;
+        var new_y = 8/16;
         genHeroReview_scr(collected, new_y);
         for (var i=size-1; i>=0; i--) {
             ds_list_delete(collected, i);
@@ -126,9 +127,11 @@
     if (size) {
         var new_y = 10.5/16;
         genHeroReview_scr(collected, new_y);
+        for (var i=size - 1; i>=0; i--) {
+            ds_list_delete(collected, i);
+        }
     }
     ds_list_destroy(collected);
-    
     
     //reseting active variables (record, party, heroes...)
     record[? "destroy"] = true;

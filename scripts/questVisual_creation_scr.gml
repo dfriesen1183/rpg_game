@@ -66,11 +66,7 @@
     
     var size = ds_list_size(party);
     for (var i=0; i<size; i++) {
-        var hero = party[| i];
-        
-        if (0 < hero[? "hp"]) {
-            displayPartyMember_scr(hero);
-        }
+        displayPartyMember_scr(party[| i]);
     }
 }
 

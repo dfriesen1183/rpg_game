@@ -12,9 +12,8 @@
     var questId = argument0;
     var quest = getQuestIndex_scr(questId);
 
-    
     if (questId == global.quest) {
-        with (questVisual_obj) {
+        with (global.questVisual) {
             var record = global.activeQuests[| quest];
             var duration = record[? "duration"];
             var seconds;
@@ -30,27 +29,32 @@
 
         var party = ds_map_find_value(global.activeQuests[| quest], "party");
         var size = ds_list_size(party);
+        var _partyIndex = 0;
         for (var i=0; i<size; i++) {
             var member = party[| i];
-            if (0 < member[? "hp"]) {
+            if (0 > member[? "died"] || is_undefined(member[? "died"])) {
                 var _heroUnfound = true;
                 with (hero_obj) {
                     if (id.heroId == member[? "id"]) {
                         _heroUnfound = false;
                         id.index = member[? "index"];
-                        id.partyIndex = member[? "partyIndex"];
+                        id.partyIndex = _partyIndex;
                         movePartyMember_scr(id);
                     }
                 }
+                member[? "partyIndex"] = _partyIndex;
                 if (_heroUnfound) {
                     displayPartyMember_scr(member);
                 }
+                _partyIndex++;
             } else {
                 with (hero_obj) {
                     if (id.heroId == member[? "id"]) {
                         instance_destroy();
                     }
                 }
+                member[? "hp"] = 0;
+                member[? "partyIndex"] = -1;
             }
         }
     }

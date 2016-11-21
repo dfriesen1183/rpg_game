@@ -29,7 +29,7 @@
     id.sound = background_snd;
     
     if (!audio_is_playing(id.sound)) {
-        audio_play_sound(id.sound,0,false);
+        audio_play_sound(id.sound,0,true);
     }
 }
 

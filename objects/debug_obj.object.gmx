@@ -56,6 +56,7 @@
     if (id.image_index != global.btnStateStatic)
     {
         createNewData_scr();
+        room_goto(mainMenuMain_room);
         destroyRecord_scr(global.record);
         resetWorkingRecord_scr();
         id.image_index = global.btnStateUp;
