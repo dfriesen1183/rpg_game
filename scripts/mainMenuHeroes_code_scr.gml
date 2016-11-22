@@ -2,7 +2,7 @@
     //mainMenuHeroes_code_scr()
     //(called from mainMenuHeroes_room creation code)
     //loads room ui
-    
+
     
     var title = createInstance_scr(titleText_obj, 1/2,1.5/16, 0,0, 1,1/16);
     title.font = simplePixels32;

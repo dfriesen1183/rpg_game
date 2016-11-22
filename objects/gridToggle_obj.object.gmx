@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-    id.sprite_index = mainButton_spr;
+    id.sprite_index = invisibleBtn_spr;
     id.exclusive = false;
     global.gridShown = false;
 }

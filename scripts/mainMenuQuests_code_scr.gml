@@ -2,7 +2,7 @@
     //mainMenuQuests_code_scr()
     //(called from mainMenuQuests_room creation code)
     //loads room ui
-    
+
     //active
     var size = ds_list_size(global.activeQuests);
     for (var i=0; i<size; i++) {

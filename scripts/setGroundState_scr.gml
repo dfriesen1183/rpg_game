@@ -12,26 +12,21 @@
     
     
     var size = ds_list_size(party);
-    for (var i=size-1; i>=0; i--) {
+    for (var i=size - 1; i>=0; i--) {
         var member = party[| i];
-        if (0 >= member[? "hp"]) {
-            ds_list_delete(global.heroes, member[? "index"]);
-            ds_map_destroy(member);
+        var died = member[? "died"];
+        if (died == questId) {
             ds_list_delete(party, i);
-        } else {
-            //member[? "questIndex"] = -1;
-            member[? "hp"] = member[? "maxHp"];
-            ds_map_delete(member, "found");
         }
     }
 
-    size = ds_list_size(global.heroes);
+    var size = ds_list_size(global.heroes);
     for (var i=0; i<size; i++) {
         var hero = global.heroes[| i];
         if (ds_exists(hero, ds_type_map)) {
             hero[? "index"] = i;
             var questIndex = hero[? "questIndex"];
-            if (0 <= questIndex) {
+            if (questIndex == questId) {
                 /*if (questIndex == global.quest) {
                     with (hero_obj) {
                         //not sure why this fails...
@@ -41,12 +36,17 @@
                         }*
                     }
                 }*/
-                if (hero[? "died"] == questId) {
+                var died = hero[? "died"];
+                if (died == questId) {
                     ds_map_destroy(hero);
                     ds_list_delete(global.heroes, i);
                     i--; size--;
-                } else if (hero[? "found"] == questId) {
-                    ds_map_delete(hero, "found");
+                } else {
+                    hero[? "hp"] = hero[? "maxHp"];
+                    var found = hero[? "found"];
+                    if (found == questId) {
+                        ds_map_delete(hero, "found");
+                    }
                 }
             }
         } else {

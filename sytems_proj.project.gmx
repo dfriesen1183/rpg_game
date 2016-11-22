@@ -23,6 +23,7 @@
         <sprite>sprites\prefMusic_spr</sprite>
         <sprite>sprites\prefPush_spr</sprite>
       </sprites>
+      <sprite>sprites\invisibleBtn_spr</sprite>
     </sprites>
     <sprites name="heroes">
       <sprite>sprites\hero0_spr</sprite>

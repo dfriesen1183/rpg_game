@@ -2,7 +2,7 @@
     //questReview_code_scr()
     //(called from questReview_room creation code)
     //displays quest result
-    
+
 
     saveGame_scr();
     
@@ -10,7 +10,7 @@
     var quest = getQuestIndex_scr(questId);
     var record = global.activeQuests[| quest];
     var party = record[? "party"];
-
+    
     //deleting heroes displayed
     with(hero_obj) {
         instance_destroy();
@@ -55,7 +55,11 @@
     goldTitle.halign = fa_right;
     goldTitle.textAlign_x = 2;
     goldTitle.textColor = c_yellow;
-    goldTitle.text = "Gold Looted";
+    if (record[? "success"]) {
+        goldTitle.text = "Gold Looted";
+    } else {
+        goldTitle.text = "Gold Lost";
+    }
     var goldMain = createInstance_scr(titleText_obj, 7.5/9,5.5/16, 0,0, 6/9,1/16);
     goldMain.font = simplePixels24;
     goldMain.halign = fa_right;
@@ -71,7 +75,7 @@
     foundMain.textAlign_x = 2;
     foundMain.textColor = c_green;
     foundMain.text = "Heroes Met:";
-    
+
     var size = ds_list_size(global.heroes);
     var collected = ds_list_create();
     for (var i=0; i<size; i++) {
@@ -132,6 +136,7 @@
         }
     }
     ds_list_destroy(collected);
+    
     
     //reseting active variables (record, party, heroes...)
     record[? "destroy"] = true;

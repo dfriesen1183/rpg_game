@@ -58,6 +58,7 @@
     
     
     destroyRecord_scr(record);
+
     
     //removing index
     ds_list_delete(global.activeQuests, quest);

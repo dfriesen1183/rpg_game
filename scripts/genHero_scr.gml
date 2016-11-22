@@ -29,7 +29,6 @@
             spriteStart = 0;
         }
     }
-    show_debug_message(string(spriteStart)+"-"+string(spriteEnd));
     var sprite = irandom_range(spriteStart, spriteEnd);
     
     
