@@ -47,12 +47,23 @@
     ds_list_copy(log, src[? "log"]);
     
     
+    /*var push = des[? "push"];
+    if (!is_undefined(push) && "null" != push && ds_exists(push, ds_type_list)) {
+        ds_list_clear(des[? "push"]);
+    } else {
+        push = ds_list_create();
+        ds_map_add_list(des, "push", push);
+    }
+    ds_list_copy(push, src[? "push"]);*/
+    
+    
     var key = ds_map_find_first(src);
     var size = ds_map_size(src);
     for (var i=0; i<size; i++) {
         switch(key) {
             case "pastEnc": break;
             case "futureEnc": break;
+            case "push": break;
             case "log": break;
             case "party": break;
             case "heroes": break;

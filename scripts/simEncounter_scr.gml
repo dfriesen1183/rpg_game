@@ -24,7 +24,7 @@
     
     //preparing push notification container
     var push = ds_list_create();
-    ds_map_add_list(enc, "push", push);
+    ds_map_add_list(encRec, "push", push);
         push[| 0] = false;
         push[| 1] = enc[? "time"];
         push[| 2] = "";
@@ -46,13 +46,12 @@
     }
     
 
-    resetOnePush_scr(push);
 
     
     if (result) {
+        resetOnePush_scr(push);
         return 0;
     } else {
-        saveGame_scr();
         return 1;
     }
 }

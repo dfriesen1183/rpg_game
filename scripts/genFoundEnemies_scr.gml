@@ -159,14 +159,13 @@
     ds_list_destroy(global.enemyParty);
 
 
+    var push = record[? "push"];
     if (victory) {
-        var push = enc[? "push"];
         push[| 2] = "Fought a battle and won!"
         push[| 3] = "Fought "+string(enemyCount)+" enemies";
         
         return true;
     } else {
-        var push = enc[? "push"];
         push[| 2] = "Quest Failed!"
         push[| 3] = "The party failed the quest...";
         

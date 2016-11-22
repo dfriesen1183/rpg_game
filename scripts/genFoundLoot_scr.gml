@@ -27,7 +27,7 @@
     genLogEntry_scr(record, "found "+string(gold)+" gold", true, false);
     record[? "gold"] += gold;
     
-    var push = enc[? "push"];
+    var push = record[? "push"];
     push[| 2] = "Found loot!";
     push[| 3] = "Found "+string(gold)+"gold!";
     // could have party reactions here, maybe

@@ -11,6 +11,7 @@
     ds_map_add_list(global.record, "pastEnc", ds_list_create());
     ds_map_add_list(global.record, "futureEnc", ds_list_create());
     ds_map_add_list(global.record, "log", ds_list_create());
+    ds_map_add_list(global.record, "push", ds_list_create());
     
     global.record[? "title"] = "";
     global.record[? "gold"] = 0;

@@ -48,9 +48,9 @@
     var heroes = addHero_scr(hero, true, record);
     var party = addHero_scr(hero, false, record);
 
+    var push = record[? "push"];
     if (party) {
         hero[? "questIndex"] = questId;
-        var push = enc[? "push"];
         push[| 2] = "Found Hero";
         push[| 3] = "Found lvl "+string(level)+" hero!";
     } else {
@@ -60,7 +60,6 @@
     }
     if (heroes) {//!heroes && !party
         if (!party) {
-            var push = enc[? "push"];
             push[| 2] = "Found Hero";
             push[| 3] = "Found lvl "+string(level)+" hero!";
         }

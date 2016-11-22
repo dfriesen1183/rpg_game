@@ -35,8 +35,8 @@
                 encRec[? "success"] = false;
                 
                 //genLogEntry_scr(newEnc[? "record"], "Quest Failed!", false, true);
-                var push = ds_list_create();
-                global.record[? "push"] = push;
+                //ds_map_add_list(global.record, "push", ds_list_create());
+                var push = global.record[? "push"];
                 push[| 0] = true;
                 
                 push[| 1] = newEnc[? "time"];
@@ -56,8 +56,8 @@
         //encRec[? "complete"] = true;
         
         //genLogEntry_scr(newEnc[? "record"], "Quest Complete!", true, true);
-        var push = ds_list_create();
-        global.record[? "push"] = push;
+        //ds_map_add_list(global.record, "push", ds_list_create());
+        var push = global.record[? "push"];
         push[| 0] = true;
         
         push[| 1] = date_inc_second(global.sysTime[? "val"], duration);

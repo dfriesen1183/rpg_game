@@ -9,8 +9,14 @@
     var size = ds_list_size(encounters);
     for (var i=0; i<size; i++) {
         var enc = encounters[| i];
-        var push = enc[? "push"];
-        resetOnePush_scr(push);
+        var encRec = enc[? "record"];
+        
+        if (encRec[? "complete"]) {
+            break;
+        } else {
+            var push = encRec[? "push"];
+            resetOnePush_scr(push);
+        }
     }
     
     var push = record[? "push"];

@@ -27,7 +27,7 @@
     
     //not stored here... need to find a better place
     var push = record[? "push"];
-    if (!is_undefined(log) && "null" != log && ds_exists(log, ds_type_list)) {
+    if (!is_undefined(push) && "null" != push && ds_exists(push, ds_type_list)) {
         ds_list_destroy(push);
     }
     

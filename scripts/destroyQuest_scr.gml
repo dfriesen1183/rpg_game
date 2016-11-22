@@ -24,11 +24,6 @@
         var encRec = enc[? "record"];
         destroyRecord_scr(encRec);
         
-        var push = enc[? "push"];//temp solution
-        if (!is_undefined(push) && "null" != push && ds_exists(push, ds_type_list)) {
-            ds_list_destroy(push);
-        }
-        
         ds_map_destroy(enc);
         ds_list_delete(pastEnc, i);
     }
@@ -45,11 +40,6 @@
         
         var encRec = enc[? "record"];
         destroyRecord_scr(encRec);
-        
-        var push = enc[? "push"];//temp solution
-        if (!is_undefined(push) && "null" != push && ds_exists(push, ds_type_list)) {
-            ds_list_destroy(push);
-        }
         
         ds_map_destroy(enc);
         ds_list_delete(futureEnc, i);
