@@ -8,17 +8,22 @@
     
     //activating encounters
     var size = ds_list_size(encs);
+    var enc = -1;
     while (size) {
-        var enc = encs[| 0];
-        if (date_compare_datetime(global.sysTime[? "val"], enc[? "time"]) > 0) {
-            var result = runEncounter_scr(quest, enc);
+        var testEnc = encs[| 0];
+        if (0 < date_compare_datetime(global.sysTime[? "val"], testEnc[? "time"])) {
+            enc = testEnc;
             ds_list_add_map(record[? "pastEnc"], enc);
             ds_list_delete(encs, 0);
             size--;
-            if (record[? "complete"]) {
+            if (enc[? "complete"]) {
+                var result = runEncounter_scr(quest, enc);
                 break;
             }
         } else {
+            if (0 <= enc) {
+                var result = runEncounter_scr(quest, enc);
+            }
             break;
         }
     }
