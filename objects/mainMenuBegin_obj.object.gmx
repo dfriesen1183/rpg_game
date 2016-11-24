@@ -60,7 +60,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id.image_index != global.btnStateStatic)
+    if (id.image_index != global.btnStateDisabled &amp;&amp; id.image_index != global.btnStateStatic)
     {
         //if (id == global.target) {
             if (0 &lt; global.record[? "duration"] &amp;&amp; 0 &lt; ds_list_size(global.party)) {
@@ -92,7 +92,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id.image_index != global.btnStateStatic)
+    if (id.image_index != global.btnStateDisabled &amp;&amp; id.image_index != global.btnStateStatic)
     {
         //if (id == global.target) {
             if (0 &lt; global.record[? "duration"] &amp;&amp; 0 &lt; ds_list_size(global.party)) {
@@ -126,7 +126,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id.image_index != global.btnStateStatic)
+    if (id.image_index != global.btnStateDisabled &amp;&amp; id.image_index != global.btnStateStatic)
     {
         if (0 &lt; ds_map_find_value(global.record, "duration") &amp;&amp; 0 &lt; ds_list_size(global.party)) {
             event_inherited();

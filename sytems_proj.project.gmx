@@ -17,6 +17,7 @@
       <sprite>sprites\setupStageNav_spr</sprite>
       <sprite>sprites\mainButton_spr</sprite>
       <sprite>sprites\heroButton_spr</sprite>
+      <sprite>sprites\partyDockBtn_spr</sprite>
       <sprite>sprites\questButton_spr</sprite>
       <sprites name="pref">
         <sprite>sprites\prefSound_spr</sprite>
@@ -160,6 +161,7 @@
         <script>scripts\renderHero_scr.gml</script>
         <script>scripts\displayGuildHero_scr.gml</script>
         <script>scripts\getHeroById_scr.gml</script>
+        <script>scripts\displayPartyDock_scr.gml</script>
       </scripts>
       <scripts name="push">
         <script>scripts\unsetAllPush_scr.gml</script>
@@ -274,6 +276,8 @@
       </objects>
       <objects name="hero">
         <object>objects\heroButton_obj</object>
+        <object>objects\guildHeroBtn_obj</object>
+        <object>objects\partyDockBtn_obj</object>
       </objects>
       <objects name="quest_type">
         <object>objects\questMenu_obj</object>

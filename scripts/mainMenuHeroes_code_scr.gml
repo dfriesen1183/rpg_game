@@ -15,9 +15,10 @@
     main.text = "BACK";
     var quests = createInstance_scr(mainMenuQuests_obj, 1,12.5/16, 2,0, 2/9,1.5/16);
     setBtnFontLarge_scr(quests);
-    quests.text = "NEXT"
+    quests.text = "NEXT";
     //var depart = createInstance_scr(mainMenuBegin_obj, 0.5,0.825, 1,0, 0.2,-1);
 
+    displayPartyDock_scr();
     
     //hero objects
     var numPerRow = 3;
@@ -33,7 +34,7 @@
         var hero = global.heroes[| i];
         var heroButton_x = colLeftMarg + (heroWidth + innerMarg)*(i%numPerRow);
         var heroButton_y = colTopMarg*global.roomHeight + (heroHeight + innerMarg)*global.roomWidth*floor(i/numPerRow);
-        var heroButton = createInstance_scr(heroButton_obj, heroButton_x,heroButton_y, 0,0, heroWidth,-1);
+        var heroButton = createInstance_scr(guildHeroBtn_obj, heroButton_x,heroButton_y, 0,0, heroWidth,-1);
         heroButton.index = i;
         heroButton.heroId = hero[? "id"];
         if (0 <= hero[? "questIndex"]) {

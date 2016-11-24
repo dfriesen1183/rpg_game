@@ -66,7 +66,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id.image_index != global.btnStateStatic)
+    if (id.image_index != global.btnStateDisabled &amp;&amp; id.image_index != global.btnStateStatic)
     {
         //global.target = -1;
         if (!id.active) {
@@ -98,7 +98,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id.image_index != global.btnStateStatic)
+    if (id.image_index != global.btnStateDisabled &amp;&amp; id.image_index != global.btnStateStatic)
     {
         //if (id == global.target) {
             if (id.active) {
@@ -141,7 +141,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id.image_index != global.btnStateStatic)
+    if (id.image_index != global.btnStateDisabled &amp;&amp; id.image_index != global.btnStateStatic)
     {
         //global.target = id;
         if (!id.active) {

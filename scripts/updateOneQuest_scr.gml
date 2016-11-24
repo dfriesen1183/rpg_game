@@ -17,15 +17,14 @@
             ds_list_delete(encs, 0);
             size--;
             if (enc[? "complete"]) {
-                var result = runEncounter_scr(quest, enc);
                 break;
             }
         } else {
-            if (0 <= enc) {
-                var result = runEncounter_scr(quest, enc);
-            }
             break;
         }
+    }
+    if (0 <= enc) {
+        var result = runEncounter_scr(quest, enc);
     }
 
     //ending quest if done

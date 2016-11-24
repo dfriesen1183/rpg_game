@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>mainButton_obj</parentName>
+  <parentName>heroButton_obj</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-    self.text = "CONTINUE";
+    id.sprite_index = partyDockBtn_spr;
 }
 
 </string>
@@ -53,13 +53,24 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id.image_index != global.btnStateDisabled &amp;&amp; id.image_index != global.btnStateStatic)
-    {
-        event_inherited();
-        //if (id == global.target) {
-            room_goto(questReview_room);
-        //}
+    var thisId = id.heroId;
+    with (heroButton_obj) {
+        if (thisId == id.heroId) {
+            id.active = false;
+            id.image_index = global.btnStateUp;
+        }
     }
+    var size = ds_list_size(global.party);
+    for (var i=0; i&lt;size; i++) {
+        var member = global.party[| i];
+        if (thisId == member[? "id"]) {
+            ds_list_delete(global.party, i);
+            break;
+        }
+    }
+    
+    displayPartyDock_scr();
+    instance_destroy();
 }
 
 </string>

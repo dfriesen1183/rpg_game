@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>mainButton_obj</parentName>
+  <parentName>heroButton_obj</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>{
     event_inherited();
-    self.text = "CONTINUE";
+    id.sprite_index = heroButton_spr;
 }
 
 </string>
@@ -55,10 +55,56 @@
             <string>{
     if (id.image_index != global.btnStateDisabled &amp;&amp; id.image_index != global.btnStateStatic)
     {
-        event_inherited();
-        //if (id == global.target) {
-            room_goto(questReview_room);
-        //}
+        if (global.prefSound) {
+            audio_play_sound(buttonPush_snd,0,false);
+        }
+
+        var index = getHeroById_scr(id.heroId);
+        var hero = global.heroes[| index];
+        if (id.active) {
+            id.active = false;
+            id.image_index = global.btnStateUp;
+            
+            var partyIndex = hero[? "partyIndex"];
+            ds_list_delete(global.party, partyIndex);
+            
+            //updating recorded positions
+            var size = ds_list_size(global.party);
+            for (var i=partyIndex; i&lt;size; i++) {
+                hero = global.party[| i];
+                hero[? "partyIndex"] = i;
+            }
+            if (!size) {
+                /*with (mainMenuBegin_obj) {
+                    id.image_index = global.btnStateDisabled;
+                }*/
+                with (mainMenuQuests_obj) {
+                    id.image_index = global.btnStateDisabled;
+                }
+            }
+        } else {
+            var result = addHero_scr(hero, false, -1);
+            if (result) {
+                id.active = true;
+                id.image_index = global.btnStateActive;
+                /*if (global.record[? "duration"] != 0) {
+                    with (mainMenuBegin_obj) {
+                        id.image_index = global.btnStateUp;
+                    }
+                }*/
+                with (mainMenuQuests_obj) {
+                    id.image_index = global.btnStateUp;
+                }
+            } else {
+                id.image_index = global.btnStateUp;
+            }
+        }
+        displayPartyDock_scr();
+    
+        //updating counter
+        with (titleText_obj) {
+            id.text = "Hire your HEROES ("+string(ds_list_size(global.party))+"/4)";
+        }
     }
 }
 

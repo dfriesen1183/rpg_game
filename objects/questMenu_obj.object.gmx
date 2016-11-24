@@ -64,7 +64,7 @@
           <argument>
             <kind>1</kind>
             <string>{
-    if (id.image_index != global.btnStateStatic)
+    if (id.image_index != global.btnStateDisabled &amp;&amp; id.image_index != global.btnStateStatic)
     {
         event_inherited();
         if (global.prefSound) {
