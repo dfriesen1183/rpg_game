@@ -4,7 +4,6 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions>
-    <extension index="0">extensions\DSPrint</extension>
     <extension index="1">extensions\GooglePlayServicesExtension</extension>
   </NewExtensions>
   <sounds name="sound">
@@ -162,10 +161,7 @@
         <script>scripts\displayGuildHero_scr.gml</script>
         <script>scripts\getHeroById_scr.gml</script>
         <script>scripts\displayPartyDock_scr.gml</script>
-<<<<<<< HEAD
         <script>scripts\loadHeroPage_scr.gml</script>
-=======
->>>>>>> b6196ee7a61332223c08d0d6c06c8bd72016c8dd
       </scripts>
       <scripts name="push">
         <script>scripts\unsetAllPush_scr.gml</script>
@@ -282,14 +278,11 @@
         <object>objects\heroButton_obj</object>
         <object>objects\guildHeroBtn_obj</object>
         <object>objects\partyDockBtn_obj</object>
-<<<<<<< HEAD
         <objects name="heroPages">
           <object>objects\heroPageBtn_obj</object>
           <object>objects\heroPageBtnNext_obj</object>
           <object>objects\heroPageBtnPrev_obj</object>
         </objects>
-=======
->>>>>>> b6196ee7a61332223c08d0d6c06c8bd72016c8dd
       </objects>
       <objects name="quest_type">
         <object>objects\questMenu_obj</object>
