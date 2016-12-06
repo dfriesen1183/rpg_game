@@ -13,7 +13,8 @@
     //updating real data
     //heroes
     var encs = record[? "futureEnc"];
-    var furuteEncRec = enc[? "record"];
+    var futureEnc = encs[| 0];
+    var futureEncRec = futureEnc[? "record"];
     
     var encIndex = ds_list_size(record[? "pastEnc"]) - 1;
     if (0 <= encIndex) {

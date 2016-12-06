@@ -22,9 +22,6 @@
 
 
 &lt;activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" /&gt;</androidinject>
-  <androidmanifestinject></androidmanifestinject>
-  <iosplistinject></iosplistinject>
-  <androidactivityinject></androidactivityinject>
   <gradleinject> compile 'com.google.android.gms:play-services-games:9.6.1'
  compile 'com.google.android.gms:play-services-ads:9.6.1'
  compile 'com.google.android.gms:play-services-plus:9.6.1'
