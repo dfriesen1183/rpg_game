@@ -100,11 +100,6 @@
             }
         }
         displayPartyDock_scr();
-    
-        //updating counter
-        with (titleText_obj) {
-            id.text = "Hire your HEROES ("+string(ds_list_size(global.party))+"/4)";
-        }
     }
 }
 

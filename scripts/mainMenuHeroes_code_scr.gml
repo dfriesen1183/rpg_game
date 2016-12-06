@@ -7,7 +7,7 @@
     var title = createInstance_scr(titleText_obj, 1/2,1.5/16, 0,0, 1,1/16);
     title.font = simplePixels32;
     title.textColor = c_lime;
-    title.text = "Hire your HEROES ("+string(ds_list_size(global.party))+"/4)";
+    title.text = "Hire your HEROES";
     
     //menu objects
     var main = createInstance_scr(mainMenuMain_obj, 0,12.5/16, 0,0, 2/9,1.5/16);
