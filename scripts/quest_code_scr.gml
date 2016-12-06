@@ -27,6 +27,7 @@
     }
     
     setBackgroundImage_scr(setupStageNav_spr);
+    setBackgroundImage_scr(heroFeed_spr);
     
     global.questVisual = instance_create(0,0, questVisual_obj);
     

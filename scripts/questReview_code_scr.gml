@@ -3,7 +3,7 @@
     //(called from questReview_room creation code)
     //displays quest result
 
-
+    setBackgroundImage_scr(resultScreen_spr);
     saveGame_scr();
     
     var questId = global.quest;

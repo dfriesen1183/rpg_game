@@ -13,7 +13,9 @@
         if (0 <= hero[? "questIndex"]) {
             heroButton.image_index = global.btnStateDisabled;        
         }
+        
         displayGuildHero_scr(heroButton);
+        displayHeroStats_scr(heroButton);
     }
     
     with (guildHeroBtn_obj) {

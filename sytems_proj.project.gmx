@@ -4,8 +4,7 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions>
-    <extension index="0">extensions\DSPrint</extension>
-    <extension index="1">extensions\GooglePlayServicesExtension</extension>
+    <extension index="0">extensions\GooglePlayServicesExtension</extension>
   </NewExtensions>
   <sounds name="sound">
     <sound>sound\background_snd</sound>
@@ -77,6 +76,9 @@
       <sprite>sprites\questMark_spr</sprite>
     </sprites>
     <sprites name="backgrounds">
+      <sprite>sprites\dungeon_spr</sprite>
+      <sprite>sprites\heroFeed_spr</sprite>
+      <sprite>sprites\resultScreen_spr</sprite>
       <sprite>sprites\mainBackground_spr</sprite>
       <sprites name="windows">
         <sprite>sprites\statsWindowFill_spr</sprite>
@@ -162,6 +164,8 @@
         <script>scripts\displayGuildHero_scr.gml</script>
         <script>scripts\getHeroById_scr.gml</script>
         <script>scripts\displayPartyDock_scr.gml</script>
+        <script>scripts\loadHeroPage_scr.gml</script>
+        <script>scripts\displayHeroStats_scr.gml</script>
       </scripts>
       <scripts name="push">
         <script>scripts\unsetAllPush_scr.gml</script>
@@ -278,6 +282,11 @@
         <object>objects\heroButton_obj</object>
         <object>objects\guildHeroBtn_obj</object>
         <object>objects\partyDockBtn_obj</object>
+        <objects name="heroPages">
+          <object>objects\heroPageBtn_obj</object>
+          <object>objects\heroPageBtnNext_obj</object>
+          <object>objects\heroPageBtnPrev_obj</object>
+        </objects>
       </objects>
       <objects name="quest_type">
         <object>objects\questMenu_obj</object>
