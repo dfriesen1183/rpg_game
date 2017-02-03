@@ -41,7 +41,7 @@
             id.image_index = global.btnStateDisabled;
         }
     }
-    if (size - 1 > global.heroPageStart + global.heroPageLimit) {
+    if (size > global.heroPageStart + global.heroPageLimit) {
         with(heroPageBtnNext_obj){
             id.image_index = global.btnStateUp;
         }
